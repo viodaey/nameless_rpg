@@ -6,7 +6,6 @@ var current_player_health = 0
 var current_enemy_health = 0
 var dealt_dmg = 0
 var enemy_dmg = 0
-#var crit = false
 var visible_characters = 0
 
 @onready var _playerhp = $Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerHP
@@ -14,6 +13,7 @@ var visible_characters = 0
 @onready var _playertexture = $MarginContainer
 @onready var _enemyhp = $MarginMain/EnemyCont/EnemyHP
 @onready var _enemyrect = $MarginMain/EnemyCont/MarginContainer/Enemy
+@onready var _actionmenu = $Panel_Menu2
 
 #var playerhpbox = '$Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerHPlayerHP'
 	
@@ -30,6 +30,7 @@ func _ready():
 func _process(delta: float) -> void:
 	pass
 
+
 func set_health_init(progress_bar, health, max_health):
 	progress_bar.value = health
 	progress_bar.max_value = max_health
@@ -43,10 +44,20 @@ func set_health(progress_bar, health, max_health):
 		await get_tree().create_timer(0.03).timeout
 		
 func enemy_died():
-	$AnimationPlayer.play("enemy_dead")
-	await $AnimationPlayer.animation_finished
-	combat_log("%s died" % (enemy.name))	
-	
+	var tween = get_tree().create_tween()
+	await tween.tween_property($MarginMain/EnemyCont, "modulate:a", 0,  0.5)
+	#$AnimationPlayer.play("enemy_dead")
+	#await $AnimationPlayer.animation_finished
+	await (combat_log("%s died" % (enemy.name)))
+	player.xp = player.xp + enemy.xp
+	if player.xp == player.max_xp:
+		player.level_up()
+		current_player_health = current_player_health + player.hp_grow
+		set_health_init(_playerhp, current_player_health, player.max_health)
+		await(combat_log("Level up!"))
+		await(combat_log("Max HP increased by %d!" % [player.hp_grow]))
+		await(combat_log("Attack Power increased by %d!" % [player.dmg_grow]))
+		#combat_log("Level up! (2)![/p] Max HP increased to %d! Damage increased to %d!" % [player.max_health, player.damage])
 
 func combat_log(text):
 	visible_characters = 0
@@ -56,7 +67,7 @@ func combat_log(text):
 		visible_characters = (visible_characters + 1)
 		_combat_log_box.visible_characters = visible_characters
 		await get_tree().create_timer(0.03).timeout
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.4).timeout
 	
 func enemy_turn():
 	var tween = get_tree().create_tween()
@@ -68,17 +79,23 @@ func enemy_turn():
 	else:
 		dealt_dmg = round(rng.randf_range(0.8, 1.2) * enemy.damage)
 		combat_log("%s attacks!" % (enemy.name))
-		#$AnimationPlayer.play("enemy_attack")
-		#await $AnimationPlayer.animation_finished
 		tween.tween_property(_enemyrect, "position", Vector2(pos[0] + 10, pos[1]), 0.4)
+		#tween.set_parallel(true)
 		tween.tween_property(_enemyrect, "position", Vector2(pos[0] - 20, pos[1]), 0.15)
-		tween.tween_property(_enemyrect, "position", Vector2(pos[0], pos[1]), 0.5).set_delay(0.4)
+		tween.tween_property(_enemyrect, "position", Vector2(pos[0], pos[1]), 0.3)
+		for i in 6:
+			tween.chain().tween_property(_playertexture, "modulate:a", 0,  0.1)
+			tween.chain().tween_property(_playertexture, "modulate:a", 1,  0.1)
+			#await get_tree().create_timer(0.4).timeout
 		current_player_health = (current_player_health - dealt_dmg)
 		set_health(_playerhp, current_player_health, player.max_health)
-		combat_log("Got hit for %d damage" % [dealt_dmg])
+		await(combat_log("Got hit for %d damage" % [dealt_dmg]))
+		
 	
 
 func _on_attack_pressed():
+
+	_actionmenu.visible = false
 	var tween = get_tree().create_tween()
 	var pos = _playertexture.position
 	#print(x)
@@ -105,4 +122,6 @@ func _on_attack_pressed():
 	if current_enemy_health <= 0:
 		enemy_died()
 	else:
-		enemy_turn()
+		await enemy_turn()
+		_actionmenu.visible = true
+	

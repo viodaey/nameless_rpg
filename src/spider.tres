@@ -11,4 +11,4 @@ texture = ExtResource("2_edobr")
 health = 80
 damage = 20
 critc = 5
-xp = 10
+xp = 20
