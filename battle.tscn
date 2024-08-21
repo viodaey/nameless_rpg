@@ -667,10 +667,10 @@ libraries = {
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = 63.7184
-offset_top = 446.206
-offset_right = 319.718
-offset_bottom = 679.206
+offset_left = 64.0
+offset_top = 446.0
+offset_right = 320.0
+offset_bottom = 679.0
 theme_override_constants/margin_top = 0
 
 [node name="Player_1" type="TextureRect" parent="MarginContainer"]

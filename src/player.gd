@@ -11,6 +11,7 @@ var hp_grow: int = 0
 var dmg_grow: int = 0
 
 
+
 func level_up():
 	hp_grow = round(max_health * 0.15)
 	dmg_grow = round(damage * 0.12)
