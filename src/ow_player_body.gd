@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @export var speed = 70
 
+
 var last_input = "right"
 
 # Called when the node enters the scene tree for the first time.
@@ -13,6 +14,9 @@ func get_input():
 func _ready() -> void:
 	pass # Replace with function body.
 
+#func _process(delta):
+	#if CollisionObject2D.dete
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
