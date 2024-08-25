@@ -3,7 +3,6 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @export var speed = 70
 
-
 var last_input = "right"
 
 # Called when the node enters the scene tree for the first time.

@@ -6,32 +6,69 @@ var player_position
 var target_position
 var speed = 50
 var _entered : bool
+const detection_range : float = 90
+@onready var neutral_pos = _animated_sprite.position
 
 func _on_body_entered(body):
 	_entered = true
 
+#func _chase_player(move_to_attack, detection_range):
+	#player_position = _player_body.position
+	#var dist = position.distance_to(player_position)
+	#if dist < detection_range: #detection_range:
+		#target_position = (player_position - position).normalized()
+		#velocity = target_position * speed
+		#move_to_attack
+		#_animated_sprite.play("run")
+		#if player_position[0] - position[0] > 0:
+			#_animated_sprite.flip_h = 1
+		#else:
+			#_animated_sprite.flip_h = 0
+		#player_position = _player_body.position
+	#else:
+		#_animated_sprite.play("idle")
+		#velocity = Vector2(0,0)
+	
 #func _on_body_entered(body):
 	#get_node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float):
+	var move_to_attack = move_and_collide(velocity * delta)
 	player_position = _player_body.position
-	if position.distance_to(player_position) < 90:
-		target_position = (player_position - position).normalized()
-		velocity = target_position * speed
-		move_and_slide()
-		_animated_sprite.play("run")
-		if player_position[0] - position[0] > 0:
-			_animated_sprite.flip_h = 1
-		else:
-			_animated_sprite.flip_h = 0
-		player_position = _player_body.position
+	if position.distance_to(player_position) < detection_range:
+		if not move_to_attack:
+			target_position = (player_position - position).normalized()
+			velocity = target_position * speed
+			move_to_attack
+			_animated_sprite.play("run")
+			if player_position[0] - position[0] > 0:
+				_animated_sprite.flip_h = 1
+			else:
+				_animated_sprite.flip_h = 0
+			player_position = _player_body.position
+		elif move_to_attack.get_collider() != _player_body:
+			target_position = (player_position - position).normalized()
+			velocity = target_position * speed
+			move_to_attack
+			_animated_sprite.play("run")
+			if player_position[0] - position[0] > 0:
+				_animated_sprite.flip_h = 1
+			else:
+				_animated_sprite.flip_h = 0
+			player_position = _player_body.position
+		
+		elif move_to_attack.get_collider() == _player_body:
+		#move_to_attack.get_collider() == _player_body:
+			position = neutral_pos
+			get_tree().change_scene_to_file("res://battle.tscn")
+			move_to_attack = false
 	else:
-		_animated_sprite.play("canine idle")
+		_animated_sprite.play("idle")
+		velocity = Vector2(0,0)
 		
 
 		

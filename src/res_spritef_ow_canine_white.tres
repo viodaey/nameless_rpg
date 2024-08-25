@@ -59,7 +59,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ixl4v")
 }],
 "loop": true,
-"name": &"canine idle",
+"name": &"idle",
 "speed": 10.0
 }, {
 "frames": [{
