@@ -1,6 +1,6 @@
 [gd_scene load_steps=46 format=3 uid="uid://b7kga5w7hkr5o"]
 
-[ext_resource type="Script" path="res://src/battle.gd" id="1_f8vj8"]
+[ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
 [ext_resource type="Texture2D" uid="uid://dy7akiv6de2cp" path="res://bg_art/Preview/Background.png" id="1_hqwel"]
 [ext_resource type="Resource" uid="uid://bq72ft87yg5kg" path="res://src/res_battle_spider.tres" id="2_72n72"]
 [ext_resource type="Texture2D" uid="uid://ihlrkorw2pin" path="res://textures/bosses/boss_0_N.png" id="2_lio13"]
@@ -377,7 +377,7 @@ animations = [{
 "speed": 45.0
 }]
 
-[node name="Fight" type="Control"]
+[node name="battle" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -171,6 +171,7 @@ func _on_magic_pressed():
 		try = try + 1
 	else:
 		set_mp(_playermp, player.mp_cost_fireball, player.max_mp)
+		player.mp = current_player_mp - player.mp_cost_fireball
 		_actionmenu.visible = false
 		var m_pos = _fireballAnimate.position
 		dealt_dmg = player.magicdmg

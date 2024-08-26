@@ -13,27 +13,27 @@ func get_input():
 func _ready() -> void:
 	pass # Replace with function body.
 
-#func _process(delta):
-	#if CollisionObject2D.dete
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 
 	if Input.is_anything_pressed() == false:
 		_animated_sprite.play(("idle " + last_input))
-	if Input.is_action_pressed("right"):
-		_animated_sprite.play("move right")
-		last_input = "right"
-	if Input.is_action_pressed("left"):
-		_animated_sprite.play("move left")
-		last_input = "left"
-	if Input.is_action_pressed("up"):
-		_animated_sprite.play("move up")
-		last_input = "up"
-	if Input.is_action_pressed("down"):
-		_animated_sprite.play("move down")
-		last_input = "down"
+	elif Input.is_action_pressed(last_input):
+		_animated_sprite.play("move " + last_input)
+	else:
+		if Input.is_action_pressed("up"):
+			_animated_sprite.play("move up")
+			last_input = "up"
+		if Input.is_action_pressed("down"):
+			_animated_sprite.play("move down")
+			last_input = "down"
+		if Input.is_action_pressed("right"):
+			_animated_sprite.play("move right")
+			last_input = "right"
+		if Input.is_action_pressed("left"):
+			_animated_sprite.play("move left")
+			last_input = "left"
 	get_input()
 	move_and_slide()
 	

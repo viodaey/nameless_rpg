@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var _player_body = get_parent().get_node("Player")
 var player_position
 var target_position
-var speed = 50
+var speed = 45
 var _entered : bool
 const detection_range : float = 90
 @onready var neutral_pos = _animated_sprite.position
