@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0jnv6yauoo8m"
-path="res://.godot/imported/forest-palette02-day.png-ef2650ed5eb65663c5efbd396de6d274.ctex"
+uid="uid://c6bpms5w5stxn"
+path="res://.godot/imported/candleA_01.png-359cce85d5cfd113b991a4c646aef66a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/forest tiles/forest-palette02-day.png"
-dest_files=["res://.godot/imported/forest-palette02-day.png-ef2650ed5eb65663c5efbd396de6d274.ctex"]
+source_file="res://textures/Tilesets/Dungeon_rogue/candleA_01.png"
+dest_files=["res://.godot/imported/candleA_01.png-359cce85d5cfd113b991a4c646aef66a.ctex"]
 
 [params]
 

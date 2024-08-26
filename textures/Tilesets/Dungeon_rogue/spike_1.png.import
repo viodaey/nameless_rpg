@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm21jguuqwia"
-path="res://.godot/imported/forest-palette03-day.png-90f963f616546c60e004daaf8a4cf6e5.ctex"
+uid="uid://c56dx66wftqu1"
+path="res://.godot/imported/spike_1.png-f04f809dcbb7dba8019ec460f4083683.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/forest tiles/forest-palette03-day.png"
-dest_files=["res://.godot/imported/forest-palette03-day.png-90f963f616546c60e004daaf8a4cf6e5.ctex"]
+source_file="res://textures/Tilesets/Dungeon_rogue/spike_1.png"
+dest_files=["res://.godot/imported/spike_1.png-f04f809dcbb7dba8019ec460f4083683.ctex"]
 
 [params]
 

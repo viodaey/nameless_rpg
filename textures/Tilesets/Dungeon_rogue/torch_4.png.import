@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba68r8vvhr7d3"
-path="res://.godot/imported/forest-palette01-night.png-8a4fa9c92121a67c3cc66decef0ea9f6.ctex"
+uid="uid://cvp22p6f7x428"
+path="res://.godot/imported/torch_4.png-ce89817ca906a7587e5aefdf52989696.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/forest tiles/forest-palette01-night.png"
-dest_files=["res://.godot/imported/forest-palette01-night.png-8a4fa9c92121a67c3cc66decef0ea9f6.ctex"]
+source_file="res://textures/Tilesets/Dungeon_rogue/torch_4.png"
+dest_files=["res://.godot/imported/torch_4.png-ce89817ca906a7587e5aefdf52989696.ctex"]
 
 [params]
 
