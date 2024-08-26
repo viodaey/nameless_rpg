@@ -2,7 +2,7 @@ extends Control
 
 
 
-@export var enemy : Resource
+@export var enemy : Resource #= player.enemy_encounter
 var rng = RandomNumberGenerator.new()
 var current_player_health = 0
 var current_enemy_health = 0
@@ -24,6 +24,9 @@ var try = 0
 @onready var _enemyrect = $MarginMain/EnemyCont/MarginContainer/Enemy
 @onready var _actionmenu = $Panel_Menu2
 @onready var _effectAnimate = $Player_1/onEnemyHit
+#@onready var enemy: TextureRect = $MarginMain/EnemyCont/MarginContainer/Enemy
+
+#@onready var enemy = player.enemy_encounter
 
 
 #var playerhpbox = '$Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerHPlayerHP'
@@ -37,7 +40,10 @@ func _ready():
 	current_player_health = player.health
 	current_player_mp = player.mp
 	current_enemy_health = enemy.health
-	AudioPlayer.play_music_level("battle01")
+	if enemy.name != "ROY THE TERRIBLE":
+		AudioPlayer.play_music_level("battle01")
+	#else:
+		
 
 func _click(event):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_XBUTTON1):
@@ -91,7 +97,7 @@ func enemy_died():
 		await(combat_log("Attack Power increased by %d!" % [player.dmg_grow]))
 		await get_tree().create_timer(0.7).timeout
 		await _click
-	get_tree().change_scene_to_file("res://overworld.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Overworld/overworld.tscn")
 		#combat_log("Level up! (2)![/p] Max HP increased to %d! Damage increased to %d!" % [player.max_health, player.damage])
 
 func combat_log(text):
@@ -166,7 +172,7 @@ func _on_magic_pressed():
 	elif current_player_mp < player.mp_cost_fireball and try < 4:
 		await combat_log("nOt eNoUgH mAnA...")
 		try = try + 1
-	elif current_player_mp < player.mp_cost_fireball and try < 6:
+	elif current_player_mp < player.mp_cost_fireball and try >= 4:
 		await combat_log("NOT ENOUGH MANA!")
 		try = try + 1
 	else:

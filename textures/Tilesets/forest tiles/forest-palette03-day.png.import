@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfi2jmu25neki"
-path="res://.godot/imported/forest-palette03-night.png-381d7cf5c893fa1d08b192a51945a5da.ctex"
+uid="uid://dm21jguuqwia"
+path="res://.godot/imported/forest-palette03-day.png-192babf34c9f9aa58c7fe49f81bee826.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/forest tiles/forest-palette03-night.png"
-dest_files=["res://.godot/imported/forest-palette03-night.png-381d7cf5c893fa1d08b192a51945a5da.ctex"]
+source_file="res://textures/Tilesets/forest tiles/forest-palette03-day.png"
+dest_files=["res://.godot/imported/forest-palette03-day.png-192babf34c9f9aa58c7fe49f81bee826.ctex"]
 
 [params]
 

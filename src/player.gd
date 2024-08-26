@@ -13,6 +13,8 @@ var magicdmg: int = 40
 var mp: int = 10
 var max_mp: int = 10
 var mp_cost_fireball: int = 6
+var last_exit: String = 'default'
+var enemy_encounter: String
 
 
 

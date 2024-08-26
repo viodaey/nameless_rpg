@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dp2nf2e3s476e"]
+
+[ext_resource type="Script" path="res://src/enemies.gd" id="1_hfi3l"]
+[ext_resource type="Texture2D" uid="uid://broqcoyatuls0" path="res://textures/bosses/boss_11_N.png" id="2_aamxd"]
+
+[resource]
+script = ExtResource("1_hfi3l")
+name = "ROY THE TERRIBLE"
+texture = ExtResource("2_aamxd")
+health = 666
+damage = 35
+critc = 5
+xp = 666

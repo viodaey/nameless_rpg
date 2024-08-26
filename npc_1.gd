@@ -5,12 +5,12 @@ extends CharacterBody2D
 var player_position
 var target_position
 var speed = 45
-var _entered : bool
+#var _entered : bool
 const detection_range : float = 90
 @onready var neutral_pos = _animated_sprite.position
 
-func _on_body_entered(body):
-	_entered = true
+#func _on_body_entered(body):
+	#_entered = true
 
 #func _chase_player(move_to_attack, detection_range):
 	#player_position = _player_body.position
@@ -43,7 +43,7 @@ func _physics_process(delta: float):
 		if not move_to_attack:
 			target_position = (player_position - position).normalized()
 			velocity = target_position * speed
-			move_to_attack
+			#move_to_attack
 			_animated_sprite.play("run")
 			if player_position[0] - position[0] > 0:
 				_animated_sprite.flip_h = 1
@@ -53,7 +53,7 @@ func _physics_process(delta: float):
 		elif move_to_attack.get_collider() != _player_body:
 			target_position = (player_position - position).normalized()
 			velocity = target_position * speed
-			move_to_attack
+			#move_to_attack
 			_animated_sprite.play("run")
 			if player_position[0] - position[0] > 0:
 				_animated_sprite.flip_h = 1
@@ -64,7 +64,7 @@ func _physics_process(delta: float):
 		elif move_to_attack.get_collider() == _player_body:
 		#move_to_attack.get_collider() == _player_body:
 			position = neutral_pos
-			get_tree().change_scene_to_file("res://battle.tscn")
+			get_tree().change_scene_to_file("res://Scenes/Battle/battle.tscn")
 			move_to_attack = false
 	else:
 		_animated_sprite.play("idle")

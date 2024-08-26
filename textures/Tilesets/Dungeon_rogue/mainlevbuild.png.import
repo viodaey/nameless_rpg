@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqxfclkchxo4k"
-path="res://.godot/imported/forest-palette02-night.png-c0ac34d4351feb579d17efb9b5051707.ctex"
+uid="uid://c0efv3yhusd33"
+path="res://.godot/imported/mainlevbuild.png-e1b065e62b080392f68b05a138cdceea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/forest tiles/forest-palette02-night.png"
-dest_files=["res://.godot/imported/forest-palette02-night.png-c0ac34d4351feb579d17efb9b5051707.ctex"]
+source_file="res://textures/Tilesets/Dungeon_rogue/mainlevbuild.png"
+dest_files=["res://.godot/imported/mainlevbuild.png-e1b065e62b080392f68b05a138cdceea.ctex"]
 
 [params]
 
