@@ -6,6 +6,8 @@ extends Resource
 @export var damage: int = 20
 @export var critc: int = 5
 @export var xp: int = 10
+@export var speed: int = 40
+@export var music: String = "battle01"
 
 
 

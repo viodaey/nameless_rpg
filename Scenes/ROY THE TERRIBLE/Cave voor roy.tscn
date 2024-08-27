@@ -1,16 +1,16 @@
-[gd_scene load_steps=60 format=4 uid="uid://cpgsl8oj6rakh"]
+[gd_scene load_steps=63 format=4 uid="uid://cpgsl8oj6rakh"]
 
 [ext_resource type="Script" path="res://Scenes/Cave/cave_main.gd" id="1_2o1vl"]
 [ext_resource type="Texture2D" uid="uid://d1n86qkykb55x" path="res://textures/Tilesets/forest tiles/forest-palette01-day.png" id="2_hrgm0"]
 [ext_resource type="Texture2D" uid="uid://c0efv3yhusd33" path="res://textures/Tilesets/Dungeon_rogue/mainlevbuild.png" id="3_xygce"]
 [ext_resource type="Texture2D" uid="uid://b6x0gkmtnpk" path="res://textures/Tilesets/Dungeon_rogue/decorative.png" id="4_kolck"]
-[ext_resource type="Script" path="res://npc_1.gd" id="5_wgaep"]
-[ext_resource type="SpriteFrames" uid="uid://h00a0ujcvs78" path="res://src/res_spritef_ow_canine_white.tres" id="6_8l21f"]
+[ext_resource type="Resource" uid="uid://dp2nf2e3s476e" path="res://enemyResources/roy_the_terrible.tres" id="6_n41px"]
 [ext_resource type="Script" path="res://src/ow_player_body.gd" id="7_e5sj1"]
 [ext_resource type="Texture2D" uid="uid://rhh3il8k31mh" path="res://test_sprites/Hooman/Idle/Character_Idle.png" id="8_jevpq"]
 [ext_resource type="Texture2D" uid="uid://bgbbok7la0ucp" path="res://test_sprites/Hooman/Move/Character_Move.png" id="9_wfpho"]
 [ext_resource type="Script" path="res://Scenes/Cave/cave_exit.gd" id="10_3juvx"]
 [ext_resource type="Texture2D" uid="uid://broqcoyatuls0" path="res://textures/bosses/boss_11_N.png" id="11_b7tgc"]
+[ext_resource type="Script" path="res://Scenes/ROY THE TERRIBLE/boss_r.gd" id="12_27fqp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b810d"]
 
@@ -441,6 +441,7 @@ texture = ExtResource("3_xygce")
 29:2/0 = 0
 29:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 31:2/0 = 0
+31:2/0/z_index = 2
 31:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 32:2/0 = 0
 32:2/0/z_index = 2
@@ -451,6 +452,7 @@ texture = ExtResource("3_xygce")
 35:2/0 = 0
 35:2/0/z_index = 2
 36:2/0 = 0
+36:2/0/z_index = 2
 36:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 37:2/0 = 0
 37:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
@@ -506,6 +508,7 @@ texture = ExtResource("3_xygce")
 29:3/0 = 0
 29:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 31:3/0 = 0
+31:3/0/z_index = 2
 31:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 32:3/0 = 0
 32:3/0/z_index = 2
@@ -516,6 +519,7 @@ texture = ExtResource("3_xygce")
 35:3/0 = 0
 35:3/0/z_index = 2
 36:3/0 = 0
+36:3/0/z_index = 2
 36:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 37:3/0 = 0
 37:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
@@ -575,6 +579,7 @@ texture = ExtResource("3_xygce")
 29:4/0 = 0
 29:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 31:4/0 = 0
+31:4/0/z_index = 2
 31:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 32:4/0 = 0
 32:4/0/z_index = 2
@@ -585,6 +590,7 @@ texture = ExtResource("3_xygce")
 35:4/0 = 0
 35:4/0/z_index = 2
 36:4/0 = 0
+36:4/0/z_index = 2
 36:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 37:4/0 = 0
 37:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
@@ -646,6 +652,7 @@ texture = ExtResource("3_xygce")
 29:5/0 = 0
 29:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 31:5/0 = 0
+31:5/0/z_index = 2
 31:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 32:5/0 = 0
 32:5/0/z_index = 2
@@ -656,6 +663,7 @@ texture = ExtResource("3_xygce")
 35:5/0 = 0
 35:5/0/z_index = 2
 36:5/0 = 0
+36:5/0/z_index = 2
 36:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 37:5/0 = 0
 37:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
@@ -721,6 +729,7 @@ texture = ExtResource("3_xygce")
 25:6/0 = 0
 29:6/0 = 0
 31:6/0 = 0
+31:6/0/z_index = 2
 31:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 32:6/0 = 0
 32:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 0, -8, 0, -8, -8, 8, -8)
@@ -731,6 +740,7 @@ texture = ExtResource("3_xygce")
 35:6/0 = 0
 35:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 0, -8, 0, -8, -8, 8, -8)
 36:6/0 = 0
+36:6/0/z_index = 2
 36:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
 37:6/0 = 0
 37:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
@@ -1942,8 +1952,32 @@ sources/0 = SubResource("TileSetAtlasSource_ep7jd")
 sources/2 = SubResource("TileSetAtlasSource_yfbmp")
 sources/3 = SubResource("TileSetAtlasSource_cerh1")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cpt5"]
-height = 34.8429
+[sub_resource type="AtlasTexture" id="AtlasTexture_tau8x"]
+atlas = ExtResource("11_b7tgc")
+region = Rect2(0, 0, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yx6c"]
+atlas = ExtResource("11_b7tgc")
+region = Rect2(0, 0, 256, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0i24u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tau8x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yx6c")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq1fd"]
 atlas = ExtResource("8_jevpq")
@@ -2271,6 +2305,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xsf5"]
 size = Vector2(32, 12)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_88yh7"]
+radius = 24.0
+height = 48.0
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_2o1vl")
 
@@ -2285,29 +2323,17 @@ tile_map_data = PackedByteArray("AAAqAAwAAgAfAAIAAAAqAA0AAgAfAAMAAAAqAA4AAgAfAAQ
 tile_set = SubResource("TileSet_chek5")
 rendering_quadrant_size = 32
 
-[node name="NPC_1" type="CharacterBody2D" parent="."]
-position = Vector2(551, 239)
-scale = Vector2(0.958, 1)
-script = ExtResource("5_wgaep")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC_1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
-sprite_frames = ExtResource("6_8l21f")
-animation = &"idle"
-autoplay = "idle"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NPC_1"]
-polygon = PackedVector2Array(-19.833, -5, -19.833, 5, -12.5261, 16, 12.5261, 16, 12.5261, -1)
-disabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_1"]
-position = Vector2(-3.13153, 6)
-rotation = 1.82387
-shape = SubResource("CapsuleShape2D_6cpt5")
+position = Vector2(712, 8)
+scale = Vector2(0.958, 1)
+sprite_frames = SubResource("SpriteFrames_0i24u")
+animation = &"run"
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(568, 608)
 scale = Vector2(0.958, 1)
+collision_mask = 2
 script = ExtResource("7_e5sj1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
@@ -2326,8 +2352,15 @@ script = ExtResource("10_3juvx")
 position = Vector2(568, 642)
 shape = SubResource("RectangleShape2D_8xsf5")
 
-[node name="Boss11N" type="Sprite2D" parent="."]
-position = Vector2(712, 24)
-texture = ExtResource("11_b7tgc")
+[node name="Boss_R" type="Area2D" parent="."]
+position = Vector2(720, 160)
+script = ExtResource("12_27fqp")
+enemy = ExtResource("6_n41px")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss_R"]
+position = Vector2(0, 24)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_88yh7")
 
 [connection signal="body_entered" from="CaveExit" to="CaveExit" method="_on_body_entered"]
+[connection signal="body_entered" from="Boss_R" to="Boss_R" method="_on_body_entered"]

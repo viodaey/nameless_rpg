@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
+@export var enemy : Resource
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _player_body = get_parent().get_node("Player")
+@onready var speed = enemy.speed
+
 var player_position
 var target_position
-var speed = 45
+
 #var _entered : bool
 const detection_range : float = 90
 @onready var neutral_pos = _animated_sprite.position
-
 #func _on_body_entered(body):
 	#_entered = true
 
@@ -64,6 +66,7 @@ func _physics_process(delta: float):
 		elif move_to_attack.get_collider() == _player_body:
 		#move_to_attack.get_collider() == _player_body:
 			position = neutral_pos
+			player.enemy_encounter = enemy.resource_path
 			get_tree().change_scene_to_file("res://Scenes/Battle/battle.tscn")
 			move_to_attack = false
 	else:

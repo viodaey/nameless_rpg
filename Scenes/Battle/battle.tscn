@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
 [ext_resource type="Texture2D" uid="uid://dy7akiv6de2cp" path="res://bg_art/Preview/Background.png" id="1_hqwel"]
-[ext_resource type="Resource" uid="uid://bq72ft87yg5kg" path="res://src/res_battle_spider.tres" id="2_72n72"]
+[ext_resource type="Resource" uid="uid://bq72ft87yg5kg" path="res://enemyResources/res_battle_spider.tres" id="2_72n72"]
 [ext_resource type="Texture2D" uid="uid://ihlrkorw2pin" path="res://textures/bosses/boss_0_N.png" id="2_lio13"]
 [ext_resource type="Texture2D" uid="uid://dwvjcsn3e1bam" path="res://textures/bosses/boss_12_S.png" id="3_8u46x"]
 [ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="5_uugxd"]
@@ -58,7 +58,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginMain/EnemyCont/MarginContainer/Enemy:modulate")
+tracks/0/path = NodePath("MarginContainer/Enemy:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -70,7 +70,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MarginMain/EnemyCont/EnemyHP:value")
+tracks/1/path = NodePath("EnemyHP:value")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -82,7 +82,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MarginMain/EnemyCont/MarginContainer/Enemy:flip_h")
+tracks/2/path = NodePath("MarginContainer/Enemy:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -94,7 +94,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MarginMain/EnemyCont/MarginContainer:theme_override_constants/margin_left")
+tracks/3/path = NodePath("MarginContainer:theme_override_constants/margin_left")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -109,7 +109,7 @@ resource_name = "enemy_attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginMain/EnemyCont/MarginContainer:theme_override_constants/margin_left")
+tracks/0/path = NodePath("MarginContainer:theme_override_constants/margin_left")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -125,7 +125,7 @@ length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginMain/EnemyCont/MarginContainer/Enemy:flip_h")
+tracks/0/path = NodePath("MarginContainer/Enemy:flip_h")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -140,7 +140,7 @@ resource_name = "enemy_damaged"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginMain/EnemyCont/MarginContainer/Enemy:modulate")
+tracks/0/path = NodePath("MarginContainer/Enemy:modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -155,7 +155,7 @@ resource_name = "enemy_dead"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginMain/EnemyCont/MarginContainer/Enemy:modulate")
+tracks/0/path = NodePath("MarginContainer/Enemy:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -170,7 +170,7 @@ resource_name = "enemy_healthchange"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MarginMain/EnemyCont/EnemyHP:value")
+tracks/0/path = NodePath("EnemyHP:value")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -379,12 +379,12 @@ animations = [{
 
 [node name="battle" type="Control"]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
 offset_top = 8.0
-offset_right = -226.0
-offset_bottom = 8.0
+offset_right = -227.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.23983, 0.979368)
@@ -395,20 +395,26 @@ enemy = ExtResource("2_72n72")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -1
-layout_mode = 0
-offset_left = 1.61312
-offset_top = -139.886
-offset_right = 929.613
-offset_bottom = 653.114
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.83937
+offset_top = -144.991
+offset_right = 9.83936
+offset_bottom = -104.991
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_hqwel")
+expand_mode = 1
 
 [node name="Panel_Menu" type="Panel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 168.0
-offset_top = 286.0
-offset_right = 469.0
-offset_bottom = 441.0
+offset_left = 291.975
+offset_top = 489.091
+offset_right = 592.975
+offset_bottom = 644.091
 theme_override_styles/panel = SubResource("StyleBoxFlat_8qufg")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel_Menu"]
@@ -438,7 +444,7 @@ layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
 max_value = 1e+11
-value = 50.0
+value = 0.3
 show_percentage = false
 
 [node name="Label" type="Label" parent="Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerHP"]
@@ -503,79 +509,13 @@ libraries = {
 "": SubResource("AnimationLibrary_nrlsx")
 }
 
-[node name="MarginMain" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.996
-offset_left = 574.0
-offset_bottom = 2.59198
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 10
-
-[node name="EnemyCont" type="VBoxContainer" parent="MarginMain"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_constants/separation = 0
-
-[node name="EnemyHP" type="ProgressBar" parent="MarginMain/EnemyCont"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-theme_override_constants/outline_size = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
-theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
-value = 50.0
-show_percentage = false
-
-[node name="Label" type="Label" parent="MarginMain/EnemyCont/EnemyHP"]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -37.0
-offset_right = 37.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "HP: 25/50"
-
-[node name="DmgBar" type="ProgressBar" parent="MarginMain/EnemyCont/EnemyHP"]
-modulate = Color(1, 1, 1, 0)
-clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-show_percentage = false
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginMain/EnemyCont"]
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_right = 0
-
-[node name="Enemy" type="TextureRect" parent="MarginMain/EnemyCont/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-texture = ExtResource("2_lio13")
-metadata/_edit_use_anchors_ = true
-
 [node name="Panel_Menu2" type="Panel" parent="."]
 z_index = 1
 layout_mode = 2
-offset_left = 52.0
-offset_top = 286.0
-offset_right = 155.0
-offset_bottom = 441.0
+offset_left = 20.9706
+offset_top = 549.334
+offset_right = 245.971
+offset_bottom = 643.334
 theme_override_styles/panel = SubResource("StyleBoxFlat_8qufg")
 
 [node name="MarginActions" type="MarginContainer" parent="Panel_Menu2"]
@@ -584,6 +524,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -592,33 +533,41 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Actions" type="VBoxContainer" parent="Panel_Menu2/MarginActions"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel_Menu2/MarginActions"]
+layout_mode = 2
+
+[node name="Actions" type="VBoxContainer" parent="Panel_Menu2/MarginActions/HBoxContainer"]
 z_index = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Attack" type="Button" parent="Panel_Menu2/MarginActions/Actions"]
+[node name="Attack" type="Button" parent="Panel_Menu2/MarginActions/HBoxContainer/Actions"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 0
 text = "     Attack     "
 
-[node name="Magic" type="Button" parent="Panel_Menu2/MarginActions/Actions"]
+[node name="Magic" type="Button" parent="Panel_Menu2/MarginActions/HBoxContainer/Actions"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 0
 text = "     Magic     "
 
-[node name="Item" type="Button" parent="Panel_Menu2/MarginActions/Actions"]
+[node name="Actions2" type="VBoxContainer" parent="Panel_Menu2/MarginActions/HBoxContainer"]
+z_index = 2
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Item" type="Button" parent="Panel_Menu2/MarginActions/HBoxContainer/Actions2"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 0
 text = "     Item     "
 
-[node name="Dance" type="Button" parent="Panel_Menu2/MarginActions/Actions"]
+[node name="Dance" type="Button" parent="Panel_Menu2/MarginActions/HBoxContainer/Actions2"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
@@ -629,10 +578,10 @@ text = "     Dance     "
 modulate = Color(1, 1, 1, 0.996078)
 visibility_layer = 17
 layout_mode = 2
-offset_left = 64.0
-offset_top = 447.0
-offset_right = 320.0
-offset_bottom = 648.0
+offset_left = 49.2003
+offset_top = 346.142
+offset_right = 305.2
+offset_bottom = 547.142
 size_flags_vertical = 4
 texture = ExtResource("3_8u46x")
 stretch_mode = 2
@@ -642,7 +591,7 @@ modulate = Color(1, 1, 1, 0)
 light_mask = 17
 visibility_layer = 16
 z_index = -1
-position = Vector2(184.421, 72.7229)
+position = Vector2(179.863, 76.58)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_5qdkq")
@@ -656,5 +605,53 @@ animation = &"slash"
 frame = 20
 frame_progress = 1.0
 
-[connection signal="pressed" from="Panel_Menu2/MarginActions/Actions/Attack" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="Panel_Menu2/MarginActions/Actions/Magic" to="." method="_on_magic_pressed"]
+[node name="EnemyHP" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+offset_left = 607.341
+offset_top = 512.576
+offset_right = 898.341
+offset_bottom = 542.576
+theme_override_constants/outline_size = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
+max_value = 1e+10
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="EnemyHP"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_right = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "HP: 25/50"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 536.364
+offset_top = 80.6643
+offset_right = 920.364
+offset_bottom = 522.664
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="Enemy" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("2_lio13")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel_Menu2/MarginActions/HBoxContainer/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Panel_Menu2/MarginActions/HBoxContainer/Actions/Magic" to="." method="_on_magic_pressed"]
