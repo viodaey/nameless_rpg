@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://bq72ft87yg5kg"]
 
-[ext_resource type="Script" path="res://src/enemies.gd" id="1_gct0t"]
+[ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_gct0t"]
 [ext_resource type="Texture2D" uid="uid://ihlrkorw2pin" path="res://textures/bosses/boss_0_N.png" id="2_edobr"]
 
 [resource]

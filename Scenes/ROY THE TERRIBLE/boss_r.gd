@@ -1,6 +1,8 @@
 extends Area2D
 
-
+@export var enemy : Resource
+@onready var _animated_sprite = $AnimatedSprite2D
+@onready var _player_body = get_parent().get_node("Player")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,8 +14,6 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == 'Player':
-		get_tree().call_deferred("change_scene_to_file","res://Scenes/ROY THE TERRIBLE/Cave voor roy.tscn")
-
-	
-	pass # Replace with function body.
+	player.enemy_encounter = enemy.resource_path
+	get_tree().change_scene_to_file("res://Scenes/Battle/battle.tscn")
+	#pass # Replace with function body.
