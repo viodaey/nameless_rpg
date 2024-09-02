@@ -2184,7 +2184,7 @@ rotation = 1.82387
 shape = SubResource("CapsuleShape2D_6cpt5")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(371, 247)
+position = Vector2(256, 256)
 scale = Vector2(0.958, 1)
 motion_mode = 1
 script = ExtResource("3_bewpa")
@@ -2197,6 +2197,18 @@ autoplay = "idle right"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
 polygon = PackedVector2Array(-1.04382, -5, 7.30688, -5, 8.35068, 16, -8.35077, 16, -8.35071, -5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(1.04384, 1)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+drag_left_margin = 0.9
+drag_top_margin = 0.9
+drag_right_margin = 0.9
+drag_bottom_margin = 0.9
 
 [node name="CaveEntrance" type="Area2D" parent="."]
 position = Vector2(232, 72)
