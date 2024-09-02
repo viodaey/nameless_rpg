@@ -379,6 +379,7 @@ animations = [{
 
 [node name="battle" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
@@ -652,6 +653,14 @@ size_flags_vertical = 8
 texture = ExtResource("2_lio13")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(472.645, 324.699)
+limit_left = 0
+limit_top = 0
+limit_right = 1160
+limit_bottom = 648
+editor_draw_limits = true
 
 [connection signal="pressed" from="Panel_Menu2/MarginActions/HBoxContainer/Actions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="Panel_Menu2/MarginActions/HBoxContainer/Actions/Magic" to="." method="_on_magic_pressed"]

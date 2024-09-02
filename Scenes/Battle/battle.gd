@@ -1,14 +1,14 @@
 extends Control
 
-const all_enemies_path: Array =[
-	"res://enemyResources/roy_the_terrible.tres",
-	"res://enemyResources/res_battle_spider.tres"
-]
-
-const all_enemies: Array = [
-	preload(all_enemies_path[0]),
-	preload(all_enemies_path[1])
-]
+#const all_enemies_path: Array =[
+	#"res://enemyResources/roy_the_terrible.tres",
+	#"res://enemyResources/res_battle_spider.tres"
+#]
+#
+#const all_enemies: Array = [
+	#preload(all_enemies_path[0]),
+	#preload(all_enemies_path[1])
+#]
 	
 @export var enemy : Resource #= player.enemy_encounter
 var rng = RandomNumberGenerator.new()
@@ -99,7 +99,7 @@ func set_mp(progress_bar, mp_cost, max_mp):
 		
 func enemy_died():
 	var tween = get_tree().create_tween()
-	tween.tween_property($MarginMain/EnemyCont, "modulate:a", 0,  0.5)
+	tween.tween_property($MarginContainer/Enemy, "modulate:a", 0,  0.5)
 	#$AnimationPlayer.play("enemy_dead")
 	#await $AnimationPlayer.animation_finished
 	await (combat_log("%s died" % (enemy.name)))
@@ -116,7 +116,7 @@ func enemy_died():
 		await get_tree().create_timer(0.7).timeout
 		player.hp_grow = 0
 		player.dmg_grow = 0
-	get_tree().change_scene_to_file("res://Scenes/Overworld/overworld.tscn")
+	sceneManager.goto_scene("res://Scenes/Overworld/overworld.tscn")
 		#combat_log("Level up! (2)![/p] Max HP increased to %d! Damage increased to %d!" % [player.max_health, player.damage])
 
 func combat_log(text):

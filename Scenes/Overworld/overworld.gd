@@ -4,6 +4,7 @@ extends Node2D
 @onready var _player_body = $Player
 @onready var _cave_entrance = $CaveEntrance
 
+
 #@onready var target_position = _player_body.position
 #@onready var cave = $CaveEntrance 
 
@@ -12,9 +13,13 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioPlayer.play_music_level("fieldOverworld")
-	if player.last_exit == "cave":
+	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
+		_player_body.position = player.position
+	if sceneManager.last_scene == "res://Scenes/Cave/cave.tscn":
 		_player_body.position.x = _cave_entrance.position.x
 		_player_body.position.y = _cave_entrance.position.y + 15
+		player.last_exit = 'default'
+
 
 
 
@@ -34,8 +39,8 @@ func _ready() -> void:
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+	#pass
 
 
 

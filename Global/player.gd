@@ -16,6 +16,7 @@ var mp_cost_fireball: int = 6
 var last_exit: String = 'default'
 var enemy_encounter: String = "res://enemyResources/res_battle_spider.tres"
 var enemy_stats = []
+var position = Vector2(256,256)
 #var done: bool = false
 
 

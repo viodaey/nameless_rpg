@@ -7,7 +7,8 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player.last_exit = "cave"
-	player.enemy_encounter = "ROY THE TERRIBLE"
+	#player.enemy_encounter = "ROY THE TERRIBLE"
+	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
 
 
 

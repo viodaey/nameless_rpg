@@ -67,7 +67,8 @@ func _physics_process(delta: float):
 		#move_to_attack.get_collider() == _player_body:
 			position = neutral_pos
 			player.enemy_encounter = enemy.resource_path
-			get_tree().change_scene_to_file("res://Scenes/Battle/battle.tscn")
+			player.position = player_position
+			sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
 			move_to_attack = false
 	else:
 		_animated_sprite.play("idle")

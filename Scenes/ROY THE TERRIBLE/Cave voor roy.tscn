@@ -1952,33 +1952,6 @@ sources/0 = SubResource("TileSetAtlasSource_ep7jd")
 sources/2 = SubResource("TileSetAtlasSource_yfbmp")
 sources/3 = SubResource("TileSetAtlasSource_cerh1")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tau8x"]
-atlas = ExtResource("11_b7tgc")
-region = Rect2(0, 0, 256, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6yx6c"]
-atlas = ExtResource("11_b7tgc")
-region = Rect2(0, 0, 256, 512)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0i24u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tau8x")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6yx6c")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq1fd"]
 atlas = ExtResource("8_jevpq")
 region = Rect2(0, 0, 128, 128)
@@ -2309,6 +2282,33 @@ size = Vector2(32, 12)
 radius = 24.0
 height = 48.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tau8x"]
+atlas = ExtResource("11_b7tgc")
+region = Rect2(0, 0, 256, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yx6c"]
+atlas = ExtResource("11_b7tgc")
+region = Rect2(0, 0, 256, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0i24u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tau8x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yx6c")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_2o1vl")
 
@@ -2322,13 +2322,6 @@ rendering_quadrant_size = 32
 tile_map_data = PackedByteArray("AAAqAAwAAgAfAAIAAAAqAA0AAgAfAAMAAAAqAA4AAgAfAAQAAAAqAA8AAgAfAAUAAAAqABAAAgAfAAYAAAArAAwAAgAgAAIAAAArAA0AAgAgAAMAAAArAA4AAgAgAAQAAAArAA8AAgAgAAUAAAArABAAAgAgAAYAAAAsAAwAAgAhAAIAAAAsAA0AAgAhAAMAAAAsAA4AAgAhAAQAAAAsAA8AAgAhAAUAAAAsABAAAgAhAAYAAAAtAAwAAgAiAAIAAAAtAA0AAgAiAAMAAAAtAA4AAgAiAAQAAAAtAA8AAgAiAAUAAAAtABAAAgAiAAYAAAAuAAwAAgAjAAIAAAAuAA0AAgAjAAMAAAAuAA4AAgAjAAQAAAAuAA8AAgAjAAUAAAAuABAAAgAjAAYAAAAvAAwAAgAkAAIAAAAvAA0AAgAkAAMAAAAvAA4AAgAkAAQAAAAvAA8AAgAkAAUAAAAvABAAAgAkAAYAAAAiABcAAgAOAAUAAAAiABgAAgAOAAUAAAAiABkAAgAOAAUAAAAjABcAAgAOAAUAAAAjABgAAgAOAAUAAAAjABkAAgAOAAUAAAAkABcAAgAOAAUAAAAkABgAAgAOAAUAAAAkABkAAgAOAAUAAAAiABYAAgAOAAUAAAAjABYAAgAOAAUAAAAkABYAAgAOAAUAAAAiABUAAgAOAAUAAAAjABUAAgAOAAUAAAAkABUAAgAOAAUAAAAiABoAAgAgAAgAAAAjABoAAgAhAAgAAAAkABoAAgAiAAgAAAAhABoAAgAfAAgAAAAlABoAAgAfAAgAAAAhABQAAgAZAAEAAAAiABQAAgAaAAEAAAAjABQAAgAbAAEAAAAkABQAAgAcAAEAAAAlABQAAgAdAAEAAAAhABUAAgAZAAIAAAAlABUAAgAdAAIAAAAwABwAAgAyAAMAAAAwAB0AAgAyAAQAAAAwAB4AAgAyAAUAAAAwAB8AAgAyAAYAAAAxABwAAgAzAAMAAAAxAB0AAgAzAAQAAAAxAB4AAgAzAAUAAAAxAB8AAgAzAAYAAAAyABwAAgA0AAMAAAAyAB0AAgA0AAQAAAAyAB4AAgA0AAUAAAAyAB8AAgA0AAYAAAA=")
 tile_set = SubResource("TileSet_chek5")
 rendering_quadrant_size = 32
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 1
-position = Vector2(712, 8)
-scale = Vector2(0.958, 1)
-sprite_frames = SubResource("SpriteFrames_0i24u")
-animation = &"run"
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(568, 608)
@@ -2344,6 +2337,18 @@ autoplay = "idle right"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
 polygon = PackedVector2Array(-1.04382, -5, 7.30688, -5, 8.35068, 16, -8.35077, 16, -8.35071, -5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(1.04384, 1)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+drag_left_margin = 0.9
+drag_top_margin = 0.9
+drag_right_margin = 0.9
+drag_bottom_margin = 0.9
 
 [node name="CaveExit" type="Area2D" parent="."]
 script = ExtResource("10_3juvx")
@@ -2361,6 +2366,13 @@ enemy = ExtResource("6_n41px")
 position = Vector2(0, 24)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_88yh7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss_R"]
+z_index = 1
+position = Vector2(-8, -152)
+scale = Vector2(0.958, 1)
+sprite_frames = SubResource("SpriteFrames_0i24u")
+animation = &"run"
 
 [connection signal="body_entered" from="CaveExit" to="CaveExit" method="_on_body_entered"]
 [connection signal="body_entered" from="Boss_R" to="Boss_R" method="_on_body_entered"]

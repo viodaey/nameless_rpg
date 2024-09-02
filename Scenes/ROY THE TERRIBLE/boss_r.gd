@@ -15,5 +15,6 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	player.enemy_encounter = enemy.resource_path
-	get_tree().change_scene_to_file("res://Scenes/Battle/battle.tscn")
+	#AudioPlayer.play_music_level("res://musig/Battle_-_No_Way_Out.ogg")
+	sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
 	#pass # Replace with function body.
