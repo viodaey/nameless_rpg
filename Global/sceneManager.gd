@@ -1,7 +1,7 @@
 extends Node
 
 var current_scene = null
-var last_scene : String
+var last_scene : String = "res://Scenes/Overworld/overworld.tscn"
 var current_scene_path : String = "res://Scenes/Battle/battle.tscn"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,4 +22,3 @@ func _deferred_goto_scene(path):
 	current_scene = s.instantiate()
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
-	

@@ -23,7 +23,6 @@ var try = 0
 
 @onready var _playerhp = $Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerHP
 @onready var _playermp = $Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerMP
-#@onready var _combat_log = $Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/CombatLog
 @onready var _log_timer = $Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/CombatLog/Timer
 @onready var _combat_log_box = $Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/CombatLog/RichTextLabel
 @onready var _playertexture = $Player_1
@@ -35,14 +34,6 @@ var try = 0
 @onready var _enemy_resource = player.enemy_encounter
 
 
-#@onready var enemy: TextureRect = $MarginMain/EnemyCont/MarginContainer/Enemy
-
-#@onready var enemy = player.enemy_encounter
-
-
-#var playerhpbox = '$Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerHPlayerHP'
-	
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	set_health_init(_playerhp, player.health, player.max_health)
 	current_player_health = player.health
@@ -53,7 +44,6 @@ func _ready():
 	set_health_init(_enemyhp, enemy.health, enemy.health)
 	set_mp_init(_playermp, player.mp, player.max_mp)		
 	_enemyrect.texture = enemy.texture	#else:
-		
 
 func _click(event):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_XBUTTON1):
@@ -94,24 +84,7 @@ func set_mp(progress_bar, mp_cost, max_mp):
 		progress_bar.get_node("Label").text = "MP: %d/%d" % [progress_bar.value, max_mp]
 		await get_tree().create_timer(0.10).timeout
 		
-func enemy_died():
-	var tween = get_tree().create_tween()
-	tween.tween_property($MarginContainer/Enemy, "modulate:a", 0,  0.5)
-	await (combat_log("%s died" % (enemy.name)))
-	player.xp = player.xp + enemy.xp
-	if player.xp >= player.max_xp:
-		player.level_up()
-		current_player_health = current_player_health + player.hp_grow
-		set_health_init(_playerhp, current_player_health, player.max_health)
-		await(combat_log("Level increased to %d" % [player.lvl]))
-		await get_tree().create_timer(0.7).timeout
-		await(combat_log("Max HP increased by %d!" % [player.hp_grow]))
-		await get_tree().create_timer(0.7).timeout
-		await(combat_log("Attack Power increased by %d!" % [player.dmg_grow]))
-		await get_tree().create_timer(0.7).timeout
-		player.hp_grow = 0
-		player.dmg_grow = 0
-	sceneManager.goto_scene("res://Scenes/Overworld/overworld.tscn")
+
 
 func combat_log(text):
 	visible_characters = 0
@@ -256,3 +229,22 @@ func _attack_phase_2():
 			#await_click()
 			#await text_clicked 
 			#emit_signal("turn_over")
+
+func enemy_died():
+	var tween = get_tree().create_tween()
+	tween.tween_property($MarginContainer/Enemy, "modulate:a", 0,  0.5)
+	await (combat_log("%s died" % (enemy.name)))
+	player.xp = player.xp + enemy.xp
+	if player.xp >= player.max_xp:
+		player.level_up()
+		current_player_health = current_player_health + player.hp_grow
+		set_health_init(_playerhp, current_player_health, player.max_health)
+		await(combat_log("Level increased to %d" % [player.lvl]))
+		await get_tree().create_timer(0.7).timeout
+		await(combat_log("Max HP increased by %d!" % [player.hp_grow]))
+		await get_tree().create_timer(0.7).timeout
+		await(combat_log("Attack Power increased by %d!" % [player.dmg_grow]))
+		await get_tree().create_timer(0.7).timeout
+		player.hp_grow = 0
+		player.dmg_grow = 0
+	sceneManager.goto_scene(sceneManager.last_scene)

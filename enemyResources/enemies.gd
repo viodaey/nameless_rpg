@@ -10,6 +10,8 @@ extends Resource
 @export var music: String = "battle01"
 @export var can_chill: bool = true
 @export var lifesteal: int = 0
+@export var animatedSprite: SpriteFrames = null
+
 
 
 

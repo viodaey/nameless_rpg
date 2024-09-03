@@ -600,6 +600,7 @@ autoplay = "default"
 frame_progress = 0.0550403
 
 [node name="onEnemyHit" type="AnimatedSprite2D" parent="Player_1"]
+z_index = 1
 position = Vector2(686.909, 78.8493)
 sprite_frames = SubResource("SpriteFrames_pvakd")
 animation = &"slash"

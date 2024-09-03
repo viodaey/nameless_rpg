@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c0efv3yhusd33" path="res://textures/Tilesets/Dungeon_rogue/mainlevbuild.png" id="3_ar1kf"]
 [ext_resource type="Script" path="res://src/ow_player_body.gd" id="3_bewpa"]
 [ext_resource type="Texture2D" uid="uid://rhh3il8k31mh" path="res://test_sprites/Hooman/Idle/Character_Idle.png" id="4_7edvl"]
-[ext_resource type="Resource" uid="uid://bq72ft87yg5kg" path="res://enemyResources/res_battle_spider.tres" id="5_7clr2"]
 [ext_resource type="Texture2D" uid="uid://bgbbok7la0ucp" path="res://test_sprites/Hooman/Move/Character_Move.png" id="5_m2tqc"]
+[ext_resource type="Resource" uid="uid://0ajqppuq0yd1" path="res://enemyResources/forest_wolf.tres" id="5_rtbuj"]
 [ext_resource type="Script" path="res://Scenes/Overworld/cave_entrance_2.gd" id="9_xaeef"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b810d"]
@@ -2166,7 +2166,7 @@ position = Vector2(551, 239)
 scale = Vector2(0.958, 1)
 motion_mode = 1
 script = ExtResource("3_7vvd1")
-enemy = ExtResource("5_7clr2")
+enemy = ExtResource("5_rtbuj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC_1"]
 z_index = 1

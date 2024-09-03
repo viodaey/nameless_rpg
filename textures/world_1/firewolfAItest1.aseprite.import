@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b3jxgtewndfqb"
+path="res://.godot/imported/firewolfAItest1.aseprite-afd521bec7e10c60ab79b9f716df3497.res"
+
+[deps]
+
+source_file="res://textures/world_1/firewolfAItest1.aseprite"
+dest_files=["res://.godot/imported/firewolfAItest1.aseprite-afd521bec7e10c60ab79b9f716df3497.res"]
+
+[params]
+
