@@ -8,6 +8,8 @@ extends Resource
 @export var xp: int = 10
 @export var speed: int = 40
 @export var music: String = "battle01"
+@export var can_chill: bool = true
+@export var lifesteal: int = 0
 
 
 

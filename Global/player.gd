@@ -25,14 +25,18 @@ var position = Vector2(256,256)
 func level_up():
 	#var done_lvl_up: bool = false
 	#while done_lvl_up == false:
+	hp_grow = 0
+	dmg_grow = 0
 	while xp >= max_xp:
 		hp_grow = hp_grow + round(max_health * 0.15)
 		dmg_grow = dmg_grow + round(damage * 0.12)
-		max_health = (max_health + hp_grow)
-		damage = (damage + dmg_grow)
+		max_health = max_health + hp_grow
+		health = health + hp_grow
+		damage = damage + dmg_grow
 		lvl = lvl + 1
 		xp = xp - max_xp
 		max_xp = round(max_xp * 1.4)
+	
 		#print(hp_grow)
 		#else:
 			#done_lvl_up = true

@@ -13,3 +13,5 @@ critc = 5
 xp = 666
 speed = 1
 music = "res://musig/Battle_-_No_Way_Out.ogg"
+can_chill = false
+lifesteal = 6

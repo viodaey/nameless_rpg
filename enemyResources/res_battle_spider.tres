@@ -11,4 +11,6 @@ texture = ExtResource("2_edobr")
 health = 80
 damage = 20
 critc = 5
-xp = 20
+xp = 80
+speed = 40
+music = "battle01"

@@ -656,6 +656,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(472.645, 324.699)
+scale = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
 limit_right = 1160

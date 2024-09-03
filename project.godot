@@ -21,6 +21,11 @@ player="*res://Global/player.gd"
 sceneManager="*res://Global/sceneManager.gd"
 AudioPlayer="*res://Global/audio_player.tscn"
 
+[display]
+
+window/size/mode=2
+window/stretch/mode="viewport"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
