@@ -5,6 +5,8 @@ extends Area2D
 func _ready() -> void:
 	pass # Replace with function body.
 
+func _spawn_npc() -> void:
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -13,7 +15,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == 'Player':
-		sceneManager.goto_scene("res://Scenes/ROY THE TERRIBLE/Cave voor roy.tscn")
+		sceneManager.goto_scene("res://Scenes/Cave/Cave voor roy.tscn")
 
 	
 	pass # Replace with function body.

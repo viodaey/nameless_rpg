@@ -8,36 +8,17 @@ extends CharacterBody2D
 var player_position
 var target_position
 
-#var _entered : bool
+
 const detection_range : float = 90
 @onready var neutral_pos = _animated_sprite.position
-#func _on_body_entered(body):
-	#_entered = true
 
-#func _chase_player(move_to_attack, detection_range):
-	#player_position = _player_body.position
-	#var dist = position.distance_to(player_position)
-	#if dist < detection_range: #detection_range:
-		#target_position = (player_position - position).normalized()
-		#velocity = target_position * speed
-		#move_to_attack
-		#_animated_sprite.play("run")
-		#if player_position[0] - position[0] > 0:
-			#_animated_sprite.flip_h = 1
-		#else:
-			#_animated_sprite.flip_h = 0
-		#player_position = _player_body.position
-	#else:
-		#_animated_sprite.play("idle")
-		#velocity = Vector2(0,0)
-	
-#func _on_body_entered(body):
-	#get_node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	#pass
+	enemy = get_parent()._spawned_npc
+	_animated_sprite.sprite_frames = enemy.animatedSprite
+	
+	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float):
 	var move_to_attack = move_and_collide(velocity * delta)
 	player_position = _player_body.position
@@ -68,8 +49,10 @@ func _physics_process(delta: float):
 			position = neutral_pos
 			player.enemy_encounter = enemy.resource_path
 			player.position = player_position
+			queue_free()
 			sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
 			move_to_attack = false
+
 	else:
 		_animated_sprite.play("idle")
 		velocity = Vector2(0,0)

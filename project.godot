@@ -21,10 +21,19 @@ player="*res://Global/player.gd"
 sceneManager="*res://Global/sceneManager.gd"
 AudioPlayer="*res://Global/audio_player.tscn"
 
+[display]
+
+window/size/mode=2
+window/stretch/mode="viewport"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 
 [input]
 

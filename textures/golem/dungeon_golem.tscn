@@ -1,17 +1,17 @@
 [gd_scene load_steps=16 format=3 uid="uid://dn6sylxcjcu00"]
 
-[ext_resource type="Script" path="res://golem_cave.gd" id="1_csa3b"]
-[ext_resource type="Script" path="res://golem_body.gd" id="2_us08w"]
-[ext_resource type="Texture2D" uid="uid://cmro446n4bs4" path="res://textures/golem/golem1_d.png" id="3_ncnn6"]
-[ext_resource type="Texture2D" uid="uid://b4k31vffra1eq" path="res://textures/golem/golem1_n.png" id="4_3usk5"]
-[ext_resource type="Texture2D" uid="uid://diqryldlfolhb" path="res://textures/golem/golem1_s.png" id="5_xjbws"]
-[ext_resource type="Script" path="res://sprite_2d.gd" id="6_1y8ig"]
-[ext_resource type="Texture2D" uid="uid://dgvg181a66m2d" path="res://bg_art/PNG/Background layers/Layer_0010_1.png" id="8_adk6r"]
-[ext_resource type="Texture2D" uid="uid://cy1uajo6u2idh" path="res://test_sprites/white.png" id="8_ig2m4"]
-[ext_resource type="Texture2D" uid="uid://vqar1msvpym0" path="res://bg_art/PNG/Background layers/Layer_0009_2.png" id="9_3yxra"]
+[ext_resource type="Script" path="res://golem_cave.gd" id="1_0xin2"]
+[ext_resource type="Script" path="res://golem_body.gd" id="2_3o10t"]
+[ext_resource type="Texture2D" uid="uid://cmro446n4bs4" path="res://textures/golem/golem1_d.png" id="3_ypb0v"]
+[ext_resource type="Texture2D" uid="uid://b4k31vffra1eq" path="res://textures/golem/golem1_n.png" id="4_w6qib"]
+[ext_resource type="Texture2D" uid="uid://diqryldlfolhb" path="res://textures/golem/golem1_s.png" id="5_q0kyr"]
+[ext_resource type="Script" path="res://sprite_2d.gd" id="6_me0yh"]
+[ext_resource type="Texture2D" uid="uid://cy1uajo6u2idh" path="res://test_sprites/white.png" id="7_wyel6"]
+[ext_resource type="Texture2D" uid="uid://dgvg181a66m2d" path="res://bg_art/PNG/Background layers/Layer_0010_1.png" id="8_iqhyf"]
+[ext_resource type="Texture2D" uid="uid://vqar1msvpym0" path="res://bg_art/PNG/Background layers/Layer_0009_2.png" id="9_b4lms"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5w22"]
-atlas = ExtResource("3_ncnn6")
+atlas = ExtResource("3_ypb0v")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0b6kx"]
@@ -26,9 +26,9 @@ animations = [{
 }]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wgbqg"]
-diffuse_texture = ExtResource("3_ncnn6")
-normal_texture = ExtResource("4_3usk5")
-specular_texture = ExtResource("5_xjbws")
+diffuse_texture = ExtResource("3_ypb0v")
+normal_texture = ExtResource("4_w6qib")
+specular_texture = ExtResource("5_q0kyr")
 
 [sub_resource type="Gradient" id="Gradient_rrtmt"]
 offsets = PackedFloat32Array(0, 0.95339)
@@ -40,14 +40,14 @@ fill_from = Vector2(0.482906, 0.542735)
 fill_to = Vector2(0.410256, 0.41453)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wi12p"]
-diffuse_texture = ExtResource("8_adk6r")
-normal_texture = ExtResource("9_3yxra")
+diffuse_texture = ExtResource("8_iqhyf")
+normal_texture = ExtResource("9_b4lms")
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_csa3b")
+script = ExtResource("1_0xin2")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("2_us08w")
+script = ExtResource("2_3o10t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 visible = false
@@ -63,7 +63,7 @@ polygon = PackedVector2Array(584, 344, 664, 344, 664, 216, 624, 192, 584, 216)
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(416, 168)
 texture = SubResource("CanvasTexture_wgbqg")
-script = ExtResource("6_1y8ig")
+script = ExtResource("6_me0yh")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 light_mask = 3
@@ -80,7 +80,7 @@ height = 10.0
 [node name="Shader" type="Sprite2D" parent="."]
 modulate = Color(0.01, 0.00990167, 0.0099, 0.92549)
 position = Vector2(136, 192)
-texture = ExtResource("8_ig2m4")
+texture = ExtResource("7_wyel6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.360017, 0.0650251, 0, 1)

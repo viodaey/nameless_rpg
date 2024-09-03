@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bq72ft87yg5kg"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bq72ft87yg5kg"]
 
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_gct0t"]
+[ext_resource type="SpriteFrames" uid="uid://h00a0ujcvs78" path="res://src/res_spritef_ow_canine_white.tres" id="1_lfmos"]
 [ext_resource type="Texture2D" uid="uid://ihlrkorw2pin" path="res://textures/bosses/boss_0_N.png" id="2_edobr"]
 
 [resource]
@@ -11,4 +12,9 @@ texture = ExtResource("2_edobr")
 health = 80
 damage = 20
 critc = 5
-xp = 20
+xp = 40
+speed = 40
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = ExtResource("1_lfmos")

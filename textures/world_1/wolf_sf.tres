@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://dfu73cl600trr"]
+
+[ext_resource type="Texture2D" uid="uid://udqo7tn6udns" path="res://textures/world_1/firewolf23.png" id="1_kscp2"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kscp2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kscp2")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c7piqrup0imda"]
+
+[ext_resource type="SpriteFrames" uid="uid://bc1rqsi5swyop" path="res://textures/golem/golem_sf.tres" id="1_d4v52"]
+[ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_ebnkj"]
+[ext_resource type="Texture2D" uid="uid://cmro446n4bs4" path="res://textures/golem/golem1_d.png" id="2_vmo1x"]
+
+[resource]
+script = ExtResource("1_ebnkj")
+name = "Golem"
+texture = ExtResource("2_vmo1x")
+health = 150
+damage = 20
+critc = 5
+xp = 10
+speed = 40
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = ExtResource("1_d4v52")
