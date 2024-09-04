@@ -19,6 +19,8 @@ var dealt_dmg: int = 0
 var enemy_dmg: int = 0
 var visible_characters: int = 0
 var try = 0
+#var e_sizes : Array = [[1, 640, 368],[1.5, 540, 250]]
+#var e_size : Array
 
 
 @onready var _playerhp = $Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerHP
@@ -28,7 +30,7 @@ var try = 0
 @onready var _playertexture = $Player_1
 @onready var _fireballAnimate = $Player_1/Fireball
 @onready var _enemyhp = $EnemyHP
-@onready var _enemyrect = $MarginContainer/Enemy
+@onready var _enemyrect = $Enemy
 @onready var _actionmenu = $Panel_Menu2
 @onready var _effectAnimate = $Player_1/onEnemyHit
 @onready var _enemy_resource = player.enemy_encounter
@@ -43,8 +45,18 @@ func _ready():
 	current_enemy_health = enemy.health
 	set_health_init(_enemyhp, enemy.health, enemy.health)
 	set_mp_init(_playermp, player.mp, player.max_mp)		
-	_enemyrect.texture = enemy.texture	#else:
-
+	_enemyrect.texture = enemy.texture
+	_enemyrect.size = enemy.size
+	_enemyrect.position = enemy.position
+	#e_size = e_sizes[enemy.size]
+	#print(_enemyrect.size)
+	#_enemyrect.scale.x = e_size[0]
+	#print(_enemyrect.size)
+	#_enemyrect.scale.y = e_size[0]
+	#print(_enemyrect.size)
+	#_enemyrect.position.x = e_size[1]
+	#_enemyrect.position.y = 420 - (_enemyrect.size.y * e_size[0] /2)
+	
 func _click(event):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_XBUTTON1):
 		emit_signal("clicked")
@@ -232,7 +244,7 @@ func _attack_phase_2():
 
 func enemy_died():
 	var tween = get_tree().create_tween()
-	tween.tween_property($MarginContainer/Enemy, "modulate:a", 0,  0.5)
+	tween.tween_property($Enemy, "modulate:a", 0,  0.5)
 	await (combat_log("%s died" % (enemy.name)))
 	player.xp = player.xp + enemy.xp
 	if player.xp >= player.max_xp:

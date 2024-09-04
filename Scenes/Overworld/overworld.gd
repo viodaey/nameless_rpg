@@ -23,16 +23,17 @@ var _spawned_npc = world_enemies[0]
 func _ready() -> void:
 	AudioPlayer.play_music_level("fieldOverworld")
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
-		_player_body.position = player.position
 		_preload_npc.queue_free()
+		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/Cave/cave.tscn":
 		_player_body.position.x = _cave_entrance.position.x
 		_player_body.position.y = _cave_entrance.position.y + 15
-		player.last_exit = 'default'
+		#player.last_exit = 'default'
 	
 func _spawn_npc():
-	if is_instance_valid(_spawned_npc):
-		pass
+	if is_instance_valid($NPC_spawn):
+		print("tried to spawn but valid instance found")
+		#pass
 	else:
 		var spawn_loc = rng.randi_range(1,len(spawn_positions))
 		var enemy_select = rng.randi_range(1,len(world_enemies))
@@ -40,6 +41,7 @@ func _spawn_npc():
 		_spawned_npc = $NPC_spawn
 		_spawned_npc.position = _player_body.position + spawn_positions[spawn_loc - 1]
 		_spawned_npc.enemy = world_enemies[enemy_select - 1]
+		print("spawned")
 
 	
 	

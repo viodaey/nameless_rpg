@@ -11,7 +11,8 @@ extends Resource
 @export var can_chill: bool = true
 @export var lifesteal: int = 0
 @export var animatedSprite: SpriteFrames = null
-
+@export var size: Vector2 = Vector2(204, 180)
+@export var position: Vector2 = Vector2(667, 335)
 
 
 
