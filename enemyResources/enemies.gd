@@ -13,6 +13,7 @@ extends Resource
 @export var animatedSprite: SpriteFrames = null
 @export var size: Vector2 = Vector2(204, 180)
 @export var position: Vector2 = Vector2(667, 335)
+@export var map_scale: float = 1
 
 
 

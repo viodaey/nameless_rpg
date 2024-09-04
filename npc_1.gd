@@ -17,6 +17,7 @@ func _ready() -> void:
 	#pass
 	enemy = get_parent()._spawned_npc
 	_animated_sprite.sprite_frames = enemy.animatedSprite
+	_animated_sprite.scale = Vector2(enemy.map_scale, enemy.map_scale)
 	
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float):

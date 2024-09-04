@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dn6sylxcjcu00"]
+[gd_scene load_steps=19 format=3 uid="uid://dn6sylxcjcu00"]
 
 [ext_resource type="Script" path="res://golem_cave.gd" id="1_0xin2"]
 [ext_resource type="Script" path="res://golem_body.gd" id="2_3o10t"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cy1uajo6u2idh" path="res://test_sprites/white.png" id="7_wyel6"]
 [ext_resource type="Texture2D" uid="uid://dgvg181a66m2d" path="res://bg_art/PNG/Background layers/Layer_0010_1.png" id="8_iqhyf"]
 [ext_resource type="Texture2D" uid="uid://vqar1msvpym0" path="res://bg_art/PNG/Background layers/Layer_0009_2.png" id="9_b4lms"]
+[ext_resource type="Script" path="res://textures/golem/shader_test.gd" id="10_fo7jb"]
+[ext_resource type="Shader" path="res://textures/golem/dungeon_golem.gdshader" id="10_mkppe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5w22"]
 atlas = ExtResource("3_ypb0v")
@@ -42,6 +44,11 @@ fill_to = Vector2(0.410256, 0.41453)
 [sub_resource type="CanvasTexture" id="CanvasTexture_wi12p"]
 diffuse_texture = ExtResource("8_iqhyf")
 normal_texture = ExtResource("9_b4lms")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1c4kf"]
+shader = ExtResource("10_mkppe")
+shader_parameter/time_factor = 1.0
+shader_parameter/amplitude = Vector2(10, 5)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_0xin2")
@@ -79,7 +86,8 @@ height = 10.0
 
 [node name="Shader" type="Sprite2D" parent="."]
 modulate = Color(0.01, 0.00990167, 0.0099, 0.92549)
-position = Vector2(136, 192)
+position = Vector2(104, 200)
+scale = Vector2(1.01042, 1.02778)
 texture = ExtResource("7_wyel6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -87,3 +95,29 @@ modulate = Color(0.360017, 0.0650251, 0, 1)
 z_index = -5
 position = Vector2(528, 224)
 texture = SubResource("CanvasTexture_wi12p")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_1c4kf")
+offset_left = 264.0
+offset_top = 136.0
+offset_right = 392.0
+offset_bottom = 264.0
+texture = ExtResource("3_ypb0v")
+script = ExtResource("10_fo7jb")
+
+[node name="AmpController" type="VBoxContainer" parent="."]
+z_index = 5
+offset_left = 280.0
+offset_top = 280.0
+offset_right = 400.0
+offset_bottom = 323.0
+
+[node name="Label" type="Label" parent="AmpController"]
+layout_mode = 2
+text = "AMPLITUDE"
+
+[node name="HSlider" type="HSlider" parent="AmpController"]
+layout_mode = 2
+value = 50.0
+
+[connection signal="value_changed" from="AmpController/HSlider" to="TextureRect" method="_on_amplitude_changed"]

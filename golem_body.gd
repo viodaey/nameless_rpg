@@ -23,7 +23,7 @@ func generate_occluder_from_map(occlusion_map: Image, threshold: float = 0.5):
 	light_occluder.occluder = occluder_polygon
 	add_child(light_occluder)
 
-func _ready ():
+func _ready():
 	var image : Image = load("res://textures/golem/golem1_o.png").get_image()
 	generate_occluder_from_map(image)
 #
