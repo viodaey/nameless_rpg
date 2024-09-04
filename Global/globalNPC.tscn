@@ -19,9 +19,9 @@ animation = &"run"
 autoplay = "idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-19.833, -5, -19.833, 5, -12.5261, 16, 12.5261, 16, 12.5261, -1)
+polygon = PackedVector2Array(-19.833, -5, -19.833, 5, -12.5261, 16, 12.5261, 16)
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6.65188e-05, 24)
+position = Vector2(-2.86102e-06, 8)
 shape = ExtResource("4_fd6gk")

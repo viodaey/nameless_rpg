@@ -1,15 +1,26 @@
-[gd_scene load_steps=46 format=3 uid="uid://b7kga5w7hkr5o"]
+[gd_scene load_steps=48 format=3 uid="uid://b7kga5w7hkr5o"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
-[ext_resource type="Texture2D" uid="uid://dy7akiv6de2cp" path="res://bg_art/Preview/Background.png" id="1_hqwel"]
 [ext_resource type="Resource" uid="uid://bq72ft87yg5kg" path="res://enemyResources/res_battle_spider.tres" id="2_72n72"]
 [ext_resource type="Texture2D" uid="uid://dwvjcsn3e1bam" path="res://textures/bosses/boss_12_S.png" id="3_8u46x"]
+[ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="3_hqtvv"]
+[ext_resource type="LabelSettings" uid="uid://16a2edh71l7i" path="res://Scenes/Battle/hplabel.tres" id="4_jbr0v"]
 [ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="5_uugxd"]
-[ext_resource type="Texture2D" uid="uid://cmro446n4bs4" path="res://textures/golem/golem1_d.png" id="7_er6dq"]
 [ext_resource type="Texture2D" uid="uid://cv5mk2thosujc" path="res://test_sprites/60FPS_AC2Q001_Slash.png" id="7_g8lpc"]
+[ext_resource type="Texture2D" uid="uid://udqo7tn6udns" path="res://textures/world_1/firewolf23.png" id="8_6g5ax"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qufg"]
-bg_color = Color(0.2016, 0.36, 0.2676, 0.423529)
+bg_color = Color(0.0882, 0.14, 0.0890633, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.605443, 0.578096, 0.618631, 1)
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_dlh10"]
+font_size = 12
+shadow_color = Color(0.07, 0.07, 0.07, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bj0i"]
 resource_name = "hp_red"
@@ -377,24 +388,24 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.83937
-offset_top = -144.991
+offset_top = -18.3787
 offset_right = 9.83936
-offset_bottom = -104.991
+offset_bottom = 21.6213
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_hqwel")
+texture = ExtResource("3_hqtvv")
 expand_mode = 1
 
 [node name="Panel_Menu" type="Panel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 291.975
-offset_top = 489.091
-offset_right = 592.975
-offset_bottom = 644.091
+offset_left = 28.2297
+offset_top = 57.1797
+offset_right = 138.23
+offset_bottom = 187.18
 theme_override_styles/panel = SubResource("StyleBoxFlat_8qufg")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel_Menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -402,21 +413,36 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="Panel_Menu/HBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="Panel_Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Player1Container" type="HBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu/HBoxContainer/MarginContainer2"]
+[node name="MarginContainer2" type="MarginContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 8
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
 
-[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Player1Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Player_1
+"
+label_settings = SubResource("LabelSettings_dlh10")
+
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
@@ -424,25 +450,25 @@ max_value = 1e+11
 value = 0.3
 show_percentage = false
 
-[node name="Label" type="Label" parent="Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerHP"]
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer/PlayerHP"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -21.5
-offset_top = -11.5
-offset_right = 21.5
-offset_bottom = 11.5
+anchor_bottom = 1.0
+offset_left = -16.5
+offset_top = -2.47894
+offset_right = 16.5
+offset_bottom = 4.52106
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-text = "HP: 25/50"
+text = "25/50"
+label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
 theme_override_styles/fill = SubResource("StyleBoxFlat_472vc")
@@ -450,7 +476,7 @@ max_value = 10.0
 value = 8.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -467,26 +493,240 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "MP: 8/10"
 
-[node name="CombatLog" type="Panel" parent="Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="Player2Container" type="HBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/CombatLog"]
+[node name="MarginContainer2" type="MarginContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Player2Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Player_2
+"
+label_settings = SubResource("LabelSettings_dlh10")
+
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
+max_value = 1e+11
+value = 0.3
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer/PlayerHP"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -16.5
+offset_top = -2.47894
+offset_right = 16.5
+offset_bottom = 4.52106
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "25/50"
+label_settings = ExtResource("4_jbr0v")
 
-[node name="Timer" type="Timer" parent="Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/CombatLog"]
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_472vc")
+max_value = 10.0
+value = 8.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer/PlayerMP"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.5
+offset_top = -11.5
+offset_right = 21.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "MP: 8/10"
+
+[node name="Player3Container" type="HBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Player3Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Player_3
+"
+label_settings = SubResource("LabelSettings_dlh10")
+
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
+max_value = 1e+11
+value = 0.3
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer/PlayerHP"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.5
+offset_top = -2.47894
+offset_right = 16.5
+offset_bottom = 4.52106
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "25/50"
+label_settings = ExtResource("4_jbr0v")
+
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_472vc")
+max_value = 10.0
+value = 8.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer/PlayerMP"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.5
+offset_top = -11.5
+offset_right = 21.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "MP: 8/10"
+
+[node name="Player4Container" type="HBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Player4Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Player_4
+"
+label_settings = SubResource("LabelSettings_dlh10")
+
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
+max_value = 1e+11
+value = 0.3
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer/PlayerHP"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.5
+offset_top = -2.47894
+offset_right = 16.5
+offset_bottom = 4.52106
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "25/50"
+label_settings = ExtResource("4_jbr0v")
+
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
+theme_override_styles/fill = SubResource("StyleBoxFlat_472vc")
+max_value = 10.0
+value = 8.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer/PlayerMP"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.5
+offset_top = -11.5
+offset_right = 21.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "MP: 8/10"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_nrlsx")
 }
 
-[node name="Panel_Menu2" type="Panel" parent="."]
+[node name="ActionMenu" type="Panel" parent="."]
 z_index = 1
 layout_mode = 2
 offset_left = 20.9706
@@ -495,7 +735,7 @@ offset_right = 245.971
 offset_bottom = 643.334
 theme_override_styles/panel = SubResource("StyleBoxFlat_8qufg")
 
-[node name="MarginActions" type="MarginContainer" parent="Panel_Menu2"]
+[node name="MarginActions" type="MarginContainer" parent="ActionMenu"]
 z_index = 2
 layout_mode = 1
 anchors_preset = 15
@@ -510,41 +750,41 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel_Menu2/MarginActions"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ActionMenu/MarginActions"]
 layout_mode = 2
 
-[node name="Actions" type="VBoxContainer" parent="Panel_Menu2/MarginActions/HBoxContainer"]
+[node name="Actions" type="VBoxContainer" parent="ActionMenu/MarginActions/HBoxContainer"]
 z_index = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Attack" type="Button" parent="Panel_Menu2/MarginActions/HBoxContainer/Actions"]
+[node name="Attack" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 0
 text = "     Attack     "
 
-[node name="Magic" type="Button" parent="Panel_Menu2/MarginActions/HBoxContainer/Actions"]
+[node name="Magic" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 0
 text = "     Magic     "
 
-[node name="Actions2" type="VBoxContainer" parent="Panel_Menu2/MarginActions/HBoxContainer"]
+[node name="Actions2" type="VBoxContainer" parent="ActionMenu/MarginActions/HBoxContainer"]
 z_index = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Item" type="Button" parent="Panel_Menu2/MarginActions/HBoxContainer/Actions2"]
+[node name="Item" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions2"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 0
 text = "     Item     "
 
-[node name="Dance" type="Button" parent="Panel_Menu2/MarginActions/HBoxContainer/Actions2"]
+[node name="Dance" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions2"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
@@ -555,10 +795,10 @@ text = "     Dance     "
 modulate = Color(1, 1, 1, 0.996078)
 visibility_layer = 17
 layout_mode = 2
-offset_left = 49.2003
-offset_top = 346.142
-offset_right = 305.2
-offset_bottom = 547.142
+offset_left = 118.565
+offset_top = 326.741
+offset_right = 374.564
+offset_bottom = 527.741
 size_flags_vertical = 4
 texture = ExtResource("3_8u46x")
 stretch_mode = 2
@@ -584,12 +824,13 @@ frame = 20
 frame_progress = 1.0
 
 [node name="EnemyHP" type="ProgressBar" parent="."]
-custom_minimum_size = Vector2(0, 30)
+visible = false
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
-offset_left = 607.341
-offset_top = 512.576
-offset_right = 898.341
-offset_bottom = 542.576
+offset_left = 635.0
+offset_top = 270.0
+offset_right = 816.0
+offset_bottom = 278.0
 theme_override_constants/outline_size = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
@@ -597,7 +838,7 @@ max_value = 1e+10
 value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="EnemyHP"]
+[node name="HPLabel" type="Label" parent="EnemyHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -610,6 +851,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "HP: 25/50"
+label_settings = ExtResource("4_jbr0v")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(472.645, 324.699)
@@ -621,13 +863,33 @@ limit_bottom = 648
 editor_draw_limits = true
 
 [node name="Enemy" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 2
-offset_left = 667.027
-offset_top = 285.899
-offset_right = 860.027
-offset_bottom = 514.899
-texture = ExtResource("7_er6dq")
+offset_left = 630.0
+offset_top = 295.0
+offset_right = 823.0
+offset_bottom = 524.0
+texture = ExtResource("8_6g5ax")
 expand_mode = 1
 
-[connection signal="pressed" from="Panel_Menu2/MarginActions/HBoxContainer/Actions/Attack" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="Panel_Menu2/MarginActions/HBoxContainer/Actions/Magic" to="." method="_on_magic_pressed"]
+[node name="CombatLogPanel" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 331.497
+offset_top = 547.292
+offset_right = 653.497
+offset_bottom = 630.292
+size_flags_vertical = 3
+
+[node name="CombatLog" type="RichTextLabel" parent="CombatLogPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="CombatLogPanel"]
+
+[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Magic" to="." method="_on_magic_pressed"]
+[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Dance" to="." method="_on_dance_pressed"]

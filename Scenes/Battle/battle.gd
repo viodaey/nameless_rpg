@@ -19,24 +19,32 @@ var dealt_dmg: int = 0
 var enemy_dmg: int = 0
 var visible_characters: int = 0
 var try = 0
+var player_count = 1
 #var e_sizes : Array = [[1, 640, 368],[1.5, 540, 250]]
 #var e_size : Array
 
 
-@onready var _playerhp = $Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerHP
-@onready var _playermp = $Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/PlayerMP
-@onready var _log_timer = $Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/CombatLog/Timer
-@onready var _combat_log_box = $Panel_Menu/HBoxContainer/MarginContainer2/VBoxContainer/CombatLog/RichTextLabel
+@onready var _playerhp = $Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer/PlayerHP
+@onready var _playermp = $Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer/PlayerMP
+@onready var _log_timer = $CombatLogPanel/Timer
+@onready var _combat_log_box = $CombatLogPanel/CombatLog
 @onready var _playertexture = $Player_1
 @onready var _fireballAnimate = $Player_1/Fireball
 @onready var _enemyhp = $EnemyHP
 @onready var _enemyrect = $Enemy
-@onready var _actionmenu = $Panel_Menu2
+@onready var _actionmenu = $ActionMenu
 @onready var _effectAnimate = $Player_1/onEnemyHit
 @onready var _enemy_resource = player.enemy_encounter
+@onready var _player2container = $Panel_Menu/VBoxContainer/GridContainer/Player2Container
+@onready var _player3container = $Panel_Menu/VBoxContainer/GridContainer/Player3Container
+@onready var _player4container = $Panel_Menu/VBoxContainer/GridContainer/Player4Container
 
 
 func _ready():
+	if player_count == 1:
+		_player2container.visible = false
+		_player3container.visible = false
+		_player4container.visible = false
 	set_health_init(_playerhp, player.health, player.max_health)
 	current_player_health = player.health
 	current_player_mp = player.mp
@@ -48,6 +56,8 @@ func _ready():
 	_enemyrect.texture = enemy.texture
 	_enemyrect.size = enemy.size
 	_enemyrect.position = enemy.position
+	_enemyhp.position.x = _enemyrect.position.x
+	_enemyhp.size.x = _enemyrect.size.x
 	#e_size = e_sizes[enemy.size]
 	#print(_enemyrect.size)
 	#_enemyrect.scale.x = e_size[0]
@@ -69,12 +79,12 @@ func _process(delta: float) -> void:
 func set_mp_init(progress_bar, mp, max_mp):
 	progress_bar.value = mp 
 	progress_bar.max_value = max_mp
-	progress_bar.get_node("Label").text = "MP: %d/%d" % [mp, max_mp]
+	progress_bar.get_node("MPLabel").text = "MP: %d/%d" % [mp, max_mp]
 
 func set_health_init(progress_bar, health, max_health):
 	progress_bar.value = health
 	progress_bar.max_value = max_health
-	progress_bar.get_node("Label").text = "HP: %d/%d" % [health, max_health]
+	progress_bar.get_node("HPLabel").text = "HP: %d/%d" % [health, max_health]
 
 func set_health(progress_bar, health, max_health):
 	var stepsize : float = max(max_health / 100,1)
@@ -83,9 +93,9 @@ func set_health(progress_bar, health, max_health):
 	for i in steps:
 		progress_bar.value = progress_bar.value - stepsize
 		health_label_value = health_label_value - stepsize
-		progress_bar.get_node("Label").text = "HP: %d/%d" % [max(0,health_label_value), max_health]
+		progress_bar.get_node("HPLabel").text = "HP: %d/%d" % [max(0,health_label_value), max_health]
 		if i == steps - 1:
-			progress_bar.get_node("Label").text = "HP: %d/%d" % [max(0,health - dealt_dmg), max_health]
+			progress_bar.get_node("HPLabel").text = "HP: %d/%d" % [max(0,health - dealt_dmg), max_health]
 		await get_tree().create_timer(0.03).timeout
 
 func set_mp(progress_bar, mp_cost, max_mp): 
@@ -93,7 +103,7 @@ func set_mp(progress_bar, mp_cost, max_mp):
 		current_player_mp = current_player_mp - mp_cost
 		progress_bar.value = progress_bar.value - 1
 		progress_bar.max_value = max_mp
-		progress_bar.get_node("Label").text = "MP: %d/%d" % [progress_bar.value, max_mp]
+		progress_bar.get_node("MPLabel").text = "MP: %d/%d" % [progress_bar.value, max_mp]
 		await get_tree().create_timer(0.10).timeout
 		
 
@@ -260,3 +270,15 @@ func enemy_died():
 		player.hp_grow = 0
 		player.dmg_grow = 0
 	sceneManager.goto_scene(sceneManager.last_scene)
+
+
+func _on_dance_pressed() -> void:
+	var tween = get_tree().create_tween()
+	for i in 10:
+		tween.tween_property(_playertexture, "modulate:s", 1, 0.01)
+		tween.tween_property(_playertexture, "modulate:h", 0.5, 0.01)
+		tween.tween_property(_playertexture, "flip_h", true,  0.1)
+		tween.tween_property(_playertexture, "modulate:h", 0.3, 0.01)
+		tween.tween_property(_playertexture, "flip_h", false,  0.1)
+		tween.tween_property(_playertexture, "modulate:h", 0.8, 0.01)
+	tween.tween_property(_playertexture, "modulate:s", 0, 0.01)
