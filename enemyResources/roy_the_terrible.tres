@@ -15,3 +15,5 @@ speed = 1
 music = "res://musig/Battle_-_No_Way_Out.ogg"
 can_chill = false
 lifesteal = 6
+size = Vector2(204, 180)
+position = Vector2(667, 335)

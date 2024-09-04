@@ -17,3 +17,5 @@ music = "battle01"
 can_chill = true
 lifesteal = 0
 animatedSprite = ExtResource("1_d4v52")
+size = Vector2(193, 229)
+position = Vector2(667, 286)
