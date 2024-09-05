@@ -1,12 +1,12 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://dfu73cl600trr"]
 
-[ext_resource type="Texture2D" uid="uid://udqo7tn6udns" path="res://textures/world_1/firewolf23.png" id="1_kscp2"]
+[ext_resource type="Texture2D" uid="uid://b5vq628nn5gh3" path="res://textures/world_1/Firewolf Evo 2.png" id="1_xl4vg"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_kscp2")
+"texture": ExtResource("1_xl4vg")
 }],
 "loop": true,
 "name": &"idle",
@@ -14,7 +14,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_kscp2")
+"texture": ExtResource("1_xl4vg")
 }],
 "loop": true,
 "name": &"run",

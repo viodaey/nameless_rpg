@@ -1,6 +1,9 @@
 extends Control
 
 @export var enemy : Resource 
+@export var enemy2: Resource
+@export var enemy3: Resource
+@export var enemy4: Resource
 
 var rng = RandomNumberGenerator.new()
 var current_player_health: int = 0
@@ -11,6 +14,7 @@ var enemy_dmg: int = 0
 var visible_characters: int = 0
 var try = 0
 var player_count = 1
+var e_groupsize: int = 1
 #var e_sizes : Array = [[1, 640, 368],[1.5, 540, 250]]
 #var e_size : Array
 
@@ -22,9 +26,15 @@ var player_count = 1
 @onready var _playertexture = $Player_1
 @onready var _fireballAnimate = $Player_1/Fireball
 @onready var _enemyhp1 = $Enemy1/EnemyHP
+@onready var _enemyhp2 = $Enemy2/EnemyHP
+@onready var _enemyhp3 = $Enemy3/EnemyHP
+@onready var _enemyhp4 = $Enemy4/EnemyHP
 @onready var _enemyrect1 = $Enemy1
+@onready var _enemyrect2 = $Enemy2
+@onready var _enemyrect3 = $Enemy3
+@onready var _enemyrect4 = $Enemy4
 @onready var _actionmenu = $ActionMenu
-@onready var _effectAnimate = $Player_1/onEnemyHit
+@onready var _effectAnimate = $Player_1/hitAnimate
 @onready var _enemy_resource = player.enemy_encounter
 @onready var _player2container = $Panel_Menu/VBoxContainer/GridContainer/Player2Container
 @onready var _player3container = $Panel_Menu/VBoxContainer/GridContainer/Player3Container
@@ -44,15 +54,74 @@ func _ready():
 	current_enemy_health = enemy.health
 	set_mp_init(_playermp, player.mp, player.max_mp)	
 
+	e_groupsize = rng.randi_range(enemy.min_group_size, enemy.max_group_size)
+	
 #	setup enemy 1	
 	set_health_init(_enemyhp1, enemy.health, enemy.health)
 	_enemyrect1.texture = enemy.texture
 	_enemyrect1.size = enemy.size
 	#_enemyrect1.position = enemy.position
-	_enemyhp1.position.x = _enemyrect1.position.x
-	_enemyhp1.size.x = _enemyrect1.size.x
+	#_enemyhp1.position.x = _enemyrect1.position.x
+	#_enemyhp1.size.x = _enemyrect1.size.x
 	
+#	first check if groupsize > 1 possible
+	if e_groupsize > 1:
+		if len(enemy.friends) > 0:
+			var bla = rng.randi_range(0, len(enemy.friends)) 
+			if bla == 0:
+				enemy2 = load(player.enemy_encounter)
+			else:
+				print(bla)
+				print(enemy.allEnemies)
+				print(enemy.friends)
+				enemy2 = load(enemy.allEnemies[enemy.friends[bla-1]])
+		else:
+			enemy2 = load(player.enemy_encounter)
+#	setup enemy 2
+		set_health_init(_enemyhp2, enemy2.health, enemy2.health)
+		_enemyrect2.texture = enemy2.texture
+		_enemyrect2.size = enemy2.size
 	
+	else:
+		_enemyrect2.visible = false
+	
+	if e_groupsize > 2:
+		if len(enemy.friends) > 0:
+			var bla = rng.randi_range(0, len(enemy.friends)) 
+			if bla == 0:
+				enemy3 = load(player.enemy_encounter)
+			else:
+				enemy3 = load(enemy.allEnemies[enemy.friends[bla-1]])
+		else:
+			enemy3 = load(player.enemy_encounter)
+		
+#	setup enemy 3
+		set_health_init(_enemyhp3, enemy3.health, enemy3.health)
+		_enemyrect3.texture = enemy3.texture
+		_enemyrect3.size = enemy3.size
+	
+	else:
+		_enemyrect3.visible = false
+
+	if e_groupsize > 3:
+		if len(enemy.friends) > 0:
+			var bla = rng.randi_range(0, len(enemy.friends)) 
+			if bla == 0:
+				enemy4 = load(player.enemy_encounter)
+			else:
+				enemy4 = load(enemy.allEnemies[enemy.friends[bla-1]])
+		else:
+			enemy4 = load(player.enemy_encounter)
+		
+#	setup enemy 3
+		set_health_init(_enemyhp4, enemy4.health, enemy4.health)
+		_enemyrect4.texture = enemy4.texture
+		_enemyrect4.size = enemy4.size
+
+	else:
+		_enemyrect4.visible = false
+
+
 	#e_size = e_sizes[enemy.size]
 	#print(_enemyrect.size)
 	#_enemyrect.scale.x = e_size[0]

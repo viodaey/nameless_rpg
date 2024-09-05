@@ -2,7 +2,8 @@ extends Node2D
 
 var spawn_npc = preload("res://Global/globalNPC.tscn")
 var world_enemies = [
-	preload("res://enemyResources/forest_wolf.tres")
+	preload("res://enemyResources/wolf_fire.tres"),
+	preload("res://enemyResources/wolf_ice.tres")
 	]
 var spawn = spawn_npc.instantiate()
 @onready var _player_body = $Player
@@ -17,7 +18,7 @@ var spawn_positions = [
 	Vector2(-60,70)
 	]
 var rng = RandomNumberGenerator.new()
-var _spawned_npc = "res://enemyResources/forest_wolf.tres" #was world_enemies[0]
+var _spawned_npc =  world_enemies[randi_range(0, len(world_enemies) - 1)] #"res://enemyResources/forest_wolf.tres" #was world_enemies[0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -14,7 +14,16 @@ extends Resource
 @export var size: Vector2 = Vector2(204, 180)
 @export var position: Vector2 = Vector2(667, 335)
 @export var map_scale: float = 1
+@export var max_group_size: int = 3
+@export var min_group_size: int = 1
+@export var friends: Array [String]
 
+const allEnemies: Dictionary = {
+	"Fire Wolf": "res://enemyResources/wolf_fire.tres",
+	"Ice Wolf": "res://enemyResources/wolf_ice.tres",
+	"Golem": "res://enemyResources/golem.tres",
+	"Fire Pixie": "res://enemyResources/Pixie_Fire.tres",
+	"Shadow Wraith": "res://enemyResources/shadow_wraith.tres"}
 
 
 # Called when the node enters the scene tree for the first time.
