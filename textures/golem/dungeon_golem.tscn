@@ -87,14 +87,14 @@ height = 10.0
 
 [node name="Shader" type="Sprite2D" parent="."]
 modulate = Color(0.01, 0.00990167, 0.0099, 0.92549)
-position = Vector2(224, 1072)
+position = Vector2(432, 816)
 scale = Vector2(1.01042, 1.02778)
 texture = ExtResource("7_wyel6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.360017, 0.0650251, 0, 1)
 z_index = -5
-position = Vector2(352, 1184)
+position = Vector2(936, 728)
 texture = SubResource("CanvasTexture_wi12p")
 
 [node name="TextureRect" type="TextureRect" parent="."]

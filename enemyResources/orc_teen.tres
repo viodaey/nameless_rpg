@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bq75vos4ne52c"]
+
+[ext_resource type="SpriteFrames" uid="uid://0bkl6b38521f" path="res://enemyResources/spriteFrames/orc_teen_sf.tres" id="1_6bmmn"]
+[ext_resource type="Texture2D" uid="uid://bhpmkqbpnhat1" path="res://textures/humanoids/Orc_teen.png" id="1_d7oji"]
+[ext_resource type="Script" path="res://enemyResources/enemies.gd" id="2_h3ko4"]
+
+[resource]
+script = ExtResource("2_h3ko4")
+name = "Teen Orc"
+texture = ExtResource("1_d7oji")
+health = 100
+damage = 20
+critc = 5
+xp = 10
+speed = 40
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = ExtResource("1_6bmmn")
+size = Vector2(204, 180)
+position = Vector2(0, 0)
+map_scale = 0.5
+max_group_size = 3
+min_group_size = 1
+friends = Array[String](["Baby Orc"])
+battle_scale_vec = Vector2(0.5, 0.5)

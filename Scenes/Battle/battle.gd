@@ -47,24 +47,33 @@ func _ready():
 		_player3container.visible = false
 		_player4container.visible = false
 	set_health_init(_playerhp, player.health, player.max_health)
+	set_mp_init(_playermp, player.mp, player.max_mp)
 	current_player_health = player.health
 	current_player_mp = player.mp
-	enemy = load(player.enemy_encounter)
-	AudioPlayer.play_music_level(enemy.music)
-	current_enemy_health = enemy.health
-	set_mp_init(_playermp, player.mp, player.max_mp)	
-
-	e_groupsize = rng.randi_range(enemy.min_group_size, enemy.max_group_size)
 	
+##	turn off for testing resources
+#	load resource from encounter
+	enemy = load(player.enemy_encounter)
+	print(player.enemy_encounter)
+	AudioPlayer.play_music_level(enemy.music)
+	
+	current_enemy_health = enemy.health
+
+
 #	setup enemy 1	
 	set_health_init(_enemyhp1, enemy.health, enemy.health)
 	_enemyrect1.texture = enemy.texture
-	_enemyrect1.size = enemy.size
+	print(enemy.name)
+	#_enemyrect1.size = enemy.size
+	_enemyrect1.position = 	_enemyrect1.position + enemy.position
+	_enemyrect1.scale = enemy.battle_scale_vec
 	#_enemyrect1.position = enemy.position
 	#_enemyhp1.position.x = _enemyrect1.position.x
 	#_enemyhp1.size.x = _enemyrect1.size.x
 	
-#	first check if groupsize > 1 possible
+	e_groupsize = rng.randi_range(enemy.min_group_size, enemy.max_group_size)
+	
+#	first check if groupsize > 1
 	if e_groupsize > 1:
 		if len(enemy.friends) > 0:
 			var bla = rng.randi_range(0, len(enemy.friends)) 
@@ -80,7 +89,9 @@ func _ready():
 #	setup enemy 2
 		set_health_init(_enemyhp2, enemy2.health, enemy2.health)
 		_enemyrect2.texture = enemy2.texture
-		_enemyrect2.size = enemy2.size
+		#_enemyrect2.size = enemy2.size
+		_enemyrect2.position = 	_enemyrect2.position + enemy2.position
+		_enemyrect2.scale = enemy2.battle_scale_vec
 	
 	else:
 		_enemyrect2.visible = false
@@ -98,7 +109,9 @@ func _ready():
 #	setup enemy 3
 		set_health_init(_enemyhp3, enemy3.health, enemy3.health)
 		_enemyrect3.texture = enemy3.texture
-		_enemyrect3.size = enemy3.size
+		#_enemyrect3.size = enemy3.size
+		_enemyrect3.position = 	_enemyrect3.position + enemy3.position
+		_enemyrect3.scale = enemy3.battle_scale_vec
 	
 	else:
 		_enemyrect3.visible = false
@@ -112,11 +125,14 @@ func _ready():
 				enemy4 = load(enemy.allEnemies[enemy.friends[bla-1]])
 		else:
 			enemy4 = load(player.enemy_encounter)
+			
 		
 #	setup enemy 3
 		set_health_init(_enemyhp4, enemy4.health, enemy4.health)
 		_enemyrect4.texture = enemy4.texture
-		_enemyrect4.size = enemy4.size
+		#_enemyrect4.size = enemy4.size
+		_enemyrect4.position = 	_enemyrect4.position + enemy4.position
+		_enemyrect4.scale = enemy4.battle_scale_vec
 
 	else:
 		_enemyrect4.visible = false
@@ -323,7 +339,7 @@ func _attack_phase_2():
 
 func enemy_died():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Enemy, "modulate:a", 0,  0.5)
+	tween.tween_property($Enemy1, "modulate:a", 0,  0.5)
 	await (combat_log("%s died" % (enemy.name)))
 	player.xp = player.xp + enemy.xp
 	if player.xp >= player.max_xp:

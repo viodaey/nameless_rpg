@@ -3,12 +3,14 @@ extends Node2D
 var spawn_npc = preload("res://Global/globalNPC.tscn")
 var world_enemies = [
 	preload("res://enemyResources/wolf_fire.tres"),
-	preload("res://enemyResources/wolf_ice.tres")
+	preload("res://enemyResources/wolf_ice.tres"),
+	preload("res://enemyResources/orc_baby.tres"),
+	preload("res://enemyResources/orc_teen.tres")
 	]
 var spawn = spawn_npc.instantiate()
 @onready var _player_body = $Player
 @onready var _cave_entrance = $CaveEntrance
-@onready var _preload_npc = $NPC_1
+#@onready var _preload_npc = $NPC_1
 var spawn_positions = [
 	Vector2(90, -90), 
 	Vector2(0, 80), 
@@ -18,7 +20,8 @@ var spawn_positions = [
 	Vector2(-60,70)
 	]
 var rng = RandomNumberGenerator.new()
-var _spawned_npc =  world_enemies[randi_range(0, len(world_enemies) - 1)] #"res://enemyResources/forest_wolf.tres" #was world_enemies[0]
+var _spawned_npc  
+var spawn_request
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,11 +41,15 @@ func _spawn_npc():
 	else:
 		var spawn_loc = rng.randi_range(1,len(spawn_positions))
 		var enemy_select = rng.randi_range(1,len(world_enemies))
+		spawn_request = world_enemies[enemy_select - 1]
 		add_child(spawn)
 		_spawned_npc = $NPC_spawn
 		_spawned_npc.position = _player_body.position + spawn_positions[spawn_loc - 1]
-		_spawned_npc.enemy = world_enemies[enemy_select - 1]
-		print("spawned")
+		#_spawned_npc.enemy = world_enemies[enemy_select - 1]
+		#_animated_sprite.sprite_frames = enemy.animatedSprite
+		#_animated_sprite.scale = Vector2(enemy.map_scale, enemy.map_scale)
+
+		#print("spawned %s" % (_spawned_npc.enemy.name))
 		
 	
 

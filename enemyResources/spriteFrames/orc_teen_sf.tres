@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://0bkl6b38521f"]
+
+[ext_resource type="Texture2D" uid="uid://bhpmkqbpnhat1" path="res://textures/humanoids/Orc_teen.png" id="1_obf75"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_obf75")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_obf75")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]

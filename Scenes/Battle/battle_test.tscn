@@ -1,15 +1,16 @@
-[gd_scene load_steps=52 format=3 uid="uid://b7kga5w7hkr5o"]
+[gd_scene load_steps=53 format=3 uid="uid://de38gdfgjul61"]
 
-[ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
-[ext_resource type="Resource" uid="uid://bq72ft87yg5kg" path="res://enemyResources/res_battle_spider.tres" id="2_72n72"]
-[ext_resource type="Texture2D" uid="uid://dwvjcsn3e1bam" path="res://textures/bosses/boss_12_S.png" id="3_8u46x"]
-[ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="3_hqtvv"]
-[ext_resource type="LabelSettings" uid="uid://16a2edh71l7i" path="res://Scenes/Battle/hplabel.tres" id="4_jbr0v"]
-[ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="5_uugxd"]
-[ext_resource type="Texture2D" uid="uid://cv5mk2thosujc" path="res://test_sprites/60FPS_AC2Q001_Slash.png" id="7_g8lpc"]
-[ext_resource type="Texture2D" uid="uid://udqo7tn6udns" path="res://textures/world_1/firewolf23.png" id="8_6g5ax"]
-[ext_resource type="Texture2D" uid="uid://b8uefsykva2cc" path="res://textures/enemyFullTextures/wolf_ice.tres" id="8_8xvtf"]
-[ext_resource type="Texture2D" uid="uid://bkxmlay3n8vv3" path="res://textures/selectionTriangle.png" id="9_3rhom"]
+[ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_6rr7b"]
+[ext_resource type="Resource" uid="uid://cb3ouqjr5sgqc" path="res://enemyResources/orc_baby.tres" id="2_gm445"]
+[ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="3_kgelb"]
+[ext_resource type="LabelSettings" uid="uid://16a2edh71l7i" path="res://Scenes/Battle/hplabel.tres" id="4_xhf75"]
+[ext_resource type="Texture2D" uid="uid://dwvjcsn3e1bam" path="res://textures/bosses/boss_12_S.png" id="5_m5ges"]
+[ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="6_6wo3j"]
+[ext_resource type="Texture2D" uid="uid://cv5mk2thosujc" path="res://test_sprites/60FPS_AC2Q001_Slash.png" id="7_lfsco"]
+[ext_resource type="Texture2D" uid="uid://b8uefsykva2cc" path="res://textures/enemyFullTextures/wolf_ice.tres" id="8_d8tu3"]
+[ext_resource type="Texture2D" uid="uid://bkxmlay3n8vv3" path="res://textures/selectionTriangle.png" id="9_ofns6"]
+[ext_resource type="Texture2D" uid="uid://udqo7tn6udns" path="res://textures/world_1/firewolf23.png" id="10_3nctf"]
+[ext_resource type="Texture2D" uid="uid://b3cxijemwg6ji" path="res://textures/humanoids/Orc_baby.png" id="11_34owh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qufg"]
 bg_color = Color(0.0882, 0.14, 0.0890633, 0)
@@ -180,19 +181,19 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_055hs"]
-atlas = ExtResource("5_uugxd")
+atlas = ExtResource("6_6wo3j")
 region = Rect2(0, 0, 580, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vwxa"]
-atlas = ExtResource("5_uugxd")
+atlas = ExtResource("6_6wo3j")
 region = Rect2(580, 0, 580, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ajdio"]
-atlas = ExtResource("5_uugxd")
+atlas = ExtResource("6_6wo3j")
 region = Rect2(0, 160, 580, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ryd2j"]
-atlas = ExtResource("5_uugxd")
+atlas = ExtResource("6_6wo3j")
 region = Rect2(580, 160, 580, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5qdkq"]
@@ -216,83 +217,83 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0f2sd"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(0, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qv6s"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rs3vh"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(384, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lw4ll"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(576, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3esk"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(768, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyyon"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(0, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vd87r"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(192, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_28oa2"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(384, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b2ovn"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(576, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ai7d3"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(768, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24exv"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(0, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3dq1n"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(192, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xcpj8"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(384, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_trmgb"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(576, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lqon2"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(768, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqmwq"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(0, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke38v"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(192, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iikf5"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(384, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e17tw"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(576, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a08rk"]
-atlas = ExtResource("7_g8lpc")
+atlas = ExtResource("7_lfsco")
 region = Rect2(768, 576, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pvakd"]
@@ -391,8 +392,8 @@ grow_vertical = 2
 scale = Vector2(1.23983, 0.979368)
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_f8vj8")
-enemy = ExtResource("2_72n72")
+script = ExtResource("1_6rr7b")
+enemy = ExtResource("2_gm445")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -1
@@ -406,7 +407,7 @@ offset_right = 9.83936
 offset_bottom = 21.6213
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_hqtvv")
+texture = ExtResource("3_kgelb")
 expand_mode = 1
 
 [node name="Panel_Menu" type="Panel" parent="."]
@@ -478,7 +479,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
-label_settings = ExtResource("4_jbr0v")
+label_settings = ExtResource("4_xhf75")
 
 [node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -554,7 +555,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
-label_settings = ExtResource("4_jbr0v")
+label_settings = ExtResource("4_xhf75")
 
 [node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -630,7 +631,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
-label_settings = ExtResource("4_jbr0v")
+label_settings = ExtResource("4_xhf75")
 
 [node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -706,7 +707,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
-label_settings = ExtResource("4_jbr0v")
+label_settings = ExtResource("4_xhf75")
 
 [node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -813,7 +814,7 @@ offset_top = 326.741
 offset_right = 374.564
 offset_bottom = 527.741
 size_flags_vertical = 4
-texture = ExtResource("3_8u46x")
+texture = ExtResource("5_m5ges")
 stretch_mode = 2
 
 [node name="Fireball" type="AnimatedSprite2D" parent="Player_1"]
@@ -852,13 +853,13 @@ offset_left = 705.742
 offset_top = 359.415
 offset_right = 898.742
 offset_bottom = 588.416
-texture = ExtResource("8_8xvtf")
+texture = ExtResource("8_d8tu3")
 expand_mode = 1
 
 [node name="Select" type="Sprite2D" parent="Enemy1"]
 texture_filter = 2
 position = Vector2(83.8824, 73.5168)
-texture = ExtResource("9_3rhom")
+texture = ExtResource("9_ofns6")
 
 [node name="EnemyHP" type="ProgressBar" parent="Enemy1"]
 visible = false
@@ -888,7 +889,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "HP: 25/50"
-label_settings = ExtResource("4_jbr0v")
+label_settings = ExtResource("4_xhf75")
 
 [node name="Enemy2" type="TextureRect" parent="."]
 texture_filter = 1
@@ -897,13 +898,13 @@ offset_left = 750.909
 offset_top = 220.55
 offset_right = 943.909
 offset_bottom = 449.55
-texture = ExtResource("8_6g5ax")
+texture = ExtResource("10_3nctf")
 expand_mode = 1
 
 [node name="Select" type="Sprite2D" parent="Enemy2"]
 texture_filter = 2
 position = Vector2(83.8824, 73.5168)
-texture = ExtResource("9_3rhom")
+texture = ExtResource("9_ofns6")
 
 [node name="EnemyHP" type="ProgressBar" parent="Enemy2"]
 visible = false
@@ -933,7 +934,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "HP: 25/50"
-label_settings = ExtResource("4_jbr0v")
+label_settings = ExtResource("4_xhf75")
 
 [node name="Enemy3" type="TextureRect" parent="."]
 texture_filter = 1
@@ -942,13 +943,13 @@ offset_left = 570.239
 offset_top = 163.371
 offset_right = 763.239
 offset_bottom = 392.371
-texture = ExtResource("8_6g5ax")
+texture = ExtResource("10_3nctf")
 expand_mode = 1
 
 [node name="Select" type="Sprite2D" parent="Enemy3"]
 texture_filter = 2
 position = Vector2(83.8824, 73.5168)
-texture = ExtResource("9_3rhom")
+texture = ExtResource("9_ofns6")
 
 [node name="EnemyHP" type="ProgressBar" parent="Enemy3"]
 visible = false
@@ -978,22 +979,23 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "HP: 25/50"
-label_settings = ExtResource("4_jbr0v")
+label_settings = ExtResource("4_xhf75")
 
 [node name="Enemy4" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 525.072
-offset_top = 310.404
-offset_right = 718.072
-offset_bottom = 539.404
-texture = ExtResource("8_6g5ax")
+offset_left = 596.049
+offset_top = 441.101
+offset_right = 789.049
+offset_bottom = 670.101
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("11_34owh")
 expand_mode = 1
 
 [node name="Select" type="Sprite2D" parent="Enemy4"]
 texture_filter = 2
 position = Vector2(83.8824, 73.5168)
-texture = ExtResource("9_3rhom")
+texture = ExtResource("9_ofns6")
 
 [node name="EnemyHP" type="ProgressBar" parent="Enemy4"]
 visible = false
@@ -1023,7 +1025,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "HP: 25/50"
-label_settings = ExtResource("4_jbr0v")
+label_settings = ExtResource("4_xhf75")
 
 [node name="CombatLogPanel" type="Panel" parent="."]
 layout_mode = 2
