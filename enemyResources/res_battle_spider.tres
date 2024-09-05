@@ -20,3 +20,4 @@ lifesteal = 0
 animatedSprite = ExtResource("1_lfmos")
 size = Vector2(204, 180)
 position = Vector2(655, 335)
+map_scale = 1.0

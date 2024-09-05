@@ -17,13 +17,13 @@ var spawn_positions = [
 	Vector2(-60,70)
 	]
 var rng = RandomNumberGenerator.new()
-var _spawned_npc = world_enemies[0]
+var _spawned_npc = "res://enemyResources/forest_wolf.tres" #was world_enemies[0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioPlayer.play_music_level("fieldOverworld")
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
-		_preload_npc.queue_free()
+		#_preload_npc.queue_free()
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/Cave/cave.tscn":
 		_player_body.position.x = _cave_entrance.position.x
@@ -42,27 +42,24 @@ func _spawn_npc():
 		_spawned_npc.position = _player_body.position + spawn_positions[spawn_loc - 1]
 		_spawned_npc.enemy = world_enemies[enemy_select - 1]
 		print("spawned")
-
-	
-	
-
-
-
-
-	#pass # Replace with function body.
+		
 	
 
 
-#func _on_body_entered(body):
-	#_entered = true
+#You could pick an angle at random:
 
-#func _approach():
-	#_player_body.position = target_position
-	#
+#var angle := rand_range(0, TAU)
+#Similarly, a distance:
+
+#var distance := rand_range(min_distance, max_distance)
+#And then figure out where that is from self.position. There is a polar2cartesian we can use for that:
+
+#asteroid_instance.position = self.position + polar2cartesian(distance, angle)
 
 
 
-	
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

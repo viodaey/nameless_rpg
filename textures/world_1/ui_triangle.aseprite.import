@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cp0byfafbhv4j"
+path="res://.godot/imported/ui_triangle.aseprite-02a4651a9257a7880bdc4004182bacfe.res"
+
+[deps]
+
+source_file="res://textures/world_1/ui_triangle.aseprite"
+dest_files=["res://.godot/imported/ui_triangle.aseprite-02a4651a9257a7880bdc4004182bacfe.res"]
+
+[params]
+

@@ -28,8 +28,8 @@ func level_up():
 	hp_grow = 0
 	dmg_grow = 0
 	while xp >= max_xp:
-		hp_grow = hp_grow + round(max_health * 0.15)
-		dmg_grow = dmg_grow + round(damage * 0.12)
+		hp_grow = hp_grow + round(max_health * 0.10)
+		dmg_grow = dmg_grow + round(damage * 0.08)
 		max_health = max_health + hp_grow
 		health = health + hp_grow
 		damage = damage + dmg_grow

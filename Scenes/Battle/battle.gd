@@ -1,16 +1,7 @@
 extends Control
 
-#const all_enemies_path: Array =[
-	#"res://enemyResources/roy_the_terrible.tres",
-	#"res://enemyResources/res_battle_spider.tres"
-#]
-#
-#const all_enemies: Array = [
-	#preload(all_enemies_path[0]),
-	#preload(all_enemies_path[1])
-#]
-	
 @export var enemy : Resource 
+
 var rng = RandomNumberGenerator.new()
 var current_player_health: int = 0
 var current_enemy_health: int = 0
@@ -30,8 +21,8 @@ var player_count = 1
 @onready var _combat_log_box = $CombatLogPanel/CombatLog
 @onready var _playertexture = $Player_1
 @onready var _fireballAnimate = $Player_1/Fireball
-@onready var _enemyhp = $EnemyHP
-@onready var _enemyrect = $Enemy
+@onready var _enemyhp1 = $Enemy1/EnemyHP
+@onready var _enemyrect1 = $Enemy1
 @onready var _actionmenu = $ActionMenu
 @onready var _effectAnimate = $Player_1/onEnemyHit
 @onready var _enemy_resource = player.enemy_encounter
@@ -51,13 +42,17 @@ func _ready():
 	enemy = load(player.enemy_encounter)
 	AudioPlayer.play_music_level(enemy.music)
 	current_enemy_health = enemy.health
-	set_health_init(_enemyhp, enemy.health, enemy.health)
-	set_mp_init(_playermp, player.mp, player.max_mp)		
-	_enemyrect.texture = enemy.texture
-	_enemyrect.size = enemy.size
-	_enemyrect.position = enemy.position
-	_enemyhp.position.x = _enemyrect.position.x
-	_enemyhp.size.x = _enemyrect.size.x
+	set_mp_init(_playermp, player.mp, player.max_mp)	
+
+#	setup enemy 1	
+	set_health_init(_enemyhp1, enemy.health, enemy.health)
+	_enemyrect1.texture = enemy.texture
+	_enemyrect1.size = enemy.size
+	#_enemyrect1.position = enemy.position
+	_enemyhp1.position.x = _enemyrect1.position.x
+	_enemyhp1.size.x = _enemyrect1.size.x
+	
+	
 	#e_size = e_sizes[enemy.size]
 	#print(_enemyrect.size)
 	#_enemyrect.scale.x = e_size[0]
@@ -131,13 +126,14 @@ func enemy_turn():
 		dealt_dmg = round(rng.randf_range(0.8, 1.2) * enemy.damage)
 		await combat_log("%s attacks!" % [enemy.name])
 		var tween = get_tree().create_tween()
-		var pos = _enemyrect.position
-		tween.tween_property(_enemyrect, "position", Vector2(pos[0] + 10, pos[1]), 0.4)
-		tween.tween_property(_enemyrect, "position", Vector2(pos[0] - 20, pos[1]), 0.15)
-		tween.tween_property(_enemyrect, "position", Vector2(pos[0], pos[1]), 0.3)
+		var pos = _enemyrect1.position
+		tween.tween_property(_enemyrect1, "position", Vector2(pos[0] + 10, pos[1]), 0.4)
+		tween.tween_property(_enemyrect1, "position", Vector2(pos[0] - 20, pos[1]), 0.15)
+		tween.tween_property(_enemyrect1, "position", Vector2(pos[0], pos[1]), 0.3)
 		await tween.step_finished 
 		set_health(_playerhp, current_player_health, player.max_health)
 		current_player_health = (current_player_health - dealt_dmg)
+		player.health = current_player_health
 		tween = get_tree().create_tween()
 		for i in 6:
 			tween.chain().tween_property(_playertexture, "modulate:a", 0,  0.1)
@@ -146,7 +142,7 @@ func enemy_turn():
 		await tween.finished
 		await combat_log("Got hit for %d damage" % [dealt_dmg])
 		if enemy.lifesteal > 0:
-			set_health_init(_enemyhp, (min(current_enemy_health + enemy.lifesteal, enemy.health)), enemy.health)
+			set_health_init(_enemyhp1, (min(current_enemy_health + enemy.lifesteal, enemy.health)), enemy.health)
 			await combat_log("%s regained %d health" % [enemy.name, enemy.lifesteal] )
 		try = 0
 
@@ -202,7 +198,11 @@ func _on_magic_pressed():
 		_attack_phase_2()	
 	
 func _attack_phase_2():
-	$AnimationPlayer.play("enemy_damaged")
+	#$AnimationPlayer.play("enemy_damaged")
+	var tween = get_tree().create_tween()
+	for i in 6:
+		tween.chain().tween_property(_enemyrect1, "modulate:a", 0,  0.1)
+		tween.chain().tween_property(_enemyrect1, "modulate:a", 1,  0.1)
 	#await $AnimationPlayer.animation_finished
 	if player.critc >= rng.randi_range(1, 100):
 		dealt_dmg = round(dealt_dmg * 1.5)
@@ -210,7 +210,7 @@ func _attack_phase_2():
 		await get_tree().create_timer(0.5).timeout
 	else:
 		await get_tree().create_timer(0.75).timeout
-	await set_health(_enemyhp, current_enemy_health, enemy.health)
+	await set_health(_enemyhp1, current_enemy_health, enemy.health)
 	current_enemy_health = max(0, current_enemy_health - dealt_dmg)
 	#await get_tree().create_timer(0.75).timeout
 	await combat_log("You hit for %d damage" % [dealt_dmg])
