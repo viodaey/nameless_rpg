@@ -33,7 +33,7 @@ var x : int = 1
 @onready var _log_timer = $CombatLogPanel/Timer
 @onready var _combat_log_box = $CombatLogPanel/CombatLog
 @onready var _playertexture = $Player_1
-@onready var _fireballAnimate = $Player_1/Fireball
+@onready var _fireballAnimate = $FX/Fireball
 @onready var _enemycont1 = $EnemyContainer1
 @onready var _enemycont2 = $EnemyContainer2
 @onready var _enemycont3 = $EnemyContainer3
@@ -47,8 +47,8 @@ var x : int = 1
 @onready var _enemyrect3 = $EnemyContainer3/AspectContainer/EnemyText
 @onready var _enemyrect4 = $EnemyContainer4/AspectContainer/EnemyText
 @onready var _actionmenu = $ActionMenu
-@onready var _effectAnimate = $Player_1/hitAnimate
-@onready var _enemy_resource = player.enemy_encounter
+#@onready var _effectAnimate = $Player_1/hitAnimate
+#@onready var _enemy_resource = player.enemy_encounter
 @onready var _player2container = $Panel_Menu/VBoxContainer/GridContainer/Player2Container
 @onready var _player3container = $Panel_Menu/VBoxContainer/GridContainer/Player3Container
 @onready var _player4container = $Panel_Menu/VBoxContainer/GridContainer/Player4Container
@@ -180,9 +180,9 @@ func _ready():
 		_enemycont4.visible = false
 
 	
-func _click(event):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_XBUTTON1):
-		emit_signal("clicked")
+#func _click(event):
+	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_XBUTTON1):
+		#emit_signal("clicked")
 
 signal pressedSomething
 
@@ -255,32 +255,33 @@ func combat_log(text):
 			
 	
 func enemy_turn():
-	if enemy.can_chill == true and rng.randi_range(1, 100) <= 9:
-		combat_log("%s is chillin'" % (enemy.name))
-		$AnimationPlayer.play("enemy_chillin")
-		await $AnimationPlayer.animation_finished
-	else:
-		dealt_dmg = round(rng.randf_range(0.8, 1.2) * enemy.damage)
-		await combat_log("%s attacks!" % [enemy.name])
-		var tween = get_tree().create_tween()
-		var pos = _enemyrect1.position
-		tween.tween_property(_enemyrect1, "position", Vector2(pos[0] + 10, pos[1]), 0.4)
-		tween.tween_property(_enemyrect1, "position", Vector2(pos[0] - 20, pos[1]), 0.15)
-		tween.tween_property(_enemyrect1, "position", Vector2(pos[0], pos[1]), 0.3)
-		await tween.step_finished 
-		set_health(_playerhp, current_player_health, player.max_health)
-		current_player_health = (current_player_health - dealt_dmg)
-		player.health = current_player_health
-		tween = get_tree().create_tween()
-		for i in 6:
-			tween.chain().tween_property(_playertexture, "modulate:a", 0,  0.1)
-			tween.chain().tween_property(_playertexture, "modulate:a", 1,  0.1)
-		
-		await tween.finished
-		await combat_log("Got hit for %d damage" % [dealt_dmg])
-		if enemy.lifesteal > 0:
-			set_health_init(_enemyhp1, (min(current_enemy_health + enemy.lifesteal, enemy.health)), enemy.health)
-			await combat_log("%s regained %d health" % [enemy.name, enemy.lifesteal] )
+	for e in enemyDict:
+		if enemyDict[e]["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
+			combat_log("%s is chillin'" % (enemyDict[e]["res"].name))
+			$AnimationPlayer.play("enemy_chillin")
+			await $AnimationPlayer.animation_finished
+		else:
+			dealt_dmg = round(rng.randf_range(0.8, 1.2) * enemyDict[e]["res"].damage)
+			await combat_log("%s attacks!" % [enemyDict[e]["res"].name])
+			var tween = get_tree().create_tween()
+			var pos = enemyDict[e]["cont"].position
+			tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] + 10, pos[1]), 0.4)
+			tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] - 20, pos[1]), 0.15)
+			tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0], pos[1]), 0.3)
+			await tween.step_finished 
+			set_health(_playerhp, current_player_health, player.max_health)
+			current_player_health = (current_player_health - dealt_dmg)
+			player.health = current_player_health
+			tween = get_tree().create_tween()
+			for i in 6:
+				tween.chain().tween_property(_playertexture, "modulate:a", 0,  0.1)
+				tween.chain().tween_property(_playertexture, "modulate:a", 1,  0.1)
+			
+			await tween.finished
+			await combat_log("Got hit for %d damage" % [dealt_dmg])
+			if enemyDict[e]["res"].lifesteal > 0:
+				set_health_init(enemyDict[e]["cont"].get_node("EnemyHP"), (min(enemyDict[e]["live"]["hp"] + enemyDict[e]["res"].lifesteal, enemyDict[e]["res"].health)), enemyDict[e]["res"].health)
+				await combat_log("%s regained %d health" % [enemy.name, enemy.lifesteal] )
 		try = 0
 
 		
@@ -331,30 +332,29 @@ func _await_selection():
 	elif Input.is_action_pressed("ui_accept"):
 		selected_enemy_ind.modulate.a = 0
 		print(x)
-		y = enemyDict.keys()[enemyCount[x] - 1]
+		y = enemyCount[x]
 		print(y)
-		_attack_phase_1(y)
+		_selector_tween.kill()
+		_attack_phase_1()
 	else:
 		_await_selection()
 
-
-func _attack_phase_1(y):
+func _attack_phase_1():
 	var curEnemyCont = enemyDict[y]["cont"]
-	var tween = get_tree().create_tween()
-	#_actionmenu.visible = false
 	var pos = _playertexture.position
 	dealt_dmg = round(rng.randf_range(0.85, 1.15) * player.damage)
-	await combat_log("You attack %s!" % [enemy.name])
-	tween.tween_property(_playertexture, "position", Vector2(pos[0] - 10, pos[1]), 0.5)
-	tween.tween_property(_playertexture, "position", Vector2(pos[0] + 20, pos[1]), 0.15)
-	tween.tween_property(_playertexture, "position", Vector2(pos[0], pos[1]), 0.5) #.set_delay(0.5)
+	await combat_log("You attack %s!" % [enemyDict[y]["res"].name])
+	var tween = get_tree().create_tween()
+	tween.tween_property(_playertexture, "position", Vector2(pos[0] -10, pos[1]), 0.5)
+	tween.tween_property(_playertexture, "position", Vector2(pos[0] + 20, pos[1]),0.15)
+	tween.tween_property(_playertexture, "position", Vector2(pos[0], pos[1]),0.5)
 	await get_tree().create_timer(0.75).timeout
 	fx.get_node("hitAnimate").position = curEnemyCont.position + (curEnemyCont.size / 2)
 	fx.get_node("hitAnimate").play('slash')
 	await get_tree().create_timer(0.55).timeout
-	_attack_phase_2(y)
+	_attack_phase_2()
 
-func _on_magic_pressed(y):
+func _on_magic_pressed():
 	var mp_cost = player.mp_cost_fireball
 	if current_player_mp < player.mp_cost_fireball and try < 2:
 		await combat_log("Not enough mana")
@@ -378,9 +378,9 @@ func _on_magic_pressed(y):
 		tween.tween_property(_fireballAnimate, "modulate:a", 0,0.05)	
 		tween.tween_property(_fireballAnimate, "position", Vector2(m_pos[0], m_pos[1]), 0.1)
 		await tween.finished
-		_attack_phase_2(y)	
+		_attack_phase_2()	
 	
-func _attack_phase_2(y):
+func _attack_phase_2():
 	var selected_enemy = enemyDict[y]["cont"]
 	var curEnemyStats = enemyDict[y]["live"]
 	#cur_enmy_stats["HP"] = selected_enemy.health
@@ -414,11 +414,8 @@ func _attack_phase_2(y):
 
 func enemy_died(y):
 	var tween = get_tree().create_tween()
-	var deaded_enemy = enemyDict[y]
-	var dead_enemy_container = deaded_enemy["cont"]
-	#var 
-	tween.tween_property(dead_enemy_container, "modulate:a", 0,  0.5)
-	await (combat_log("%s died" % (deaded_enemy["res"].name)))
+	tween.tween_property(enemyDict[y]["cont"], "modulate:a", 0,  0.5)
+	await (combat_log("%s died" % (enemyDict[y]["res"].name)))
 	player.xp = player.xp + enemyDict[y]["res"].xp
 	if player.xp >= player.max_xp:
 		player.level_up()
@@ -432,11 +429,7 @@ func enemy_died(y):
 		await get_tree().create_timer(0.7).timeout
 		player.hp_grow = 0
 		player.dmg_grow = 0
-	
 	enemyDict.erase(y)
-
-
-
 
 func _on_dance_pressed() -> void:
 	var tween = get_tree().create_tween()
