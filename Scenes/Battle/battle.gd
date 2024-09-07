@@ -15,12 +15,17 @@ var visible_characters: int = 0
 var try = 0
 var player_count = 1
 var e_groupsize: int = 1
-var enemyToStat: Dictionary
+var enemyDict: Dictionary = {1: enemyDict_1}
+var enemyDict_1: Dictionary
+var enemyDict_2: Dictionary
+var enemyDict_3: Dictionary
+var enemyDict_4: Dictionary
+#var enemyToStat: Dictionary
 var enemyStats1 : Dictionary
 var enemyStats2 : Dictionary
 var enemyStats3 : Dictionary
 var enemyStats4 : Dictionary
-var x : int = 0
+var x : int = 1
 
 
 @onready var _playerhp = $Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer/PlayerHP
@@ -50,6 +55,7 @@ var x : int = 0
 @onready var selected_enemy_ind = _enemycont1.get_node("Select")
 @onready var active_enemies: Array = [_enemycont1]
 @onready var fx = $FX
+@onready var hp: int
 
 
 func _ready():
@@ -64,14 +70,15 @@ func _ready():
 	current_player_mp = player.mp
 	
 ##	load enemy resource from encounter -- TURN OFF LOAD TO TEST RESOURCE
-	enemy = load(player.enemy_encounter)
+	enemy 	= load(player.enemy_encounter)
 	AudioPlayer.play_music_level(enemy.music)
-	current_enemy_health = enemy.health		
-
-
+	enemyDict_1["res"] = enemy
+	enemyDict_1["cont"] = _enemycont1
+	enemyDict_1["live"] = enemyStats1
+	enemyStats1["hp"] = enemyDict_1["res"].health		
 
 ##	setup enemy 1	
-	set_health_init(_enemyhp1, enemy.health, enemy.health)
+	set_health_init(enemyDict_1["cont"].get_node("EnemyHP"), enemyDict_1["res"].health, enemyDict_1["res"].health)
 	_enemyrect1.texture = enemy.texture
 	_enemycont1.get_node("Label").text = enemy.name
 	_enemycont1.get_node("Select").modulate.a = 0
@@ -80,9 +87,9 @@ func _ready():
 		_enemycont1.position.x = _enemycont1.position.x + 50
 	_enemycont1.add_theme_constant_override("separation", enemy.battle_y_sep)
 	e_groupsize = rng.randi_range(enemy.min_group_size, enemy.max_group_size)
-	enemyToStat[_enemycont1] = enemyStats1
-	enemyStats1["res"] = enemy
-	enemyStats1["HP"] = enemy.health
+	#enemyToStat[_enemycont1] = enemyStats1
+	#enemyStats1["res"] = enemy
+	#enemyStats1["HP"] = enemy.health
 	
 #	first check if groupsize > 1
 	if e_groupsize > 1:
@@ -91,14 +98,16 @@ func _ready():
 			if bla == 0:
 				enemy2 = load(player.enemy_encounter)
 			else:
-				print(bla)
-				print(enemy.allEnemies)
-				print(enemy.friends)
 				enemy2 = load(enemy.allEnemies[enemy.friends[bla-1]])
 		else:
 			enemy2 = load(player.enemy_encounter)
 #	setup enemy 2
-		set_health_init(_enemyhp2, enemy2.health, enemy2.health)
+		enemyDict[2] = enemyDict_2
+		enemyDict_2["cont"] = _enemycont2
+		enemyDict_2["live"] = enemyStats2
+		enemyDict_2["res"] = enemy2
+		enemyStats2["hp"] = enemy2.health	
+		set_health_init(_enemyhp2, enemyStats2["hp"], enemyStats2["hp"])
 		_enemyrect2.texture = enemy2.texture
 		_enemycont2.get_node("Label").text = enemy2.name
 		_enemycont2.get_node("Select").modulate.a = 0
@@ -106,10 +115,8 @@ func _ready():
 			_enemycont2.size = _enemycont2.size * enemy2.battle_scale_vec
 			_enemycont2.position.x = _enemycont2.position.x + 50
 		_enemycont2.add_theme_constant_override("separation", enemy2.battle_y_sep)
-		active_enemies.append(_enemycont2)
-		enemyToStat[_enemycont2] = enemyStats2
-		enemyStats2["res"] = enemy2
-		enemyStats2["HP"] = enemy2.health
+		#active_enemies.append(_enemycont2)
+
 	
 	else:
 		_enemycont2.visible = false
@@ -125,7 +132,12 @@ func _ready():
 			enemy3 = load(player.enemy_encounter)
 		
 #	setup enemy 3
-		set_health_init(_enemyhp3, enemy3.health, enemy3.health)
+		enemyDict[3] = enemyDict_3
+		enemyDict_3["cont"] = _enemycont3
+		enemyDict_3["live"] = enemyStats3
+		enemyDict_3["res"] = enemy3
+		enemyStats3["hp"] = enemy3.health	
+		set_health_init(_enemyhp3, enemyStats3["hp"], enemyStats3["hp"])
 		_enemyrect3.texture = enemy3.texture
 		_enemycont3.get_node("Label").text = enemy3.name
 		_enemycont3.get_node("Select").modulate.a = 0
@@ -133,10 +145,6 @@ func _ready():
 			_enemycont3.size = _enemycont3.size * enemy3.battle_scale_vec
 			_enemycont3.position.x = _enemycont3.position.x + 50
 		_enemycont3.add_theme_constant_override("separation", enemy3.battle_y_sep)
-		active_enemies.append(_enemycont3)
-		enemyToStat[_enemycont3] = enemyStats3
-		enemyStats3["res"] = enemy3
-		enemyStats3["HP"] = enemy3.health
 	
 	else:
 		_enemycont3.visible = false
@@ -153,7 +161,12 @@ func _ready():
 			
 		
 #	setup enemy 4
-		set_health_init(_enemyhp4, enemy4.health, enemy4.health)
+		enemyDict[4] = enemyDict_4
+		enemyDict_4["cont"] = _enemycont4
+		enemyDict_4["live"] = enemyStats4
+		enemyDict_4["res"] = enemy4
+		enemyStats4["hp"] = enemy4.health	
+		set_health_init(_enemyhp4, enemyStats4["hp"], enemyStats4["hp"])
 		_enemyrect4.texture = enemy4.texture
 		_enemycont4.get_node("Label").text = enemy4.name
 		_enemycont4.get_node("Select").modulate.a = 0
@@ -161,10 +174,6 @@ func _ready():
 			_enemycont4.size = _enemycont4.size * enemy4.battle_scale_vec
 			_enemycont4.position.x = _enemycont4.position.x + 50
 		_enemycont4.add_theme_constant_override("separation", enemy4.battle_y_sep)
-		active_enemies.append(_enemycont4)
-		enemyToStat[_enemycont4] = enemyStats4
-		enemyStats4["res"] = enemy4
-		enemyStats4["HP"] = enemy4.health
 		
 
 	else:
@@ -275,11 +284,13 @@ func enemy_turn():
 		try = 0
 
 		
-
+var enemyCount : Array
+var y : int = 0
 
 func _on_attack_pressed():
 
 	_actionmenu.visible = false
+	enemyCount = enemyDict.keys()
 	x = 0
 	_await_selection()
 
@@ -287,9 +298,9 @@ func _on_attack_pressed():
 
 func _await_selection():
 	var _selector_tween: Tween
-	selected_enemy_ind = active_enemies[x].get_node("Select")
+	selected_enemy_ind = enemyDict[enemyCount[x]]["cont"].get_node("Select")
 	selected_enemy_ind.modulate.a = 1
-	var max_x = len(active_enemies) - 1
+	var max_x = len(enemyCount) - 1
 	var pos = selected_enemy_ind.position
 	var tween = get_tree().create_tween()
 	_selector_tween = tween
@@ -305,7 +316,7 @@ func _await_selection():
 			x = 0
 		else:
 			x += 1
-		selected_enemy_ind = active_enemies[x].get_node("Select")
+		selected_enemy_ind = enemyDict[enemyCount[x]]["cont"].get_node("Select")
 		selected_enemy_ind.modulate.a = 1
 		_await_selection()
 	elif Input.is_action_pressed("down"):
@@ -314,17 +325,21 @@ func _await_selection():
 			x = max_x
 		else:
 			x -= 1
-		selected_enemy_ind = active_enemies[x].get_node("Select")
+		selected_enemy_ind = enemyDict[enemyCount[x]]["cont"].get_node("Select")
 		selected_enemy_ind.modulate.a = 1
 		_await_selection()
 	elif Input.is_action_pressed("ui_accept"):
 		selected_enemy_ind.modulate.a = 0
-		_attack_phase_1(x)
+		print(x)
+		y = enemyDict.keys()[enemyCount[x] - 1]
+		print(y)
+		_attack_phase_1(y)
 	else:
 		_await_selection()
 
 
-func _attack_phase_1(x):
+func _attack_phase_1(y):
+	var curEnemyCont = enemyDict[y]["cont"]
 	var tween = get_tree().create_tween()
 	#_actionmenu.visible = false
 	var pos = _playertexture.position
@@ -334,12 +349,12 @@ func _attack_phase_1(x):
 	tween.tween_property(_playertexture, "position", Vector2(pos[0] + 20, pos[1]), 0.15)
 	tween.tween_property(_playertexture, "position", Vector2(pos[0], pos[1]), 0.5) #.set_delay(0.5)
 	await get_tree().create_timer(0.75).timeout
-	fx.get_node("hitAnimate").position = active_enemies[x].position + (active_enemies[x].size / 2)
+	fx.get_node("hitAnimate").position = curEnemyCont.position + (curEnemyCont.size / 2)
 	fx.get_node("hitAnimate").play('slash')
 	await get_tree().create_timer(0.55).timeout
-	_attack_phase_2(x)
+	_attack_phase_2(y)
 
-func _on_magic_pressed(x):
+func _on_magic_pressed(y):
 	var mp_cost = player.mp_cost_fireball
 	if current_player_mp < player.mp_cost_fireball and try < 2:
 		await combat_log("Not enough mana")
@@ -363,13 +378,12 @@ func _on_magic_pressed(x):
 		tween.tween_property(_fireballAnimate, "modulate:a", 0,0.05)	
 		tween.tween_property(_fireballAnimate, "position", Vector2(m_pos[0], m_pos[1]), 0.1)
 		await tween.finished
-		_attack_phase_2(x)	
+		_attack_phase_2(y)	
 	
-func _attack_phase_2(x):
-	var selected_enemy = active_enemies[x]
-	var cur_enmy_stats = enemyToStat[active_enemies[x]]
+func _attack_phase_2(y):
+	var selected_enemy = enemyDict[y]["cont"]
+	var curEnemyStats = enemyDict[y]["live"]
 	#cur_enmy_stats["HP"] = selected_enemy.health
-	print(cur_enmy_stats["HP"])
 	
 	#$AnimationPlayer.play("enemy_damaged")
 	var tween = get_tree().create_tween()
@@ -383,26 +397,29 @@ func _attack_phase_2(x):
 		await get_tree().create_timer(0.5).timeout
 	else:
 		await get_tree().create_timer(0.75).timeout
-	await set_health(selected_enemy.get_node("EnemyHP"), cur_enmy_stats["HP"], cur_enmy_stats["res"].health)
-	cur_enmy_stats["HP"] = max(0, cur_enmy_stats["HP"] - dealt_dmg)
+	await set_health(selected_enemy.get_node("EnemyHP"), curEnemyStats["hp"], enemyDict[y]["res"].health)
+	curEnemyStats["hp"] = max(0, curEnemyStats["hp"] - dealt_dmg)
 	#await get_tree().create_timer(0.75).timeout
 	await combat_log("You hit for %d damage" % [dealt_dmg])
 	#await get_tree().create_timer(1).timeout
 	#crit = false
-	if cur_enmy_stats["HP"] <= 0:
-		enemy_died(x)
-	else:
-		await enemy_turn()
-		_actionmenu.visible = true
+	enemyDict[y]["live"] = curEnemyStats
+	if curEnemyStats["hp"] <= 0:
+		await(enemy_died(y))
+	if enemyDict.is_empty():
+		sceneManager.goto_scene(sceneManager.last_scene)
+	await enemy_turn()
+	_actionmenu.visible = true
 
 
-func enemy_died(x):
+func enemy_died(y):
 	var tween = get_tree().create_tween()
-	var deaded_enemy = active_enemies[x]
+	var deaded_enemy = enemyDict[y]
+	var dead_enemy_container = deaded_enemy["cont"]
 	#var 
-	tween.tween_property(deaded_enemy, "modulate:a", 0,  0.5)
-	await (combat_log("%s died" % (enemyToStat[active_enemies[x]]["res"].name)))
-	player.xp = player.xp + enemy.xp
+	tween.tween_property(dead_enemy_container, "modulate:a", 0,  0.5)
+	await (combat_log("%s died" % (deaded_enemy["res"].name)))
+	player.xp = player.xp + enemyDict[y]["res"].xp
 	if player.xp >= player.max_xp:
 		player.level_up()
 		current_player_health = current_player_health + player.hp_grow
@@ -415,7 +432,10 @@ func enemy_died(x):
 		await get_tree().create_timer(0.7).timeout
 		player.hp_grow = 0
 		player.dmg_grow = 0
-	sceneManager.goto_scene(sceneManager.last_scene)
+	
+	enemyDict.erase(y)
+
+
 
 
 func _on_dance_pressed() -> void:
