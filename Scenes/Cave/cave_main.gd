@@ -18,7 +18,10 @@ var spawn_positions = [
 	]
 	
 var rng = RandomNumberGenerator.new()
-var _spawned_npc = world_enemies[0]
+var _spawned_npc  
+var spawn_request
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
@@ -30,14 +33,13 @@ func _process(delta: float) -> void:
 	pass
 
 func _spawn_npc():
-	if not self.has_node("NPC_spawn"):
+	if is_instance_valid($NPC_spawn):
+		print("tried to spawn but valid instance found")
+	else:
 		var spawn_loc = rng.randi_range(1,len(spawn_positions))
 		var enemy_select = rng.randi_range(1,len(world_enemies))
-		_spawned_npc = world_enemies[enemy_select - 1]
+		spawn_request = world_enemies[enemy_select - 1]
 		add_child(spawn)
 		_spawned_npc = $NPC_spawn
 		_spawned_npc.position = _player_body.position + spawn_positions[spawn_loc - 1]
-
-		print("tried to spawn")
-		print(enemy_select)
 		

@@ -18,3 +18,7 @@ lifesteal = 6
 size = Vector2(204, 180)
 position = Vector2(667, 335)
 map_scale = 1.0
+max_group_size = 1
+min_group_size = 1
+friends = Array[String]([])
+battle_scale_vec = Vector2(1, 1)

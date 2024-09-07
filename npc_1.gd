@@ -15,10 +15,10 @@ const detection_range : float = 90
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#pass
-	enemy = get_parent()._spawned_npc
+	enemy = get_parent().spawn_request
 	_animated_sprite.sprite_frames = enemy.animatedSprite
 	_animated_sprite.scale = Vector2(enemy.map_scale, enemy.map_scale)
-	
+
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float):
 	var move_to_attack = move_and_collide(velocity * delta)

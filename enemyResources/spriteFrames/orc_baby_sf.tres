@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://cxi5p83hs4qp0"]
+
+[ext_resource type="Texture2D" uid="uid://b3cxijemwg6ji" path="res://textures/humanoids/Orc_baby.png" id="1_8rhvd"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8rhvd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8rhvd")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]

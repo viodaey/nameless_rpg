@@ -1,0 +1,10 @@
+[gd_resource type="CanvasTexture" load_steps=4 format=3 uid="uid://6hqxyqcaal32"]
+
+[ext_resource type="Texture2D" uid="uid://gopacafe0dok" path="res://textures/world_1/Firewolf Evo 2_d.png" id="1_pwaje"]
+[ext_resource type="Texture2D" uid="uid://dco3fuw147hde" path="res://textures/world_1/Firewolf Evo 2_n.png" id="2_jmfeg"]
+[ext_resource type="Texture2D" uid="uid://ukpkineg63k4" path="res://textures/world_1/Firewolf Evo 2_s.png" id="3_ru801"]
+
+[resource]
+diffuse_texture = ExtResource("1_pwaje")
+normal_texture = ExtResource("2_jmfeg")
+specular_texture = ExtResource("3_ru801")
