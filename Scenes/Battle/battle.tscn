@@ -178,6 +178,20 @@ _data = {
 "enemy_healthchange": SubResource("Animation_xuy4y")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_mdogy"]
+line_spacing = 0.0
+font_size = 12
+
+[sub_resource type="Gradient" id="Gradient_rrtmt"]
+offsets = PackedFloat32Array(0, 0.943965, 0.95339)
+colors = PackedColorArray(1, 1, 1, 1, 0.159081, 0.159081, 0.159081, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vms3e"]
+gradient = SubResource("Gradient_rrtmt")
+fill = 1
+fill_from = Vector2(0.482906, 0.542735)
+fill_to = Vector2(0, 0)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_055hs"]
 atlas = ExtResource("5_uugxd")
 region = Rect2(0, 0, 580, 160)
@@ -364,20 +378,6 @@ animations = [{
 "name": &"slash",
 "speed": 45.0
 }]
-
-[sub_resource type="LabelSettings" id="LabelSettings_mdogy"]
-line_spacing = 0.0
-font_size = 12
-
-[sub_resource type="Gradient" id="Gradient_rrtmt"]
-offsets = PackedFloat32Array(0, 0.943965, 0.95339)
-colors = PackedColorArray(1, 1, 1, 1, 0.159081, 0.159081, 0.159081, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vms3e"]
-gradient = SubResource("Gradient_rrtmt")
-fill = 1
-fill_from = Vector2(0.482906, 0.542735)
-fill_to = Vector2(0, 0)
 
 [node name="battle" type="Control"]
 z_index = -1
@@ -827,26 +827,6 @@ size_flags_vertical = 4
 texture = ExtResource("3_8u46x")
 stretch_mode = 2
 
-[node name="Fireball" type="AnimatedSprite2D" parent="Player_1"]
-modulate = Color(1, 1, 1, 0)
-light_mask = 17
-visibility_layer = 16
-z_index = -1
-position = Vector2(179.863, 76.58)
-rotation = -3.14159
-scale = Vector2(0.2, 0.2)
-sprite_frames = SubResource("SpriteFrames_5qdkq")
-autoplay = "default"
-frame_progress = 0.0550403
-
-[node name="hitAnimate" type="AnimatedSprite2D" parent="Player_1"]
-z_index = 1
-position = Vector2(686.909, 78.8493)
-sprite_frames = SubResource("SpriteFrames_pvakd")
-animation = &"slash"
-frame = 20
-frame_progress = 1.0
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(472.645, 324.699)
 scale = Vector2(2, 2)
@@ -1162,6 +1142,31 @@ range_z_min = -1
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_vms3e")
 height = 10.0
+
+[node name="FX" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Fireball" type="AnimatedSprite2D" parent="FX"]
+modulate = Color(1, 1, 1, 0)
+light_mask = 17
+visibility_layer = 16
+z_index = -1
+position = Vector2(298.428, 403.321)
+rotation = -3.14159
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_5qdkq")
+autoplay = "default"
+frame_progress = 0.0550403
+
+[node name="hitAnimate" type="AnimatedSprite2D" parent="FX"]
+z_index = 1
+position = Vector2(805.474, 405.59)
+sprite_frames = SubResource("SpriteFrames_pvakd")
+animation = &"slash"
+frame = 20
+frame_progress = 1.0
 
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Magic" to="." method="_on_magic_pressed"]
