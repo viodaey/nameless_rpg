@@ -15,7 +15,11 @@ var visible_characters: int = 0
 var try = 0
 var player_count = 1
 var e_groupsize: int = 1
-var x = 0
+var enemyStats1 : Dictionary
+var enemyStats2 : Dictionary
+var enemyStats3 : Dictionary
+var enemyStats4 : Dictionary
+var x : int = 0
 #var e_sizes : Array = [[1, 640, 368],[1.5, 540, 250]]
 #var e_size : Array
 
@@ -65,8 +69,6 @@ func _ready():
 	enemy = load(player.enemy_encounter)
 ##
 	
-	
-	print(player.enemy_encounter)
 	AudioPlayer.play_music_level(enemy.music)
 	
 	current_enemy_health = enemy.health		
@@ -166,32 +168,32 @@ func _click(event):
 		emit_signal("clicked")
 
 #controlsignals
-signal pressedUp
-signal pressedDown
-signal pressedLeft
-signal pressedRight
+#signal pressedUp
+#signal pressedDown
+#signal pressedLeft
+#signal pressedRight
 signal pressedSomething
-signal pressedDir
-signal pressedAccept
+#signal pressedDir
+#signal pressedAccept
 
 func _input(event):
-	#if event.is_anything_pressed():
-		#pressedSomething.emit()
-	if event.is_action_pressed("up"):
+	if Input.is_anything_pressed():
 		pressedSomething.emit()
-		pressedUp.emit()
-	if event.is_action_pressed("down"):
-		pressedSomething.emit()
-		pressedDown.emit()
-	if event.is_action_pressed("left"):
-		pressedSomething.emit()
-		pressedLeft.emit()
-	if event.is_action_pressed("right"):
-		pressedSomething.emit()
-		pressedRight.emit()
-	if event.is_action_pressed("ui_accept"):
-		pressedSomething.emit()
-		pressedAccept.emit()
+	#if event.is_action_pressed("up"):
+		##pressedSomething.emit()
+		#pressedUp.emit()
+	#if event.is_action_pressed("down"):
+		##pressedSomething.emit()
+		#pressedDown.emit()
+	#if event.is_action_pressed("left"):
+		##pressedSomething.emit()
+		#pressedLeft.emit()
+	#if event.is_action_pressed("right"):
+		##pressedSomething.emit()
+		#pressedRight.emit()
+	#if event.is_action_pressed("ui_accept"):
+		##pressedSomething.emit()
+		#pressedAccept.emit()
 
 		
 		
@@ -294,48 +296,59 @@ func _on_attack_pressed():
 
 	_actionmenu.visible = false
 	x = 0
-	selected_enemy_ind = active_enemies[x].get_node("Select")
-	selected_enemy_ind.modulate.a = 1
-	_tween_selector()
 	_await_selection()
 
+var _selector_tween: Tween
+
 func _await_selection():
-	await(Input.is_anything_pressed())
+	selected_enemy_ind = active_enemies[x].get_node("Select")
+	selected_enemy_ind.modulate.a = 1
+	var max_x = len(active_enemies) - 1
+	var pos = selected_enemy_ind.position
+	var tween = get_tree().create_tween()
+	_selector_tween = tween
+	tween.tween_property(selected_enemy_ind, "position:y", 10, 0.5).as_relative().set_trans(tween.TRANS_SINE)
+	tween.tween_property(selected_enemy_ind, "position:y", -10, 0.5).as_relative().set_trans(tween.TRANS_SINE)
+	tween.set_loops()
+	await(pressedSomething)
+	_selector_tween.kill()
+	selected_enemy_ind.position = pos
 	if Input.is_action_pressed("up"):
-		x = max(min(x + 1, len(active_enemies) - 1), 0)
 		selected_enemy_ind.modulate.a = 0
-		#_tween_selector().stop()
+		if x == max_x:
+			x = 0
+		else:
+			x += 1
 		selected_enemy_ind = active_enemies[x].get_node("Select")
 		selected_enemy_ind.modulate.a = 1
-		_tween_selector()
-		print("pressed up")
 		_await_selection()
 	elif Input.is_action_pressed("down"):
-		x = max(min(x - 1, len(active_enemies) - 1), 0)
 		selected_enemy_ind.modulate.a = 0
-		#_tween_selector().stop
+		if x == 0:
+			x = max_x
+		else:
+			x -= 1
 		selected_enemy_ind = active_enemies[x].get_node("Select")
-		_tween_selector()
-		print("pressed down")
+		selected_enemy_ind.modulate.a = 1
 		_await_selection()
+	elif Input.is_action_pressed("ui_accept"):
+		_attack_phase_1(x)
 	else:
 		_await_selection()
 	
 
 	
+
+
+	
+#func _tween_selector():
 	
 
-	
-func _tween_selector():
-	var tween = get_tree().create_tween()
-	tween.tween_property(selected_enemy_ind, "position:y", selected_enemy_ind.position.y + 10, 0.5).set_trans(tween.TRANS_SINE)
-	tween.tween_property(selected_enemy_ind, "position:y", selected_enemy_ind.position.y + 0, 0.5).set_trans(tween.TRANS_SINE)
-	tween.tween_callback(_tween_selector)
 
 
-func _attack_phase_1():
+func _attack_phase_1(x):
 	var tween = get_tree().create_tween()
-	_actionmenu.visible = false
+	#_actionmenu.visible = false
 	var pos = _playertexture.position
 	dealt_dmg = round(rng.randf_range(0.85, 1.15) * player.damage)
 	await combat_log("You attack %s!" % [enemy.name])
