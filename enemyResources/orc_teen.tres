@@ -23,4 +23,4 @@ map_scale = 0.5
 max_group_size = 3
 min_group_size = 1
 friends = Array[String](["Baby Orc"])
-battle_scale_vec = Vector2(0.5, 0.5)
+battle_scale_vec = Vector2(0.8, 0.8)

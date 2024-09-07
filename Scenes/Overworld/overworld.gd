@@ -37,7 +37,6 @@ func _ready() -> void:
 func _spawn_npc():
 	if is_instance_valid($NPC_spawn):
 		print("tried to spawn but valid instance found")
-		#pass
 	else:
 		var spawn_loc = rng.randi_range(1,len(spawn_positions))
 		var enemy_select = rng.randi_range(1,len(world_enemies))
@@ -45,11 +44,7 @@ func _spawn_npc():
 		add_child(spawn)
 		_spawned_npc = $NPC_spawn
 		_spawned_npc.position = _player_body.position + spawn_positions[spawn_loc - 1]
-		#_spawned_npc.enemy = world_enemies[enemy_select - 1]
-		#_animated_sprite.sprite_frames = enemy.animatedSprite
-		#_animated_sprite.scale = Vector2(enemy.map_scale, enemy.map_scale)
 
-		#print("spawned %s" % (_spawned_npc.enemy.name))
 		
 	
 

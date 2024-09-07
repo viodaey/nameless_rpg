@@ -1,15 +1,14 @@
 [gd_scene load_steps=52 format=3 uid="uid://b7kga5w7hkr5o"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
-[ext_resource type="Resource" uid="uid://bq72ft87yg5kg" path="res://enemyResources/res_battle_spider.tres" id="2_72n72"]
+[ext_resource type="Resource" uid="uid://cb3ouqjr5sgqc" path="res://enemyResources/orc_baby.tres" id="2_pjcb0"]
 [ext_resource type="Texture2D" uid="uid://dwvjcsn3e1bam" path="res://textures/bosses/boss_12_S.png" id="3_8u46x"]
 [ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="3_hqtvv"]
 [ext_resource type="LabelSettings" uid="uid://16a2edh71l7i" path="res://Scenes/Battle/hplabel.tres" id="4_jbr0v"]
 [ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="5_uugxd"]
 [ext_resource type="Texture2D" uid="uid://cv5mk2thosujc" path="res://test_sprites/60FPS_AC2Q001_Slash.png" id="7_g8lpc"]
-[ext_resource type="Texture2D" uid="uid://udqo7tn6udns" path="res://textures/world_1/firewolf23.png" id="8_6g5ax"]
 [ext_resource type="Texture2D" uid="uid://b8uefsykva2cc" path="res://textures/enemyFullTextures/wolf_ice.tres" id="8_8xvtf"]
-[ext_resource type="Texture2D" uid="uid://bkxmlay3n8vv3" path="res://textures/selectionTriangle.png" id="9_3rhom"]
+[ext_resource type="Texture2D" uid="uid://cm7ugrxdww20r" path="res://textures/selectionTriangle_full.png" id="8_ype7g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qufg"]
 bg_color = Color(0.0882, 0.14, 0.0890633, 0)
@@ -71,7 +70,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Enemy1:modulate")
+tracks/0/path = NodePath("EnemyContainer1/AspectContainer/EnemyText:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -83,7 +82,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Enemy1/EnemyHP:value")
+tracks/1/path = NodePath("EnemyContainer1/EnemyHP:value")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -95,7 +94,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Enemy1:flip_h")
+tracks/2/path = NodePath("EnemyContainer1/AspectContainer/EnemyText:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -114,7 +113,7 @@ length = 1.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Enemy1:flip_h")
+tracks/0/path = NodePath("EnemyContainer1/AspectContainer/EnemyText:flip_h")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -129,7 +128,7 @@ resource_name = "enemy_damaged"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Enemy1:modulate")
+tracks/0/path = NodePath("EnemyContainer1/AspectContainer/EnemyText:modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -144,7 +143,7 @@ resource_name = "enemy_dead"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Enemy1:modulate")
+tracks/0/path = NodePath("EnemyContainer1/AspectContainer/EnemyText:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -159,7 +158,7 @@ resource_name = "enemy_healthchange"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Enemy1/EnemyHP:value")
+tracks/0/path = NodePath("EnemyContainer1/EnemyHP:value")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -366,6 +365,10 @@ animations = [{
 "speed": 45.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_mdogy"]
+line_spacing = 0.0
+font_size = 12
+
 [sub_resource type="Gradient" id="Gradient_rrtmt"]
 offsets = PackedFloat32Array(0, 0.943965, 0.95339)
 colors = PackedColorArray(1, 1, 1, 1, 0.159081, 0.159081, 0.159081, 1, 0, 0, 0, 1)
@@ -392,7 +395,7 @@ scale = Vector2(1.23983, 0.979368)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_f8vj8")
-enemy = ExtResource("2_72n72")
+enemy = ExtResource("2_pjcb0")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -1
@@ -496,15 +499,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -21.5
-offset_top = -11.5
-offset_right = 21.5
-offset_bottom = 11.5
+offset_left = -25.5
+offset_top = -6.39467
+offset_right = 25.5
+offset_bottom = 16.6053
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "MP: 8/10"
+label_settings = ExtResource("4_jbr0v")
 
 [node name="Player2Container" type="HBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -565,22 +569,23 @@ max_value = 10.0
 value = 8.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -21.5
-offset_top = -11.5
-offset_right = 21.5
-offset_bottom = 11.5
+offset_left = -25.5
+offset_top = -6.39467
+offset_right = 25.5
+offset_bottom = 16.6053
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "MP: 8/10"
+label_settings = ExtResource("4_jbr0v")
 
 [node name="Player3Container" type="HBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -641,22 +646,23 @@ max_value = 10.0
 value = 8.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -21.5
-offset_top = -11.5
-offset_right = 21.5
-offset_bottom = 11.5
+offset_left = -25.5
+offset_top = -6.39467
+offset_right = 25.5
+offset_bottom = 16.6053
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "MP: 8/10"
+label_settings = ExtResource("4_jbr0v")
 
 [node name="Player4Container" type="HBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -717,22 +723,23 @@ max_value = 10.0
 value = 8.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -21.5
-offset_top = -11.5
-offset_right = 21.5
-offset_bottom = 11.5
+offset_left = -25.5
+offset_top = -6.39467
+offset_right = 25.5
+offset_bottom = 16.6053
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "MP: 8/10"
+label_settings = ExtResource("4_jbr0v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -804,6 +811,10 @@ size_flags_vertical = 3
 theme_override_constants/h_separation = 0
 text = "     Dance     "
 
+[node name="Back" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions2"]
+visible = false
+layout_mode = 2
+
 [node name="Player_1" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.996078)
 visibility_layer = 17
@@ -845,29 +856,45 @@ limit_right = 1160
 limit_bottom = 648
 editor_draw_limits = true
 
-[node name="Enemy1" type="TextureRect" parent="."]
+[node name="EnemyContainer1" type="VBoxContainer" parent="." groups=["EnemyContainers"]]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.726
+anchor_top = 0.427
+anchor_right = 0.92
+anchor_bottom = 0.703
+offset_left = -0.248596
+offset_top = -0.246887
+offset_right = -0.280579
+offset_bottom = 0.0771179
+pivot_offset = Vector2(90, 90)
+size_flags_vertical = 0
+theme_override_constants/separation = -5
+
+[node name="Select" type="TextureRect" parent="EnemyContainer1"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("8_ype7g")
+stretch_mode = 3
+
+[node name="AspectContainer" type="AspectRatioContainer" parent="EnemyContainer1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EnemyText" type="TextureRect" parent="EnemyContainer1/AspectContainer"]
 texture_filter = 1
 layout_mode = 2
-offset_left = 705.742
-offset_top = 359.415
-offset_right = 898.742
-offset_bottom = 588.416
+size_flags_vertical = 3
 texture = ExtResource("8_8xvtf")
 expand_mode = 1
 
-[node name="Select" type="Sprite2D" parent="Enemy1"]
-texture_filter = 2
-position = Vector2(83.8824, 73.5168)
-texture = ExtResource("9_3rhom")
-
-[node name="EnemyHP" type="ProgressBar" parent="Enemy1"]
+[node name="EnemyHP" type="ProgressBar" parent="EnemyContainer1"]
 visible = false
-custom_minimum_size = Vector2(0, 5)
+z_index = 10
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
-offset_left = -25.5745
-offset_top = -56.7413
-offset_right = 155.426
-offset_bottom = -48.7413
+size_flags_vertical = 1
 theme_override_constants/outline_size = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
@@ -875,14 +902,16 @@ max_value = 1e+10
 value = 50.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Enemy1/EnemyHP"]
+[node name="HPLabel" type="Label" parent="EnemyContainer1/EnemyHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -37.0
-offset_right = 37.0
+offset_left = -31.8281
+offset_top = -16.8656
+offset_right = 38.1719
+offset_bottom = -4.86563
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -890,29 +919,51 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "HP: 25/50"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="Enemy2" type="TextureRect" parent="."]
+[node name="Label" type="Label" parent="EnemyContainer1"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Enemy 1"
+label_settings = SubResource("LabelSettings_mdogy")
+
+[node name="EnemyContainer2" type="VBoxContainer" parent="." groups=["EnemyContainers"]]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.652
+anchor_right = 0.989
+anchor_bottom = 0.929
+offset_left = 0.244385
+offset_top = 0.311737
+offset_right = 0.212402
+offset_bottom = -0.0152588
+pivot_offset = Vector2(90, 90)
+size_flags_vertical = 0
+theme_override_constants/separation = -5
+
+[node name="Select" type="TextureRect" parent="EnemyContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("8_ype7g")
+stretch_mode = 3
+
+[node name="AspectContainer" type="AspectRatioContainer" parent="EnemyContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EnemyText" type="TextureRect" parent="EnemyContainer2/AspectContainer"]
 texture_filter = 1
-layout_mode = 0
-offset_left = 750.909
-offset_top = 220.55
-offset_right = 943.909
-offset_bottom = 449.55
-texture = ExtResource("8_6g5ax")
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("8_8xvtf")
 expand_mode = 1
 
-[node name="Select" type="Sprite2D" parent="Enemy2"]
-texture_filter = 2
-position = Vector2(83.8824, 73.5168)
-texture = ExtResource("9_3rhom")
-
-[node name="EnemyHP" type="ProgressBar" parent="Enemy2"]
+[node name="EnemyHP" type="ProgressBar" parent="EnemyContainer2"]
 visible = false
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 0
-offset_left = -25.5745
-offset_top = -56.7413
-offset_right = 155.426
-offset_bottom = -48.7413
+z_index = 10
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_vertical = 1
 theme_override_constants/outline_size = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
@@ -920,14 +971,16 @@ max_value = 1e+10
 value = 50.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Enemy2/EnemyHP"]
+[node name="HPLabel" type="Label" parent="EnemyContainer2/EnemyHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -37.0
-offset_right = 37.0
+offset_left = -31.8281
+offset_top = -16.8656
+offset_right = 38.1719
+offset_bottom = -4.86563
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -935,29 +988,52 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "HP: 25/50"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="Enemy3" type="TextureRect" parent="."]
+[node name="Label" type="Label" parent="EnemyContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Enemy 2
+"
+label_settings = SubResource("LabelSettings_mdogy")
+
+[node name="EnemyContainer3" type="VBoxContainer" parent="." groups=["EnemyContainers"]]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.573
+anchor_top = 0.602
+anchor_right = 0.767
+anchor_bottom = 0.879
+offset_left = -0.219543
+offset_top = 0.187561
+offset_right = -0.251526
+offset_bottom = -0.139465
+pivot_offset = Vector2(90, 90)
+size_flags_vertical = 0
+theme_override_constants/separation = -5
+
+[node name="Select" type="TextureRect" parent="EnemyContainer3"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("8_ype7g")
+stretch_mode = 3
+
+[node name="AspectContainer" type="AspectRatioContainer" parent="EnemyContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EnemyText" type="TextureRect" parent="EnemyContainer3/AspectContainer"]
 texture_filter = 1
-layout_mode = 0
-offset_left = 570.239
-offset_top = 163.371
-offset_right = 763.239
-offset_bottom = 392.371
-texture = ExtResource("8_6g5ax")
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("8_8xvtf")
 expand_mode = 1
 
-[node name="Select" type="Sprite2D" parent="Enemy3"]
-texture_filter = 2
-position = Vector2(83.8824, 73.5168)
-texture = ExtResource("9_3rhom")
-
-[node name="EnemyHP" type="ProgressBar" parent="Enemy3"]
+[node name="EnemyHP" type="ProgressBar" parent="EnemyContainer3"]
 visible = false
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 0
-offset_left = -25.5745
-offset_top = -56.7413
-offset_right = 155.426
-offset_bottom = -48.7413
+z_index = 10
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_vertical = 1
 theme_override_constants/outline_size = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
@@ -965,14 +1041,16 @@ max_value = 1e+10
 value = 50.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Enemy3/EnemyHP"]
+[node name="HPLabel" type="Label" parent="EnemyContainer3/EnemyHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -37.0
-offset_right = 37.0
+offset_left = -31.8281
+offset_top = -16.8656
+offset_right = 38.1719
+offset_bottom = -4.86563
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -980,29 +1058,51 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "HP: 25/50"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="Enemy4" type="TextureRect" parent="."]
+[node name="Label" type="Label" parent="EnemyContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Enemy 3"
+label_settings = SubResource("LabelSettings_mdogy")
+
+[node name="EnemyContainer4" type="VBoxContainer" parent="." groups=["EnemyContainers"]]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.523
+anchor_top = 0.37
+anchor_right = 0.717
+anchor_bottom = 0.647
+offset_left = 0.206451
+offset_top = 0.101669
+offset_right = 0.174438
+offset_bottom = -0.225342
+pivot_offset = Vector2(90, 90)
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Select" type="TextureRect" parent="EnemyContainer4"]
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("8_ype7g")
+stretch_mode = 3
+
+[node name="AspectContainer" type="AspectRatioContainer" parent="EnemyContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EnemyText" type="TextureRect" parent="EnemyContainer4/AspectContainer"]
 texture_filter = 1
-layout_mode = 0
-offset_left = 525.072
-offset_top = 310.404
-offset_right = 718.072
-offset_bottom = 539.404
-texture = ExtResource("8_6g5ax")
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("8_8xvtf")
 expand_mode = 1
 
-[node name="Select" type="Sprite2D" parent="Enemy4"]
-texture_filter = 2
-position = Vector2(83.8824, 73.5168)
-texture = ExtResource("9_3rhom")
-
-[node name="EnemyHP" type="ProgressBar" parent="Enemy4"]
+[node name="EnemyHP" type="ProgressBar" parent="EnemyContainer4"]
 visible = false
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 0
-offset_left = -25.5745
-offset_top = -56.7413
-offset_right = 155.426
-offset_bottom = -48.7413
+z_index = 10
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_vertical = 1
 theme_override_constants/outline_size = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
@@ -1010,27 +1110,35 @@ max_value = 1e+10
 value = 50.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Enemy4/EnemyHP"]
+[node name="HPLabel" type="Label" parent="EnemyContainer4/EnemyHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -37.0
-offset_right = 37.0
+offset_left = -31.8281
+offset_top = -16.8656
+offset_right = 38.1719
+offset_bottom = -4.86563
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "HP: 25/50"
 label_settings = ExtResource("4_jbr0v")
+
+[node name="Label" type="Label" parent="EnemyContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Enemy 4"
+label_settings = SubResource("LabelSettings_mdogy")
 
 [node name="CombatLogPanel" type="Panel" parent="."]
 layout_mode = 2
-offset_left = 331.497
-offset_top = 547.292
-offset_right = 653.497
-offset_bottom = 630.292
+offset_left = 337.95
+offset_top = 24.5056
+offset_right = 646.95
+offset_bottom = 91.5056
 size_flags_vertical = 3
 
 [node name="CombatLog" type="RichTextLabel" parent="CombatLogPanel"]

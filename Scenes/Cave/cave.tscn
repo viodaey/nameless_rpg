@@ -1,13 +1,10 @@
-[gd_scene load_steps=62 format=4 uid="uid://cf102f2tv8nkb"]
+[gd_scene load_steps=58 format=4 uid="uid://cf102f2tv8nkb"]
 
 [ext_resource type="Script" path="res://Scenes/Cave/cave_main.gd" id="1_fggji"]
 [ext_resource type="Texture2D" uid="uid://d1n86qkykb55x" path="res://textures/Tilesets/forest tiles/forest-palette01-day.png" id="2_s82dg"]
 [ext_resource type="Texture2D" uid="uid://c0efv3yhusd33" path="res://textures/Tilesets/Dungeon_rogue/mainlevbuild.png" id="3_0yk6s"]
-[ext_resource type="Script" path="res://npc_1.gd" id="4_pyl6y"]
 [ext_resource type="Texture2D" uid="uid://b6x0gkmtnpk" path="res://textures/Tilesets/Dungeon_rogue/decorative.png" id="4_xq6rx"]
-[ext_resource type="SpriteFrames" uid="uid://h00a0ujcvs78" path="res://src/res_spritef_ow_canine_white.tres" id="5_xfpab"]
 [ext_resource type="Script" path="res://src/ow_player_body.gd" id="6_5ad2r"]
-[ext_resource type="Resource" uid="uid://bq72ft87yg5kg" path="res://enemyResources/res_battle_spider.tres" id="6_vnymj"]
 [ext_resource type="Texture2D" uid="uid://rhh3il8k31mh" path="res://test_sprites/Hooman/Idle/Character_Idle.png" id="7_hgpi8"]
 [ext_resource type="Texture2D" uid="uid://bgbbok7la0ucp" path="res://test_sprites/Hooman/Move/Character_Move.png" id="8_7hlka"]
 [ext_resource type="Script" path="res://Scenes/Cave/cave_exit.gd" id="10_u7wy8"]
@@ -1943,9 +1940,6 @@ sources/0 = SubResource("TileSetAtlasSource_ep7jd")
 sources/2 = SubResource("TileSetAtlasSource_yfbmp")
 sources/3 = SubResource("TileSetAtlasSource_cerh1")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cpt5"]
-height = 34.8429
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq1fd"]
 atlas = ExtResource("7_hgpi8")
 region = Rect2(0, 0, 128, 128)
@@ -2288,27 +2282,6 @@ rendering_quadrant_size = 32
 tile_map_data = PackedByteArray("AAAiABcAAgAOAAUAAAAiABgAAgAOAAUAAAAiABkAAgAOAAUAAAAjABcAAgAOAAUAAAAjABgAAgAOAAUAAAAjABkAAgAOAAUAAAAkABcAAgAOAAUAAAAkABgAAgAOAAUAAAAkABkAAgAOAAUAAAAiABYAAgAOAAUAAAAjABYAAgAOAAUAAAAkABYAAgAOAAUAAAAiABUAAgAOAAUAAAAjABUAAgAOAAUAAAAkABUAAgAOAAUAAAAiABoAAgAgAAgAAAAjABoAAgAhAAgAAAAkABoAAgAiAAgAAAAhABoAAgAfAAgAAAAlABoAAgAfAAgAAAAhABQAAgAZAAEAAAAiABQAAgAaAAEAAAAjABQAAgAbAAEAAAAkABQAAgAcAAEAAAAlABQAAgAdAAEAAAAhABUAAgAZAAIAAAAlABUAAgAdAAIAAAAwABwAAgAyAAMAAAAwAB0AAgAyAAQAAAAwAB4AAgAyAAUAAAAwAB8AAgAyAAYAAAAxABwAAgAzAAMAAAAxAB0AAgAzAAQAAAAxAB4AAgAzAAUAAAAxAB8AAgAzAAYAAAAyABwAAgA0AAMAAAAyAB0AAgA0AAQAAAAyAB4AAgA0AAUAAAAyAB8AAgA0AAYAAAA=")
 tile_set = SubResource("TileSet_chek5")
 rendering_quadrant_size = 32
-
-[node name="NPC_1" type="CharacterBody2D" parent="."]
-position = Vector2(-96, 72)
-scale = Vector2(0.958, 1)
-script = ExtResource("4_pyl6y")
-enemy = ExtResource("6_vnymj")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC_1"]
-z_index = 1
-sprite_frames = ExtResource("5_xfpab")
-animation = &"idle"
-autoplay = "idle"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NPC_1"]
-polygon = PackedVector2Array(-19.833, -5, -19.833, 5, -12.5261, 16, 12.5261, 16, 12.5261, -1)
-disabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC_1"]
-position = Vector2(-3.13153, 6)
-rotation = 1.82387
-shape = SubResource("CapsuleShape2D_6cpt5")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(568, 608)

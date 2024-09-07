@@ -15,6 +15,7 @@ var visible_characters: int = 0
 var try = 0
 var player_count = 1
 var e_groupsize: int = 1
+var x = 0
 #var e_sizes : Array = [[1, 640, 368],[1.5, 540, 250]]
 #var e_size : Array
 
@@ -25,20 +26,28 @@ var e_groupsize: int = 1
 @onready var _combat_log_box = $CombatLogPanel/CombatLog
 @onready var _playertexture = $Player_1
 @onready var _fireballAnimate = $Player_1/Fireball
-@onready var _enemyhp1 = $Enemy1/EnemyHP
-@onready var _enemyhp2 = $Enemy2/EnemyHP
-@onready var _enemyhp3 = $Enemy3/EnemyHP
-@onready var _enemyhp4 = $Enemy4/EnemyHP
-@onready var _enemyrect1 = $Enemy1
-@onready var _enemyrect2 = $Enemy2
-@onready var _enemyrect3 = $Enemy3
-@onready var _enemyrect4 = $Enemy4
+@onready var _enemycont1 = $EnemyContainer1
+@onready var _enemycont2 = $EnemyContainer2
+@onready var _enemycont3 = $EnemyContainer3
+@onready var _enemycont4 = $EnemyContainer4
+@onready var _enemyhp1 = $EnemyContainer1/EnemyHP
+@onready var _enemyhp2 = $EnemyContainer2/EnemyHP
+@onready var _enemyhp3 = $EnemyContainer3/EnemyHP
+@onready var _enemyhp4 = $EnemyContainer4/EnemyHP
+@onready var _enemyrect1 = $EnemyContainer1/AspectContainer/EnemyText
+@onready var _enemyrect2 = $EnemyContainer2/AspectContainer/EnemyText
+@onready var _enemyrect3 = $EnemyContainer3/AspectContainer/EnemyText
+@onready var _enemyrect4 = $EnemyContainer4/AspectContainer/EnemyText
 @onready var _actionmenu = $ActionMenu
 @onready var _effectAnimate = $Player_1/hitAnimate
 @onready var _enemy_resource = player.enemy_encounter
 @onready var _player2container = $Panel_Menu/VBoxContainer/GridContainer/Player2Container
 @onready var _player3container = $Panel_Menu/VBoxContainer/GridContainer/Player3Container
 @onready var _player4container = $Panel_Menu/VBoxContainer/GridContainer/Player4Container
+@onready var selected_enemy_ind = _enemycont1.get_node("Select")
+@onready var active_enemies: Array = [_enemycont1]
+
+
 
 
 func _ready():
@@ -54,23 +63,25 @@ func _ready():
 ##	turn off for testing resources
 #	load resource from encounter
 	enemy = load(player.enemy_encounter)
+##
+	
+	
 	print(player.enemy_encounter)
 	AudioPlayer.play_music_level(enemy.music)
 	
-	current_enemy_health = enemy.health
-
+	current_enemy_health = enemy.health		
 
 #	setup enemy 1	
 	set_health_init(_enemyhp1, enemy.health, enemy.health)
 	_enemyrect1.texture = enemy.texture
-	print(enemy.name)
-	#_enemyrect1.size = enemy.size
-	_enemyrect1.position = 	_enemyrect1.position + enemy.position
-	_enemyrect1.scale = enemy.battle_scale_vec
-	#_enemyrect1.position = enemy.position
-	#_enemyhp1.position.x = _enemyrect1.position.x
-	#_enemyhp1.size.x = _enemyrect1.size.x
-	
+	_enemycont1.get_node("Label").text = enemy.name
+	_enemycont1.get_node("Select").modulate.a = 0
+	if enemy.battle_scale_vec < Vector2(1,1):
+		_enemycont1.size = _enemycont1.size * enemy.battle_scale_vec
+		_enemycont1.position.x = _enemycont1.position.x + 50
+	_enemycont1.add_theme_constant_override("separation", enemy.battle_y_sep)
+
+
 	e_groupsize = rng.randi_range(enemy.min_group_size, enemy.max_group_size)
 	
 #	first check if groupsize > 1
@@ -89,12 +100,16 @@ func _ready():
 #	setup enemy 2
 		set_health_init(_enemyhp2, enemy2.health, enemy2.health)
 		_enemyrect2.texture = enemy2.texture
-		#_enemyrect2.size = enemy2.size
-		_enemyrect2.position = 	_enemyrect2.position + enemy2.position
-		_enemyrect2.scale = enemy2.battle_scale_vec
+		_enemycont2.get_node("Label").text = enemy2.name
+		_enemycont2.get_node("Select").modulate.a = 0
+		if enemy2.battle_scale_vec < Vector2(1,1):
+			_enemycont2.size = _enemycont2.size * enemy2.battle_scale_vec
+			_enemycont2.position.x = _enemycont2.position.x + 50
+		_enemycont2.add_theme_constant_override("separation", enemy2.battle_y_sep)
+		active_enemies.append(_enemycont2)
 	
 	else:
-		_enemyrect2.visible = false
+		_enemycont2.visible = false
 	
 	if e_groupsize > 2:
 		if len(enemy.friends) > 0:
@@ -109,12 +124,16 @@ func _ready():
 #	setup enemy 3
 		set_health_init(_enemyhp3, enemy3.health, enemy3.health)
 		_enemyrect3.texture = enemy3.texture
-		#_enemyrect3.size = enemy3.size
-		_enemyrect3.position = 	_enemyrect3.position + enemy3.position
-		_enemyrect3.scale = enemy3.battle_scale_vec
+		_enemycont3.get_node("Label").text = enemy3.name
+		_enemycont3.get_node("Select").modulate.a = 0
+		if enemy3.battle_scale_vec < Vector2(1,1):
+			_enemycont3.size = _enemycont3.size * enemy3.battle_scale_vec
+			_enemycont3.position.x = _enemycont3.position.x + 50
+		_enemycont3.add_theme_constant_override("separation", enemy3.battle_y_sep)
+		active_enemies.append(_enemycont3)
 	
 	else:
-		_enemyrect3.visible = false
+		_enemycont3.visible = false
 
 	if e_groupsize > 3:
 		if len(enemy.friends) > 0:
@@ -127,33 +146,70 @@ func _ready():
 			enemy4 = load(player.enemy_encounter)
 			
 		
-#	setup enemy 3
+#	setup enemy 4
 		set_health_init(_enemyhp4, enemy4.health, enemy4.health)
 		_enemyrect4.texture = enemy4.texture
-		#_enemyrect4.size = enemy4.size
-		_enemyrect4.position = 	_enemyrect4.position + enemy4.position
-		_enemyrect4.scale = enemy4.battle_scale_vec
+		_enemycont4.get_node("Label").text = enemy4.name
+		_enemycont4.get_node("Select").modulate.a = 0
+		if enemy4.battle_scale_vec < Vector2(1,1):
+			_enemycont4.size = _enemycont4.size * enemy4.battle_scale_vec
+			_enemycont4.position.x = _enemycont4.position.x + 50
+		_enemycont4.add_theme_constant_override("separation", enemy4.battle_y_sep)
+		active_enemies.append(_enemycont4)
 
 	else:
-		_enemyrect4.visible = false
+		_enemycont4.visible = false
 
-
-	#e_size = e_sizes[enemy.size]
-	#print(_enemyrect.size)
-	#_enemyrect.scale.x = e_size[0]
-	#print(_enemyrect.size)
-	#_enemyrect.scale.y = e_size[0]
-	#print(_enemyrect.size)
-	#_enemyrect.position.x = e_size[1]
-	#_enemyrect.position.y = 420 - (_enemyrect.size.y * e_size[0] /2)
 	
 func _click(event):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_XBUTTON1):
 		emit_signal("clicked")
 
+#controlsignals
+signal pressedUp
+signal pressedDown
+signal pressedLeft
+signal pressedRight
+signal pressedSomething
+signal pressedDir
+signal pressedAccept
+
+func _input(event):
+	#if event.is_anything_pressed():
+		#pressedSomething.emit()
+	if event.is_action_pressed("up"):
+		pressedSomething.emit()
+		pressedUp.emit()
+	if event.is_action_pressed("down"):
+		pressedSomething.emit()
+		pressedDown.emit()
+	if event.is_action_pressed("left"):
+		pressedSomething.emit()
+		pressedLeft.emit()
+	if event.is_action_pressed("right"):
+		pressedSomething.emit()
+		pressedRight.emit()
+	if event.is_action_pressed("ui_accept"):
+		pressedSomething.emit()
+		pressedAccept.emit()
+
+		
+		
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+
+###	select target
+		#if Input.is_action_pressed("up"):
+			#x = min(x + 1, len(active_enemies) - 1)
+			#selected_enemy_ind.modulate.a = 0
+			#_tween_selector().stop
+			#selected_enemy_ind = active_enemies[x]
+			#_tween_selector()
+			#print("pressed up")
+	#else:
+		pass
+
 
 
 func set_mp_init(progress_bar, mp, max_mp):
@@ -232,15 +288,57 @@ func enemy_turn():
 		try = 0
 
 		
-	
+
 
 func _on_attack_pressed():
 
 	_actionmenu.visible = false
+	x = 0
+	selected_enemy_ind = active_enemies[x].get_node("Select")
+	selected_enemy_ind.modulate.a = 1
+	_tween_selector()
+	_await_selection()
+
+func _await_selection():
+	await(Input.is_anything_pressed())
+	if Input.is_action_pressed("up"):
+		x = max(min(x + 1, len(active_enemies) - 1), 0)
+		selected_enemy_ind.modulate.a = 0
+		#_tween_selector().stop()
+		selected_enemy_ind = active_enemies[x].get_node("Select")
+		selected_enemy_ind.modulate.a = 1
+		_tween_selector()
+		print("pressed up")
+		_await_selection()
+	elif Input.is_action_pressed("down"):
+		x = max(min(x - 1, len(active_enemies) - 1), 0)
+		selected_enemy_ind.modulate.a = 0
+		#_tween_selector().stop
+		selected_enemy_ind = active_enemies[x].get_node("Select")
+		_tween_selector()
+		print("pressed down")
+		_await_selection()
+	else:
+		_await_selection()
+	
+
+	
+	
+
+	
+func _tween_selector():
+	var tween = get_tree().create_tween()
+	tween.tween_property(selected_enemy_ind, "position:y", selected_enemy_ind.position.y + 10, 0.5).set_trans(tween.TRANS_SINE)
+	tween.tween_property(selected_enemy_ind, "position:y", selected_enemy_ind.position.y + 0, 0.5).set_trans(tween.TRANS_SINE)
+	tween.tween_callback(_tween_selector)
+
+
+func _attack_phase_1():
+	var tween = get_tree().create_tween()
+	_actionmenu.visible = false
 	var pos = _playertexture.position
 	dealt_dmg = round(rng.randf_range(0.85, 1.15) * player.damage)
 	await combat_log("You attack %s!" % [enemy.name])
-	var tween = get_tree().create_tween()
 	tween.tween_property(_playertexture, "position", Vector2(pos[0] - 10, pos[1]), 0.5)
 	tween.tween_property(_playertexture, "position", Vector2(pos[0] + 20, pos[1]), 0.15)
 	tween.tween_property(_playertexture, "position", Vector2(pos[0], pos[1]), 0.5) #.set_delay(0.5)
