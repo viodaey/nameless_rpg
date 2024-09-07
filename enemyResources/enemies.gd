@@ -11,6 +11,8 @@ extends Resource
 @export var can_chill: bool = true
 @export var lifesteal: int = 0
 @export var animatedSprite: SpriteFrames = null
+@export var affliction_type: String
+@export var affliction_chance: int = 0
 @export var map_scale: float = 1
 #@export var battle_scale: float = 1
 @export var max_group_size: int = 3

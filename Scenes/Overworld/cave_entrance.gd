@@ -22,8 +22,6 @@ func _process(delta: float) -> void:
 
 #func _on_cave_entrance_area_entered(area: Area2D):
 
-
-
 func _on_body_entered(body: CharacterBody2D) -> void:
 	if body == _player_body:
 		_entered = true

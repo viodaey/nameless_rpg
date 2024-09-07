@@ -1,10 +1,9 @@
 extends Control
 
 @export var enemy : Resource 
-@export var enemy2: Resource
-@export var enemy3: Resource
-@export var enemy4: Resource
-
+var enemy2: Resource
+var enemy3: Resource
+var enemy4: Resource
 var rng = RandomNumberGenerator.new()
 var current_player_health: int = 0
 var current_enemy_health: int = 0
@@ -25,11 +24,16 @@ var enemyStats1 : Dictionary
 var enemyStats2 : Dictionary
 var enemyStats3 : Dictionary
 var enemyStats4 : Dictionary
-var x : int = 1
+var playerDict: Dictionary = {1: playerDict_1}
+var playerDict_1: Dictionary
+var playerDict_2: Dictionary
+var playerDict_3: Dictionary
+var playerDict_4: Dictionary
+var playerStats1 : Dictionary
+var x : int
 
-
-@onready var _playerhp = $Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer/PlayerHP
-@onready var _playermp = $Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer/PlayerMP
+@onready var _playerhp = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1/PlayerHP
+@onready var _playermp = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1/PlayerMP
 @onready var _log_timer = $CombatLogPanel/Timer
 @onready var _combat_log_box = $CombatLogPanel/CombatLog
 @onready var _playertexture = $Player_1
@@ -47,29 +51,30 @@ var x : int = 1
 @onready var _enemyrect3 = $EnemyContainer3/AspectContainer/EnemyText
 @onready var _enemyrect4 = $EnemyContainer4/AspectContainer/EnemyText
 @onready var _actionmenu = $ActionMenu
-#@onready var _effectAnimate = $Player_1/hitAnimate
-#@onready var _enemy_resource = player.enemy_encounter
-@onready var _player2container = $Panel_Menu/VBoxContainer/GridContainer/Player2Container
-@onready var _player3container = $Panel_Menu/VBoxContainer/GridContainer/Player3Container
-@onready var _player4container = $Panel_Menu/VBoxContainer/GridContainer/Player4Container
-@onready var selected_enemy_ind = _enemycont1.get_node("Select")
+@onready var _player2container = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2
+@onready var _player3container = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3
+@onready var _player4container = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4
+@onready var selected_enemy_ind : TextureRect #= _enemycont1.get_node("Select")
 @onready var active_enemies: Array = [_enemycont1]
 @onready var fx = $FX
 @onready var hp: int
-
 
 func _ready():
 	if player_count == 1:
 		_player2container.visible = false
 		_player3container.visible = false
 		_player4container.visible = false
-##	setup player
+##	setup player 1
 	set_health_init(_playerhp, player.health, player.max_health)
 	set_mp_init(_playermp, player.mp, player.max_mp)
-	current_player_health = player.health
-	current_player_mp = player.mp
+	playerDict_1["res"] = player
+	playerDict_1["live"] = playerStats1
+	playerDict_1["txt"] = $Player_1
+	playerDict_1["cont"] = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1
+	playerStats1["hp"] = player.health
+	playerStats1["mp"] = player.mp
 	
-##	load enemy resource from encounter -- TURN OFF LOAD TO TEST RESOURCE
+##	load enemy resource from encounter -- TURN OFF LOAD TO TEST EXPORT RESOURCE
 	enemy 	= load(player.enemy_encounter)
 	AudioPlayer.play_music_level(enemy.music)
 	enemyDict_1["res"] = enemy
@@ -87,11 +92,14 @@ func _ready():
 		_enemycont1.position.x = _enemycont1.position.x + 50
 	_enemycont1.add_theme_constant_override("separation", enemy.battle_y_sep)
 	e_groupsize = rng.randi_range(enemy.min_group_size, enemy.max_group_size)
-	#enemyToStat[_enemycont1] = enemyStats1
-	#enemyStats1["res"] = enemy
-	#enemyStats1["HP"] = enemy.health
-	
-#	first check if groupsize > 1
+
+##	safety net starting player
+	if player.lvl < 3 and e_groupsize > 2:
+		e_groupsize = 2
+	if player.lvl < 6 and e_groupsize > 3:
+		e_groupsize = 3
+
+##	select enemy 2
 	if e_groupsize > 1:
 		if len(enemy.friends) > 0:
 			var bla = rng.randi_range(0, len(enemy.friends)) 
@@ -101,7 +109,7 @@ func _ready():
 				enemy2 = load(enemy.allEnemies[enemy.friends[bla-1]])
 		else:
 			enemy2 = load(player.enemy_encounter)
-#	setup enemy 2
+##	setup enemy 2
 		enemyDict[2] = enemyDict_2
 		enemyDict_2["cont"] = _enemycont2
 		enemyDict_2["live"] = enemyStats2
@@ -115,12 +123,10 @@ func _ready():
 			_enemycont2.size = _enemycont2.size * enemy2.battle_scale_vec
 			_enemycont2.position.x = _enemycont2.position.x + 50
 		_enemycont2.add_theme_constant_override("separation", enemy2.battle_y_sep)
-		#active_enemies.append(_enemycont2)
-
-	
 	else:
 		_enemycont2.visible = false
-	
+		
+##	select enemy 3
 	if e_groupsize > 2:
 		if len(enemy.friends) > 0:
 			var bla = rng.randi_range(0, len(enemy.friends)) 
@@ -131,7 +137,7 @@ func _ready():
 		else:
 			enemy3 = load(player.enemy_encounter)
 		
-#	setup enemy 3
+##	setup enemy 3
 		enemyDict[3] = enemyDict_3
 		enemyDict_3["cont"] = _enemycont3
 		enemyDict_3["live"] = enemyStats3
@@ -145,10 +151,10 @@ func _ready():
 			_enemycont3.size = _enemycont3.size * enemy3.battle_scale_vec
 			_enemycont3.position.x = _enemycont3.position.x + 50
 		_enemycont3.add_theme_constant_override("separation", enemy3.battle_y_sep)
-	
 	else:
 		_enemycont3.visible = false
 
+##	select enemy 4
 	if e_groupsize > 3:
 		if len(enemy.friends) > 0:
 			var bla = rng.randi_range(0, len(enemy.friends)) 
@@ -158,9 +164,8 @@ func _ready():
 				enemy4 = load(enemy.allEnemies[enemy.friends[bla-1]])
 		else:
 			enemy4 = load(player.enemy_encounter)
-			
-		
-#	setup enemy 4
+
+##	setup enemy 4
 		enemyDict[4] = enemyDict_4
 		enemyDict_4["cont"] = _enemycont4
 		enemyDict_4["live"] = enemyStats4
@@ -174,12 +179,10 @@ func _ready():
 			_enemycont4.size = _enemycont4.size * enemy4.battle_scale_vec
 			_enemycont4.position.x = _enemycont4.position.x + 50
 		_enemycont4.add_theme_constant_override("separation", enemy4.battle_y_sep)
-		
-
 	else:
 		_enemycont4.visible = false
+	$ActionMenu/MarginActions/HBoxContainer/Actions/Attack.grab_focus()
 
-	
 #func _click(event):
 	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_XBUTTON1):
 		#emit_signal("clicked")
@@ -189,22 +192,10 @@ signal pressedSomething
 func _input(event):
 	if Input.is_anything_pressed():
 		pressedSomething.emit()
-		
-		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
-###	select target
-		#if Input.is_action_pressed("up"):
-			#x = min(x + 1, len(active_enemies) - 1)
-			#selected_enemy_ind.modulate.a = 0
-			#_tween_selector().stop
-			#selected_enemy_ind = active_enemies[x]
-			#_tween_selector()
-			#print("pressed up")
-	#else:
-		pass
+	pass
 
 
 
@@ -246,12 +237,16 @@ func combat_log(text):
 	_combat_log_box.text = text
 	var log_timer = _log_timer
 	for i in text: 
+		var z = 1
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or Input.is_action_pressed("ui_accept"):
+			z = 4
 		visible_characters = (visible_characters + 1)
 		_combat_log_box.visible_characters = visible_characters
-		log_timer.start(0.03)
+		log_timer.start(0.03 / z)
 		await log_timer.timeout
-	log_timer.start(0.4)
-	await log_timer.timeout	
+	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		log_timer.start(0.4)
+		await log_timer.timeout	
 			
 	
 func enemy_turn():
@@ -261,28 +256,62 @@ func enemy_turn():
 			$AnimationPlayer.play("enemy_chillin")
 			await $AnimationPlayer.animation_finished
 		else:
+			x = rng.randi_range(1, len(playerDict))
+			var players_array = playerDict.keys()
+			y = players_array[x - 1]
 			dealt_dmg = round(rng.randf_range(0.8, 1.2) * enemyDict[e]["res"].damage)
-			await combat_log("%s attacks!" % [enemyDict[e]["res"].name])
+			await combat_log("%s attacks %s!" % [enemyDict[e]["res"].name, playerDict[y]["res"].p_name])
 			var tween = get_tree().create_tween()
 			var pos = enemyDict[e]["cont"].position
 			tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] + 10, pos[1]), 0.4)
 			tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] - 20, pos[1]), 0.15)
 			tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0], pos[1]), 0.3)
 			await tween.step_finished 
-			set_health(_playerhp, current_player_health, player.max_health)
-			current_player_health = (current_player_health - dealt_dmg)
-			player.health = current_player_health
+			set_health(
+				playerDict[y]["cont"].get_node("PlayerHP"), 
+				playerDict[y]["live"]["hp"], 
+				playerDict[y]["res"].max_health)
+			playerDict[y]["live"]["hp"] = (playerDict[y]["live"]["hp"] - dealt_dmg)
+			playerDict[y]["res"].health = playerDict[y]["live"]["hp"]
 			tween = get_tree().create_tween()
 			for i in 6:
-				tween.chain().tween_property(_playertexture, "modulate:a", 0,  0.1)
-				tween.chain().tween_property(_playertexture, "modulate:a", 1,  0.1)
+				tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 0,  0.1)
+				tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 1,  0.1)
 			
 			await tween.finished
 			await combat_log("Got hit for %d damage" % [dealt_dmg])
 			if enemyDict[e]["res"].lifesteal > 0:
-				set_health_init(enemyDict[e]["cont"].get_node("EnemyHP"), (min(enemyDict[e]["live"]["hp"] + enemyDict[e]["res"].lifesteal, enemyDict[e]["res"].health)), enemyDict[e]["res"].health)
-				await combat_log("%s regained %d health" % [enemy.name, enemy.lifesteal] )
-		try = 0
+				set_health_init(
+					enemyDict[e]["cont"].get_node("EnemyHP"), 
+					(min(enemyDict[e]["live"]["hp"] + enemyDict[e]["res"].lifesteal, enemyDict[e]["res"].health)), 
+					enemyDict[e]["res"].health)
+				await combat_log("%s regained %d health" % [enemyDict[e]["res"].name, enemyDict[e]["res"].lifesteal] )
+			if enemyDict[e]["res"].affliction_chance > 0:
+				if rng.randi_range(0,100) <= enemyDict[e]["res"].affliction_chance:
+					await combat_log("You are %s!" % [enemyDict[e]["res"].affliction_type])
+	try = 0
+	for players in playerDict:
+		if playerDict[players]["live"].has("affl"):
+			combat_log("%s is %s" % [playerDict[y]["res"].p_name, playerDict[players]["live"]["affl"]])
+			if playerDict[players]["live"]["affl"] == "burning":
+				dealt_dmg = 3
+				set_health(
+					playerDict[players]["cont"].get_node("PlayerHP"), 
+					playerDict[players]["live"]["hp"], 
+					playerDict[players]["res"].max_health)
+				playerDict[y]["live"]["hp"] = (playerDict[y]["live"]["hp"] - dealt_dmg)
+				playerDict[y]["res"].health = playerDict[y]["live"]["hp"]
+				if rng.randi_range(0,100) > 40:
+					playerDict[players]["live"].erase("affl")
+					combat_log("%s stopped burning" % [playerDict[y]["res"].p_name])
+					
+
+				
+				
+				
+			
+	_actionmenu.visible = true
+	$ActionMenu/MarginActions/HBoxContainer/Actions/Attack.grab_focus()
 
 		
 var enemyCount : Array
@@ -294,8 +323,6 @@ func _on_attack_pressed():
 	enemyCount = enemyDict.keys()
 	x = 0
 	_await_selection()
-
-
 
 func _await_selection():
 	var _selector_tween: Tween
@@ -311,7 +338,7 @@ func _await_selection():
 	await(pressedSomething)
 	_selector_tween.kill()
 	selected_enemy_ind.position = pos
-	if Input.is_action_pressed("up"):
+	if Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_right"):
 		selected_enemy_ind.modulate.a = 0
 		if x == max_x:
 			x = 0
@@ -320,7 +347,7 @@ func _await_selection():
 		selected_enemy_ind = enemyDict[enemyCount[x]]["cont"].get_node("Select")
 		selected_enemy_ind.modulate.a = 1
 		_await_selection()
-	elif Input.is_action_pressed("down"):
+	elif Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_left"):
 		selected_enemy_ind.modulate.a = 0
 		if x == 0:
 			x = max_x
@@ -331,11 +358,14 @@ func _await_selection():
 		_await_selection()
 	elif Input.is_action_pressed("ui_accept"):
 		selected_enemy_ind.modulate.a = 0
-		print(x)
 		y = enemyCount[x]
-		print(y)
 		_selector_tween.kill()
 		_attack_phase_1()
+	elif Input.is_action_pressed("ui_cancel"):
+		selected_enemy_ind.modulate.a = 0
+		_selector_tween.kill()
+		_actionmenu.visible = true
+		$ActionMenu/MarginActions/HBoxContainer/Actions/Attack.grab_focus()
 	else:
 		_await_selection()
 
@@ -408,8 +438,8 @@ func _attack_phase_2():
 		await(enemy_died(y))
 	if enemyDict.is_empty():
 		sceneManager.goto_scene(sceneManager.last_scene)
-	await enemy_turn()
-	_actionmenu.visible = true
+	enemy_turn()
+
 
 
 func enemy_died(y):
