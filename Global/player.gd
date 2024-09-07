@@ -1,5 +1,6 @@
 extends Node
 
+var p_name: String = "skullhead"
 var max_health: int = 170
 var health: int = 170
 var damage: int = 30

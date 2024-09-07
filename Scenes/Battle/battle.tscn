@@ -178,6 +178,20 @@ _data = {
 "enemy_healthchange": SubResource("Animation_xuy4y")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_mdogy"]
+line_spacing = 0.0
+font_size = 12
+
+[sub_resource type="Gradient" id="Gradient_rrtmt"]
+offsets = PackedFloat32Array(0, 0.943965, 0.95339)
+colors = PackedColorArray(1, 1, 1, 1, 0.159081, 0.159081, 0.159081, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vms3e"]
+gradient = SubResource("Gradient_rrtmt")
+fill = 1
+fill_from = Vector2(0.482906, 0.542735)
+fill_to = Vector2(0, 0)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_055hs"]
 atlas = ExtResource("5_uugxd")
 region = Rect2(0, 0, 580, 160)
@@ -365,20 +379,6 @@ animations = [{
 "speed": 45.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_mdogy"]
-line_spacing = 0.0
-font_size = 12
-
-[sub_resource type="Gradient" id="Gradient_rrtmt"]
-offsets = PackedFloat32Array(0, 0.943965, 0.95339)
-colors = PackedColorArray(1, 1, 1, 1, 0.159081, 0.159081, 0.159081, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vms3e"]
-gradient = SubResource("Gradient_rrtmt")
-fill = 1
-fill_from = Vector2(0.482906, 0.542735)
-fill_to = Vector2(0, 0)
-
 [node name="battle" type="Control"]
 z_index = -1
 layout_mode = 3
@@ -432,32 +432,20 @@ grow_vertical = 2
 [node name="GridContainer" type="GridContainer" parent="Panel_Menu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/v_separation = 0
 
-[node name="Player1Container" type="HBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer2" type="MarginContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2"]
+[node name="PlayerContainer1" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="Player1Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer"]
+[node name="Player1Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1"]
 layout_mode = 2
 text = "Player_1
 "
 label_settings = SubResource("LabelSettings_dlh10")
 
-[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer"]
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
@@ -466,7 +454,7 @@ max_value = 5e+07
 value = 25.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer/PlayerHP"]
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1/PlayerHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -483,7 +471,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer"]
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
@@ -492,7 +480,7 @@ max_value = 10.0
 value = 8.0
 show_percentage = false
 
-[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player1Container/MarginContainer2/VBoxContainer/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -510,31 +498,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "MP: 8/10"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="Player2Container" type="HBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer2" type="MarginContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2"]
+[node name="PlayerContainer2" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="Player2Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer"]
+[node name="Player2Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2"]
 layout_mode = 2
 text = "Player_2
 "
 label_settings = SubResource("LabelSettings_dlh10")
 
-[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer"]
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
@@ -543,7 +518,7 @@ max_value = 50.0
 value = 25.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer/PlayerHP"]
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2/PlayerHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -560,7 +535,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer"]
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
@@ -569,7 +544,7 @@ max_value = 10.0
 value = 8.0
 show_percentage = false
 
-[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player2Container/MarginContainer2/VBoxContainer/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -587,31 +562,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "MP: 8/10"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="Player3Container" type="HBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer2" type="MarginContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2"]
+[node name="PlayerContainer3" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="Player3Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer"]
+[node name="Player3Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3"]
 layout_mode = 2
 text = "Player_3
 "
 label_settings = SubResource("LabelSettings_dlh10")
 
-[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer"]
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
@@ -620,7 +582,7 @@ max_value = 50.0
 value = 25.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer/PlayerHP"]
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3/PlayerHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -637,7 +599,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer"]
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
@@ -646,7 +608,7 @@ max_value = 10.0
 value = 8.0
 show_percentage = false
 
-[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player3Container/MarginContainer2/VBoxContainer/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -664,31 +626,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "MP: 8/10"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="Player4Container" type="HBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer2" type="MarginContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 3
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 3
-theme_override_constants/margin_bottom = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2"]
+[node name="PlayerContainer4" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="Player4Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer"]
+[node name="Player4Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4"]
 layout_mode = 2
 text = "Player_4
 "
 label_settings = SubResource("LabelSettings_dlh10")
 
-[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer"]
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
@@ -697,7 +646,7 @@ max_value = 50.0
 value = 25.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer/PlayerHP"]
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4/PlayerHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -714,7 +663,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer"]
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
@@ -723,7 +672,7 @@ max_value = 10.0
 value = 8.0
 show_percentage = false
 
-[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/Player4Container/MarginContainer2/VBoxContainer/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -782,6 +731,8 @@ size_flags_horizontal = 3
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../Actions2/Item")
+focus_neighbor_bottom = NodePath("../Magic")
 theme_override_constants/h_separation = 0
 text = "     Attack     "
 
@@ -789,6 +740,8 @@ text = "     Attack     "
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Attack")
+focus_neighbor_right = NodePath("../../Actions2/Dance")
 theme_override_constants/h_separation = 0
 text = "     Magic     "
 
@@ -801,6 +754,8 @@ size_flags_horizontal = 3
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../Actions/Attack")
+focus_neighbor_bottom = NodePath("../Dance")
 theme_override_constants/h_separation = 0
 text = "     Item     "
 
@@ -808,6 +763,8 @@ text = "     Item     "
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../Actions/Magic")
+focus_neighbor_top = NodePath("../Item")
 theme_override_constants/h_separation = 0
 text = "     Dance     "
 
@@ -819,33 +776,17 @@ layout_mode = 2
 modulate = Color(1, 1, 1, 0.996078)
 visibility_layer = 17
 layout_mode = 2
-offset_left = 118.565
-offset_top = 326.741
-offset_right = 374.564
-offset_bottom = 527.741
+anchor_left = 0.128
+anchor_top = 0.502
+anchor_right = 0.404
+anchor_bottom = 0.811
+offset_left = -0.219002
+offset_top = -0.0610352
+offset_right = -0.348022
+offset_bottom = -0.220032
 size_flags_vertical = 4
 texture = ExtResource("3_8u46x")
 stretch_mode = 2
-
-[node name="Fireball" type="AnimatedSprite2D" parent="Player_1"]
-modulate = Color(1, 1, 1, 0)
-light_mask = 17
-visibility_layer = 16
-z_index = -1
-position = Vector2(179.863, 76.58)
-rotation = -3.14159
-scale = Vector2(0.2, 0.2)
-sprite_frames = SubResource("SpriteFrames_5qdkq")
-autoplay = "default"
-frame_progress = 0.0550403
-
-[node name="hitAnimate" type="AnimatedSprite2D" parent="Player_1"]
-z_index = 1
-position = Vector2(686.909, 78.8493)
-sprite_frames = SubResource("SpriteFrames_pvakd")
-animation = &"slash"
-frame = 20
-frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(472.645, 324.699)
@@ -1162,6 +1103,31 @@ range_z_min = -1
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_vms3e")
 height = 10.0
+
+[node name="FX" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Fireball" type="AnimatedSprite2D" parent="FX"]
+modulate = Color(1, 1, 1, 0)
+light_mask = 17
+visibility_layer = 16
+z_index = -1
+position = Vector2(298.428, 403.321)
+rotation = -3.14159
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_5qdkq")
+autoplay = "default"
+frame_progress = 0.0550403
+
+[node name="hitAnimate" type="AnimatedSprite2D" parent="FX"]
+z_index = 1
+position = Vector2(805.474, 405.59)
+sprite_frames = SubResource("SpriteFrames_pvakd")
+animation = &"slash"
+frame = 20
+frame_progress = 1.0
 
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Magic" to="." method="_on_magic_pressed"]
