@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6n7em3otq0o0"]
+
+[ext_resource type="Script" path="res://invManageScript.gd" id="1_4cyy0"]
+[ext_resource type="Texture2D" uid="uid://cm7ugrxdww20r" path="res://textures/selectionTriangle_full.png" id="2_nbb2x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_25jqj"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4cyy0")
+
+[node name="ItemPanel" type="Panel" parent="."]
+offset_left = 136.0
+offset_top = 123.0
+offset_right = 408.0
+offset_bottom = 318.0
+
+[node name="ScrollCont" type="ScrollContainer" parent="ItemPanel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 1.0
+offset_right = 269.0
+offset_bottom = 195.0
+
+[node name="itemList" type="GridContainer" parent="ItemPanel/ScrollCont"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Item" type="Label" parent="ItemPanel/ScrollCont/itemList"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TestItem "
+label_settings = SubResource("LabelSettings_25jqj")
+
+[node name="Amount" type="Label" parent="ItemPanel/ScrollCont/itemList"]
+visible = false
+layout_mode = 2
+text = "99"
+
+[node name="Selector" type="TextureRect" parent="ItemPanel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 21.0
+offset_right = 21.0
+offset_bottom = 36.0
+rotation = 4.71239
+texture = ExtResource("2_nbb2x")
+
+[node name="add_apple" type="Button" parent="."]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 376.0
+offset_right = 275.0
+offset_bottom = 407.0
+focus_mode = 1
+text = "add apple"
+
+[connection signal="pressed" from="add_apple" to="." method="_on_add_apple_pressed"]

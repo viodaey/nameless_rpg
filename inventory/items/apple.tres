@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="item" load_steps=2 format=3 uid="uid://cpdf56ig8vq18"]
+
+[ext_resource type="Script" path="res://inventory/itemMain.gd" id="1_l6mbq"]
+
+[resource]
+script = ExtResource("1_l6mbq")
+name = "Apple"
+isConsume = true
+effects = {}
