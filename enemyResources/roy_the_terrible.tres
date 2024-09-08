@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dp2nf2e3s476e"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3 uid="uid://dp2nf2e3s476e"]
 
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_hfi3l"]
+[ext_resource type="Resource" uid="uid://d3jpakoms3ml7" path="res://Global/Classes/Normy.tres" id="1_rrb2o"]
 [ext_resource type="Texture2D" uid="uid://broqcoyatuls0" path="res://textures/bosses/boss_11_N.png" id="2_aamxd"]
 
 [resource]
@@ -23,3 +24,5 @@ min_group_size = 1
 friends = Array[String]([])
 battle_scale_vec = Vector2(1, 1)
 battle_y_sep = 0
+_class = ExtResource("1_rrb2o")
+lvl = 1

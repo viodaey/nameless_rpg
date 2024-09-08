@@ -31,6 +31,7 @@ var playerDict_3: Dictionary
 var playerDict_4: Dictionary
 var playerStats1 : Dictionary
 var x : int
+var calc_lvl: int
 
 @onready var _playerhp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerHP
 @onready var _playermp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerMP
@@ -66,6 +67,7 @@ func _ready():
 		_player4container.visible = false
 ##	setup player 1
 	set_health_init(_playerhp, player.health, player.max_health)
+	current_player_mp = player.mp
 	set_mp_init(_playermp, player.mp, player.max_mp)
 	playerDict_1["res"] = player
 	playerDict_1["live"] = playerStats1
@@ -75,33 +77,22 @@ func _ready():
 	playerStats1["mp"] = player.mp
 	playerDict_1["cont"].get_node("Name").text = playerDict_1["res"].p_name
 	
-	
 ##	load enemy resource from encounter -- TURN OFF LOAD TO TEST EXPORT RESOURCE
 	enemy 	= load(player.enemy_encounter)
 	AudioPlayer.play_music_level(enemy.music)
 	enemyDict_1["res"] = enemy
 	enemyDict_1["cont"] = _enemycont1
 	enemyDict_1["live"] = enemyStats1
-	enemyStats1["hp"] = enemyDict_1["res"].health		
-
-##	setup enemy 1	
-	set_health_init(enemyDict_1["cont"].get_node("EnemyHP"), enemyDict_1["res"].health, enemyDict_1["res"].health)
-	_enemyrect1.texture = enemy.texture
-	_enemycont1.get_node("Label").text = enemy.name
-	_enemycont1.get_node("Select").modulate.a = 0
-	if enemy.battle_scale_vec < Vector2(1,1):
-		_enemycont1.size = _enemycont1.size * enemy.battle_scale_vec
-		_enemycont1.position.x = _enemycont1.position.x + 50
-	_enemycont1.add_theme_constant_override("separation", enemy.battle_y_sep)
+	
+##	roll for groupsize
 	e_groupsize = rng.randi_range(enemy.min_group_size, enemy.max_group_size)
-
 ##	safety net starting player
 	if player.lvl < 3 and e_groupsize > 2:
 		e_groupsize = 2
 	if player.lvl < 6 and e_groupsize > 3:
 		e_groupsize = 3
-
-##	select enemy 2
+		
+##	roll and allocate enemy 2
 	if e_groupsize > 1:
 		if len(enemy.friends) > 0:
 			var bla = rng.randi_range(0, len(enemy.friends)) 
@@ -111,24 +102,14 @@ func _ready():
 				enemy2 = load(enemy.allEnemies[enemy.friends[bla-1]])
 		else:
 			enemy2 = load(player.enemy_encounter)
-##	setup enemy 2
 		enemyDict[2] = enemyDict_2
 		enemyDict_2["cont"] = _enemycont2
 		enemyDict_2["live"] = enemyStats2
 		enemyDict_2["res"] = enemy2
-		enemyStats2["hp"] = enemy2.health	
-		set_health_init(_enemyhp2, enemyStats2["hp"], enemyStats2["hp"])
-		_enemyrect2.texture = enemy2.texture
-		_enemycont2.get_node("Label").text = enemy2.name
-		_enemycont2.get_node("Select").modulate.a = 0
-		if enemy2.battle_scale_vec < Vector2(1,1):
-			_enemycont2.size = _enemycont2.size * enemy2.battle_scale_vec
-			_enemycont2.position.x = _enemycont2.position.x + 50
-		_enemycont2.add_theme_constant_override("separation", enemy2.battle_y_sep)
 	else:
 		_enemycont2.visible = false
 		
-##	select enemy 3
+##	roll and allocate enemy 3
 	if e_groupsize > 2:
 		if len(enemy.friends) > 0:
 			var bla = rng.randi_range(0, len(enemy.friends)) 
@@ -138,25 +119,14 @@ func _ready():
 				enemy3 = load(enemy.allEnemies[enemy.friends[bla-1]])
 		else:
 			enemy3 = load(player.enemy_encounter)
-		
-##	setup enemy 3
 		enemyDict[3] = enemyDict_3
 		enemyDict_3["cont"] = _enemycont3
 		enemyDict_3["live"] = enemyStats3
 		enemyDict_3["res"] = enemy3
-		enemyStats3["hp"] = enemy3.health	
-		set_health_init(_enemyhp3, enemyStats3["hp"], enemyStats3["hp"])
-		_enemyrect3.texture = enemy3.texture
-		_enemycont3.get_node("Label").text = enemy3.name
-		_enemycont3.get_node("Select").modulate.a = 0
-		if enemy3.battle_scale_vec < Vector2(1,1):
-			_enemycont3.size = _enemycont3.size * enemy3.battle_scale_vec
-			_enemycont3.position.x = _enemycont3.position.x + 50
-		_enemycont3.add_theme_constant_override("separation", enemy3.battle_y_sep)
 	else:
 		_enemycont3.visible = false
-
-##	select enemy 4
+		
+##	roll and allocate enemy 4
 	if e_groupsize > 3:
 		if len(enemy.friends) > 0:
 			var bla = rng.randi_range(0, len(enemy.friends)) 
@@ -167,27 +137,31 @@ func _ready():
 		else:
 			enemy4 = load(player.enemy_encounter)
 
-##	setup enemy 4
 		enemyDict[4] = enemyDict_4
 		enemyDict_4["cont"] = _enemycont4
 		enemyDict_4["live"] = enemyStats4
 		enemyDict_4["res"] = enemy4
-		enemyStats4["hp"] = enemy4.health	
-		set_health_init(_enemyhp4, enemyStats4["hp"], enemyStats4["hp"])
-		_enemyrect4.texture = enemy4.texture
-		_enemycont4.get_node("Label").text = enemy4.name
-		_enemycont4.get_node("Select").modulate.a = 0
-		if enemy4.battle_scale_vec < Vector2(1,1):
-			_enemycont4.size = _enemycont4.size * enemy4.battle_scale_vec
-			_enemycont4.position.x = _enemycont4.position.x + 50
-		_enemycont4.add_theme_constant_override("separation", enemy4.battle_y_sep)
 	else:
 		_enemycont4.visible = false
+	
+##	setup enemies
+	for en in enemyDict:
+		if enemyDict[en]["res"].lvl > 1:
+			calc_lvl = enemyDict_1["res"].lvl - 1
+			enemyDict[en]["res"].health = enemyDict[en]["res"].health * calc_lvl * enemyDict[en]["res"]._class.hp_mult * 1.08
+			enemyDict[en]["res"].damage = enemyDict[en]["res"].damage * calc_lvl * enemyDict[en]["res"]._class.dmg_mult * 1.08
+		enemyDict[en]["live"]["hp"] = enemyDict[en]["res"].health		
+		set_health_init(enemyDict[en]["cont"].get_node("EnemyHP"), enemyDict[en]["res"].health, enemyDict[en]["res"].health)
+		enemyDict[en]["cont"].get_node("AspectContainer").get_node("EnemyText").texture = enemyDict[en]["res"].texture
+		enemyDict[en]["cont"].get_node("Label").text = "lvl: %d %s" % [enemyDict[en]["res"].lvl, enemyDict[en]["res"].name]
+		enemyDict[en]["cont"].get_node("Select").modulate.a = 0
+		if enemyDict[en]["res"].battle_scale_vec < Vector2(1,1):
+			enemyDict[en]["cont"].size = enemyDict[en]["cont"].size * enemyDict[en]["res"].battle_scale_vec
+			enemyDict[en]["cont"].position.x = enemyDict[en]["cont"].position.x + 50
+		enemyDict[en]["cont"].add_theme_constant_override("separation", enemyDict[en]["res"].battle_y_sep)
+	
 	$ActionMenu/MarginActions/HBoxContainer/Actions/Attack.grab_focus()
 
-#func _click(event):
-	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_XBUTTON1):
-		#emit_signal("clicked")
 
 signal pressedSomething
 
@@ -198,8 +172,6 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-
 
 func set_mp_init(progress_bar, mp, max_mp):
 	progress_bar.value = mp 
@@ -437,13 +409,13 @@ func _attack_phase_2():
 	#crit = false
 	enemyDict[y]["live"] = curEnemyStats
 	if curEnemyStats["hp"] <= 0:
-		await(enemy_died(y))
+		await(enemy_died())
 	if enemyDict.is_empty():
 		sceneManager.goto_scene(sceneManager.last_scene)
 	enemy_turn()
 
 
-func enemy_died(y):
+func enemy_died():
 	var tween = get_tree().create_tween()
 	tween.tween_property(enemyDict[y]["cont"], "modulate:a", 0,  0.5)
 	await (combat_log("%s died" % (enemyDict[y]["res"].name)))

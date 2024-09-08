@@ -1,19 +1,19 @@
 [gd_scene load_steps=19 format=3 uid="uid://dn6sylxcjcu00"]
 
-[ext_resource type="Script" path="res://golem_cave.gd" id="1_0xin2"]
-[ext_resource type="Script" path="res://golem_body.gd" id="2_3o10t"]
-[ext_resource type="Texture2D" uid="uid://cmro446n4bs4" path="res://textures/golem/golem1_d.png" id="3_ypb0v"]
-[ext_resource type="Texture2D" uid="uid://b4k31vffra1eq" path="res://textures/golem/golem1_n.png" id="4_w6qib"]
-[ext_resource type="Texture2D" uid="uid://diqryldlfolhb" path="res://textures/golem/golem1_s.png" id="5_q0kyr"]
-[ext_resource type="Script" path="res://sprite_2d.gd" id="6_me0yh"]
-[ext_resource type="Texture2D" uid="uid://cy1uajo6u2idh" path="res://test_sprites/white.png" id="7_wyel6"]
-[ext_resource type="Texture2D" uid="uid://dgvg181a66m2d" path="res://bg_art/PNG/Background layers/Layer_0010_1.png" id="8_iqhyf"]
-[ext_resource type="Texture2D" uid="uid://vqar1msvpym0" path="res://bg_art/PNG/Background layers/Layer_0009_2.png" id="9_b4lms"]
-[ext_resource type="Script" path="res://textures/golem/shader_test.gd" id="10_fo7jb"]
-[ext_resource type="Shader" path="res://textures/golem/dungeon_golem.gdshader" id="10_mkppe"]
+[ext_resource type="Script" path="res://golem_cave.gd" id="1_vkwsg"]
+[ext_resource type="Script" path="res://golem_body.gd" id="2_rufdd"]
+[ext_resource type="Texture2D" uid="uid://cmro446n4bs4" path="res://textures/golem/golem1_d.png" id="3_hmp0s"]
+[ext_resource type="Texture2D" uid="uid://b4k31vffra1eq" path="res://textures/golem/golem1_n.png" id="4_eryfk"]
+[ext_resource type="Texture2D" uid="uid://diqryldlfolhb" path="res://textures/golem/golem1_s.png" id="5_rsh13"]
+[ext_resource type="Script" path="res://sprite_2d.gd" id="6_018lm"]
+[ext_resource type="Texture2D" uid="uid://cy1uajo6u2idh" path="res://test_sprites/white.png" id="7_b8ucn"]
+[ext_resource type="Texture2D" uid="uid://dgvg181a66m2d" path="res://bg_art/PNG/Background layers/Layer_0010_1.png" id="8_0dvy0"]
+[ext_resource type="Texture2D" uid="uid://vqar1msvpym0" path="res://bg_art/PNG/Background layers/Layer_0009_2.png" id="9_r7era"]
+[ext_resource type="Shader" path="res://textures/golem/dungeon_golem.gdshader" id="10_0xgge"]
+[ext_resource type="Script" path="res://textures/golem/shader_test.gd" id="11_26x3u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g5w22"]
-atlas = ExtResource("3_ypb0v")
+atlas = ExtResource("3_hmp0s")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0b6kx"]
@@ -28,9 +28,9 @@ animations = [{
 }]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wgbqg"]
-diffuse_texture = ExtResource("3_ypb0v")
-normal_texture = ExtResource("4_w6qib")
-specular_texture = ExtResource("5_q0kyr")
+diffuse_texture = ExtResource("3_hmp0s")
+normal_texture = ExtResource("4_eryfk")
+specular_texture = ExtResource("5_rsh13")
 
 [sub_resource type="Gradient" id="Gradient_04aj1"]
 offsets = PackedFloat32Array(0, 0.95339)
@@ -43,19 +43,19 @@ fill_from = Vector2(0.482906, 0.542735)
 fill_to = Vector2(0.123932, 0.128205)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wi12p"]
-diffuse_texture = ExtResource("8_iqhyf")
-normal_texture = ExtResource("9_b4lms")
+diffuse_texture = ExtResource("8_0dvy0")
+normal_texture = ExtResource("9_r7era")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1c4kf"]
-shader = ExtResource("10_mkppe")
+shader = ExtResource("10_0xgge")
 shader_parameter/time_factor = 1.0
 shader_parameter/amplitude = Vector2(10, 5)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_0xin2")
+script = ExtResource("1_vkwsg")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("2_3o10t")
+script = ExtResource("2_rufdd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 visible = false
@@ -71,7 +71,7 @@ polygon = PackedVector2Array(584, 344, 664, 344, 664, 216, 624, 192, 584, 216)
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(416, 168)
 texture = SubResource("CanvasTexture_wgbqg")
-script = ExtResource("6_me0yh")
+script = ExtResource("6_018lm")
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": false
 }
@@ -92,7 +92,7 @@ height = 10.0
 modulate = Color(0.01, 0.00990167, 0.0099, 0.92549)
 position = Vector2(432, 816)
 scale = Vector2(1.01042, 1.02778)
-texture = ExtResource("7_wyel6")
+texture = ExtResource("7_b8ucn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.360017, 0.0650251, 0, 1)
@@ -106,8 +106,8 @@ offset_left = 272.0
 offset_top = 432.0
 offset_right = 400.0
 offset_bottom = 560.0
-texture = ExtResource("3_ypb0v")
-script = ExtResource("10_fo7jb")
+texture = ExtResource("3_hmp0s")
+script = ExtResource("11_26x3u")
 
 [node name="AmpController" type="VBoxContainer" parent="."]
 z_index = 5

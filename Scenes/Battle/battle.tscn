@@ -822,7 +822,6 @@ texture = ExtResource("8_8xvtf")
 expand_mode = 1
 
 [node name="EnemyHP" type="ProgressBar" parent="EnemyContainer1"]
-visible = false
 z_index = 10
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
@@ -891,7 +890,6 @@ texture = ExtResource("8_8xvtf")
 expand_mode = 1
 
 [node name="EnemyHP" type="ProgressBar" parent="EnemyContainer2"]
-visible = false
 z_index = 10
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2

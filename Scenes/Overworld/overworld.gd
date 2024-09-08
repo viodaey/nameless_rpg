@@ -15,6 +15,7 @@ var spawn = spawn_npc.instantiate()
 var rng = RandomNumberGenerator.new()
 var _spawned_npc  
 var spawn_request
+var max_level = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +35,7 @@ func _spawn_npc():
 		var angle = rng.randi_range(0, TAU)
 		var distance = rng.randi_range(80, 130)
 		spawn_request = world_enemies[enemy_select - 1]
+		spawn_request.lvl = min(player.lvl + 1, rng.randi_range(1, max_level))
 		add_child(spawn)
 		_spawned_npc = $NPC_spawn
 		_spawned_npc.position = _player_body.position + Vector2(distance*cos(angle), distance*sin(angle))

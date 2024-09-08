@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cb3ouqjr5sgqc"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://cb3ouqjr5sgqc"]
 
 [ext_resource type="Texture2D" uid="uid://b3cxijemwg6ji" path="res://textures/humanoids/Orc_baby.png" id="1_00qy3"]
+[ext_resource type="Resource" uid="uid://d3jpakoms3ml7" path="res://Global/Classes/Normy.tres" id="1_34ij2"]
 [ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemyResources/spriteFrames/orc_baby_sf.tres" id="1_mlwnj"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="2_6mctt"]
 
@@ -8,8 +9,8 @@
 script = ExtResource("2_6mctt")
 name = "Baby Orc"
 texture = ExtResource("1_00qy3")
-health = 60
-damage = 15
+health = 40
+damage = 10
 critc = 5
 xp = 10
 speed = 35
@@ -25,3 +26,5 @@ min_group_size = 1
 friends = Array[String](["Teen Orc"])
 battle_scale_vec = Vector2(0.5, 0.5)
 battle_y_sep = -1
+_class = ExtResource("1_34ij2")
+lvl = 1

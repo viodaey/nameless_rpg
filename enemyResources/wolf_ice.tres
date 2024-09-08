@@ -1,5 +1,6 @@
-[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c6mg2w7taxhqg"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://c6mg2w7taxhqg"]
 
+[ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_cxopa"]
 [ext_resource type="SpriteFrames" uid="uid://b05eaacutddo1" path="res://textures/world_1/wolf_ice_sf.tres" id="1_u4ijm"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="2_7ksma"]
 [ext_resource type="Texture2D" uid="uid://b8uefsykva2cc" path="res://textures/enemyFullTextures/wolf_ice.tres" id="3_tt8v6"]
@@ -8,8 +9,8 @@
 script = ExtResource("2_7ksma")
 name = "Ice Wolf"
 texture = ExtResource("3_tt8v6")
-health = 100
-damage = 20
+health = 35
+damage = 12
 critc = 5
 xp = 10
 speed = 40
@@ -24,4 +25,6 @@ max_group_size = 3
 min_group_size = 1
 friends = Array[String](["Fire Wolf"])
 battle_scale_vec = Vector2(1, 1)
-battle_y_sep = -10
+battle_y_sep = 0
+_class = ExtResource("1_cxopa")
+lvl = 1

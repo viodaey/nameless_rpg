@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="_Class" load_steps=2 format=3 uid="uid://cvd5r1g0o1jx"]
+
+[ext_resource type="Script" path="res://Global/Classes/_Classes.gd" id="1_lwtgp"]
+
+[resource]
+script = ExtResource("1_lwtgp")
+_classname = "Bruiser"
+base_hp = 45
+base_dmg = 9
+base_mp = 8
+base_mdmg = 8
+hp_mult = 1.015
+dmg_mult = 0.99
+mp_mult = 0.99
+mdmg_mult = 0.99
