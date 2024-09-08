@@ -32,8 +32,8 @@ var playerDict_4: Dictionary
 var playerStats1 : Dictionary
 var x : int
 
-@onready var _playerhp = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1/PlayerHP
-@onready var _playermp = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1/PlayerMP
+@onready var _playerhp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerHP
+@onready var _playermp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerMP
 @onready var _log_timer = $CombatLogPanel/Timer
 @onready var _combat_log_box = $CombatLogPanel/CombatLog
 @onready var _playertexture = $Player_1
@@ -51,9 +51,9 @@ var x : int
 @onready var _enemyrect3 = $EnemyContainer3/AspectContainer/EnemyText
 @onready var _enemyrect4 = $EnemyContainer4/AspectContainer/EnemyText
 @onready var _actionmenu = $ActionMenu
-@onready var _player2container = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2
-@onready var _player3container = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3
-@onready var _player4container = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4
+@onready var _player2container = $Panel_Menu/VBoxContainer/PlayerContainer2
+@onready var _player3container = $Panel_Menu/VBoxContainer/PlayerContainer3
+@onready var _player4container = $Panel_Menu/VBoxContainer/PlayerContainer4
 @onready var selected_enemy_ind : TextureRect #= _enemycont1.get_node("Select")
 @onready var active_enemies: Array = [_enemycont1]
 @onready var fx = $FX
@@ -70,9 +70,11 @@ func _ready():
 	playerDict_1["res"] = player
 	playerDict_1["live"] = playerStats1
 	playerDict_1["txt"] = $Player_1
-	playerDict_1["cont"] = $Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1
+	playerDict_1["cont"] = $Panel_Menu/VBoxContainer/PlayerContainer1
 	playerStats1["hp"] = player.health
 	playerStats1["mp"] = player.mp
+	playerDict_1["cont"].get_node("Name").text = playerDict_1["res"].p_name
+	
 	
 ##	load enemy resource from encounter -- TURN OFF LOAD TO TEST EXPORT RESOURCE
 	enemy 	= load(player.enemy_encounter)
