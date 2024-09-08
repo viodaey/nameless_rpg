@@ -7,15 +7,6 @@ var world_enemies = [
 	]
 var spawn = spawn_npc.instantiate()
 @onready var _player_body = $Player
-@onready var _preload_npc = $NPC_1
-var spawn_positions = [
-	Vector2(90, -90), 
-	Vector2(0, 80), 
-	Vector2(-80,0), 
-	Vector2(0,-80), 
-	Vector2(30,-80), 
-	Vector2(-60,70)
-	]
 	
 var rng = RandomNumberGenerator.new()
 var _spawned_npc  
@@ -36,10 +27,12 @@ func _spawn_npc():
 	if is_instance_valid($NPC_spawn):
 		print("tried to spawn but valid instance found")
 	else:
-		var spawn_loc = rng.randi_range(1,len(spawn_positions))
 		var enemy_select = rng.randi_range(1,len(world_enemies))
+		var angle = rng.randi_range(0, TAU)
+		var distance = rng.randi_range(80, 130)
 		spawn_request = world_enemies[enemy_select - 1]
 		add_child(spawn)
 		_spawned_npc = $NPC_spawn
-		_spawned_npc.position = _player_body.position + spawn_positions[spawn_loc - 1]
-		
+		_spawned_npc.position = _player_body.position + Vector2(distance*cos(angle), distance*sin(angle))
+
+	

@@ -1,25 +1,24 @@
-[gd_scene load_steps=52 format=3 uid="uid://b7kga5w7hkr5o"]
+[gd_scene load_steps=54 format=3 uid="uid://b7kga5w7hkr5o"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
 [ext_resource type="Resource" uid="uid://cb3ouqjr5sgqc" path="res://enemyResources/orc_baby.tres" id="2_pjcb0"]
 [ext_resource type="Texture2D" uid="uid://dwvjcsn3e1bam" path="res://textures/bosses/boss_12_S.png" id="3_8u46x"]
 [ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="3_hqtvv"]
+[ext_resource type="FontFile" uid="uid://dmjq6coypb7ll" path="res://textures/fonts/Merienda-Bold.ttf" id="4_0ge1k"]
 [ext_resource type="LabelSettings" uid="uid://16a2edh71l7i" path="res://Scenes/Battle/hplabel.tres" id="4_jbr0v"]
 [ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="5_uugxd"]
 [ext_resource type="Texture2D" uid="uid://cv5mk2thosujc" path="res://test_sprites/60FPS_AC2Q001_Slash.png" id="7_g8lpc"]
 [ext_resource type="Texture2D" uid="uid://b8uefsykva2cc" path="res://textures/enemyFullTextures/wolf_ice.tres" id="8_8xvtf"]
 [ext_resource type="Texture2D" uid="uid://cm7ugrxdww20r" path="res://textures/selectionTriangle_full.png" id="8_ype7g"]
+[ext_resource type="FontFile" uid="uid://bgurxqqn8wtup" path="res://textures/fonts/Merienda-Regular.ttf" id="9_mhwki"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qufg"]
 bg_color = Color(0.0882, 0.14, 0.0890633, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
 border_color = Color(0.605443, 0.578096, 0.618631, 1)
 border_blend = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_dlh10"]
+font = ExtResource("4_0ge1k")
 font_size = 12
 shadow_color = Color(0.07, 0.07, 0.07, 1)
 
@@ -51,15 +50,7 @@ content_margin_top = 1.0
 content_margin_right = 1.0
 content_margin_bottom = 1.0
 bg_color = Color(1.68458e-07, 0.215394, 0.296514, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_472vc"]
 resource_name = "MP_full"
@@ -180,7 +171,8 @@ _data = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_mdogy"]
 line_spacing = 0.0
-font_size = 12
+font = ExtResource("9_mhwki")
+font_size = 13
 
 [sub_resource type="Gradient" id="Gradient_rrtmt"]
 offsets = PackedFloat32Array(0, 0.943965, 0.95339)
@@ -415,10 +407,10 @@ expand_mode = 1
 [node name="Panel_Menu" type="Panel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 28.2297
-offset_top = 57.1797
-offset_right = 138.23
-offset_bottom = 187.18
+offset_left = 28.0
+offset_top = 8.0
+offset_right = 138.0
+offset_bottom = 253.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8qufg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu"]
@@ -426,26 +418,25 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -2.0
+offset_right = -13.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 9
 
-[node name="GridContainer" type="GridContainer" parent="Panel_Menu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/v_separation = 0
-
-[node name="PlayerContainer1" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
+[node name="PlayerContainer1" type="VBoxContainer" parent="Panel_Menu/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="Player1Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1"]
+[node name="Name" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer1"]
 layout_mode = 2
 text = "Player_1
 "
 label_settings = SubResource("LabelSettings_dlh10")
 
-[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1"]
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/PlayerContainer1"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
@@ -454,7 +445,7 @@ max_value = 5e+07
 value = 25.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1/PlayerHP"]
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer1/PlayerHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -471,16 +462,16 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1"]
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/PlayerContainer1"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
 theme_override_styles/fill = SubResource("StyleBoxFlat_472vc")
-max_value = 10.0
+max_value = 800.0
 value = 8.0
 show_percentage = false
 
-[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer1/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer1/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -498,18 +489,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "MP: 8/10"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerContainer2" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
+[node name="PlayerContainer2" type="VBoxContainer" parent="Panel_Menu/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="Player2Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2"]
+[node name="Name" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer2"]
 layout_mode = 2
 text = "Player_2
 "
 label_settings = SubResource("LabelSettings_dlh10")
 
-[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2"]
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/PlayerContainer2"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
@@ -518,7 +509,7 @@ max_value = 50.0
 value = 25.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2/PlayerHP"]
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer2/PlayerHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -535,7 +526,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2"]
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/PlayerContainer2"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
@@ -544,7 +535,7 @@ max_value = 10.0
 value = 8.0
 show_percentage = false
 
-[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer2/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer2/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -562,18 +553,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "MP: 8/10"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerContainer3" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
+[node name="PlayerContainer3" type="VBoxContainer" parent="Panel_Menu/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="Player3Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3"]
+[node name="Name" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer3"]
 layout_mode = 2
 text = "Player_3
 "
 label_settings = SubResource("LabelSettings_dlh10")
 
-[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3"]
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/PlayerContainer3"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
@@ -582,7 +573,7 @@ max_value = 50.0
 value = 25.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3/PlayerHP"]
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer3/PlayerHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -599,7 +590,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3"]
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/PlayerContainer3"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
@@ -608,7 +599,7 @@ max_value = 10.0
 value = 8.0
 show_percentage = false
 
-[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer3/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer3/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -626,18 +617,18 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "MP: 8/10"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerContainer4" type="VBoxContainer" parent="Panel_Menu/VBoxContainer/GridContainer"]
+[node name="PlayerContainer4" type="VBoxContainer" parent="Panel_Menu/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="Player4Name" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4"]
+[node name="Name" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer4"]
 layout_mode = 2
 text = "Player_4
 "
 label_settings = SubResource("LabelSettings_dlh10")
 
-[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4"]
+[node name="PlayerHP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/PlayerContainer4"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
@@ -646,7 +637,7 @@ max_value = 50.0
 value = 25.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4/PlayerHP"]
+[node name="HPLabel" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer4/PlayerHP"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -663,7 +654,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "25/50"
 label_settings = ExtResource("4_jbr0v")
 
-[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4"]
+[node name="PlayerMP" type="ProgressBar" parent="Panel_Menu/VBoxContainer/PlayerContainer4"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_lr8gi")
@@ -672,7 +663,7 @@ max_value = 10.0
 value = 8.0
 show_percentage = false
 
-[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/GridContainer/PlayerContainer4/PlayerMP"]
+[node name="MPLabel" type="Label" parent="Panel_Menu/VBoxContainer/PlayerContainer4/PlayerMP"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -831,7 +822,6 @@ texture = ExtResource("8_8xvtf")
 expand_mode = 1
 
 [node name="EnemyHP" type="ProgressBar" parent="EnemyContainer1"]
-visible = false
 z_index = 10
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
@@ -900,7 +890,6 @@ texture = ExtResource("8_8xvtf")
 expand_mode = 1
 
 [node name="EnemyHP" type="ProgressBar" parent="EnemyContainer2"]
-visible = false
 z_index = 10
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2

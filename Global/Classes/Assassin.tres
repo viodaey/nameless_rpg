@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="_Class" load_steps=2 format=3 uid="uid://babsk5yt0idvh"]
+
+[ext_resource type="Script" path="res://Global/Classes/_Classes.gd" id="1_vjnw7"]
+
+[resource]
+script = ExtResource("1_vjnw7")
+_classname = "Assa"
+base_hp = 35
+base_dmg = 12
+base_mp = 8
+base_mdmg = 8
+hp_mult = 0.99
+dmg_mult = 1.015
+mp_mult = 0.99
+mdmg_mult = 0.99

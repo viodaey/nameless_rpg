@@ -1,6 +1,6 @@
 extends Node
 
-var p_name: String = "skullhead"
+var p_name: String = "Skullhead"
 var max_health: int = 170
 var health: int = 170
 var damage: int = 30
@@ -16,7 +16,7 @@ var max_mp: int = 10
 var mp_cost_fireball: int = 6
 var last_exit: String = 'default'
 var enemy_encounter: String = "res://enemyResources/res_battle_spider.tres"
-var enemy_stats = []
+#var enemy_stats = []
 var position = Vector2(256,256)
 #var done: bool = false
 

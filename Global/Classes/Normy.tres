@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="_Class" load_steps=2 format=3 uid="uid://d3jpakoms3ml7"]
+
+[ext_resource type="Script" path="res://Global/Classes/_Classes.gd" id="1_ug3tj"]
+
+[resource]
+script = ExtResource("1_ug3tj")
+_classname = "Normy"
+base_hp = 40
+base_dmg = 10
+base_mp = 10
+base_mdmg = 9
+hp_mult = 1.0
+dmg_mult = 1.0
+mp_mult = 1.0
+mdmg_mult = 1.0

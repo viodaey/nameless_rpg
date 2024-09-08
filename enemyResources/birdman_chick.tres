@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3 uid="uid://dm2dnaly8eoku"]
+
+[ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_5el2r"]
+[ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_e3sfw"]
+[ext_resource type="Texture2D" uid="uid://t6kd7wrlxyf4" path="res://textures/world_1/Bird-man1.png" id="2_ua5hp"]
+[ext_resource type="Texture2D" uid="uid://d0sso1iaghdic" path="res://textures/world_1/Bird-man1_n.png" id="3_y756k"]
+[ext_resource type="Texture2D" uid="uid://dbqhn18pq4isq" path="res://textures/world_1/Bird-man1_s.png" id="4_8ghch"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ajig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ua5hp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ua5hp")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gqbc1"]
+diffuse_texture = ExtResource("2_ua5hp")
+normal_texture = ExtResource("3_y756k")
+specular_texture = ExtResource("4_8ghch")
+
+[resource]
+script = ExtResource("1_e3sfw")
+name = "Chick"
+texture = SubResource("CanvasTexture_gqbc1")
+health = 50
+damage = 8
+critc = 5
+xp = 10
+speed = 35
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = SubResource("SpriteFrames_0ajig")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 0.4
+max_group_size = 3
+min_group_size = 1
+friends = Array[String]([])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("1_5el2r")
+lvl = 1

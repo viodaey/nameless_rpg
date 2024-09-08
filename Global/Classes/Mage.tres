@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="_Class" load_steps=2 format=3 uid="uid://di86w42qhyu3s"]
+
+[ext_resource type="Script" path="res://Global/Classes/_Classes.gd" id="1_g1n2c"]
+
+[resource]
+script = ExtResource("1_g1n2c")
+_classname = "Mage"
+base_hp = 38
+base_dmg = 8
+base_mp = 20
+base_mdmg = 14
+hp_mult = 0.99
+dmg_mult = 0.99
+mp_mult = 1.015
+mdmg_mult = 1.015

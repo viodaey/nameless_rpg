@@ -1,22 +1,26 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bfltr74e5lteg"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://bfltr74e5lteg"]
 
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_76vxc"]
+[ext_resource type="Resource" uid="uid://di86w42qhyu3s" path="res://Global/Classes/Mage.tres" id="1_ku7sv"]
 
 [resource]
 script = ExtResource("1_76vxc")
-name = "Enemy"
-health = 75
-damage = 20
+name = "Fire Pixie"
+health = 40
+damage = 8
 critc = 5
 xp = 10
 speed = 50
 music = "battle01"
 can_chill = true
 lifesteal = 0
-size = Vector2(204, 180)
-position = Vector2(0, 0)
+affliction_type = ""
+affliction_chance = 0
 map_scale = 1.0
-battle_scale = 1.0
 max_group_size = 3
 min_group_size = 1
 friends = Array[String]([])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("1_ku7sv")
+lvl = 1
