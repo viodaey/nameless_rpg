@@ -443,7 +443,6 @@ func _attack_phase_2():
 	enemy_turn()
 
 
-
 func enemy_died(y):
 	var tween = get_tree().create_tween()
 	tween.tween_property(enemyDict[y]["cont"], "modulate:a", 0,  0.5)
