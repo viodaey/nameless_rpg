@@ -1,6 +1,6 @@
 extends Node
 
-var p_name: String = "Skullhead"
+var _name: String = "Skullhead"
 var max_health: int = 170
 var health: int = 170
 var damage: int = 30
@@ -18,9 +18,8 @@ var last_exit: String = 'default'
 var enemy_encounter: String = "res://enemyResources/res_battle_spider.tres"
 #var enemy_stats = []
 var position = Vector2(256,256)
+var atb: int = 100
 #var done: bool = false
-
-
 
 
 func level_up():
@@ -32,7 +31,7 @@ func level_up():
 		hp_grow = hp_grow + round(max_health * 0.10)
 		dmg_grow = dmg_grow + round(damage * 0.08)
 		max_health = max_health + hp_grow
-		health = health + hp_grow
+		#health = health + hp_grow
 		damage = damage + dmg_grow
 		lvl = lvl + 1
 		xp = xp - max_xp

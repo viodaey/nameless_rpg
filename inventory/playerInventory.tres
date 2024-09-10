@@ -1,48 +1,21 @@
-[gd_resource type="Resource" script_class="inventory" load_steps=13 format=3 uid="uid://bpc80lcs7ceyw"]
+[gd_resource type="Resource" script_class="inventory" load_steps=7 format=3 uid="uid://bpc80lcs7ceyw"]
 
 [ext_resource type="Script" path="res://inventory/inventoryMain.gd" id="1_7bnj3"]
+[ext_resource type="Resource" uid="uid://umrjtekw8axd" path="res://inventory/items/potion.tres" id="2_5kui5"]
 [ext_resource type="Script" path="res://inventory/invSlots.gd" id="2_uwir1"]
+[ext_resource type="Resource" uid="uid://b0q1w51bjrvl" path="res://inventory/items/basicCaptureCard.tres" id="3_o10kb"]
 
-[sub_resource type="Resource" id="Resource_150iu"]
+[sub_resource type="Resource" id="Resource_m83ba"]
 script = ExtResource("2_uwir1")
-amount = 0
+_item = ExtResource("2_5kui5")
+amount = 3
 
-[sub_resource type="Resource" id="Resource_gmtex"]
+[sub_resource type="Resource" id="Resource_fl20x"]
 script = ExtResource("2_uwir1")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_2nb3b"]
-script = ExtResource("2_uwir1")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_8b7gp"]
-script = ExtResource("2_uwir1")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_h2ecq"]
-script = ExtResource("2_uwir1")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_4802s"]
-script = ExtResource("2_uwir1")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_23bkw"]
-script = ExtResource("2_uwir1")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_mve27"]
-script = ExtResource("2_uwir1")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_ci5mw"]
-script = ExtResource("2_uwir1")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_vftdg"]
-script = ExtResource("2_uwir1")
-amount = 0
+_item = ExtResource("3_o10kb")
+amount = 2
 
 [resource]
 script = ExtResource("1_7bnj3")
-list = Array[ExtResource("2_uwir1")]([SubResource("Resource_150iu"), SubResource("Resource_gmtex"), SubResource("Resource_2nb3b"), SubResource("Resource_8b7gp"), SubResource("Resource_h2ecq"), SubResource("Resource_4802s"), SubResource("Resource_23bkw"), SubResource("Resource_mve27"), SubResource("Resource_ci5mw"), SubResource("Resource_vftdg")])
+list = Array[ExtResource("2_uwir1")]([SubResource("Resource_m83ba"), SubResource("Resource_fl20x")])
+monsterlist = []

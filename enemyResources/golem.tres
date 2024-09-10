@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("1_ebnkj")
-name = "Golem"
+_name = "Golem"
 texture = ExtResource("2_vmo1x")
 health = 50
 damage = 10

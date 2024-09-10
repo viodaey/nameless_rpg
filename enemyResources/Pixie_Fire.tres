@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_76vxc")
-name = "Fire Pixie"
+_name = "Fire Pixie"
 health = 40
 damage = 8
 critc = 5

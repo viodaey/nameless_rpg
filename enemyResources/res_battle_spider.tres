@@ -8,7 +8,7 @@
 [resource]
 resource_name = "spider"
 script = ExtResource("1_gct0t")
-name = "Forest Spider"
+_name = "Spider"
 texture = ExtResource("2_edobr")
 health = 40
 damage = 10

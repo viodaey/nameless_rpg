@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_7ksma")
-name = "Ice Wolf"
+_name = "Ice Wolf"
 texture = ExtResource("3_tt8v6")
 health = 35
 damage = 12

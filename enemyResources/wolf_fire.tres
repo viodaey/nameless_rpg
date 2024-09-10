@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_wyj62")
-name = "Fire Wolf"
+_name = "Fire Wolf"
 texture = ExtResource("3_2u5vm")
 health = 35
 damage = 12
@@ -23,7 +23,7 @@ affliction_chance = 15
 map_scale = 0.5
 max_group_size = 3
 min_group_size = 1
-friends = Array[String](["Ice Wolf"])
+friends = Array[String](["Ice Wolf", "Earth Wolf"])
 battle_scale_vec = Vector2(1, 1)
 battle_y_sep = 0
 _class = ExtResource("1_08m4o")

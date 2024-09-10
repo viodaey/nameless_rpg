@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_weexe")
-name = "Potion"
+_name = "Potion"
 isConsume = true
 effects = {}
+isTargetSelf = false
