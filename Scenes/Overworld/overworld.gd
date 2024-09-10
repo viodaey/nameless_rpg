@@ -1,14 +1,14 @@
 extends Node2D
 
 var spawn_npc = preload("res://Global/globalNPC.tscn")
+var spawn = spawn_npc.instantiate()
 var world_enemies = [
 	preload("res://enemyResources/wolf_fire.tres"),
-	preload("res://enemyResources/wolf_ice.tres"),
+	preload("res://enemyResources/wolf_earth.tres"),
 	preload("res://enemyResources/orc_baby.tres"),
 	preload("res://enemyResources/orc_teen.tres"),
 	preload("res://enemyResources/birdman_chick.tres")
 	]
-var spawn = spawn_npc.instantiate()
 @onready var _player_body = $Player
 @onready var _cave_entrance = $CaveEntrance
 #@onready var _preload_npc = $NPC_1
@@ -25,7 +25,6 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Cave/cave.tscn":
 		_player_body.position.x = _cave_entrance.position.x
 		_player_body.position.y = _cave_entrance.position.y + 15
-
 	
 func _spawn_npc():
 	if is_instance_valid($NPC_spawn):

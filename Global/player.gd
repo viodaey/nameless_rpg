@@ -1,6 +1,6 @@
 extends Node
 
-var p_name: String = "Skullhead"
+var _name: String = "Skullhead"
 var max_health: int = 170
 var health: int = 170
 var damage: int = 30
@@ -21,8 +21,6 @@ var position = Vector2(256,256)
 #var done: bool = false
 
 
-
-
 func level_up():
 	#var done_lvl_up: bool = false
 	#while done_lvl_up == false:
@@ -32,7 +30,7 @@ func level_up():
 		hp_grow = hp_grow + round(max_health * 0.10)
 		dmg_grow = dmg_grow + round(damage * 0.08)
 		max_health = max_health + hp_grow
-		health = health + hp_grow
+		#health = health + hp_grow
 		damage = damage + dmg_grow
 		lvl = lvl + 1
 		xp = xp - max_xp

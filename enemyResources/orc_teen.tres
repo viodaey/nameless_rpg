@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_h3ko4")
-name = "Teen Orc"
+_name = "Teen Orc"
 texture = ExtResource("1_d7oji")
 health = 40
 damage = 10

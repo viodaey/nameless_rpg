@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5qmhq1tofh5x"]
+
+[ext_resource type="Texture2D" uid="uid://r1i2gpmtscij" path="res://textures/world_1/Bird-man1 Idle movementcheck.png" id="1_6jc4h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do30u"]
+atlas = ExtResource("1_6jc4h")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb4ol"]
+atlas = ExtResource("1_6jc4h")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5le5"]
+atlas = ExtResource("1_6jc4h")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b67ck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do30u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb4ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5le5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb4ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do30u")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(80, 80)
+sprite_frames = SubResource("SpriteFrames_b67ck")
+animation = &"idle"
+frame_progress = 0.454017
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://textures/world_1/Bird-man1 Idle movementcheck.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"slice_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "476e4eaae547c2732ed93f02e1b51e31"

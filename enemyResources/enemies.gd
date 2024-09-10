@@ -2,7 +2,7 @@ extends Resource
 
 class_name Enemy
 
-@export var name: String = "Enemy"
+@export var _name: String = "Enemy"
 @export var texture: Texture = null
 @export var health: int = 100
 @export var damage: int = 20
@@ -24,6 +24,7 @@ class_name Enemy
 @export var battle_y_sep: int = 0
 @export var _class: _Class
 @export var lvl: int = 1
+var max_health = health
 #@export var pivot_offset: Vector2 = size / 2
 
 const allEnemies: Dictionary = {
@@ -34,7 +35,8 @@ const allEnemies: Dictionary = {
 	"Shadow Wraith": "res://enemyResources/shadow_wraith.tres",
 	"Baby Orc": "res://enemyResources/orc_baby.tres",
 	"Teen Orc": "res://enemyResources/orc_teen.tres",
-	"Orc": "res://enemyResources/orc_adult.tres"
+	"Orc": "res://enemyResources/orc_adult.tres",
+	"Earth Wolf": "res://enemyResources/wolf_earth.tres"
 	}
 
 

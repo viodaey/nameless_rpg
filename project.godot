@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 player="*res://Global/player.gd"
 sceneManager="*res://Global/sceneManager.gd"
 AudioPlayer="*res://Global/audio_player.tscn"
-inventoryManager="*res://Global/inventory_manager.tscn"
+inv="*res://Global/invManager.gd"
 
 [display]
 

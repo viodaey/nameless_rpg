@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_kj1tf")
-name = "Shadow Wraith"
+_name = "Shadow Wraith"
 texture = ExtResource("3_lk700")
 health = 38
 damage = 8

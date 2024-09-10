@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="item" load_steps=2 format=3 uid="uid://b0q1w51bjrvl"]
+
+[ext_resource type="Script" path="res://inventory/itemMain.gd" id="1_ers5u"]
+
+[resource]
+script = ExtResource("1_ers5u")
+_name = "Basic Capture Card"
+isConsume = true
+effects = {
+"Capture": 10
+}
+isTargetSelf = false

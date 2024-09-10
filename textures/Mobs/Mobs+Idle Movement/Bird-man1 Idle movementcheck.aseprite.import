@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bev0pmfq8yw44"
+path="res://.godot/imported/Bird-man1 Idle movementcheck.aseprite-be7a87d2b5ce9d23c574da9026a41a6d.res"
+
+[deps]
+
+source_file="res://textures/Mobs/Mobs+Idle Movement/Bird-man1 Idle movementcheck.aseprite"
+dest_files=["res://.godot/imported/Bird-man1 Idle movementcheck.aseprite-be7a87d2b5ce9d23c574da9026a41a6d.res"]
+
+[params]
+

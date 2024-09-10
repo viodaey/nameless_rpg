@@ -25,7 +25,7 @@ animations = [{
 
 [resource]
 script = ExtResource("2_51aog")
-name = "Orc"
+_name = "Orc"
 texture = ExtResource("1_xi4g8")
 health = 200
 damage = 40

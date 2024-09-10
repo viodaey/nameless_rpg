@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_hfi3l")
-name = "ROY THE TERRIBLE"
+_name = "ROY THE TERRIBLE"
 texture = ExtResource("2_aamxd")
 health = 666
 damage = 35

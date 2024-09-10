@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_l6mbq")
-name = "Apple"
+_name = "Apple"
 isConsume = true
 effects = {}
+isTargetSelf = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b7kga5w7hkr5o"]
+[gd_scene load_steps=55 format=3 uid="uid://b7kga5w7hkr5o"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
 [ext_resource type="Resource" uid="uid://cb3ouqjr5sgqc" path="res://enemyResources/orc_baby.tres" id="2_pjcb0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b8uefsykva2cc" path="res://textures/enemyFullTextures/wolf_ice.tres" id="8_8xvtf"]
 [ext_resource type="Texture2D" uid="uid://cm7ugrxdww20r" path="res://textures/selectionTriangle_full.png" id="8_ype7g"]
 [ext_resource type="FontFile" uid="uid://bgurxqqn8wtup" path="res://textures/fonts/Merienda-Regular.ttf" id="9_mhwki"]
+[ext_resource type="Texture2D" uid="uid://cspbaanasq48y" path="res://textures/Mobs/imported/Earthwolf Evo 1 Idle movementcheck.png" id="12_a2lmu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qufg"]
 bg_color = Color(0.0882, 0.14, 0.0890633, 0)
@@ -771,10 +772,10 @@ anchor_left = 0.128
 anchor_top = 0.502
 anchor_right = 0.404
 anchor_bottom = 0.811
-offset_left = -0.219002
-offset_top = -0.0610352
-offset_right = -0.348022
-offset_bottom = -0.220032
+offset_left = -97.0068
+offset_top = -24.5663
+offset_right = -97.1348
+offset_bottom = -24.7253
 size_flags_vertical = 4
 texture = ExtResource("3_8u46x")
 stretch_mode = 2
@@ -1118,6 +1119,42 @@ animation = &"slash"
 frame = 20
 frame_progress = 1.0
 
+[node name="soulContainer1" type="AspectRatioContainer" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(170, 170)
+offset_left = 183.09
+offset_top = 236.887
+offset_right = 363.09
+offset_bottom = 416.887
+size_flags_vertical = 3
+
+[node name="SoulText" type="TextureRect" parent="soulContainer1"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("12_a2lmu")
+expand_mode = 1
+flip_h = true
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://textures/Mobs/imported",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://textures/Mobs/Mobs+Idle Movement/Earthwolf Evo 1 Idle movementcheck.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"slice_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "469f5c5019548ff48aba7912b4d5e3f7"
+
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Magic" to="." method="_on_magic_pressed"]
+[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Item" to="." method="_on_item_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Dance" to="." method="_on_dance_pressed"]
