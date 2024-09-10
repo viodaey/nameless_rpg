@@ -170,13 +170,12 @@ func _ready():
 
 ##	setup enemies
 	for en in enemyDict:
+		enemyDict[en]["live"]["hp"] = enemyDict[en]["res"].health
+		enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage
 		if enemyDict[en]["res"].lvl > 1:
 			calc_lvl = enemyDict_1["res"].lvl - 1
-			enemyDict[en]["live"]["hp"] = enemyDict[en]["res"].health * calc_lvl * enemyDict[en]["res"]._class.hp_mult * 1.08
-			enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage * calc_lvl * enemyDict[en]["res"]._class.dmg_mult * 1.08
-		else:
-			enemyDict[en]["live"]["hp"] = enemyDict[en]["res"].health
-			enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage
+			enemyDict[en]["live"]["hp"] = enemyDict[en]["live"]["hp"] * calc_lvl * enemyDict[en]["res"]._class.hp_mult * 1.08
+			enemyDict[en]["live"]["dmg"] = enemyDict[en]["live"]["dmg"] * calc_lvl * enemyDict[en]["res"]._class.dmg_mult * 1.08
 		set_health_init(enemyDict[en]["cont"].get_node("EnemyHP"), enemyDict[en]["live"]["hp"], enemyDict[en]["live"]["hp"])
 		enemyDict[en]["cont"].get_node("AspectContainer").get_node("EnemyText").texture = enemyDict[en]["res"].texture
 		enemyDict[en]["cont"].get_node("Label").text = "lvl: %d %s" % [enemyDict[en]["res"].lvl, enemyDict[en]["res"]._name]
@@ -301,18 +300,17 @@ func enemy_turn():
 					playerDict[players]["live"].erase("affl")
 					combat_log("%s stopped burning" % [playerDict[y]["res"]._name])
 					
-
-				
-				
-				
-			
 	_actionmenu.visible = true
 	_actionmenufoc.grab_focus()
 
-		
+#func_ player_turn
+#moet gaan bepalen wie er aan de beurt is (eerst gewoon chronologisch?)
+#moet daarop in ieder geval magic/ability menu gaan aanpassen
+#indicator voor wiens turn
+#moet doorgeven wie aanvalt 
+#of monster autoattack??????????	
 
 func _on_attack_pressed():
-
 	_actionmenu.visible = false
 	next_phase = 0
 	x = 0
@@ -504,11 +502,17 @@ func use_item_2():
 			await(combat_log("............................................ Succes!"))
 			var loadslot = monSlot.new()
 			inv.itemInventory.monsterlist.append(loadslot)
-			inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1]._monster = enemyDict[y]["res"].duplicate()
-			inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1].stats["hp"] = enemyDict[y]["live"]["hp"]
+			var capturedmonster = inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1]
+			capturedmonster._monster = enemyDict[y]["res"].duplicate()
+			capturedmonster.stats["hp"] = enemyDict[y]["live"]["hp"]
+			capturedmonster._monster.xp = 0
 			#inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1].stats["mp"] = enemyDict[y]["live"]["mp"]
-			print("Captured level %d %s!" % [inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1]._monster.lvl, inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1]._monster._name])
+			print("Captured level %d %s!" % [capturedmonster._monster.lvl, capturedmonster._monster._name])
+			if capturedmonster._monster.lvl > 1:
+				for i in (capturedmonster._monster.lvl - 1):
+					capturedmonster._monster.max_xp = round(capturedmonster._monster.max_xp * 1.3)
 			enemyDict[y]["cont"].visible = false
+			enemyDict[y]["res"].lvl = 1
 			enemyDict.erase(y)
 			if enemyDict.is_empty():
 				sceneManager.goto_scene(sceneManager.last_scene)
