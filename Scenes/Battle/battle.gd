@@ -174,6 +174,9 @@ func _ready():
 			calc_lvl = enemyDict_1["res"].lvl - 1
 			enemyDict[en]["live"]["hp"] = enemyDict[en]["res"].health * calc_lvl * enemyDict[en]["res"]._class.hp_mult * 1.08
 			enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage * calc_lvl * enemyDict[en]["res"]._class.dmg_mult * 1.08
+		else:
+			enemyDict[en]["live"]["hp"] = enemyDict[en]["res"].health
+			enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage
 		set_health_init(enemyDict[en]["cont"].get_node("EnemyHP"), enemyDict[en]["live"]["hp"], enemyDict[en]["live"]["hp"])
 		enemyDict[en]["cont"].get_node("AspectContainer").get_node("EnemyText").texture = enemyDict[en]["res"].texture
 		enemyDict[en]["cont"].get_node("Label").text = "lvl: %d %s" % [enemyDict[en]["res"].lvl, enemyDict[en]["res"]._name]
@@ -493,6 +496,9 @@ func use_item_2():
 	await(combat_log("
 	You use %s on %s" % [used_item._name, enemyDict[y]["res"]._name]))
 	if used_item.effects["Capture"]:
+		fx.get_node("hitAnimate").position = enemyDict[y]["cont"].position + (enemyDict[y]["cont"].size / 2)
+		fx.get_node("hitAnimate").z_index = -1
+		fx.get_node("hitAnimate").play('slash')
 		if (used_item.effects["Capture"] * 10 - (enemyDict[y]["res"].lvl * 5)) - (enemyDict[y]["live"]["hp"] / enemyDict[y]["res"].health)  >	rng.randi_range(1,100):
 			await(combat_log("capturing..."))
 			await(combat_log("............................................ Succes!"))
@@ -512,6 +518,7 @@ func use_item_2():
 			await(combat_log("capturing..."))
 			await(combat_log("............................................ Failed..."))
 			enemy_turn()
+		fx.get_node("hitAnimate").z_index = 1
 			
 			
 		
