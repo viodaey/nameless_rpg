@@ -18,6 +18,7 @@ var last_exit: String = 'default'
 var enemy_encounter: String = "res://enemyResources/res_battle_spider.tres"
 #var enemy_stats = []
 var position = Vector2(256,256)
+var atb: int = 100
 #var done: bool = false
 
 

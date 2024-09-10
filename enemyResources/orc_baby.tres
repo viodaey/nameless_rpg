@@ -28,3 +28,4 @@ battle_scale_vec = Vector2(0.5, 0.5)
 battle_y_sep = -1
 _class = ExtResource("1_34ij2")
 lvl = 1
+atb = 110

@@ -34,11 +34,11 @@ var enemyCount : Array
 var x : int
 var y : int = 0
 var calc_lvl: int
+var curPlayer = playerDict[1]
 
 # attack = 0, item = 1
 var next_phase: int = 0
 var used_item: Resource
-
 
 @onready var _playerhp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerHP
 @onready var _playermp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerMP
@@ -63,7 +63,6 @@ var used_item: Resource
 func _ready():
 	#if player_count == 1:
 		#_player2statscont.visible = false
-
 ##	setup player 1
 	set_health_init(_playerhp, player.health, player.max_health)
 	current_player_mp = player.mp
@@ -75,7 +74,9 @@ func _ready():
 	playerDict_1["live"]["hp"] = player.health
 	playerDict_1["live"]["mp"] = player.mp
 	playerDict_1["cont"].get_node("Name").text = playerDict_1["res"]._name
-	
+	playerDict_1["atb"] = 0
+	playerDict_1["max_atb"] = player.atb
+	playerDict_1["dmg"] = player.damage	
 ##	load player_monster 1
 	if len(inv.itemInventory.monsterlist) > 0:
 		playerDict[2] = playerDict_2
@@ -90,6 +91,9 @@ func _ready():
 		if playerDict_2["res"].battle_scale_vec < Vector2(1,1):
 			playerDict_2["cont"].size = playerDict_2["cont"].size * playerDict_2["res"].battle_scale_vec
 		set_health_init(playerDict_2["cont"].get_node("PlayerHP"), playerDict_2["live"]["hp"], playerDict_2["res"].max_health)
+		playerDict_2["atb"] = 0
+		playerDict_2["max_atb"] = playerDict_2["res"].atb
+		playerDict_2["dmg"] = playerDict_2["res"].damage
 		
 		
 	else:
@@ -174,8 +178,9 @@ func _ready():
 		enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage
 		if enemyDict[en]["res"].lvl > 1:
 			calc_lvl = enemyDict_1["res"].lvl - 1
-			enemyDict[en]["live"]["hp"] = enemyDict[en]["live"]["hp"] * calc_lvl * enemyDict[en]["res"]._class.hp_mult * 1.08
-			enemyDict[en]["live"]["dmg"] = enemyDict[en]["live"]["dmg"] * calc_lvl * enemyDict[en]["res"]._class.dmg_mult * 1.08
+			for i in calc_lvl:
+				enemyDict[en]["live"]["hp"] = enemyDict[en]["live"]["hp"] * enemyDict[en]["res"]._class.hp_mult * 1.08
+				enemyDict[en]["live"]["dmg"] = enemyDict[en]["live"]["dmg"] * enemyDict[en]["res"]._class.dmg_mult * 1.08
 		set_health_init(enemyDict[en]["cont"].get_node("EnemyHP"), enemyDict[en]["live"]["hp"], enemyDict[en]["live"]["hp"])
 		enemyDict[en]["cont"].get_node("AspectContainer").get_node("EnemyText").texture = enemyDict[en]["res"].texture
 		enemyDict[en]["cont"].get_node("Label").text = "lvl: %d %s" % [enemyDict[en]["res"].lvl, enemyDict[en]["res"]._name]
@@ -184,8 +189,10 @@ func _ready():
 			enemyDict[en]["cont"].size = enemyDict[en]["cont"].size * enemyDict[en]["res"].battle_scale_vec
 			enemyDict[en]["cont"].position.x = enemyDict[en]["cont"].position.x + 50
 		enemyDict[en]["cont"].add_theme_constant_override("separation", enemyDict[en]["res"].battle_y_sep)
+		enemyDict[en]["atb"] = 0
+		enemyDict[en]["max_atb"] = enemyDict[en]["res"].atb
 	
-	_actionmenufoc.grab_focus()
+	_turn_calc()
 
 signal pressedSomething
 
@@ -244,66 +251,84 @@ func combat_log(text):
 		log_timer.start(0.4)
 		await log_timer.timeout		
 	
-func enemy_turn():
-	for e in enemyDict:
-		if enemyDict[e]["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
-			combat_log("%s is chillin'" % (enemyDict[e]["res"]._name))
-			$AnimationPlayer.play("enemy_chillin")
-			await $AnimationPlayer.animation_finished
-		else:
-			x = rng.randi_range(1, len(playerDict))
-			var players_array = playerDict.keys()
-			y = players_array[x - 1]
-			dealt_dmg = round(rng.randf_range(0.8, 1.2) * enemyDict[e]["res"].damage)
-			await combat_log("%s attacks %s!" % [enemyDict[e]["res"]._name, playerDict[y]["res"]._name])
-			var tween = get_tree().create_tween()
-			var pos = enemyDict[e]["cont"].position
-			tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] + 10, pos[1]), 0.4)
-			tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] - 20, pos[1]), 0.15)
-			tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0], pos[1]), 0.3)
-			await tween.step_finished 
-			set_health(
-				playerDict[y]["cont"].get_node("PlayerHP"), 
-				playerDict[y]["live"]["hp"], 
-				playerDict[y]["res"].max_health)
-			playerDict[y]["live"]["hp"] = (playerDict[y]["live"]["hp"] - dealt_dmg)
-			playerDict[y]["res"].health = playerDict[y]["live"]["hp"]
-			tween = get_tree().create_tween()
-			for i in 6:
-				tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 0,  0.1)
-				tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 1,  0.1)
-			
-			await tween.finished
-			await combat_log("Got hit for %d damage" % [dealt_dmg])
-			if enemyDict[e]["res"].lifesteal > 0:
-				set_health_init(
-					enemyDict[e]["cont"].get_node("EnemyHP"), 
-					(min(enemyDict[e]["live"]["hp"] + enemyDict[e]["res"].lifesteal, enemyDict[e]["res"].health)), 
-					enemyDict[e]["res"].health)
-				await combat_log("%s regained %d health" % [enemyDict[e]["res"]._name, enemyDict[e]["res"].lifesteal] )
-			if enemyDict[e]["res"].affliction_chance > 0:
-				if rng.randi_range(0,100) <= enemyDict[e]["res"].affliction_chance:
-					await combat_log("You are %s!" % [enemyDict[e]["res"].affliction_type])
+func enemy_turn(e):
+	if enemyDict[e]["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
+		combat_log("%s is chillin'" % (enemyDict[e]["res"]._name))
+		$AnimationPlayer.play("enemy_chillin")
+		await $AnimationPlayer.animation_finished
+	else:
+		x = rng.randi_range(1, len(playerDict))
+		var players_array = playerDict.keys()
+		y = players_array[x - 1]
+		dealt_dmg = round(rng.randf_range(0.8, 1.2) * enemyDict[e]["res"].damage)
+		await combat_log("%s attacks %s!" % [enemyDict[e]["res"]._name, playerDict[y]["res"]._name])
+		var tween = get_tree().create_tween()
+		var pos = enemyDict[e]["cont"].position
+		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] + 10, pos[1]), 0.4)
+		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] - 20, pos[1]), 0.15)
+		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0], pos[1]), 0.3)
+		await tween.step_finished 
+		set_health(
+			playerDict[y]["cont"].get_node("PlayerHP"), 
+			playerDict[y]["live"]["hp"], 
+			playerDict[y]["res"].max_health)
+		playerDict[y]["live"]["hp"] = (playerDict[y]["live"]["hp"] - dealt_dmg)
+		playerDict[y]["res"].health = playerDict[y]["live"]["hp"]
+		tween = get_tree().create_tween()
+		for i in 6:
+			tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 0,  0.1)
+			tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 1,  0.1)
+		
+		await tween.finished
+		await combat_log("Got hit for %d damage" % [dealt_dmg])
+		if enemyDict[e]["res"].lifesteal > 0:
+			set_health_init(
+				enemyDict[e]["cont"].get_node("EnemyHP"), 
+				(min(enemyDict[e]["live"]["hp"] + enemyDict[e]["res"].lifesteal, enemyDict[e]["res"].health)), 
+				enemyDict[e]["res"].health)
+			await combat_log("%s regained %d health" % [enemyDict[e]["res"]._name, enemyDict[e]["res"].lifesteal] )
+		if enemyDict[e]["res"].affliction_chance > 0:
+			if rng.randi_range(0,100) <= enemyDict[e]["res"].affliction_chance:
+				await combat_log("You are %s!" % [enemyDict[e]["res"].affliction_type])
 	try = 0
-	for players in playerDict:
-		if playerDict[players]["live"].has("affl"):
-			combat_log("%s is %s" % [playerDict[y]["res"]._name, playerDict[players]["live"]["affl"]])
-			if playerDict[players]["live"]["affl"] == "burning":
-				dealt_dmg = 3
-				set_health(
-					playerDict[players]["cont"].get_node("PlayerHP"), 
-					playerDict[players]["live"]["hp"], 
-					playerDict[players]["res"].max_health)
-				playerDict[y]["live"]["hp"] = (playerDict[y]["live"]["hp"] - dealt_dmg)
-				playerDict[y]["res"].health = playerDict[y]["live"]["hp"]
-				if rng.randi_range(0,100) > 40:
-					playerDict[players]["live"].erase("affl")
-					combat_log("%s stopped burning" % [playerDict[y]["res"]._name])
 					
+	_turn_calc()
+
+func _turn_calc():
+	while true:
+		for p in playerDict:
+			playerDict[p]["atb"] += 1
+			if playerDict[p]["atb"] == playerDict[p]["max_atb"]:
+				playerDict[p]["atb"] = 0
+				_player_turn(p)
+				return
+		for e in enemyDict:
+			enemyDict[e]["atb"] += 1
+			if enemyDict[e]["atb"] == enemyDict[e]["max_atb"]:
+				enemyDict[e]["atb"] = 0
+				enemy_turn(e)
+				return
+		
+				
+func _player_turn(p):
+	curPlayer = playerDict[p]
+	if curPlayer["live"].has("affl"):
+		combat_log("%s is %s" % [curPlayer["res"]._name, curPlayer["live"]["affl"]])
+		if curPlayer["live"]["affl"] == "burning":
+			dealt_dmg = 3
+			set_health(
+				curPlayer["cont"].get_node("PlayerHP"), 
+				curPlayer["live"]["hp"], 
+				curPlayer["res"].max_health)
+			curPlayer["live"]["hp"] = (curPlayer["live"]["hp"] - dealt_dmg)
+			curPlayer["res"].health = curPlayer["live"]["hp"]
+			if rng.randi_range(0,100) > 40:
+				curPlayer["live"].erase("affl")
+				combat_log("%s stopped burning" % [playerDict[y]["res"]._name])
 	_actionmenu.visible = true
 	_actionmenufoc.grab_focus()
 
-#func_ player_turn
+	#pass
 #moet gaan bepalen wie er aan de beurt is (eerst gewoon chronologisch?)
 #moet daarop in ieder geval magic/ability menu gaan aanpassen
 #indicator voor wiens turn
@@ -367,13 +392,13 @@ func _await_selection():
 
 func _attack_phase_1():
 	var curEnemyCont = enemyDict[y]["cont"]
-	var pos = _playertexture.position
-	dealt_dmg = round(rng.randf_range(0.85, 1.15) * player.damage)
+	var pos = curPlayer["txt"].position
+	dealt_dmg = round(rng.randf_range(0.85, 1.15) * curPlayer["dmg"])
 	await combat_log("You attack %s!" % [enemyDict[y]["res"]._name])
 	var tween = get_tree().create_tween()
-	tween.tween_property(_playertexture, "position", Vector2(pos[0] -10, pos[1]), 0.5)
-	tween.tween_property(_playertexture, "position", Vector2(pos[0] + 20, pos[1]),0.15)
-	tween.tween_property(_playertexture, "position", Vector2(pos[0], pos[1]),0.5)
+	tween.tween_property(curPlayer["txt"], "position", Vector2(pos[0] -10, pos[1]), 0.5)
+	tween.tween_property(curPlayer["txt"], "position", Vector2(pos[0] + 20, pos[1]),0.15)
+	tween.tween_property(curPlayer["txt"], "position", Vector2(pos[0], pos[1]),0.5)
 	await get_tree().create_timer(0.75).timeout
 	fx.get_node("hitAnimate").position = curEnemyCont.position + (curEnemyCont.size / 2)
 	fx.get_node("hitAnimate").play('slash')
@@ -417,7 +442,7 @@ func _attack_phase_2():
 		tween.chain().tween_property(selected_enemy, "modulate:a", 0,  0.1)
 		tween.chain().tween_property(selected_enemy, "modulate:a", 1,  0.1)
 	#await $AnimationPlayer.animation_finished
-	if player.critc >= rng.randi_range(1, 100):
+	if curPlayer["res"].critc >= rng.randi_range(1, 100):
 		dealt_dmg = round(dealt_dmg * 1.5)
 		await combat_log("CRITICAL HIT!")
 		await get_tree().create_timer(0.5).timeout
@@ -426,7 +451,7 @@ func _attack_phase_2():
 	await set_health(selected_enemy.get_node("EnemyHP"), curEnemyStats["hp"], enemyDict[y]["res"].health)
 	curEnemyStats["hp"] = max(0, curEnemyStats["hp"] - dealt_dmg)
 	#await get_tree().create_timer(0.75).timeout
-	await combat_log("You hit for %d damage" % [dealt_dmg])
+	await combat_log("%s hit for %d damage" % [curPlayer["res"]._name, dealt_dmg])
 	#await get_tree().create_timer(1).timeout
 	#crit = false
 	enemyDict[y]["live"] = curEnemyStats
@@ -434,7 +459,7 @@ func _attack_phase_2():
 		await(enemy_died())
 	if enemyDict.is_empty():
 		sceneManager.goto_scene(sceneManager.last_scene)
-	enemy_turn()
+	_turn_calc()
 
 
 func enemy_died():
@@ -491,23 +516,33 @@ func use_item(t) -> void:
 		
 	
 func use_item_2():
-	await(combat_log("
-	You use %s on %s" % [used_item._name, enemyDict[y]["res"]._name]))
+	await(combat_log("You use %s on %s" % [used_item._name, enemyDict[y]["res"]._name]))
 	if used_item.effects["Capture"]:
 		fx.get_node("hitAnimate").position = enemyDict[y]["cont"].position + (enemyDict[y]["cont"].size / 2)
 		fx.get_node("hitAnimate").z_index = -1
-		fx.get_node("hitAnimate").play('slash')
+		fx.get_node("hitAnimate").play('castDark2')
+		var tween = get_tree().create_tween()
+		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:v", 0, 0.2)
+		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:v", 1, 0.03)
+		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:v", 0, 0.03)
+		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:v", 1, 0.03)
+		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:a", 0, 1)
 		if (used_item.effects["Capture"] * 10 - (enemyDict[y]["res"].lvl * 5)) - (enemyDict[y]["live"]["hp"] / enemyDict[y]["res"].health)  >	rng.randi_range(1,100):
 			await(combat_log("capturing..."))
+			await get_tree().create_timer(1).timeout
+			await(combat_log("........................"))
+			await get_tree().create_timer(0.5).timeout
 			await(combat_log("............................................ Succes!"))
 			var loadslot = monSlot.new()
 			inv.itemInventory.monsterlist.append(loadslot)
 			var capturedmonster = inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1]
 			capturedmonster._monster = enemyDict[y]["res"].duplicate()
+			capturedmonster._monster.max_health = enemyDict[y]["res"].health
 			capturedmonster.stats["hp"] = enemyDict[y]["live"]["hp"]
 			capturedmonster._monster.xp = 0
+			capturedmonster._monster.damage = enemyDict[y]["live"]["dmg"]
 			#inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1].stats["mp"] = enemyDict[y]["live"]["mp"]
-			print("Captured level %d %s!" % [capturedmonster._monster.lvl, capturedmonster._monster._name])
+			await(combat_log("Captured level %d %s!" % [capturedmonster._monster.lvl, capturedmonster._monster._name]))
 			if capturedmonster._monster.lvl > 1:
 				for i in (capturedmonster._monster.lvl - 1):
 					capturedmonster._monster.max_xp = round(capturedmonster._monster.max_xp * 1.3)
@@ -516,12 +551,16 @@ func use_item_2():
 			enemyDict.erase(y)
 			if enemyDict.is_empty():
 				sceneManager.goto_scene(sceneManager.last_scene)
-			enemy_turn()
+			_turn_calc()
 			
 		else:
 			await(combat_log("capturing..."))
+			await get_tree().create_timer(1).timeout
+			await(combat_log("........................"))
+			await get_tree().create_timer(0.5).timeout
 			await(combat_log("............................................ Failed..."))
-			enemy_turn()
+			tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:a", 1, 0.2)
+			_turn_calc()
 		fx.get_node("hitAnimate").z_index = 1
 			
 			
