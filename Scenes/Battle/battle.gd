@@ -77,6 +77,8 @@ func _ready():
 	playerDict_1["atb"] = 0
 	playerDict_1["max_atb"] = player.atb
 	playerDict_1["dmg"] = player.damage	
+	playerDict_1["cont"].get_node("PlayerATB").max_value = playerDict_1["max_atb"]
+	
 ##	load player_monster 1
 	if len(inv.itemInventory.monsterlist) > 0:
 		playerDict[2] = playerDict_2
@@ -94,6 +96,7 @@ func _ready():
 		playerDict_2["atb"] = 0
 		playerDict_2["max_atb"] = playerDict_2["res"].atb
 		playerDict_2["dmg"] = playerDict_2["res"].damage
+		playerDict_2["cont"].get_node("PlayerATB").max_value = playerDict_2["max_atb"]
 		
 		
 	else:
@@ -296,18 +299,21 @@ func enemy_turn(e):
 
 func _turn_calc():
 	while true:
-		for p in playerDict:
-			playerDict[p]["atb"] += 1
-			if playerDict[p]["atb"] == playerDict[p]["max_atb"]:
-				playerDict[p]["atb"] = 0
-				_player_turn(p)
-				return
-		for e in enemyDict:
-			enemyDict[e]["atb"] += 1
-			if enemyDict[e]["atb"] == enemyDict[e]["max_atb"]:
-				enemyDict[e]["atb"] = 0
-				enemy_turn(e)
-				return
+		for i in 5:
+			for p in playerDict:
+				playerDict[p]["atb"] += 1
+				playerDict[p]["cont"].get_node("PlayerATB").value = playerDict[p]["atb"]
+				if playerDict[p]["atb"] == playerDict[p]["max_atb"]:
+					playerDict[p]["atb"] = 0
+					_player_turn(p)
+					return
+			for e in enemyDict:
+				enemyDict[e]["atb"] += 1
+				if enemyDict[e]["atb"] == enemyDict[e]["max_atb"]:
+					enemyDict[e]["atb"] = 0
+					enemy_turn(e)
+					return
+		await get_tree().create_timer(0.001).timeout
 		
 				
 func _player_turn(p):
