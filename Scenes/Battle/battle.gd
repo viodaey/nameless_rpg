@@ -39,6 +39,7 @@ var curPlayer = playerDict[1]
 # attack = 0, item = 1
 var next_phase: int = 0
 var used_item: Resource
+var used_item_slot: int = 0
 
 @onready var _playerhp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerHP
 @onready var _playermp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerMP
@@ -71,6 +72,8 @@ func _ready():
 	playerDict_1["live"] = playerStats1
 	playerDict_1["txt"] = $Player_1
 	playerDict_1["cont"] = $Panel_Menu/VBoxContainer/PlayerContainer1
+	playerDict_1["ind"] = $Container/Select
+	playerDict_1["ind"].modulate.a = 0
 	playerDict_1["live"]["hp"] = player.health
 	playerDict_1["live"]["mp"] = player.mp
 	playerDict_1["cont"].get_node("Name").text = playerDict_1["res"]._name
@@ -86,6 +89,8 @@ func _ready():
 		playerDict_2["live"] = inv.itemInventory.monsterlist[0].stats
 		playerDict_2["txt"] = $soulContainer1/SoulText
 		playerDict_2["cont"] = $Panel_Menu/VBoxContainer/PlayerContainer2
+		playerDict_2["ind"] = $soulContainer1/Select
+		playerDict_2["ind"].modulate.a = 0
 		playerDict_2["live"]["hp"] = inv.itemInventory.monsterlist[0].stats["hp"]
 		playerDict_2["live"]["mp"] = inv.itemInventory.monsterlist[0].stats["mp"]
 		playerDict_2["cont"].get_node("Name").text = playerDict_2["res"]._name
@@ -387,7 +392,7 @@ func _await_selection():
 		if next_phase == 0:
 			_attack_phase_1()
 		elif next_phase == 1:
-			use_item_2()
+			use_item_2(enemyDict[y])
 	elif Input.is_action_pressed("ui_cancel"):
 		selected_enemy_ind.modulate.a = 0
 		_selector_tween.kill()
@@ -395,6 +400,55 @@ func _await_selection():
 		_actionmenufoc.grab_focus()
 	else:
 		_await_selection()
+		
+func _player_selection():
+	var playerCount = playerDict.keys()
+	var _selector_tween: Tween
+	var selected_ind = playerDict[playerCount[x]]["ind"]
+	selected_ind.modulate.a = 1
+	var max_x = len(playerCount) - 1
+	var pos = selected_ind.position
+	var tween = get_tree().create_tween()
+	_selector_tween = tween
+	tween.tween_property(selected_ind, "position:y", 10, 0.5).as_relative().set_trans(tween.TRANS_SINE)
+	tween.tween_property(selected_ind, "position:y", -10, 0.5).as_relative().set_trans(tween.TRANS_SINE)
+	tween.set_loops()
+	await(pressedSomething)
+	_selector_tween.kill()
+	selected_ind.position = pos
+	if Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_right"):
+		selected_ind.modulate.a = 0
+		if x == max_x:
+			x = 0
+		else:
+			x += 1
+		selected_ind = playerDict[playerCount[x]]["ind"]
+		selected_ind.modulate.a = 1
+		_player_selection()
+	elif Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_left"):
+		selected_ind.modulate.a = 0
+		if x == 0:
+			x = max_x
+		else:
+			x -= 1
+		selected_ind = playerDict[playerCount[x]]["ind"]
+		selected_ind.modulate.a = 1
+		_player_selection()
+	elif Input.is_action_pressed("ui_accept"):
+		selected_ind.modulate.a = 0
+		y = playerCount[x]
+		_selector_tween.kill()
+		if next_phase == 0:
+			_attack_phase_1()
+		elif next_phase == 1:
+			use_item_2(playerDict[y])
+	elif Input.is_action_pressed("ui_cancel"):
+		selected_ind.modulate.a = 0
+		_selector_tween.kill()
+		_actionmenu.visible = true
+		_actionmenufoc.grab_focus()
+	else:
+		_player_selection()
 
 func _attack_phase_1():
 	var curEnemyCont = enemyDict[y]["cont"]
@@ -507,24 +561,30 @@ func _on_item_pressed() -> void:
 	add_child(itemInvSc)
 	itemInvSc._mode = "battle"
 	
-func use_item(t) -> void:
-	used_item = t
+func use_item(z) -> void:
+	used_item = inv.itemInventory.list[z]._item
+	used_item_slot = z
 	if used_item.isTargetSelf == false:
 		next_phase = 1
-		pressedSomething.emit()
-		await get_tree().create_timer(0.03).timeout
+		#pressedSomething.emit()
+		#await get_tree().create_timer(0.03).timeout
 		x = 0
 		_await_selection()
+		get_node("InventScene").queue_free()
+	if used_item.isTargetSelf == true:
+		next_phase = 1
+		x = 0
+		_player_selection()
 		get_node("InventScene").queue_free()
 		
 		
 		
-		
 	
-func use_item_2():
-	await(combat_log("You use %s on %s" % [used_item._name, enemyDict[y]["res"]._name]))
-	if used_item.effects["Capture"]:
-		fx.get_node("hitAnimate").position = enemyDict[y]["cont"].position + (enemyDict[y]["cont"].size / 2)
+func use_item_2(target):
+	inv.sub_item(used_item_slot)
+	await(combat_log("You use %s on %s" % [used_item._name, target["res"]._name]))
+	if used_item.effects.has("Capture"):
+		fx.get_node("hitAnimate").position = target["cont"].position + (target["cont"].size / 2)
 		fx.get_node("hitAnimate").z_index = -1
 		fx.get_node("hitAnimate").play('castDark2')
 		var tween = get_tree().create_tween()
@@ -558,7 +618,6 @@ func use_item_2():
 			if enemyDict.is_empty():
 				sceneManager.goto_scene(sceneManager.last_scene)
 			_turn_calc()
-			
 		else:
 			await(combat_log("capturing..."))
 			await get_tree().create_timer(1).timeout
@@ -568,6 +627,19 @@ func use_item_2():
 			tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:a", 1, 0.2)
 			_turn_calc()
 		fx.get_node("hitAnimate").z_index = 1
+	if used_item.effects.has("Heal"):
+		target["live"]["hp"] = min(target["live"]["hp"] + used_item.effects["Heal"], target["res"].max_health)
+		target["res"].max_health = target["live"]["hp"] 
+		set_health_init(
+			target["cont"].get_node("PlayerHP"),
+			playerDict[y]["live"]["hp"], 
+			playerDict[y]["res"].max_health)
+		action_menu()
+
+func action_menu():
+	_actionmenu.visible = true
+	_actionmenufoc.grab_focus()
+	
 			
 			
 		

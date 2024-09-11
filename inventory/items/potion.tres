@@ -6,5 +6,7 @@
 script = ExtResource("1_weexe")
 _name = "Potion"
 isConsume = true
-effects = {}
-isTargetSelf = false
+effects = {
+"Heal": 30
+}
+isTargetSelf = true

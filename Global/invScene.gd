@@ -59,13 +59,13 @@ func _input(_event):
 		elif x - 1 > z:
 			select.position.y = select.position.y + (23 * (x - 1))
 			z = x - 1
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_just_released("ui_accept"):
 		if len(inv.itemInventory.list) == 0:
 			return
 		var item_selected = inv.itemInventory.list[z]._item
 		_update()
-		get_parent().use_item(inv.itemInventory.list[z]._item)
-		inv.sub_item(z)
+		get_parent().use_item(z)
+		#inv.sub_item(z)
 
 	if Input.is_action_pressed("ui_cancel"):
 		if _mode == "battle":
