@@ -1,4 +1,4 @@
-[gd_scene load_steps=276 format=3 uid="uid://b7kga5w7hkr5o"]
+[gd_scene load_steps=275 format=3 uid="uid://b7kga5w7hkr5o"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
 [ext_resource type="Resource" uid="uid://cb3ouqjr5sgqc" path="res://enemyResources/orc_baby.tres" id="2_pjcb0"]
@@ -10,12 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://cv5mk2thosujc" path="res://test_sprites/60FPS_AC2Q001_Slash.png" id="7_g8lpc"]
 [ext_resource type="Texture2D" uid="uid://b8uefsykva2cc" path="res://textures/enemyFullTextures/wolf_ice.tres" id="8_8xvtf"]
 [ext_resource type="Texture2D" uid="uid://cm7ugrxdww20r" path="res://textures/selectionTriangle_full.png" id="8_ype7g"]
-[ext_resource type="FontFile" uid="uid://bgurxqqn8wtup" path="res://textures/fonts/Merienda-Regular.ttf" id="9_mhwki"]
 [ext_resource type="Texture2D" uid="uid://wnj06sa4uqhj" path="res://textures/hitAnimations/castDark/60FPS_ASDark_01_Cast.png" id="11_4l3t2"]
 [ext_resource type="Texture2D" uid="uid://dh0shujnvljsx" path="res://textures/hitAnimations/castDark/60FPS_ASDark_10_CalamityB.png" id="11_4o82x"]
-[ext_resource type="Texture2D" uid="uid://cspbaanasq48y" path="res://textures/Mobs/imported/Earthwolf Evo 1 Idle movementcheck.png" id="12_a2lmu"]
 [ext_resource type="Texture2D" uid="uid://ff0jakmrpruh" path="res://textures/hitAnimations/castDark/60FPS_ASDark_02_Cast2.png" id="12_uigp2"]
 [ext_resource type="Texture2D" uid="uid://bbtdq4jxsklwt" path="res://textures/hitAnimations/castDark/60FPS_ASDark_05_Subdue.png" id="14_f08gt"]
+[ext_resource type="Texture2D" uid="uid://b3cxijemwg6ji" path="res://textures/humanoids/Orc_baby.png" id="16_2ah2c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qufg"]
 bg_color = Color(0.0882, 0.14, 0.0890633, 0)
@@ -31,7 +30,7 @@ shadow_color = Color(0.07, 0.07, 0.07, 1)
 bg_color = Color(0.261517, 0.2669, 0.27767, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wisw1"]
-bg_color = Color(0.686285, 0.30196, 0, 1)
+bg_color = Color(1, 0.462992, 0.0687932, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bj0i"]
 resource_name = "hp_red"
@@ -182,8 +181,9 @@ _data = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_mdogy"]
 line_spacing = 0.0
-font = ExtResource("9_mhwki")
+font = ExtResource("4_0ge1k")
 font_size = 13
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Gradient" id="Gradient_rrtmt"]
 offsets = PackedFloat32Array(0, 0.943965, 0.95339)
@@ -1918,11 +1918,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -3.0
 offset_top = 8.0
-offset_right = -227.0
-offset_bottom = 11.0
+offset_right = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.23983, 0.979368)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_f8vj8")
@@ -1934,10 +1932,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.83937
-offset_top = -18.3787
-offset_right = 9.83936
-offset_bottom = 21.6213
+offset_left = 5.0
+offset_top = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_hqtvv")
@@ -1948,8 +1944,8 @@ z_index = 1
 layout_mode = 0
 offset_left = 28.0
 offset_top = 8.0
-offset_right = 138.0
-offset_bottom = 253.0
+offset_right = 195.0
+offset_bottom = 270.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8qufg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel_Menu"]
@@ -2272,10 +2268,10 @@ libraries = {
 [node name="ActionMenu" type="Panel" parent="."]
 z_index = 1
 layout_mode = 2
-offset_left = 20.9706
-offset_top = 549.334
-offset_right = 245.971
-offset_bottom = 643.334
+offset_left = 24.9706
+offset_top = 534.334
+offset_right = 249.971
+offset_bottom = 628.334
 theme_override_styles/panel = SubResource("StyleBoxFlat_8qufg")
 
 [node name="MarginActions" type="MarginContainer" parent="ActionMenu"]
@@ -2306,18 +2302,18 @@ z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_right = NodePath("../../Actions2/Item")
-focus_neighbor_bottom = NodePath("../Magic")
+focus_neighbor_bottom = NodePath("../Skills")
 theme_override_constants/h_separation = 0
 text = "     Attack     "
 
-[node name="Magic" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions"]
+[node name="Skills" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Attack")
 focus_neighbor_right = NodePath("../../Actions2/Dance")
 theme_override_constants/h_separation = 0
-text = "     Magic     "
+text = "     Skills     "
 
 [node name="Actions2" type="VBoxContainer" parent="ActionMenu/MarginActions/HBoxContainer"]
 z_index = 2
@@ -2337,7 +2333,7 @@ text = "     Item     "
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../../Actions/Magic")
+focus_neighbor_left = NodePath("../../Actions/Skills")
 focus_neighbor_top = NodePath("../Item")
 theme_override_constants/h_separation = 0
 text = "     Dance     "
@@ -2406,6 +2402,7 @@ texture = ExtResource("8_8xvtf")
 expand_mode = 1
 
 [node name="EnemyHP" type="ProgressBar" parent="EnemyContainer1"]
+visible = false
 light_mask = 2
 z_index = 10
 custom_minimum_size = Vector2(0, 8)
@@ -2475,6 +2472,7 @@ texture = ExtResource("8_8xvtf")
 expand_mode = 1
 
 [node name="EnemyHP" type="ProgressBar" parent="EnemyContainer2"]
+visible = false
 z_index = 10
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
@@ -2707,18 +2705,19 @@ frame_progress = 1.0
 [node name="soulContainer1" type="AspectRatioContainer" parent="."]
 custom_minimum_size = Vector2(170, 170)
 layout_mode = 0
-offset_left = 183.09
-offset_top = 236.887
-offset_right = 363.09
-offset_bottom = 416.887
+offset_left = 295.0
+offset_top = 247.0
+offset_right = 475.0
+offset_bottom = 417.0
 size_flags_vertical = 3
+stretch_mode = 0
 
 [node name="SoulText" type="TextureRect" parent="soulContainer1"]
 texture_filter = 1
 layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("12_a2lmu")
-expand_mode = 1
+texture = ExtResource("16_2ah2c")
+expand_mode = 3
+stretch_mode = 5
 flip_h = true
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
@@ -2753,6 +2752,7 @@ offset_bottom = 40.0
 
 [node name="Select" type="TextureRect" parent="Container"]
 z_index = 1
+layout_mode = 0
 offset_left = 133.889
 offset_top = 287.941
 offset_right = 149.889
@@ -2762,6 +2762,6 @@ texture = ExtResource("8_ype7g")
 stretch_mode = 3
 
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Attack" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Magic" to="." method="_on_magic_pressed"]
+[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Skills" to="." method="_on_magic_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Item" to="." method="_on_item_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Dance" to="." method="_on_dance_pressed"]

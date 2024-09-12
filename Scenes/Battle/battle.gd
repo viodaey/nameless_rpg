@@ -323,6 +323,7 @@ func _turn_calc():
 				
 func _player_turn(p):
 	curPlayer = playerDict[p]
+	curPlayer["cont"].get_node("PlayerATB")
 	if curPlayer["live"].has("affl"):
 		combat_log("%s is %s" % [curPlayer["res"]._name, curPlayer["live"]["affl"]])
 		if curPlayer["live"]["affl"] == "burning":
