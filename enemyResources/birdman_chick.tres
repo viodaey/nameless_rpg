@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=12 format=3 uid="uid://dm2dnaly8eoku"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=18 format=3 uid="uid://dm2dnaly8eoku"]
 
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_5el2r"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_e3sfw"]
 [ext_resource type="Texture2D" uid="uid://dtmd7exm81b1h" path="res://Bird-man1 Idle movementcheck.png" id="2_lu6cn"]
 [ext_resource type="Texture2D" uid="uid://t6kd7wrlxyf4" path="res://textures/world_1/Bird-man1.png" id="2_ua5hp"]
+[ext_resource type="Texture2D" uid="uid://db1beeqof2tf4" path="res://textures/Mobs/Mobs+Idle Movement/Bird-man1 Idle movementcheck.png" id="3_3bbh7"]
 [ext_resource type="Texture2D" uid="uid://d0sso1iaghdic" path="res://textures/world_1/Bird-man1_n.png" id="3_y756k"]
 [ext_resource type="Texture2D" uid="uid://dbqhn18pq4isq" path="res://textures/world_1/Bird-man1_s.png" id="4_8ghch"]
 
@@ -18,6 +19,26 @@ region = Rect2(128, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lrs5o"]
 atlas = ExtResource("2_lu6cn")
 region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmfui"]
+atlas = ExtResource("3_3bbh7")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejsxv"]
+atlas = ExtResource("3_3bbh7")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1rxc"]
+atlas = ExtResource("3_3bbh7")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm3yd"]
+atlas = ExtResource("3_3bbh7")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u7wt"]
+atlas = ExtResource("3_3bbh7")
+region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0ajig"]
 animations = [{
@@ -43,7 +64,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ua5hp")
+"texture": SubResource("AtlasTexture_xmfui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejsxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1rxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm3yd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u7wt")
 }],
 "loop": true,
 "name": &"run",
@@ -59,8 +92,8 @@ specular_texture = ExtResource("4_8ghch")
 script = ExtResource("1_e3sfw")
 _name = "Chick"
 texture = SubResource("CanvasTexture_gqbc1")
-health = 50
-damage = 8
+health = 100.0
+damage = 20.0
 critc = 5
 xp = 10
 speed = 35

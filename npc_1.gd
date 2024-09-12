@@ -50,8 +50,10 @@ func _physics_process(delta: float):
 			position = neutral_pos
 			player.enemy_encounter = enemy.resource_path
 			player.position = player_position
-			queue_free()
+			sceneManager.mon_min_lvl = get_parent().min_lvl
+			sceneManager.mon_max_lvl = get_parent().max_lvl
 			sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
+			queue_free()
 			move_to_attack = false
 
 	else:

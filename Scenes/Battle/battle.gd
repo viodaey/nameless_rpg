@@ -60,11 +60,14 @@ var used_item_slot: int = 0
 @onready var active_enemies: Array = [_enemycont1]
 @onready var fx = $FX
 @onready var hp: int
+@onready var min_lvl: int = sceneManager.mon_min_lvl
+@onready var max_lvl: int = sceneManager.mon_max_lvl
 
 func _ready():
 	#if player_count == 1:
 		#_player2statscont.visible = false
 ##	setup player 1
+	$Background.texture = sceneManager.battle_bg
 	set_health_init(_playerhp, player.health, player.max_health)
 	current_player_mp = player.mp
 	set_mp_init(_playermp, player.mp, player.max_mp)
@@ -182,16 +185,20 @@ func _ready():
 
 ##	setup enemies
 	for en in enemyDict:
+		var rng = RandomNumberGenerator.new()
 		enemyDict[en]["live"]["hp"] = enemyDict[en]["res"].health
 		enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage
-		if enemyDict[en]["res"].lvl > 1:
-			calc_lvl = enemyDict_1["res"].lvl - 1
+		enemyDict[en]["live"]["lvl"] = rng.randi_range(min_lvl, min(player.lvl + 2, max_lvl))
+		print("Old dmg %d" % enemyDict[en]["res"].damage)
+		if enemyDict[en]["live"]["lvl"] > 1:
+			calc_lvl = enemyDict[en]["live"]["lvl"] - 1
 			for i in calc_lvl:
 				enemyDict[en]["live"]["hp"] = enemyDict[en]["live"]["hp"] * enemyDict[en]["res"]._class.hp_mult * 1.08
 				enemyDict[en]["live"]["dmg"] = enemyDict[en]["live"]["dmg"] * enemyDict[en]["res"]._class.dmg_mult * 1.08
+				print("New dmg %d" % enemyDict[en]["live"]["dmg"])
 		set_health_init(enemyDict[en]["cont"].get_node("EnemyHP"), enemyDict[en]["live"]["hp"], enemyDict[en]["live"]["hp"])
 		enemyDict[en]["cont"].get_node("AspectContainer").get_node("EnemyText").texture = enemyDict[en]["res"].texture
-		enemyDict[en]["cont"].get_node("Label").text = "lvl: %d %s" % [enemyDict[en]["res"].lvl, enemyDict[en]["res"]._name]
+		enemyDict[en]["cont"].get_node("Label").text = "lvl: %d %s" % [enemyDict[en]["live"]["lvl"], enemyDict[en]["res"]._name]
 		enemyDict[en]["cont"].get_node("Select").modulate.a = 0
 		if enemyDict[en]["res"].battle_scale_vec < Vector2(1,1):
 			enemyDict[en]["cont"].size = enemyDict[en]["cont"].size * enemyDict[en]["res"].battle_scale_vec
@@ -594,7 +601,7 @@ func use_item_2(target):
 		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:v", 0, 0.03)
 		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:v", 1, 0.03)
 		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:a", 0, 1)
-		if (used_item.effects["Capture"] * 10 - (enemyDict[y]["res"].lvl * 5)) - (enemyDict[y]["live"]["hp"] / enemyDict[y]["res"].health)  >	rng.randi_range(1,100):
+		if (used_item.effects["Capture"] * 10 - (enemyDict[y]["live"]["lvl"] * 5)) - (enemyDict[y]["live"]["hp"] / enemyDict[y]["res"].health)  >	rng.randi_range(1,100):
 			await(combat_log("capturing..."))
 			await get_tree().create_timer(1).timeout
 			await(combat_log("........................"))
@@ -608,13 +615,14 @@ func use_item_2(target):
 			capturedmonster.stats["hp"] = enemyDict[y]["live"]["hp"]
 			capturedmonster._monster.xp = 0
 			capturedmonster._monster.damage = enemyDict[y]["live"]["dmg"]
+			capturedmonster._monster.lvl = enemyDict[y]["live"]["lvl"]
 			#inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1].stats["mp"] = enemyDict[y]["live"]["mp"]
 			await(combat_log("Captured level %d %s!" % [capturedmonster._monster.lvl, capturedmonster._monster._name]))
 			if capturedmonster._monster.lvl > 1:
 				for i in (capturedmonster._monster.lvl - 1):
 					capturedmonster._monster.max_xp = round(capturedmonster._monster.max_xp * 1.3)
 			enemyDict[y]["cont"].visible = false
-			enemyDict[y]["res"].lvl = 1
+			#enemyDict[y]["res"].lvl = 1
 			enemyDict.erase(y)
 			if enemyDict.is_empty():
 				sceneManager.goto_scene(sceneManager.last_scene)
@@ -630,11 +638,11 @@ func use_item_2(target):
 		fx.get_node("hitAnimate").z_index = 1
 	if used_item.effects.has("Heal"):
 		target["live"]["hp"] = min(target["live"]["hp"] + used_item.effects["Heal"], target["res"].max_health)
-		target["res"].max_health = target["live"]["hp"] 
+		#target["res"].max_health = target["live"]["hp"] 
 		set_health_init(
 			target["cont"].get_node("PlayerHP"),
-			playerDict[y]["live"]["hp"], 
-			playerDict[y]["res"].max_health)
+			target["live"]["hp"], 
+			target["res"].max_health)
 		action_menu()
 
 func action_menu():

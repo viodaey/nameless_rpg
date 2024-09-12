@@ -1,17 +1,11 @@
 extends Node2D
 
 @export var min_lvl: int = 1
-@export var max_lvl: int = 12
+@export var max_lvl: int = 8
 @export var world_enemies: Array [Enemy]
+@export var battle_bg: Texture
 var spawn_npc = preload("res://Global/globalNPC.tscn")
 var spawn = spawn_npc.instantiate()
-#var world_enemies = [
-	#preload("res://enemyResources/wolf_fire.tres"),
-	#preload("res://enemyResources/wolf_earth.tres"),
-	#preload("res://enemyResources/orc_baby.tres"),
-	#preload("res://enemyResources/orc_teen.tres"),
-	#preload("res://enemyResources/birdman_chick.tres")
-	#]
 @onready var _player_body = $Player
 @onready var _cave_entrance = $CaveEntrance
 #@onready var _preload_npc = $NPC_1

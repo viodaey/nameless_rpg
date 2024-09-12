@@ -1,0 +1,112 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=15 format=3 uid="uid://4hyxykrulp8a"]
+
+[ext_resource type="Resource" uid="uid://di86w42qhyu3s" path="res://Global/Classes/Mage.tres" id="1_llonu"]
+[ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_pcyw6"]
+[ext_resource type="Texture2D" uid="uid://b8byxdvvqhncu" path="res://textures/Mobs/Skeletal_Mage_Evo1_Idle_movementcheck.png" id="2_lu1u1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qu4c"]
+atlas = ExtResource("2_lu1u1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2d4y"]
+atlas = ExtResource("2_lu1u1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc852"]
+atlas = ExtResource("2_lu1u1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbony"]
+atlas = ExtResource("2_lu1u1")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrng6"]
+atlas = ExtResource("2_lu1u1")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdtre"]
+atlas = ExtResource("2_lu1u1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfihn"]
+atlas = ExtResource("2_lu1u1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlgx8"]
+atlas = ExtResource("2_lu1u1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbcof"]
+atlas = ExtResource("2_lu1u1")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w0mv"]
+atlas = ExtResource("2_lu1u1")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdibj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qu4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2d4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc852")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbony")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrng6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdtre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfihn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlgx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbcof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w0mv")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_pcyw6")
+_name = "Skeleton Acolyte"
+health = 38.0
+damage = 8.0
+critc = 5
+xp = 10
+speed = 40
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = SubResource("SpriteFrames_rdibj")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 1.0
+max_group_size = 3
+min_group_size = 1
+friends = Array[String]([])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("1_llonu")
+lvl = 1
+atb = 110

@@ -185,12 +185,12 @@ font = ExtResource("4_0ge1k")
 font_size = 13
 shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Gradient" id="Gradient_rrtmt"]
+[sub_resource type="Gradient" id="Gradient_e0u30"]
 offsets = PackedFloat32Array(0, 0.943965, 0.95339)
 colors = PackedColorArray(1, 1, 1, 1, 0.159081, 0.159081, 0.159081, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vms3e"]
-gradient = SubResource("Gradient_rrtmt")
+gradient = SubResource("Gradient_e0u30")
 fill = 1
 fill_from = Vector2(0.482906, 0.542735)
 fill_to = Vector2(0, 0)
@@ -2705,19 +2705,20 @@ frame_progress = 1.0
 [node name="soulContainer1" type="AspectRatioContainer" parent="."]
 custom_minimum_size = Vector2(170, 170)
 layout_mode = 0
-offset_left = 295.0
+offset_left = 305.0
 offset_top = 247.0
-offset_right = 475.0
-offset_bottom = 417.0
+offset_right = 515.0
+offset_bottom = 424.0
 size_flags_vertical = 3
-stretch_mode = 0
 
 [node name="SoulText" type="TextureRect" parent="soulContainer1"]
 texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("16_2ah2c")
-expand_mode = 3
-stretch_mode = 5
+expand_mode = 1
 flip_h = true
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
