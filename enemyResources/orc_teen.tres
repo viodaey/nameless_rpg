@@ -28,3 +28,4 @@ battle_scale_vec = Vector2(0.8, 0.8)
 battle_y_sep = 0
 _class = ExtResource("1_rpkex")
 lvl = 1
+atb = 110
