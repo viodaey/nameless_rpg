@@ -33,7 +33,6 @@ func _spawn_npc():
 		var distance = rng.randi_range(80, 130)
 		_player_body.get_node("RayCast2D").target_position += Vector2(distance*cos(angle), distance*sin(angle))
 		if _player_body.get_node("RayCast2D") .is_colliding():
-			print(_player_body.get_node("RayCast2D").target_position)
 			_spawn_npc()
 
 		else:
