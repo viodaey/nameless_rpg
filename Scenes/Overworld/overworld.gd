@@ -6,7 +6,7 @@ const scene_type = 1
 @export var max_lvl: int = 8
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
-#@export var drops: Dictionary [item]
+@export var drops: Dictionary
 var spawn_npc = preload("res://Global/globalNPC.tscn")
 var spawn = spawn_npc.instantiate()
 @onready var _player_body = $Player
@@ -19,6 +19,7 @@ var spawn_request
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	inv.drops = drops
 	AudioPlayer.play_music_level("fieldOverworld")
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
 		_player_body.position = player.position

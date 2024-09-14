@@ -1,6 +1,8 @@
 extends Control
 
+@export var item_id : Array [item]
 var itemInventory = load("res://inventory/playerInventory.tres")
+var drops: Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

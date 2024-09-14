@@ -530,9 +530,16 @@ func _attack_phase_2():
 	if curEnemyStats["hp"] <= 0:
 		await(enemy_died())
 	if enemyDict.is_empty():
+		_drops()
 		sceneManager.goto_scene(sceneManager.last_scene)
 	_turn_calc()
 
+func _drops():
+	for i in e_groupsize:
+		for d in len(inv.drops):
+			if rng.randi_range(0, 100) <= inv.drops[d]:
+				inv.add_item(inv.) 
+			
 
 func enemy_died():
 	var tween = get_tree().create_tween()

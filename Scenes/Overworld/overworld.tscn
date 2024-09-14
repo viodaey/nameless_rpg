@@ -344,6 +344,10 @@ size = Vector2(16, 16)
 script = ExtResource("1_4ihds")
 world_enemies = Array[ExtResource("2_sr5fs")]([ExtResource("3_reg0g"), ExtResource("4_v5jui"), ExtResource("5_cp6nb"), ExtResource("6_31cep"), ExtResource("7_k7cex")])
 battle_bg = ExtResource("8_2e61n")
+drops = {
+0: 50,
+1: 5
+}
 
 [node name="TileMapLayer_0" type="TileMapLayer" parent="."]
 z_index = -2
