@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == 'Player':
-		sceneManager.goto_scene("res://Scenes/Cave/Cave voor roy.tscn")
+		sceneManager.goto_scene("res://Scenes/Cave/cave_00b.tscn")
 
 	
 	pass # Replace with function body.

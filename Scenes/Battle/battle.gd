@@ -47,7 +47,7 @@ var used_item_slot: int = 0
 @onready var _playermp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerMP
 @onready var _log_timer = $CombatLogPanel/Timer
 @onready var _combat_log_box = $CombatLogPanel/CombatLog
-@onready var _playertexture = $Player_1
+#@onready var _playertexture = $Player_1
 @onready var _fireballAnimate = $FX/Fireball
 @onready var _enemycont1 = $EnemyContainer1
 @onready var _enemycont2 = $EnemyContainer2
@@ -92,16 +92,18 @@ func _ready():
 		playerDict[2] = playerDict_2
 		playerDict_2["res"] = inv.itemInventory.monsterlist[0]._monster
 		playerDict_2["live"] = inv.itemInventory.monsterlist[0].stats
-		playerDict_2["txt"] = $soulContainer1/SoulText
+		playerDict_2["txt"] = $soulContainer1/VBoxContainer/SoulText
 		playerDict_2["cont"] = $Panel_Menu/VBoxContainer/PlayerContainer2
-		playerDict_2["ind"] = $soulContainer1/Select
+		playerDict_2["txtbox"] = $soulContainer1
+		playerDict_2["ind"] = $soulContainer1/VBoxContainer/Select
 		playerDict_2["ind"].modulate.a = 0
 		playerDict_2["live"]["hp"] = inv.itemInventory.monsterlist[0].stats["hp"]
 		playerDict_2["live"]["mp"] = inv.itemInventory.monsterlist[0].stats["mp"]
 		playerDict_2["cont"].get_node("Name").text = ("%s lvl %d" %[playerDict_2["res"]._name, playerDict_2["res"].lvl])
 		playerDict_2["txt"].texture = 		playerDict_2["res"].texture
 		if playerDict_2["res"].battle_scale_vec < Vector2(1,1):
-			playerDict_2["cont"].size = playerDict_2["cont"].size * playerDict_2["res"].battle_scale_vec
+			playerDict_2["txtbox"].position += (playerDict_2["txtbox"].size - (playerDict_2["txtbox"].size * playerDict_2["res"].battle_scale_vec.x)) / 2
+			playerDict_2["txtbox"].size = playerDict_2["txtbox"].size * playerDict_2["res"].battle_scale_vec
 		set_health_init(playerDict_2["cont"].get_node("PlayerHP"), playerDict_2["live"]["hp"], playerDict_2["res"].max_health)
 		playerDict_2["atb"] = 0
 		playerDict_2["max_atb"] = playerDict_2["res"].atb
@@ -215,7 +217,7 @@ func _ready():
 
 signal pressedSomething
 
-func _input(event):
+func _input(event) -> void:
 	if Input.is_anything_pressed():
 		pressedSomething.emit()
 
@@ -554,8 +556,9 @@ func enemy_died():
 		if playerDict[p]["res"].xp >= playerDict[p]["res"].max_xp:
 			playerDict[p]["res"].level_up()
 			playerDict[p]["live"]["hp"] = playerDict[p]["live"]["hp"] + playerDict[p]["res"].hp_grow
+			playerDict[p]["cont"].get_node("Name").text = ("%s lvl %d" %[playerDict[p]["res"]._name, playerDict[p]["res"].lvl])
 			set_health_init(playerDict[p]["cont"].get_node("PlayerHP"), playerDict[p]["live"]["hp"], playerDict[p]["res"].max_health)
-			await(combat_log("Level increased to %d" % [playerDict[p]["res"].lvl]))
+			await(combat_log("%s's level increased to %d" % [playerDict[p]["res"]._name, playerDict[p]["res"].lvl]))
 			await get_tree().create_timer(0.7).timeout
 			await(combat_log("Max HP increased by %d!" % [playerDict[p]["res"].hp_grow]))
 			await get_tree().create_timer(0.7).timeout
@@ -648,6 +651,7 @@ func use_item_2(target):
 			await(combat_log("........................"))
 			await get_tree().create_timer(0.5).timeout
 			await(combat_log("............................................ Failed..."))
+			tween = get_tree().create_tween()
 			tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:a", 1, 0.2)
 			_turn_calc()
 		fx.get_node("hitAnimate").z_index = 1

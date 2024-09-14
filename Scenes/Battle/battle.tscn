@@ -2385,6 +2385,7 @@ size_flags_vertical = 0
 theme_override_constants/separation = -5
 
 [node name="Select" type="TextureRect" parent="EnemyContainer1"]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("8_ype7g")
@@ -2455,6 +2456,7 @@ size_flags_vertical = 0
 theme_override_constants/separation = -5
 
 [node name="Select" type="TextureRect" parent="EnemyContainer2"]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("8_ype7g")
@@ -2525,6 +2527,7 @@ size_flags_vertical = 0
 theme_override_constants/separation = -5
 
 [node name="Select" type="TextureRect" parent="EnemyContainer3"]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("8_ype7g")
@@ -2594,6 +2597,7 @@ size_flags_vertical = 0
 theme_override_constants/separation = 0
 
 [node name="Select" type="TextureRect" parent="EnemyContainer4"]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("8_ype7g")
@@ -2703,7 +2707,6 @@ frame = 45
 frame_progress = 1.0
 
 [node name="soulContainer1" type="AspectRatioContainer" parent="."]
-custom_minimum_size = Vector2(170, 170)
 layout_mode = 0
 offset_left = 305.0
 offset_top = 247.0
@@ -2711,12 +2714,22 @@ offset_right = 515.0
 offset_bottom = 424.0
 size_flags_vertical = 3
 
-[node name="SoulText" type="TextureRect" parent="soulContainer1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="soulContainer1"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Select" type="TextureRect" parent="soulContainer1/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("8_ype7g")
+stretch_mode = 3
+
+[node name="SoulText" type="TextureRect" parent="soulContainer1/VBoxContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
 texture = ExtResource("16_2ah2c")
 expand_mode = 1
 flip_h = true
@@ -2738,13 +2751,6 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": true
 }
 metadata/_aseprite_wizard_source_file_hash_ = "469f5c5019548ff48aba7912b4d5e3f7"
-
-[node name="Select" type="TextureRect" parent="soulContainer1"]
-z_index = 1
-layout_mode = 2
-size_flags_vertical = 0
-texture = ExtResource("8_ype7g")
-stretch_mode = 3
 
 [node name="Container" type="Control" parent="."]
 anchors_preset = 0
