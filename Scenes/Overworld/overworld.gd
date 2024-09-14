@@ -26,7 +26,7 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Cave/cave_001.tscn":
 		_player_body.position.x = _cave_entrance.position.x
 		_player_body.position.y = _cave_entrance.position.y + 15
-	
+
 func _spawn_npc():
 	if is_instance_valid($NPC_spawn):
 		print("tried to spawn but valid instance found")
@@ -47,4 +47,3 @@ func _spawn_npc():
 
 func _despawn_npc():
 	_spawned_npc.queue_free()
-	
