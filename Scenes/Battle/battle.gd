@@ -81,7 +81,7 @@ func _ready():
 	playerDict_1["ind"].modulate.a = 0
 	playerDict_1["live"]["hp"] = player.health
 	playerDict_1["live"]["mp"] = player.mp
-	playerDict_1["cont"].get_node("Name").text = playerDict_1["res"]._name
+	playerDict_1["cont"].get_node("Name").text = ("%s lvl %d" %[playerDict_1["res"]._name, playerDict_1["res"].lvl])
 	playerDict_1["atb"] = 0
 	playerDict_1["max_atb"] = player.atb
 	playerDict_1["dmg"] = player.damage	
@@ -98,7 +98,7 @@ func _ready():
 		playerDict_2["ind"].modulate.a = 0
 		playerDict_2["live"]["hp"] = inv.itemInventory.monsterlist[0].stats["hp"]
 		playerDict_2["live"]["mp"] = inv.itemInventory.monsterlist[0].stats["mp"]
-		playerDict_2["cont"].get_node("Name").text = playerDict_2["res"]._name
+		playerDict_2["cont"].get_node("Name").text = ("%s lvl %d" %[playerDict_2["res"]._name, playerDict_2["res"].lvl])
 		playerDict_2["txt"].texture = 		playerDict_2["res"].texture
 		if playerDict_2["res"].battle_scale_vec < Vector2(1,1):
 			playerDict_2["cont"].size = playerDict_2["cont"].size * playerDict_2["res"].battle_scale_vec
@@ -193,7 +193,7 @@ func _ready():
 		enemyDict[en]["live"]["hp"] = enemyDict[en]["res"].health
 		enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage
 		enemyDict[en]["live"]["xp"] = enemyDict[en]["res"].xp
-		enemyDict[en]["live"]["lvl"] = rng.randi_range(min_lvl, min(player.lvl + 2, max_lvl))
+		enemyDict[en]["live"]["lvl"] = rng.randi_range(min_lvl, min(max(player.lvl + 1, min_lvl), max_lvl))
 		if enemyDict[en]["live"]["lvl"] > 1:
 			calc_lvl = enemyDict[en]["live"]["lvl"] - 1
 			for i in calc_lvl:
@@ -530,15 +530,19 @@ func _attack_phase_2():
 	if curEnemyStats["hp"] <= 0:
 		await(enemy_died())
 	if enemyDict.is_empty():
-		_drops()
+		await(_drops())
 		sceneManager.goto_scene(sceneManager.last_scene)
 	_turn_calc()
 
 func _drops():
+	var dropped: Array
 	for i in e_groupsize:
 		for d in len(inv.drops):
 			if rng.randi_range(0, 100) <= inv.drops[d]:
-				inv.add_item(inv.) 
+				inv.add_item(inv.item_id[d], 1)
+				dropped.append(inv.item_id[d]._name)
+	for i in len(dropped):
+		await combat_log("Obtained %s!" %dropped[i])
 			
 
 func enemy_died():
@@ -612,7 +616,7 @@ func use_item_2(target):
 		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:v", 1, 0.03)
 		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:a", 0, 1)
 		if (used_item.effects["Capture"] * 10 - (enemyDict[y]["live"]["lvl"] * 5)) - (enemyDict[y]["live"]["hp"] / enemyDict[y]["res"].health)  >	rng.randi_range(1,100):
-			await(combat_log("capturing..."))
+			await(combat_log("Capturing..."))
 			await get_tree().create_timer(1).timeout
 			await(combat_log("........................"))
 			await get_tree().create_timer(0.5).timeout
@@ -621,7 +625,7 @@ func use_item_2(target):
 			inv.itemInventory.monsterlist.append(loadslot)
 			var capturedmonster = inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1]
 			capturedmonster._monster = enemyDict[y]["res"].duplicate()
-			capturedmonster._monster.max_health = enemyDict[y]["res"].health
+			capturedmonster._monster.max_health = enemyDict[y]["cont"].get_node("EnemyHP").max_value
 			capturedmonster.stats["hp"] = enemyDict[y]["live"]["hp"]
 			capturedmonster._monster.xp = 0
 			capturedmonster._monster.damage = enemyDict[y]["live"]["dmg"]
@@ -635,10 +639,11 @@ func use_item_2(target):
 			#enemyDict[y]["res"].lvl = 1
 			enemyDict.erase(y)
 			if enemyDict.is_empty():
+				await(_drops())
 				sceneManager.goto_scene(sceneManager.last_scene)
 			_turn_calc()
 		else:
-			await(combat_log("capturing..."))
+			await(combat_log("Capturing..."))
 			await get_tree().create_timer(1).timeout
 			await(combat_log("........................"))
 			await get_tree().create_timer(0.5).timeout

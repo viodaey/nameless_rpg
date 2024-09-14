@@ -1,6 +1,8 @@
 extends Control
 
-@export var item_id : Array [item]
+var item_id : Array = [
+	load("res://inventory/items/potion.tres"),
+	load("res://inventory/items/basicCaptureCard.tres")]
 var itemInventory = load("res://inventory/playerInventory.tres")
 var drops: Dictionary
 

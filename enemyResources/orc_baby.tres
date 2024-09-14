@@ -9,8 +9,8 @@
 script = ExtResource("2_6mctt")
 _name = "Baby Orc"
 texture = ExtResource("1_00qy3")
-health = 100.0
-damage = 20.0
+health = 35.0
+damage = 10.0
 critc = 5
 xp = 10
 speed = 35
