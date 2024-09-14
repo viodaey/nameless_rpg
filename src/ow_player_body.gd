@@ -50,7 +50,7 @@ func _physics_process(delta):
 	if moved > move_dice:
 		get_parent()._spawn_npc()
 		moved = 0
-		move_dice = rng.randi_range(30, 100)
+		move_dice = rng.randi_range(25, 75)
 
 	
 	
