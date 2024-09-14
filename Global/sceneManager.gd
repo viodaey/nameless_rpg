@@ -3,6 +3,10 @@ extends Node
 var current_scene = null
 var last_scene : String = "res://Scenes/Overworld/overworld.tscn"
 var current_scene_path : String = "res://Scenes/Overworld/overworld.tscn"
+var battle_bg: Texture = null
+var mon_min_lvl: int
+var mon_max_lvl: int
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var root = get_tree().root
@@ -15,6 +19,8 @@ func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)
 	
 func _deferred_goto_scene(path):
+	if current_scene.scene_type == 1:
+		battle_bg = current_scene.battle_bg
 	last_scene = current_scene_path
 	current_scene_path = path
 	current_scene.free()
@@ -22,5 +28,6 @@ func _deferred_goto_scene(path):
 	current_scene = s.instantiate()
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
+
 	
 	

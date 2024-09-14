@@ -1,6 +1,10 @@
 extends Control
 
+var item_id : Array = [
+	load("res://inventory/items/potion.tres"),
+	load("res://inventory/items/basicCaptureCard.tres")]
 var itemInventory = load("res://inventory/playerInventory.tres")
+var drops: Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

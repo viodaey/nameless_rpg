@@ -1,49 +1,99 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5qmhq1tofh5x"]
+[gd_scene load_steps=14 format=3 uid="uid://b5qmhq1tofh5x"]
 
-[ext_resource type="Texture2D" uid="uid://r1i2gpmtscij" path="res://textures/world_1/Bird-man1 Idle movementcheck.png" id="1_6jc4h"]
+[ext_resource type="Texture2D" uid="uid://bwptoht8nkv2x" path="res://textures/Mobs/Fire_pixie_evo_1_Idle_movementcheck.png" id="1_q7cl2"]
+[ext_resource type="Texture2D" uid="uid://d1ykbj821uir1" path="res://Skeletal warrior Evo 1.png" id="2_52ya0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_do30u"]
-atlas = ExtResource("1_6jc4h")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfwjh"]
+atlas = ExtResource("1_q7cl2")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cb4ol"]
-atlas = ExtResource("1_6jc4h")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhytq"]
+atlas = ExtResource("1_q7cl2")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q5le5"]
-atlas = ExtResource("1_6jc4h")
-region = Rect2(0, 128, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_immkf"]
+atlas = ExtResource("1_q7cl2")
+region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_b67ck"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul8e3"]
+atlas = ExtResource("1_q7cl2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7e3q"]
+atlas = ExtResource("1_q7cl2")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbhlu"]
+atlas = ExtResource("1_q7cl2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nddvi"]
+atlas = ExtResource("1_q7cl2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql1x2"]
+atlas = ExtResource("1_q7cl2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6p1s"]
+atlas = ExtResource("1_q7cl2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge308"]
+atlas = ExtResource("1_q7cl2")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0s6h0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_do30u")
+"texture": SubResource("AtlasTexture_rfwjh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cb4ol")
+"texture": SubResource("AtlasTexture_lhytq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q5le5")
+"texture": SubResource("AtlasTexture_immkf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cb4ol")
+"texture": SubResource("AtlasTexture_ul8e3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_do30u")
+"texture": SubResource("AtlasTexture_c7e3q")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbhlu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nddvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql1x2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6p1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge308")
+}],
+"loop": true,
+"name": &"run",
 "speed": 5.0
 }]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(80, 80)
-sprite_frames = SubResource("SpriteFrames_b67ck")
-animation = &"idle"
-frame_progress = 0.454017
+sprite_frames = SubResource("SpriteFrames_0s6h0")
+animation = &"run"
+frame_progress = 0.17851
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
 "o_ex_p": "",
@@ -51,11 +101,37 @@ metadata/_aseprite_wizard_config_ = {
 "o_name": "",
 "only_visible": false,
 "slice": "",
-"source": "res://textures/world_1/Bird-man1 Idle movementcheck.aseprite"
+"source": "res://textures/Mobs/FirePixie Evo 1.aseprite"
 }
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "output_section": true,
 "slice_section": true
 }
-metadata/_aseprite_wizard_source_file_hash_ = "476e4eaae547c2732ed93f02e1b51e31"
+metadata/_aseprite_wizard_source_file_hash_ = "27a8284de24b8dd861539d2beada155e"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 192.0
+offset_top = 80.0
+offset_right = 232.0
+offset_bottom = 120.0
+texture = ExtResource("2_52ya0")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://textures/Mobs/Skeletal warrior Evo 1.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"slice_section": true
+}
+metadata/_aseprite_wizard_source_file_hash_ = "938cc60d6a975682b2bea57ebf63ddc2"

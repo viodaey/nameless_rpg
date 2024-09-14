@@ -1,17 +1,17 @@
 extends Node2D
 
-var spawn_npc = preload("res://Global/globalNPC.tscn")
-var world_enemies = [
-	preload("res://enemyResources/golem.tres"),
-	preload("res://enemyResources/shadow_wraith.tres")
-	]
-var spawn = spawn_npc.instantiate()
+const scene_type = 1
+#1 = map, 2 = battle, 3 = village?
+@export var min_lvl: int = 7
+@export var max_lvl: int = 14
+@export var world_enemies: Array [Enemy]
+@export var battle_bg: Texture
 @onready var _player_body = $Player
 	
-
+var spawn_npc = preload("res://Global/globalNPC.tscn")
+var spawn = spawn_npc.instantiate()
 var _spawned_npc  
 var spawn_request
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,12 +36,10 @@ func _spawn_npc():
 			_spawn_npc()
 
 		else:
-			spawn_request = world_enemies[enemy_select - 1]
+			spawn_request = load(world_enemies[enemy_select - 1].resource_path)
 			add_child(spawn.duplicate())
 			_spawned_npc = $NPC_spawn
 			_spawned_npc.position = _player_body.position + Vector2(distance*cos(angle), distance*sin(angle))
 
 func _despawn_npc():
 	_spawned_npc.queue_free()
-
-	

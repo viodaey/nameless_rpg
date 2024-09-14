@@ -1,5 +1,7 @@
 extends Control
 
+const scene_type = 2
+#1 = map, 2 = battle, 3 = village?
 @export var enemy : Resource 
 var enemy2: Resource
 var enemy3: Resource
@@ -60,11 +62,14 @@ var used_item_slot: int = 0
 @onready var active_enemies: Array = [_enemycont1]
 @onready var fx = $FX
 @onready var hp: int
+@onready var min_lvl: int = sceneManager.mon_min_lvl
+@onready var max_lvl: int = sceneManager.mon_max_lvl
 
 func _ready():
 	#if player_count == 1:
 		#_player2statscont.visible = false
 ##	setup player 1
+	$Background.texture = sceneManager.battle_bg
 	set_health_init(_playerhp, player.health, player.max_health)
 	current_player_mp = player.mp
 	set_mp_init(_playermp, player.mp, player.max_mp)
@@ -76,7 +81,7 @@ func _ready():
 	playerDict_1["ind"].modulate.a = 0
 	playerDict_1["live"]["hp"] = player.health
 	playerDict_1["live"]["mp"] = player.mp
-	playerDict_1["cont"].get_node("Name").text = playerDict_1["res"]._name
+	playerDict_1["cont"].get_node("Name").text = ("%s lvl %d" %[playerDict_1["res"]._name, playerDict_1["res"].lvl])
 	playerDict_1["atb"] = 0
 	playerDict_1["max_atb"] = player.atb
 	playerDict_1["dmg"] = player.damage	
@@ -93,7 +98,7 @@ func _ready():
 		playerDict_2["ind"].modulate.a = 0
 		playerDict_2["live"]["hp"] = inv.itemInventory.monsterlist[0].stats["hp"]
 		playerDict_2["live"]["mp"] = inv.itemInventory.monsterlist[0].stats["mp"]
-		playerDict_2["cont"].get_node("Name").text = playerDict_2["res"]._name
+		playerDict_2["cont"].get_node("Name").text = ("%s lvl %d" %[playerDict_2["res"]._name, playerDict_2["res"].lvl])
 		playerDict_2["txt"].texture = 		playerDict_2["res"].texture
 		if playerDict_2["res"].battle_scale_vec < Vector2(1,1):
 			playerDict_2["cont"].size = playerDict_2["cont"].size * playerDict_2["res"].battle_scale_vec
@@ -123,9 +128,11 @@ func _ready():
 ##	roll for groupsize
 	e_groupsize = rng.randi_range(enemy.min_group_size, enemy.max_group_size)
 ##	safety net starting player
-	if player.lvl < 3 and e_groupsize > 2:
+	if player.lvl < 3:
+		e_groupsize = 1
+	if player.lvl < 5 and e_groupsize > 2:
 		e_groupsize = 2
-	if player.lvl < 6 and e_groupsize > 3:
+	if player.lvl < 10 and e_groupsize > 3:
 		e_groupsize = 3
 		
 ##	roll and allocate enemy 2
@@ -182,16 +189,20 @@ func _ready():
 
 ##	setup enemies
 	for en in enemyDict:
+		var rng = RandomNumberGenerator.new()
 		enemyDict[en]["live"]["hp"] = enemyDict[en]["res"].health
 		enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage
-		if enemyDict[en]["res"].lvl > 1:
-			calc_lvl = enemyDict_1["res"].lvl - 1
+		enemyDict[en]["live"]["xp"] = enemyDict[en]["res"].xp
+		enemyDict[en]["live"]["lvl"] = rng.randi_range(min_lvl, min(max(player.lvl + 1, min_lvl), max_lvl))
+		if enemyDict[en]["live"]["lvl"] > 1:
+			calc_lvl = enemyDict[en]["live"]["lvl"] - 1
 			for i in calc_lvl:
 				enemyDict[en]["live"]["hp"] = enemyDict[en]["live"]["hp"] * enemyDict[en]["res"]._class.hp_mult * 1.08
 				enemyDict[en]["live"]["dmg"] = enemyDict[en]["live"]["dmg"] * enemyDict[en]["res"]._class.dmg_mult * 1.08
+				enemyDict[en]["live"]["xp"] = enemyDict[en]["live"]["xp"] * 1.3
 		set_health_init(enemyDict[en]["cont"].get_node("EnemyHP"), enemyDict[en]["live"]["hp"], enemyDict[en]["live"]["hp"])
 		enemyDict[en]["cont"].get_node("AspectContainer").get_node("EnemyText").texture = enemyDict[en]["res"].texture
-		enemyDict[en]["cont"].get_node("Label").text = "lvl: %d %s" % [enemyDict[en]["res"].lvl, enemyDict[en]["res"]._name]
+		enemyDict[en]["cont"].get_node("Label").text = "lvl: %d %s" % [enemyDict[en]["live"]["lvl"], enemyDict[en]["res"]._name]
 		enemyDict[en]["cont"].get_node("Select").modulate.a = 0
 		if enemyDict[en]["res"].battle_scale_vec < Vector2(1,1):
 			enemyDict[en]["cont"].size = enemyDict[en]["cont"].size * enemyDict[en]["res"].battle_scale_vec
@@ -519,16 +530,27 @@ func _attack_phase_2():
 	if curEnemyStats["hp"] <= 0:
 		await(enemy_died())
 	if enemyDict.is_empty():
+		await(_drops())
 		sceneManager.goto_scene(sceneManager.last_scene)
 	_turn_calc()
 
+func _drops():
+	var dropped: Array
+	for i in e_groupsize:
+		for d in len(inv.drops):
+			if rng.randi_range(0, 100) <= inv.drops[d]:
+				inv.add_item(inv.item_id[d], 1)
+				dropped.append(inv.item_id[d]._name)
+	for i in len(dropped):
+		await combat_log("Obtained %s!" %dropped[i])
+			
 
 func enemy_died():
 	var tween = get_tree().create_tween()
 	tween.tween_property(enemyDict[y]["cont"], "modulate:a", 0,  0.5)
 	await (combat_log("%s died" % (enemyDict[y]["res"]._name)))
 	for p in playerDict:
-		playerDict[p]["res"].xp = playerDict[p]["res"].xp + enemyDict[y]["res"].xp
+		playerDict[p]["res"].xp = playerDict[p]["res"].xp + enemyDict[y]["live"]["xp"]
 		if playerDict[p]["res"].xp >= playerDict[p]["res"].max_xp:
 			playerDict[p]["res"].level_up()
 			playerDict[p]["live"]["hp"] = playerDict[p]["live"]["hp"] + playerDict[p]["res"].hp_grow
@@ -544,17 +566,16 @@ func enemy_died():
 		playerDict[p]["res"].health = playerDict[p]["live"]["hp"]
 	enemyDict.erase(y)
 
-func _on_dance_pressed() -> void:
-	var tween = get_tree().create_tween()
-	for i in 10:
-		tween.tween_property(_playertexture, "modulate:s", 1, 0.01)
-		tween.tween_property(_playertexture, "modulate:h", 0.5, 0.01)
-		tween.tween_property(_playertexture, "flip_h", true,  0.1)
-		tween.tween_property(_playertexture, "modulate:h", 0.3, 0.01)
-		tween.tween_property(_playertexture, "flip_h", false,  0.1)
-		tween.tween_property(_playertexture, "modulate:h", 0.8, 0.01)
-	tween.tween_property(_playertexture, "modulate:s", 0, 0.01)
-
+#func _on_dance_pressed() -> void:
+	#var tween = get_tree().create_tween()
+	#for i in 10:
+		#tween.tween_property(_playertexture, "modulate:s", 1, 0.01)
+		#tween.tween_property(_playertexture, "modulate:h", 0.5, 0.01)
+		#tween.tween_property(_playertexture, "flip_h", true,  0.1)
+		#tween.tween_property(_playertexture, "modulate:h", 0.3, 0.01)
+		#tween.tween_property(_playertexture, "flip_h", false,  0.1)
+		#tween.tween_property(_playertexture, "modulate:h", 0.8, 0.01)
+	#tween.tween_property(_playertexture, "modulate:s", 0, 0.01)
 
 func _on_item_pressed() -> void:
 	_actionmenu.visible = false
@@ -594,8 +615,8 @@ func use_item_2(target):
 		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:v", 0, 0.03)
 		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:v", 1, 0.03)
 		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:a", 0, 1)
-		if (used_item.effects["Capture"] * 10 - (enemyDict[y]["res"].lvl * 5)) - (enemyDict[y]["live"]["hp"] / enemyDict[y]["res"].health)  >	rng.randi_range(1,100):
-			await(combat_log("capturing..."))
+		if (used_item.effects["Capture"] * 10 - (enemyDict[y]["live"]["lvl"] * 5)) - (enemyDict[y]["live"]["hp"] / enemyDict[y]["res"].health)  >	rng.randi_range(1,100):
+			await(combat_log("Capturing..."))
 			await get_tree().create_timer(1).timeout
 			await(combat_log("........................"))
 			await get_tree().create_timer(0.5).timeout
@@ -604,23 +625,25 @@ func use_item_2(target):
 			inv.itemInventory.monsterlist.append(loadslot)
 			var capturedmonster = inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1]
 			capturedmonster._monster = enemyDict[y]["res"].duplicate()
-			capturedmonster._monster.max_health = enemyDict[y]["res"].health
+			capturedmonster._monster.max_health = enemyDict[y]["cont"].get_node("EnemyHP").max_value
 			capturedmonster.stats["hp"] = enemyDict[y]["live"]["hp"]
 			capturedmonster._monster.xp = 0
 			capturedmonster._monster.damage = enemyDict[y]["live"]["dmg"]
+			capturedmonster._monster.lvl = enemyDict[y]["live"]["lvl"]
 			#inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1].stats["mp"] = enemyDict[y]["live"]["mp"]
 			await(combat_log("Captured level %d %s!" % [capturedmonster._monster.lvl, capturedmonster._monster._name]))
 			if capturedmonster._monster.lvl > 1:
 				for i in (capturedmonster._monster.lvl - 1):
 					capturedmonster._monster.max_xp = round(capturedmonster._monster.max_xp * 1.3)
 			enemyDict[y]["cont"].visible = false
-			enemyDict[y]["res"].lvl = 1
+			#enemyDict[y]["res"].lvl = 1
 			enemyDict.erase(y)
 			if enemyDict.is_empty():
+				await(_drops())
 				sceneManager.goto_scene(sceneManager.last_scene)
 			_turn_calc()
 		else:
-			await(combat_log("capturing..."))
+			await(combat_log("Capturing..."))
 			await get_tree().create_timer(1).timeout
 			await(combat_log("........................"))
 			await get_tree().create_timer(0.5).timeout
@@ -630,11 +653,11 @@ func use_item_2(target):
 		fx.get_node("hitAnimate").z_index = 1
 	if used_item.effects.has("Heal"):
 		target["live"]["hp"] = min(target["live"]["hp"] + used_item.effects["Heal"], target["res"].max_health)
-		target["res"].max_health = target["live"]["hp"] 
+		#target["res"].max_health = target["live"]["hp"] 
 		set_health_init(
 			target["cont"].get_node("PlayerHP"),
-			playerDict[y]["live"]["hp"], 
-			playerDict[y]["res"].max_health)
+			target["live"]["hp"], 
+			target["res"].max_health)
 		action_menu()
 
 func action_menu():
@@ -647,3 +670,21 @@ func action_menu():
 	
 	
 		
+
+
+func _on_escape_pressed() -> void:
+	_actionmenu.visible = false
+	await combat_log("Attempting to escape...")
+	await get_tree().create_timer(0.8).timeout
+	
+	if rng.randi_range(1,100) > 20:
+		await combat_log("Succesfully escaped!")
+		await get_tree().create_timer(0.5).timeout
+		sceneManager.goto_scene(sceneManager.last_scene)
+	else: 
+		await combat_log("Escape failed!")
+		await get_tree().create_timer(0.5).timeout
+		_turn_calc()
+		
+		
+		pass # Replace with function body.

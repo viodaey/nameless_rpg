@@ -185,12 +185,12 @@ font = ExtResource("4_0ge1k")
 font_size = 13
 shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Gradient" id="Gradient_rrtmt"]
+[sub_resource type="Gradient" id="Gradient_e0u30"]
 offsets = PackedFloat32Array(0, 0.943965, 0.95339)
 colors = PackedColorArray(1, 1, 1, 1, 0.159081, 0.159081, 0.159081, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vms3e"]
-gradient = SubResource("Gradient_rrtmt")
+gradient = SubResource("Gradient_e0u30")
 fill = 1
 fill_from = Vector2(0.482906, 0.542735)
 fill_to = Vector2(0, 0)
@@ -2062,7 +2062,7 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
-max_value = 50.0
+max_value = 500000.0
 value = 25.0
 show_percentage = false
 
@@ -2311,7 +2311,7 @@ z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Attack")
-focus_neighbor_right = NodePath("../../Actions2/Dance")
+focus_neighbor_right = NodePath("../../Actions2/Escape")
 theme_override_constants/h_separation = 0
 text = "     Skills     "
 
@@ -2325,18 +2325,18 @@ z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../Actions/Attack")
-focus_neighbor_bottom = NodePath("../Dance")
+focus_neighbor_bottom = NodePath("../Escape")
 theme_override_constants/h_separation = 0
 text = "     Item     "
 
-[node name="Dance" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions2"]
+[node name="Escape" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions2"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../Actions/Skills")
 focus_neighbor_top = NodePath("../Item")
 theme_override_constants/h_separation = 0
-text = "     Dance     "
+text = "     Escape     "
 
 [node name="Back" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions2"]
 visible = false
@@ -2705,19 +2705,20 @@ frame_progress = 1.0
 [node name="soulContainer1" type="AspectRatioContainer" parent="."]
 custom_minimum_size = Vector2(170, 170)
 layout_mode = 0
-offset_left = 295.0
+offset_left = 305.0
 offset_top = 247.0
-offset_right = 475.0
-offset_bottom = 417.0
+offset_right = 515.0
+offset_bottom = 424.0
 size_flags_vertical = 3
-stretch_mode = 0
 
 [node name="SoulText" type="TextureRect" parent="soulContainer1"]
 texture_filter = 1
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("16_2ah2c")
-expand_mode = 3
-stretch_mode = 5
+expand_mode = 1
 flip_h = true
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
@@ -2764,4 +2765,4 @@ stretch_mode = 3
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Skills" to="." method="_on_magic_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Item" to="." method="_on_item_pressed"]
-[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Dance" to="." method="_on_dance_pressed"]
+[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Escape" to="." method="_on_escape_pressed"]

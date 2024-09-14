@@ -4,8 +4,8 @@ class_name Enemy
 
 @export var _name: String = "Enemy"
 @export var texture: Texture = null
-@export var health: int = 100
-@export var damage: int = 20
+@export var health: float = 100
+@export var damage: float = 20
 @export var critc: int = 5
 @export var xp: int = 10
 @export var speed: int = 40
@@ -50,7 +50,7 @@ func level_up():
 	dmg_grow = 0
 	while xp >= max_xp:
 		hp_grow = hp_grow + round(max_health * 0.10)
-		dmg_grow = dmg_grow + round(damage * 0.08)
+		dmg_grow = dmg_grow + round(damage * 0.1)
 		max_health = max_health + hp_grow
 		#health = health + hp_grow
 		damage = damage + dmg_grow
