@@ -1,5 +1,7 @@
 extends Node2D
 
+const scene_type = 1
+#1 = map, 2 = battle, 3 = village?
 @export var min_lvl: int = 7
 @export var max_lvl: int = 14
 @export var world_enemies: Array [Enemy]

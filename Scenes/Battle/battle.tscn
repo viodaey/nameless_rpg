@@ -2062,7 +2062,7 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1bj0i")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7ew2d")
-max_value = 50.0
+max_value = 500000.0
 value = 25.0
 show_percentage = false
 
@@ -2311,7 +2311,7 @@ z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Attack")
-focus_neighbor_right = NodePath("../../Actions2/Dance")
+focus_neighbor_right = NodePath("../../Actions2/Escape")
 theme_override_constants/h_separation = 0
 text = "     Skills     "
 
@@ -2325,18 +2325,18 @@ z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../Actions/Attack")
-focus_neighbor_bottom = NodePath("../Dance")
+focus_neighbor_bottom = NodePath("../Escape")
 theme_override_constants/h_separation = 0
 text = "     Item     "
 
-[node name="Dance" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions2"]
+[node name="Escape" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions2"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath("../../Actions/Skills")
 focus_neighbor_top = NodePath("../Item")
 theme_override_constants/h_separation = 0
-text = "     Dance     "
+text = "     Escape     "
 
 [node name="Back" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions2"]
 visible = false
@@ -2765,4 +2765,4 @@ stretch_mode = 3
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Skills" to="." method="_on_magic_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Item" to="." method="_on_item_pressed"]
-[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Dance" to="." method="_on_dance_pressed"]
+[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Escape" to="." method="_on_escape_pressed"]

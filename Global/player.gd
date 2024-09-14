@@ -1,9 +1,9 @@
 extends Node
 
 var _name: String = "Skullhead"
-var max_health: int = 170
-var health: int = 170
-var damage: int = 30
+var max_health: int = 120
+var health: int = 120
+var damage: int = 25
 var critc: int = 8
 var lvl: int = 1
 var xp: int = 0

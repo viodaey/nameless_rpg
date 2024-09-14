@@ -1,5 +1,7 @@
 extends Control
 
+const scene_type = 2
+#1 = map, 2 = battle, 3 = village?
 @export var enemy : Resource 
 var enemy2: Resource
 var enemy3: Resource
@@ -126,9 +128,11 @@ func _ready():
 ##	roll for groupsize
 	e_groupsize = rng.randi_range(enemy.min_group_size, enemy.max_group_size)
 ##	safety net starting player
-	if player.lvl < 3 and e_groupsize > 2:
+	if player.lvl < 3:
+		e_groupsize = 1
+	if player.lvl < 5 and e_groupsize > 2:
 		e_groupsize = 2
-	if player.lvl < 6 and e_groupsize > 3:
+	if player.lvl < 10 and e_groupsize > 3:
 		e_groupsize = 3
 		
 ##	roll and allocate enemy 2
@@ -188,14 +192,14 @@ func _ready():
 		var rng = RandomNumberGenerator.new()
 		enemyDict[en]["live"]["hp"] = enemyDict[en]["res"].health
 		enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage
+		enemyDict[en]["live"]["xp"] = enemyDict[en]["res"].xp
 		enemyDict[en]["live"]["lvl"] = rng.randi_range(min_lvl, min(player.lvl + 2, max_lvl))
-		print("Old dmg %d" % enemyDict[en]["res"].damage)
 		if enemyDict[en]["live"]["lvl"] > 1:
 			calc_lvl = enemyDict[en]["live"]["lvl"] - 1
 			for i in calc_lvl:
 				enemyDict[en]["live"]["hp"] = enemyDict[en]["live"]["hp"] * enemyDict[en]["res"]._class.hp_mult * 1.08
 				enemyDict[en]["live"]["dmg"] = enemyDict[en]["live"]["dmg"] * enemyDict[en]["res"]._class.dmg_mult * 1.08
-				print("New dmg %d" % enemyDict[en]["live"]["dmg"])
+				enemyDict[en]["live"]["xp"] = enemyDict[en]["live"]["xp"] * 1.3
 		set_health_init(enemyDict[en]["cont"].get_node("EnemyHP"), enemyDict[en]["live"]["hp"], enemyDict[en]["live"]["hp"])
 		enemyDict[en]["cont"].get_node("AspectContainer").get_node("EnemyText").texture = enemyDict[en]["res"].texture
 		enemyDict[en]["cont"].get_node("Label").text = "lvl: %d %s" % [enemyDict[en]["live"]["lvl"], enemyDict[en]["res"]._name]
@@ -535,7 +539,7 @@ func enemy_died():
 	tween.tween_property(enemyDict[y]["cont"], "modulate:a", 0,  0.5)
 	await (combat_log("%s died" % (enemyDict[y]["res"]._name)))
 	for p in playerDict:
-		playerDict[p]["res"].xp = playerDict[p]["res"].xp + enemyDict[y]["res"].xp
+		playerDict[p]["res"].xp = playerDict[p]["res"].xp + enemyDict[y]["live"]["xp"]
 		if playerDict[p]["res"].xp >= playerDict[p]["res"].max_xp:
 			playerDict[p]["res"].level_up()
 			playerDict[p]["live"]["hp"] = playerDict[p]["live"]["hp"] + playerDict[p]["res"].hp_grow
@@ -551,17 +555,16 @@ func enemy_died():
 		playerDict[p]["res"].health = playerDict[p]["live"]["hp"]
 	enemyDict.erase(y)
 
-func _on_dance_pressed() -> void:
-	var tween = get_tree().create_tween()
-	for i in 10:
-		tween.tween_property(_playertexture, "modulate:s", 1, 0.01)
-		tween.tween_property(_playertexture, "modulate:h", 0.5, 0.01)
-		tween.tween_property(_playertexture, "flip_h", true,  0.1)
-		tween.tween_property(_playertexture, "modulate:h", 0.3, 0.01)
-		tween.tween_property(_playertexture, "flip_h", false,  0.1)
-		tween.tween_property(_playertexture, "modulate:h", 0.8, 0.01)
-	tween.tween_property(_playertexture, "modulate:s", 0, 0.01)
-
+#func _on_dance_pressed() -> void:
+	#var tween = get_tree().create_tween()
+	#for i in 10:
+		#tween.tween_property(_playertexture, "modulate:s", 1, 0.01)
+		#tween.tween_property(_playertexture, "modulate:h", 0.5, 0.01)
+		#tween.tween_property(_playertexture, "flip_h", true,  0.1)
+		#tween.tween_property(_playertexture, "modulate:h", 0.3, 0.01)
+		#tween.tween_property(_playertexture, "flip_h", false,  0.1)
+		#tween.tween_property(_playertexture, "modulate:h", 0.8, 0.01)
+	#tween.tween_property(_playertexture, "modulate:s", 0, 0.01)
 
 func _on_item_pressed() -> void:
 	_actionmenu.visible = false
@@ -655,3 +658,21 @@ func action_menu():
 	
 	
 		
+
+
+func _on_escape_pressed() -> void:
+	_actionmenu.visible = false
+	await combat_log("Attempting to escape...")
+	await get_tree().create_timer(0.8).timeout
+	
+	if rng.randi_range(1,100) > 20:
+		await combat_log("Succesfully escaped!")
+		await get_tree().create_timer(0.5).timeout
+		sceneManager.goto_scene(sceneManager.last_scene)
+	else: 
+		await combat_log("Escape failed!")
+		await get_tree().create_timer(0.5).timeout
+		_turn_calc()
+		
+		
+		pass # Replace with function body.

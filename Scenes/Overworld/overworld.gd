@@ -1,9 +1,12 @@
 extends Node2D
 
+const scene_type = 1
+#1 = map, 2 = battle, 3 = village?
 @export var min_lvl: int = 1
 @export var max_lvl: int = 8
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
+#@export var drops: Dictionary [item]
 var spawn_npc = preload("res://Global/globalNPC.tscn")
 var spawn = spawn_npc.instantiate()
 @onready var _player_body = $Player
