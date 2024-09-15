@@ -407,6 +407,7 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Lightu" type="PointLight2D" parent="Player"]
+visible = false
 light_mask = 3
 visibility_layer = 3
 z_index = 3
