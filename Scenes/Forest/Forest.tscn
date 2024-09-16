@@ -1,10 +1,11 @@
-[gd_scene load_steps=49 format=4 uid="uid://dabp5cxdcoql3"]
+[gd_scene load_steps=50 format=4 uid="uid://dabp5cxdcoql3"]
 
-[ext_resource type="Script" path="res://Scenes/Forest/Forest_Exit.gd" id="1_5cg8k"]
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="1_31bpk"]
 [ext_resource type="Script" path="res://Scenes/Forest/Forest.gd" id="1_qxm8l"]
+[ext_resource type="Script" path="res://enemyResources/enemies.gd" id="2_gis04"]
 [ext_resource type="Script" path="res://src/ow_player_body.gd" id="2_tgy2r"]
 [ext_resource type="Texture2D" uid="uid://rhh3il8k31mh" path="res://test_sprites/Hooman/Idle/Character_Idle.png" id="3_6yabh"]
+[ext_resource type="Resource" uid="uid://dm2dnaly8eoku" path="res://enemyResources/birdman_chick.tres" id="3_c4v8d"]
 [ext_resource type="Texture2D" uid="uid://bgbbok7la0ucp" path="res://test_sprites/Hooman/Move/Character_Move.png" id="4_468wp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq1fd"]
@@ -335,6 +336,7 @@ size = Vector2(5.62465, 43.4941)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_qxm8l")
+world_enemies = Array[ExtResource("2_gis04")]([ExtResource("3_c4v8d")])
 
 [node name="TileMapLayer_0" type="TileMapLayer" parent="."]
 z_index = -2
@@ -390,11 +392,10 @@ collide_with_bodies = false
 
 [node name="ForestExit" type="Area2D" parent="."]
 position = Vector2(1138.52, 543.725)
-script = ExtResource("1_5cg8k")
 
 [node name="Forest Exit" type="CollisionShape2D" parent="ForestExit"]
-position = Vector2(817.45, 170.077)
+position = Vector2(5.48001, -5.72499)
 scale = Vector2(3.60262, 1.46176)
 shape = SubResource("RectangleShape2D_8ipso")
 
-[connection signal="body_entered" from="ForestExit" to="ForestExit" method="_on_body_entered"]
+[connection signal="body_entered" from="ForestExit" to="." method="_on_forest_exit_body_entered"]

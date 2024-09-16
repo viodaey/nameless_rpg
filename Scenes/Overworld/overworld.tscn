@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://df2s4i3dlmyrc"]
+[gd_scene load_steps=60 format=4 uid="uid://df2s4i3dlmyrc"]
 
 [ext_resource type="Script" path="res://Scenes/Overworld/overworld.gd" id="1_4ihds"]
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="2_5d18u"]
@@ -12,13 +12,11 @@
 [ext_resource type="Resource" uid="uid://dm2dnaly8eoku" path="res://enemyResources/birdman_chick.tres" id="6_31cep"]
 [ext_resource type="Resource" uid="uid://bfltr74e5lteg" path="res://enemyResources/Pixie_Fire.tres" id="7_k7cex"]
 [ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="8_2e61n"]
-[ext_resource type="Script" path="res://Scenes/Overworld/cave_entrance_2.gd" id="9_xaeef"]
 [ext_resource type="Texture2D" uid="uid://c1rw2eiakbw8p" path="res://textures/Tilesets/Dungeon_rogue/torch_1.png" id="14_2ptld"]
 [ext_resource type="Texture2D" uid="uid://bnj3e2fryr7gr" path="res://textures/Tilesets/Dungeon_rogue/torch_2.png" id="15_qbqf3"]
 [ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="16_qf6cj"]
 [ext_resource type="Texture2D" uid="uid://kuhobufukql3" path="res://Scenes/Overworld/Rowboat.PNG" id="17_72c7u"]
 [ext_resource type="Texture2D" uid="uid://cosgk8bcrlbt0" path="res://Scenes/Overworld/Dock.png" id="18_7rk37"]
-[ext_resource type="Script" path="res://Scenes/Overworld/forest_entrance.gd" id="19_aqhft"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq1fd"]
 atlas = ExtResource("4_7edvl")
@@ -409,7 +407,6 @@ collide_with_bodies = false
 [node name="CaveEntrance" type="Area2D" parent="."]
 position = Vector2(232, 72)
 collision_layer = 2
-script = ExtResource("9_xaeef")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveEntrance"]
 position = Vector2(0.736679, -9.57793)
@@ -470,13 +467,12 @@ scale = Vector2(1, 1.01563)
 texture = ExtResource("18_7rk37")
 
 [node name="ForestEntrance" type="Area2D" parent="."]
-position = Vector2(232, 72)
-script = ExtResource("19_aqhft")
+position = Vector2(14, 587)
 
 [node name="Forest entry" type="CollisionShape2D" parent="ForestEntrance"]
-position = Vector2(-213.527, 518)
+position = Vector2(-2.00001, -1.99994)
 scale = Vector2(3.60262, 1.46176)
 shape = SubResource("RectangleShape2D_bckga")
 
-[connection signal="body_entered" from="CaveEntrance" to="CaveEntrance" method="_on_body_entered"]
-[connection signal="body_entered" from="ForestEntrance" to="ForestEntrance" method="_on_body_entered"]
+[connection signal="body_entered" from="CaveEntrance" to="." method="_on_cave_entrance_body_entered"]
+[connection signal="body_entered" from="ForestEntrance" to="." method="_on_forest_entrance_body_entered"]

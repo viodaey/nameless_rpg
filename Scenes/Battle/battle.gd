@@ -115,7 +115,7 @@ func _ready():
 		$Panel_Menu/VBoxContainer/PlayerContainer2.visible = false
 		$soulContainer1.visible = false
 	
-	if len(inv.itemInventory.monsterlist) <= 1:
+	if len(inv.itemInventory.monsterlist) <= 100:
 		_player3statscont.visible = false
 		_player4statscont.visible = false
 		
