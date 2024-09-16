@@ -2,32 +2,32 @@ extends Node2D
 
 const scene_type = 1
 #1 = map, 2 = battle, 3 = village?
-@export var min_lvl: int = 1
-@export var max_lvl: int = 8
+@export var min_lvl: int = 7
+@export var max_lvl: int = 14
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
-@export var drops: Dictionary
+@onready var _player_body = $Player
 var spawn_npc = preload("res://Global/globalNPC.tscn")
 var spawn = spawn_npc.instantiate()
-@onready var _player_body = $Player
-@onready var _cave_entrance = $CaveEntrance
-@onready var _forest_entrance = $ForestEntrance
-#@onready var _preload_npc = $NPC_1
-var rng = RandomNumberGenerator.new()
 var _spawned_npc  
 var spawn_request
-#var max_level = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	inv.drops = drops
-	AudioPlayer.play_music_level("fieldOverworld")
+	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
+		print(sceneManager.last_scene)
 		_player_body.position = player.position
-	if sceneManager.last_scene == "res://Scenes/Cave/cave_001.tscn":
-		_player_body.position = _cave_entrance.position + Vector2(0,20)
-	if sceneManager.last_scene == "res://Scenes/Forest/Forest.tscn":
-		_player_body.position = _forest_entrance.position + Vector2(20,0)
+	if sceneManager.last_scene == "res://Scenes/Overworld/overworld.tscn":
+		_player_body.position = $ForestExit.position + Vector2(-15,0)
+		print(sceneManager.last_scene)
+	if sceneManager.last_scene == "res://Scenes/Cave/cave_00b.tscn":
+		_player_body.position = $CaveRoyEntrance.position + Vector2(-15,0)
+		print(sceneManager.last_scene)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
 
 func _spawn_npc():
 	if is_instance_valid($NPC_spawn):
@@ -40,7 +40,6 @@ func _spawn_npc():
 		_player_body.get_node("RayCast2D").target_position += Vector2(distance*cos(angle), distance*sin(angle))
 		if _player_body.get_node("RayCast2D") .is_colliding():
 			_spawn_npc()
-
 		else:
 			spawn_request = load(world_enemies[enemy_select - 1].resource_path)
 			add_child(spawn.duplicate())
@@ -51,10 +50,6 @@ func _despawn_npc():
 	_spawned_npc.queue_free()
 
 
-func _on_forest_entrance_body_entered(body: Node2D) -> void:
+func _on_forest_exit_body_entered(body: Node2D) -> void:
 	if body.name == _player_body.name:
-		sceneManager.goto_scene("res://Scenes/Forest/Forest.tscn")
-		
-func _on_cave_entrance_body_entered(body: Node2D) -> void:
-	if body.name == _player_body.name:
-		sceneManager.goto_scene("res://Scenes/Cave/cave_001.tscn")
+		sceneManager.goto_scene("res://Scenes/Overworld/overworld.tscn")
