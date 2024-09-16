@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/ow_player_body.gd" id="2_tgy2r"]
 [ext_resource type="Texture2D" uid="uid://rhh3il8k31mh" path="res://test_sprites/Hooman/Idle/Character_Idle.png" id="3_6yabh"]
 [ext_resource type="Texture2D" uid="uid://bgbbok7la0ucp" path="res://test_sprites/Hooman/Move/Character_Move.png" id="4_468wp"]
-[ext_resource type="Script" path="res://Scenes/Cave/cave_exit.gd" id="5_h0vpv"]
+[ext_resource type="Script" path="res://Scenes/Forest/Forest_exit.gd" id="5_u6hyb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq1fd"]
 atlas = ExtResource("3_6yabh")
@@ -388,7 +388,7 @@ collide_with_bodies = false
 
 [node name="ForestExit" type="Area2D" parent="."]
 position = Vector2(1140.04, 535.246)
-script = ExtResource("5_h0vpv")
+script = ExtResource("5_u6hyb")
 
 [node name="CollisionForestExit" type="CollisionShape2D" parent="ForestExit"]
 position = Vector2(5.9801, 0.753723)
