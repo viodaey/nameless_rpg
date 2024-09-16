@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c0fyx6kqnay6u"
+path="res://.godot/imported/Dock.aseprite-ebc4a834ebe1893919da4749cb0e52f5.res"
+
+[deps]
+
+source_file="res://Scenes/Overworld/Dock.aseprite"
+dest_files=["res://.godot/imported/Dock.aseprite-ebc4a834ebe1893919da4749cb0e52f5.res"]
+
+[params]
+

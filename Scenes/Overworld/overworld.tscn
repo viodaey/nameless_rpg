@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://df2s4i3dlmyrc"]
+[gd_scene load_steps=61 format=4 uid="uid://df2s4i3dlmyrc"]
 
 [ext_resource type="Script" path="res://Scenes/Overworld/overworld.gd" id="1_4ihds"]
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="2_5d18u"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://c1rw2eiakbw8p" path="res://textures/Tilesets/Dungeon_rogue/torch_1.png" id="14_2ptld"]
 [ext_resource type="Texture2D" uid="uid://bnj3e2fryr7gr" path="res://textures/Tilesets/Dungeon_rogue/torch_2.png" id="15_qbqf3"]
 [ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="16_qf6cj"]
+[ext_resource type="Texture2D" uid="uid://kuhobufukql3" path="res://Scenes/Overworld/Rowboat.PNG" id="17_72c7u"]
+[ext_resource type="Texture2D" uid="uid://cosgk8bcrlbt0" path="res://Scenes/Overworld/Dock.png" id="18_7rk37"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq1fd"]
 atlas = ExtResource("4_7edvl")
@@ -451,5 +453,14 @@ rotation = -1.09552
 scale = Vector2(0.00981957, 0.030904)
 skew = -0.307253
 texture = ExtResource("16_qf6cj")
+
+[node name="Rowboat" type="Sprite2D" parent="."]
+position = Vector2(111, 202)
+scale = Vector2(0.307983, 0.158447)
+texture = ExtResource("17_72c7u")
+
+[node name="Dock" type="Sprite2D" parent="."]
+position = Vector2(161, 183)
+texture = ExtResource("18_7rk37")
 
 [connection signal="body_entered" from="CaveEntrance" to="CaveEntrance" method="_on_body_entered"]
