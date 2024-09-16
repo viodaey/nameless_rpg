@@ -4,5 +4,5 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == _playerbody.name:
-		sceneManager.goto_scene("res://Scenes/Cave/Cave.tscn")
+		sceneManager.goto_scene("res://Scenes/Forest/Forest.tscn")
 		
