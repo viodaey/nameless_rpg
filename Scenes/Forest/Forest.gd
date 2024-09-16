@@ -18,8 +18,8 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
 		print(sceneManager.last_scene)
 		_player_body.position = player.position
-	if sceneManager.last_scene == "res://Scenes/Cave/cave_001.tscn":
-		_player_body.position = $CaveExit.position + Vector2(15,0)
+	if sceneManager.last_scene == "res://Scenes/Overworld/overworld.tscn":
+		_player_body.position = $ForestExit.position + Vector2(-15,0)
 		print(sceneManager.last_scene)
 	if sceneManager.last_scene == "res://Scenes/Cave/cave_00b.tscn":
 		_player_body.position = $CaveRoyEntrance.position + Vector2(-15,0)
@@ -48,3 +48,8 @@ func _spawn_npc():
 
 func _despawn_npc():
 	_spawned_npc.queue_free()
+
+
+func _on_forest_exit_body_entered(body: Node2D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/Overworld/overworld.tscn")

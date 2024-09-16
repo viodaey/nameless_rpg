@@ -11,6 +11,7 @@ var spawn_npc = preload("res://Global/globalNPC.tscn")
 var spawn = spawn_npc.instantiate()
 @onready var _player_body = $Player
 @onready var _cave_entrance = $CaveEntrance
+@onready var _forest_entrance = $ForestEntrance
 #@onready var _preload_npc = $NPC_1
 var rng = RandomNumberGenerator.new()
 var _spawned_npc  
@@ -24,9 +25,10 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/Cave/cave_001.tscn":
-		_player_body.position.x = _cave_entrance.position.x
-		_player_body.position.y = _cave_entrance.position.y + 15
-	
+		_player_body.position = _cave_entrance.position + Vector2(0,20)
+	if sceneManager.last_scene == "res://Scenes/Forest/Forest.tscn":
+		_player_body.position = _forest_entrance.position + Vector2(20,0)
+
 func _spawn_npc():
 	if is_instance_valid($NPC_spawn):
 		print("tried to spawn but valid instance found")
@@ -47,4 +49,12 @@ func _spawn_npc():
 
 func _despawn_npc():
 	_spawned_npc.queue_free()
-	
+
+
+func _on_forest_entrance_body_entered(body: Node2D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/Forest/Forest.tscn")
+		
+func _on_cave_entrance_body_entered(body: Node2D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/Cave/cave_001.tscn")

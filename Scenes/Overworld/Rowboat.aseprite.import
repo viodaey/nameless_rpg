@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b2g0x320pqhqr"
+path="res://.godot/imported/Rowboat.aseprite-18b24bdbfea386823fb57dd3ed4c7eb5.res"
+
+[deps]
+
+source_file="res://Scenes/Overworld/Rowboat.aseprite"
+dest_files=["res://.godot/imported/Rowboat.aseprite-18b24bdbfea386823fb57dd3ed4c7eb5.res"]
+
+[params]
+

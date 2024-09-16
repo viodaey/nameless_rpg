@@ -14,6 +14,7 @@ enemy = ExtResource("2_3vptp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
+texture_filter = 1
 sprite_frames = ExtResource("3_pi1fg")
 animation = &"run"
 autoplay = "idle"
