@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bvrkgbk0n2lkp"]
+
+[ext_resource type="FontFile" uid="uid://dmjq6coypb7ll" path="res://textures/fonts/Merienda-Bold.ttf" id="1_4miki"]
+
+[resource]
+font = ExtResource("1_4miki")

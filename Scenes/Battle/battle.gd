@@ -271,52 +271,7 @@ func combat_log(text):
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		log_timer.start(0.4)
 		await log_timer.timeout		
-	
-func enemy_turn(e):
-	if enemyDict[e]["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
-		combat_log("%s is chillin'" % (enemyDict[e]["res"]._name))
-		var tween = get_tree().create_tween()
-		await(tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", true, 1))
-		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", false, 1)
-		#$AnimationPlayer.play("enemy_chillin")
-		#await $AnimationPlayer.animation_finished
-	else:
-		x = rng.randi_range(1, len(playerDict))
-		var players_array = playerDict.keys()
-		y = players_array[x - 1]
-		dealt_dmg = round(rng.randf_range(0.8, 1.2) * enemyDict[e]["res"].damage)
-		await combat_log("%s attacks %s!" % [enemyDict[e]["res"]._name, playerDict[y]["res"]._name])
-		var tween = get_tree().create_tween()
-		var pos = enemyDict[e]["cont"].position
-		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] + 10, pos[1]), 0.4)
-		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] - 20, pos[1]), 0.15)
-		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0], pos[1]), 0.3)
-		await tween.step_finished 
-		set_health(
-			playerDict[y]["cont"].get_node("PlayerHP"), 
-			playerDict[y]["live"]["hp"], 
-			playerDict[y]["res"].max_health)
-		playerDict[y]["live"]["hp"] = (playerDict[y]["live"]["hp"] - dealt_dmg)
-		playerDict[y]["res"].health = playerDict[y]["live"]["hp"]
-		tween = get_tree().create_tween()
-		for i in 6:
-			tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 0,  0.1)
-			tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 1,  0.1)
-		
-		await tween.finished
-		await combat_log("Got hit for %d damage" % [dealt_dmg])
-		if enemyDict[e]["res"].lifesteal > 0:
-			set_health_init(
-				enemyDict[e]["cont"].get_node("EnemyHP"), 
-				(min(enemyDict[e]["live"]["hp"] + enemyDict[e]["res"].lifesteal, enemyDict[e]["res"].health)), 
-				enemyDict[e]["res"].health)
-			await combat_log("%s regained %d health" % [enemyDict[e]["res"]._name, enemyDict[e]["res"].lifesteal] )
-		if enemyDict[e]["res"].affliction_chance > 0:
-			if rng.randi_range(0,100) <= enemyDict[e]["res"].affliction_chance:
-				await combat_log("You are %s!" % [enemyDict[e]["res"].affliction_type])
-	try = 0
-					
-	_turn_calc()
+
 
 func _turn_calc():
 	while true:
@@ -355,13 +310,6 @@ func _player_turn(p):
 				combat_log("%s stopped burning" % [playerDict[y]["res"]._name])
 	_actionmenu.visible = true
 	_actionmenufoc.grab_focus()
-
-	#pass
-#moet gaan bepalen wie er aan de beurt is (eerst gewoon chronologisch?)
-#moet daarop in ieder geval magic/ability menu gaan aanpassen
-#indicator voor wiens turn
-#moet doorgeven wie aanvalt 
-#of monster autoattack??????????	
 
 func _on_attack_pressed():
 	_actionmenu.visible = false
@@ -511,14 +459,10 @@ func _on_magic_pressed():
 func _attack_phase_2():
 	var selected_enemy = enemyDict[y]["cont"]
 	var curEnemyStats = enemyDict[y]["live"]
-	#cur_enmy_stats["HP"] = selected_enemy.health
-	
-	#$AnimationPlayer.play("enemy_damaged")
 	var tween = get_tree().create_tween()
 	for i in 6:
 		tween.chain().tween_property(selected_enemy, "modulate:a", 0,  0.1)
 		tween.chain().tween_property(selected_enemy, "modulate:a", 1,  0.1)
-	#await $AnimationPlayer.animation_finished
 	if curPlayer["res"].critc >= rng.randi_range(1, 100):
 		dealt_dmg = round(dealt_dmg * 1.5)
 		await combat_log("CRITICAL HIT!")
@@ -527,10 +471,7 @@ func _attack_phase_2():
 		await get_tree().create_timer(0.75).timeout
 	await set_health(selected_enemy.get_node("EnemyHP"), curEnemyStats["hp"], enemyDict[y]["res"].health)
 	curEnemyStats["hp"] = max(0, curEnemyStats["hp"] - dealt_dmg)
-	#await get_tree().create_timer(0.75).timeout
 	await combat_log("%s hit for %d damage" % [curPlayer["res"]._name, dealt_dmg])
-	#await get_tree().create_timer(1).timeout
-	#crit = false
 	enemyDict[y]["live"] = curEnemyStats
 	if curEnemyStats["hp"] <= 0:
 		await(enemy_died())
@@ -548,7 +489,6 @@ func _drops():
 				dropped.append(inv.item_id[d]._name)
 	for i in len(dropped):
 		await combat_log("Obtained %s!" %dropped[i])
-			
 
 func enemy_died():
 	var tween = get_tree().create_tween()
@@ -572,16 +512,47 @@ func enemy_died():
 		playerDict[p]["res"].health = playerDict[p]["live"]["hp"]
 	enemyDict.erase(y)
 
-#func _on_dance_pressed() -> void:
-	#var tween = get_tree().create_tween()
-	#for i in 10:
-		#tween.tween_property(_playertexture, "modulate:s", 1, 0.01)
-		#tween.tween_property(_playertexture, "modulate:h", 0.5, 0.01)
-		#tween.tween_property(_playertexture, "flip_h", true,  0.1)
-		#tween.tween_property(_playertexture, "modulate:h", 0.3, 0.01)
-		#tween.tween_property(_playertexture, "flip_h", false,  0.1)
-		#tween.tween_property(_playertexture, "modulate:h", 0.8, 0.01)
-	#tween.tween_property(_playertexture, "modulate:s", 0, 0.01)
+func enemy_turn(e):
+	if enemyDict[e]["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
+		combat_log("%s is chillin'" % (enemyDict[e]["res"]._name))
+		var tween = get_tree().create_tween()
+		await(tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", true, 1))
+		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", false, 1)
+	else:
+		x = rng.randi_range(1, len(playerDict))
+		var players_array = playerDict.keys()
+		y = players_array[x - 1]
+		dealt_dmg = round(rng.randf_range(0.8, 1.2) * enemyDict[e]["res"].damage)
+		await combat_log("%s attacks %s!" % [enemyDict[e]["res"]._name, playerDict[y]["res"]._name])
+		var tween = get_tree().create_tween()
+		var pos = enemyDict[e]["cont"].position
+		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] + 10, pos[1]), 0.4)
+		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] - 20, pos[1]), 0.15)
+		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0], pos[1]), 0.3)
+		await tween.step_finished 
+		set_health(
+			playerDict[y]["cont"].get_node("PlayerHP"), 
+			playerDict[y]["live"]["hp"], 
+			playerDict[y]["res"].max_health)
+		playerDict[y]["live"]["hp"] = (playerDict[y]["live"]["hp"] - dealt_dmg)
+		playerDict[y]["res"].health = playerDict[y]["live"]["hp"]
+		tween = get_tree().create_tween()
+		for i in 6:
+			tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 0,  0.1)
+			tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 1,  0.1)
+		await tween.finished
+		await combat_log("Got hit for %d damage" % [dealt_dmg])
+		if enemyDict[e]["res"].lifesteal > 0:
+			set_health_init(
+				enemyDict[e]["cont"].get_node("EnemyHP"), 
+				(min(enemyDict[e]["live"]["hp"] + enemyDict[e]["res"].lifesteal, enemyDict[e]["res"].health)), 
+				enemyDict[e]["res"].health)
+			await combat_log("%s regained %d health" % [enemyDict[e]["res"]._name, enemyDict[e]["res"].lifesteal] )
+		if enemyDict[e]["res"].affliction_chance > 0:
+			if rng.randi_range(0,100) <= enemyDict[e]["res"].affliction_chance:
+				await combat_log("You are %s!" % [enemyDict[e]["res"].affliction_type])
+	try = 0
+	_turn_calc()
 
 func _on_item_pressed() -> void:
 	_actionmenu.visible = false
@@ -594,8 +565,6 @@ func use_item(z) -> void:
 	used_item_slot = z
 	if used_item.isTargetSelf == false:
 		next_phase = 1
-		#pressedSomething.emit()
-		#await get_tree().create_timer(0.03).timeout
 		x = 0
 		_await_selection()
 		get_node("InventScene").queue_free()
@@ -604,10 +573,7 @@ func use_item(z) -> void:
 		x = 0
 		_player_selection()
 		get_node("InventScene").queue_free()
-		
-		
-		
-	
+
 func use_item_2(target):
 	inv.sub_item(used_item_slot)
 	await(combat_log("You use %s on %s" % [used_item._name, target["res"]._name]))
@@ -636,13 +602,11 @@ func use_item_2(target):
 			capturedmonster._monster.xp = 0
 			capturedmonster._monster.damage = enemyDict[y]["live"]["dmg"]
 			capturedmonster._monster.lvl = enemyDict[y]["live"]["lvl"]
-			#inv.itemInventory.monsterlist[len(inv.itemInventory.monsterlist) - 1].stats["mp"] = enemyDict[y]["live"]["mp"]
 			await(combat_log("Captured level %d %s!" % [capturedmonster._monster.lvl, capturedmonster._monster._name]))
 			if capturedmonster._monster.lvl > 1:
 				for i in (capturedmonster._monster.lvl - 1):
 					capturedmonster._monster.max_xp = round(capturedmonster._monster.max_xp * 1.3)
 			enemyDict[y]["cont"].visible = false
-			#enemyDict[y]["res"].lvl = 1
 			enemyDict.erase(y)
 			if enemyDict.is_empty():
 				await(_drops())
@@ -660,7 +624,6 @@ func use_item_2(target):
 		fx.get_node("hitAnimate").z_index = 1
 	if used_item.effects.has("Heal"):
 		target["live"]["hp"] = min(target["live"]["hp"] + used_item.effects["Heal"], target["res"].max_health)
-		#target["res"].max_health = target["live"]["hp"] 
 		set_health_init(
 			target["cont"].get_node("PlayerHP"),
 			target["live"]["hp"], 
@@ -670,14 +633,6 @@ func use_item_2(target):
 func action_menu():
 	_actionmenu.visible = true
 	_actionmenufoc.grab_focus()
-	
-			
-			
-		
-	
-	
-		
-
 
 func _on_escape_pressed() -> void:
 	_actionmenu.visible = false
@@ -692,6 +647,3 @@ func _on_escape_pressed() -> void:
 		await combat_log("Escape failed!")
 		await get_tree().create_timer(0.5).timeout
 		_turn_calc()
-		
-		
-		pass # Replace with function body.
