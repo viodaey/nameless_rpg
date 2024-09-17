@@ -21,9 +21,9 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Overworld/overworld.tscn":
 		_player_body.position = $ForestExit.position + Vector2(-15,0)
 		print(sceneManager.last_scene)
-	if sceneManager.last_scene == "res://Scenes/Cave/cave_00b.tscn":
-		_player_body.position = $CaveRoyEntrance.position + Vector2(-15,0)
-		print(sceneManager.last_scene)
+	#if sceneManager.last_scene == "res://Scenes/Cave/cave_00b.tscn":
+		#_player_body.position = $CaveRoyEntrance.position + Vector2(-15,0)
+		#print(sceneManager.last_scene)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

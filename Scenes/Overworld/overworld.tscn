@@ -1,12 +1,12 @@
-[gd_scene load_steps=60 format=4 uid="uid://df2s4i3dlmyrc"]
+[gd_scene load_steps=61 format=4 uid="uid://df2s4i3dlmyrc"]
 
 [ext_resource type="Script" path="res://Scenes/Overworld/overworld_main.gd" id="1_4ihds"]
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="2_5d18u"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="2_sr5fs"]
 [ext_resource type="Script" path="res://src/ow_player_body.gd" id="3_bewpa"]
-[ext_resource type="Resource" uid="uid://bmlto5qmau708" path="res://enemyResources/wolf_earth.tres" id="3_reg0g"]
+[ext_resource type="Resource" uid="uid://bmlto5qmau708" path="res://enemyResources/Earthwolf_Evo_2.tres" id="3_reg0g"]
 [ext_resource type="Texture2D" uid="uid://rhh3il8k31mh" path="res://test_sprites/Hooman/Idle/Character_Idle.png" id="4_7edvl"]
-[ext_resource type="Resource" uid="uid://0ajqppuq0yd1" path="res://enemyResources/wolf_fire.tres" id="4_v5jui"]
+[ext_resource type="Resource" uid="uid://0ajqppuq0yd1" path="res://enemyResources/Firewolf_Evo_2.tres" id="4_v5jui"]
 [ext_resource type="Resource" uid="uid://cb3ouqjr5sgqc" path="res://enemyResources/orc_baby.tres" id="5_cp6nb"]
 [ext_resource type="Texture2D" uid="uid://bgbbok7la0ucp" path="res://test_sprites/Hooman/Move/Character_Move.png" id="5_m2tqc"]
 [ext_resource type="Resource" uid="uid://dm2dnaly8eoku" path="res://enemyResources/birdman_chick.tres" id="6_31cep"]
@@ -341,8 +341,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bckga"]
-size = Vector2(0.628241, 28.4437)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4884"]
+size = Vector2(5.96788, 14.3663)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_texwq"]
+size = Vector2(5.96788, 41.0464)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_4ihds")
@@ -410,9 +413,9 @@ position = Vector2(232, 72)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveEntrance"]
-position = Vector2(0.736679, -9.57793)
+position = Vector2(-1, 3.5)
 scale = Vector2(3.60262, 1.46176)
-shape = SubResource("RectangleShape2D_bckga")
+shape = SubResource("RectangleShape2D_s4884")
 
 [node name="Campfire" type="Sprite2D" parent="."]
 position = Vector2(1101.67, 581.464)
@@ -471,9 +474,9 @@ texture = ExtResource("18_7rk37")
 position = Vector2(14, 587)
 
 [node name="Forest entry" type="CollisionShape2D" parent="ForestEntrance"]
-position = Vector2(-12.1317, -6.78894)
+position = Vector2(-2, 16)
 scale = Vector2(3.60262, 1.46176)
-shape = SubResource("RectangleShape2D_bckga")
+shape = SubResource("RectangleShape2D_texwq")
 
 [connection signal="body_entered" from="CaveEntrance" to="." method="_on_cave_entrance_body_entered"]
 [connection signal="body_entered" from="ForestEntrance" to="." method="_on_forest_entrance_body_entered"]

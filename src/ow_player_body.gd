@@ -20,7 +20,7 @@ func _ready() -> void:
 var rng = RandomNumberGenerator.new()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	if Input.is_anything_pressed() == false:
 		_animated_sprite.play(("idle " + last_input))
