@@ -20,6 +20,7 @@ grow_vertical = 2
 script = ExtResource("1_rfgsr")
 
 [node name="monsterPanel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 132.0
 offset_top = 55.0
 offset_right = 1016.0

@@ -21,7 +21,7 @@ amount = 2
 script = ExtResource("5_f7j3f")
 _monster = ExtResource("4_aum48")
 stats = {
-"hp": 0,
+"hp": 35,
 "mp": 0,
 "xp": 0
 }
