@@ -357,11 +357,7 @@ func _player_turn(p):
 	_actionmenufoc.grab_focus()
 
 	#pass
-#moet gaan bepalen wie er aan de beurt is (eerst gewoon chronologisch?)
 #moet daarop in ieder geval magic/ability menu gaan aanpassen
-#indicator voor wiens turn
-#moet doorgeven wie aanvalt 
-#of monster autoattack??????????	
 
 func _on_attack_pressed():
 	_actionmenu.visible = false
