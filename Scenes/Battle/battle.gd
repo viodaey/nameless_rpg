@@ -311,6 +311,7 @@ func _player_turn(p):
 	_actionmenu.visible = true
 	_actionmenufoc.grab_focus()
 
+
 func _on_attack_pressed():
 	_actionmenu.visible = false
 	next_phase = 0
