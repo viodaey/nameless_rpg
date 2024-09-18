@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://d1y8eprvwt18s"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3 uid="uid://d1y8eprvwt18s"]
 
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_kkytr"]
 [ext_resource type="SpriteFrames" uid="uid://cce8hps2ykyjo" path="res://textures/Mobs/Mobs+Idle Movement/Earthwolf Evo1SF.tres" id="2_eja1v"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="3_71oco"]
+[ext_resource type="Texture2D" uid="uid://cspbaanasq48y" path="res://textures/Mobs/imported/Earthwolf Evo 1 Idle movementcheck.png" id="4_gnr4b"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_35voi"]
+diffuse_texture = ExtResource("4_gnr4b")
 
 [resource]
 script = ExtResource("3_71oco")
