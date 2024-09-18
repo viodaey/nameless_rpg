@@ -32,15 +32,15 @@ var max_xp: int = 20
 #@export var pivot_offset: Vector2 = size / 2
 
 const allEnemies: Dictionary = {
-	"Fire Wolf": "res://enemyResources/Firewolf_Evo_2.tres",
-	"Ice Wolf": "res://enemyResources/wolf_ice.tres",
+	"Fire Wolf (Evo2)": "res://enemyResources/Firewolf_Evo_2.tres",
+	"Ice Wolf (Evo2)": "res://enemyResources/Icewolf_Evo_2.tres",
+	"Earth Wolf (Evo1)": "res://enemyResources/Earthwolf_Evo_1.tres",
 	"Golem": "res://enemyResources/golem.tres",
 	"Fire Pixie": "res://enemyResources/Pixie_Fire.tres",
 	"Shadow Wraith": "res://enemyResources/shadow_wraith.tres",
 	"Baby Orc": "res://enemyResources/orc_baby.tres",
 	"Teen Orc": "res://enemyResources/orc_teen.tres",
 	"Orc": "res://enemyResources/orc_adult.tres",
-	"Earth Wolf": "res://enemyResources/Earthwolf_Evo_1.tres"
 	}
 
 func level_up():
