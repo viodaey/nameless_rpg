@@ -7,7 +7,6 @@ var spawn_npc = load("res://Global/globalNPC.tscn")
 var last_input = "right"
 var moved : float = 0
 var activeSpawns: Array
-#var spawnEnemy = CharacterBody2D.new()
 var move_dice : int
 @onready var map = get_parent()
 
@@ -24,7 +23,6 @@ var rng = RandomNumberGenerator.new()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
-
 	if Input.is_anything_pressed() == false:
 		_animated_sprite.play(("idle " + last_input))
 	elif Input.is_action_pressed(last_input):
@@ -49,6 +47,9 @@ func _physics_process(_delta):
 			moved = moved + 0.1
 	get_input()
 	move_and_slide()
+	for i in get_slide_collision_count():
+		if get_slide_collision(i).get_collider().get_parent().has_method("initiate_battle"):
+			get_slide_collision(i).get_collider().get_praent().initiate_battle()
 
 	if moved > move_dice:
 		_spawn_npc()
@@ -77,4 +78,3 @@ func _spawn_npc():
 func _despawn_npc(npc):
 	map.get_node(npc).queue_free()
 	activeSpawns.erase(npc)
-	

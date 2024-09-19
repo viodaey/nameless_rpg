@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 var player_position
 var target_position
-
+var move_to_attack
 const detection_range : float = 90
 @onready var neutral_pos = _animated_sprite.position
 
@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float):
-	var move_to_attack = move_and_collide(velocity * delta)
+	move_to_attack = move_and_collide(velocity * delta)
 	player_position = _player_body.position
 	if position.distance_to(player_position) < detection_range:
 		if not move_to_attack:
@@ -44,18 +44,20 @@ func _physics_process(delta: float):
 			player_position = _player_body.position
 		
 		elif move_to_attack.get_collider() == _player_body:
-		#move_to_attack.get_collider() == _player_body:
-			position = neutral_pos
-			player.enemy_encounter = enemy.resource_path
-			player.position = player_position
-			sceneManager.mon_min_lvl = get_parent().min_lvl
-			sceneManager.mon_max_lvl = get_parent().max_lvl
-			sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
-			queue_free()
-			move_to_attack = false
+			initiate_battle()
 
 	else:
 		_animated_sprite.play("idle")
 		velocity = Vector2(0,0)
 	if position.distance_to(player_position) > 250:
-		get_parent().get_node("Player")._despawn_npc(self.get_path())		
+		get_parent().get_node("Player")._despawn_npc(self.get_path())	
+		
+func initiate_battle():
+	position = neutral_pos
+	player.enemy_encounter = enemy.resource_path
+	player.position = player_position
+	sceneManager.mon_min_lvl = get_parent().min_lvl
+	sceneManager.mon_max_lvl = get_parent().max_lvl
+	sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
+	move_to_attack = false
+	queue_free()	
