@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://cb3ouqjr5sgqc"]
+
+[ext_resource type="Resource" uid="uid://d3jpakoms3ml7" path="res://Global/Classes/Normy.tres" id="1_34ij2"]
+[ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemyResources/SpriteFrames/orc_baby_sf.tres" id="1_mlwnj"]
+[ext_resource type="Script" path="res://enemyResources/enemies.gd" id="2_6mctt"]
+[ext_resource type="Texture2D" uid="uid://b3cxijemwg6ji" path="res://textures/Mobs/humanoids/Orc_baby.png" id="4_nfjpu"]
+
+[resource]
+script = ExtResource("2_6mctt")
+_name = "Baby Orc"
+texture = ExtResource("4_nfjpu")
+health = 35.0
+damage = 10.0
+critc = 5
+xp = 10
+speed = 35
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = ExtResource("1_mlwnj")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 0.3
+max_group_size = 3
+min_group_size = 1
+friends = Array[String](["Teen Orc"])
+battle_scale_vec = Vector2(0.5, 0.5)
+battle_y_sep = -1
+_class = ExtResource("1_34ij2")
+lvl = 1
+atb = 110

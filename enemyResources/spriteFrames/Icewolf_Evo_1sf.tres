@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://b05eaacutddo1"]
+
+[ext_resource type="Texture2D" uid="uid://belk168mqjfln" path="res://textures/Mobs/Icewolf Evo 1 Idle movementcheck.png" id="1_tm42y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv0uh"]
+atlas = ExtResource("1_tm42y")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee8t8"]
+atlas = ExtResource("1_tm42y")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_064ha"]
+atlas = ExtResource("1_tm42y")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sicbc"]
+atlas = ExtResource("1_tm42y")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4hsu"]
+atlas = ExtResource("1_tm42y")
+region = Rect2(512, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv0uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee8t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_064ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sicbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4hsu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv0uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee8t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_064ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sicbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4hsu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
