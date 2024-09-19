@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_vjnw7")
-_classname = "Assa"
+_classname = "Assassin"
 base_hp = 35
 base_dmg = 12
 base_mp = 8

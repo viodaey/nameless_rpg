@@ -62,8 +62,10 @@ func _spawn_npc():
 	var angle = rng.randi_range(0, TAU)
 	var distance = rng.randi_range(80, 150)
 	self.get_node("RayCast2D").target_position += Vector2(distance*cos(angle), distance*sin(angle))
-	if self.get_node("RayCast2D") .is_colliding():
+	if self.get_node("RayCast2D").is_colliding():
+		await get_tree().create_timer(0.03).timeout
 		_spawn_npc()
+
 
 	else:
 		map.spawn_request = load(map.world_enemies[enemy_select - 1].resource_path)
@@ -72,7 +74,6 @@ func _spawn_npc():
 		var _spawned_npc = map.get_node("NPC_spawn")
 		_spawned_npc.name = "NPC_spawn" + "%d" %num
 		_spawned_npc.position = self.position + Vector2(distance*cos(angle), distance*sin(angle))
-		#_spawned_npc.get_node("AnimatedSprite2D").sprite_frames = _spawned_npc.enemy.animatedSprite
 		activeSpawns.append(_spawned_npc.name)
 
 func _despawn_npc(npc):

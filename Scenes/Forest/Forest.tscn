@@ -393,6 +393,7 @@ drag_right_margin = 0.9
 drag_bottom_margin = 0.9
 
 [node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 0)
 collide_with_areas = true
 collide_with_bodies = false
 

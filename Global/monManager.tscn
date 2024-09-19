@@ -72,16 +72,9 @@ texture = ExtResource("2_oramg")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Button" type="MenuButton" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/GridContainer/Box1"]
+[node name="Button" type="Button" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/GridContainer/Box1"]
 layout_mode = 2
-focus_mode = 2
 text = "Fire Wolf"
-flat = false
-item_count = 2
-popup/item_0/text = "Switch"
-popup/item_0/id = 1
-popup/item_1/text = "Inspect"
-popup/item_1/id = 1
 
 [node name="Box2" type="VBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/GridContainer"]
 layout_mode = 2
@@ -351,124 +344,124 @@ popup/item_1/id = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display"]
+[node name="displayMain" type="VBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 texture = ExtResource("1_d5g4i")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Name" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer"]
+[node name="Name" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain"]
 layout_mode = 2
 text = "Shadow Wraith"
 label_settings = ExtResource("4_ru1gb")
 horizontal_alignment = 1
 
-[node name="LevelClass" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer"]
+[node name="LevelClass" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain"]
 layout_mode = 2
 text = "Level 1 Mage"
 label_settings = ExtResource("4_ru1gb")
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer"]
+[node name="displayStats" type="GridContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain"]
 layout_mode = 2
 columns = 2
 
-[node name="HPlabel" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/GridContainer"]
+[node name="HPlabel" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/displayStats"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "HP:"
 label_settings = ExtResource("4_ru1gb")
 horizontal_alignment = 1
 
-[node name="HP" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/GridContainer"]
+[node name="HP" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/displayStats"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "80 / 120
 "
 label_settings = ExtResource("4_ru1gb")
 
-[node name="MPlabel" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/GridContainer"]
+[node name="MPlabel" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/displayStats"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "MP:"
 label_settings = ExtResource("4_ru1gb")
 horizontal_alignment = 1
 
-[node name="MP" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/GridContainer"]
+[node name="MP" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/displayStats"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "900"
 label_settings = ExtResource("4_ru1gb")
 
-[node name="DMGlabel" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/GridContainer"]
+[node name="DMGlabel" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/displayStats"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ATP:"
 label_settings = ExtResource("4_ru1gb")
 horizontal_alignment = 1
 
-[node name="dmg" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/GridContainer"]
+[node name="dmg" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/displayStats"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "900"
 label_settings = ExtResource("4_ru1gb")
 
-[node name="Abilities" type="HBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer"]
+[node name="Abilities" type="HBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Ability1" type="VBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/Abilities"]
+[node name="Ability1" type="VBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/Abilities/Ability1"]
+[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability1"]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("5_010gr")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/Abilities/Ability1"]
+[node name="Label" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability1"]
 layout_mode = 2
 text = "Ability 1"
 label_settings = ExtResource("4_ru1gb")
 horizontal_alignment = 1
 
-[node name="Ability2" type="VBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/Abilities"]
+[node name="Ability2" type="VBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/Abilities/Ability2"]
+[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability2"]
 layout_mode = 2
 size_flags_vertical = 3
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/Abilities/Ability2"]
+[node name="Label" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability2"]
 layout_mode = 2
 text = "Ability 2"
 label_settings = ExtResource("4_ru1gb")
 horizontal_alignment = 1
 
-[node name="Ability3" type="VBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/Abilities"]
+[node name="Ability3" type="VBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/Abilities/Ability3"]
+[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability3"]
 layout_mode = 2
 size_flags_vertical = 3
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/VBoxContainer/Abilities/Ability3"]
+[node name="Label" type="Label" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability3"]
 layout_mode = 2
 text = "Ability 3"
 label_settings = ExtResource("4_ru1gb")

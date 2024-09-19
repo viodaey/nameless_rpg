@@ -50,7 +50,7 @@ func _physics_process(delta: float):
 		_animated_sprite.play("idle")
 		velocity = Vector2(0,0)
 	if position.distance_to(player_position) > 250:
-		get_parent().get_node("Player")._despawn_npc(self.get_path())	
+		_player_body._despawn_npc(self.get_path())	
 		
 func initiate_battle():
 	position = neutral_pos

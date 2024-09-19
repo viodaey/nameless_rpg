@@ -1,8 +1,8 @@
 extends Node
 
 @onready var last_scene : String = get_tree().current_scene.scene_file_path
+@onready var current_scene_path : String = get_tree().current_scene.scene_file_path
 var current_scene = null
-var current_scene_path : String = "res://Scenes/Overworld/overworld.tscn"
 var battle_bg: Texture = null
 var mon_min_lvl: int
 var mon_max_lvl: int
