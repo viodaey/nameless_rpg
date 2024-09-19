@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpvmyi0jexpll"
-path="res://.godot/imported/Firewolf Evo 1 Move Right.png-85f55784eb7425adede9668d180eab4b.ctex"
+uid="uid://ctyb2klo7ysmn"
+path="res://.godot/imported/Elecwolf Evo 1 Move Left.png-158269e3d1ea5e1ea4741636533c4f2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemyResources/SpriteFrames/Firewolf Evo 1 Move Right.png"
-dest_files=["res://.godot/imported/Firewolf Evo 1 Move Right.png-85f55784eb7425adede9668d180eab4b.ctex"]
+source_file="res://enemyResources/Elecwolf Evo 1 Move Left.png"
+dest_files=["res://.godot/imported/Elecwolf Evo 1 Move Left.png-158269e3d1ea5e1ea4741636533c4f2c.ctex"]
 
 [params]
 

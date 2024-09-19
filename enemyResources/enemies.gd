@@ -44,6 +44,7 @@ const allEnemies: Dictionary = {
 	"Baby Orc": "res://enemyResources/orc_baby.tres",
 	"Teen Orc": "res://enemyResources/orc_teen.tres",
 	"Orc": "res://enemyResources/orc_adult.tres",
+	"Warbear (Evo1)": "res://enemyResources/Warbear_Evo_1.tres",
 	}
 
 func level_up():

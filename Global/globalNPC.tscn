@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://npc_1.gd" id="1_fqa05"]
 [ext_resource type="Resource" uid="uid://bq72ft87yg5kg" path="res://enemyResources/SpriteTextures/res_battle_spider.tres" id="2_3vptp"]
-[ext_resource type="SpriteFrames" uid="uid://dfu73cl600trr" path="res://enemyResources/SpriteFrames/Firewolf_Evo_1_Idle+Run_sf.tres" id="3_pi1fg"]
+[ext_resource type="SpriteFrames" uid="uid://dfu73cl600trr" path="res://enemyResources/SpriteFrames/Firewolf_Evo_1sf.tres" id="3_pi1fg"]
 [ext_resource type="Shape2D" uid="uid://dp0xh80wv33xr" path="res://src/golem_shape.tres" id="4_fd6gk"]
 
 [node name="NPC_spawn" type="CharacterBody2D"]
