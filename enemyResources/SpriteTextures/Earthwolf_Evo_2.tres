@@ -1,28 +1,29 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=16 format=3 uid="uid://bmlto5qmau708"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=17 format=3 uid="uid://bmlto5qmau708"]
 
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_5wcti"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_glvlr"]
 [ext_resource type="Texture2D" uid="uid://cspbaanasq48y" path="res://textures/Mobs/Mobs+Idle Movement/Earthwolf Evo 1.png" id="2_0isjr"]
+[ext_resource type="Texture2D" uid="uid://y4jauqgsa71h" path="res://textures/Mobs/Earthwolf Evo 2 Idle movementcheck.png" id="2_6j1eh"]
 [ext_resource type="Texture2D" uid="uid://dj40lix06r60b" path="res://textures/Mobs/Mobs+Idle Movement/Earthwolf Evo 1 Idle movementcheck.png" id="2_tcchn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k86gi"]
-atlas = ExtResource("2_tcchn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1y34"]
+atlas = ExtResource("2_6j1eh")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ao1r5"]
-atlas = ExtResource("2_tcchn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw63m"]
+atlas = ExtResource("2_6j1eh")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2vm2o"]
-atlas = ExtResource("2_tcchn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfovp"]
+atlas = ExtResource("2_6j1eh")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vsff6"]
-atlas = ExtResource("2_tcchn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiehy"]
+atlas = ExtResource("2_6j1eh")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ikybp"]
-atlas = ExtResource("2_tcchn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn7ks"]
+atlas = ExtResource("2_6j1eh")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dl1qn"]
@@ -49,19 +50,19 @@ region = Rect2(512, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k86gi")
+"texture": SubResource("AtlasTexture_s1y34")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ao1r5")
+"texture": SubResource("AtlasTexture_sw63m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2vm2o")
+"texture": SubResource("AtlasTexture_xfovp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vsff6")
+"texture": SubResource("AtlasTexture_uiehy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ikybp")
+"texture": SubResource("AtlasTexture_fn7ks")
 }],
 "loop": true,
 "name": &"idle",
@@ -90,10 +91,12 @@ animations = [{
 
 [resource]
 script = ExtResource("1_glvlr")
-_name = "Earth Wolf"
+_name = "Earth Wolf Alpha"
 texture = ExtResource("2_0isjr")
-health = 35.0
-damage = 12.0
+evo_lvl = 9000
+health = 40.0
+base_health = 40.0
+damage = 14.0
 critc = 5
 xp = 10
 speed = 40

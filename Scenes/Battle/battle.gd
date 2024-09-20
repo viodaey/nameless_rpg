@@ -100,10 +100,12 @@ func _ready():
 		playerDict_2["live"]["hp"] = inv.itemInventory.monsterlist[0].stats["hp"]
 		playerDict_2["live"]["mp"] = inv.itemInventory.monsterlist[0].stats["mp"]
 		playerDict_2["cont"].get_node("Name").text = ("%s lvl %d" %[playerDict_2["res"]._name, playerDict_2["res"].lvl])
-		playerDict_2["txt"].texture = 		playerDict_2["res"].texture
+		playerDict_2["txt"].sprite_frames =	playerDict_2["res"].animatedSprite
+		playerDict_2["txt"].play("idle")
 		if playerDict_2["res"].battle_scale_vec < Vector2(1,1):
-			playerDict_2["txtbox"].position += (playerDict_2["txtbox"].size - (playerDict_2["txtbox"].size * playerDict_2["res"].battle_scale_vec.x)) / 2
-			playerDict_2["txtbox"].size = playerDict_2["txtbox"].size * playerDict_2["res"].battle_scale_vec
+			playerDict_2["txt"].scale = playerDict_2["res"].battle_scale_vec
+			#playerDict_2["txtbox"].position += (playerDict_2["txtbox"].size - (playerDict_2["txtbox"].size * playerDict_2["res"].battle_scale_vec.x)) / 2
+			#playerDict_2["txtbox"].size = playerDict_2["txtbox"].size * playerDict_2["res"].battle_scale_vec
 		set_health_init(playerDict_2["cont"].get_node("PlayerHP"), playerDict_2["live"]["hp"], playerDict_2["res"].max_health)
 		playerDict_2["atb"] = 0
 		playerDict_2["max_atb"] = playerDict_2["res"].atb
@@ -201,18 +203,19 @@ func _ready():
 			for i in calc_lvl:
 				enemyDict[en]["live"]["hp"] = enemyDict[en]["live"]["hp"] * enemyDict[en]["res"]._class.hp_mult * 1.08
 				enemyDict[en]["live"]["dmg"] = enemyDict[en]["live"]["dmg"] * enemyDict[en]["res"]._class.dmg_mult * 1.08
-				enemyDict[en]["live"]["xp"] = enemyDict[en]["live"]["xp"] * 1.3
+				enemyDict[en]["live"]["xp"] = enemyDict[en]["live"]["xp"] * 1.4
 		set_health_init(enemyDict[en]["cont"].get_node("EnemyHP"), enemyDict[en]["live"]["hp"], enemyDict[en]["live"]["hp"])
-		enemyDict[en]["cont"].get_node("AspectContainer").get_node("EnemyText").texture = enemyDict[en]["res"].texture
+		enemyDict[en]["cont"].get_node("AspectContainer").get_node("EnemyText").sprite_frames = enemyDict[en]["res"].animatedSprite
+		enemyDict[en]["cont"].get_node("AspectContainer").get_node("EnemyText").play("idle")
 		enemyDict[en]["cont"].get_node("Label").text = "lvl: %d %s" % [enemyDict[en]["live"]["lvl"], enemyDict[en]["res"]._name]
 		enemyDict[en]["cont"].get_node("Select").modulate.a = 0
 		if enemyDict[en]["res"].battle_scale_vec < Vector2(1,1):
-			enemyDict[en]["cont"].size = enemyDict[en]["cont"].size * enemyDict[en]["res"].battle_scale_vec
-			enemyDict[en]["cont"].position.x = enemyDict[en]["cont"].position.x + 50
+			enemyDict[en]["cont"].get_node("AspectContainer").get_node("EnemyText").scale = enemyDict[en]["res"].battle_scale_vec
+			#enemyDict[en]["cont"].size = enemyDict[en]["cont"].size * enemyDict[en]["res"].battle_scale_vec
+			#enemyDict[en]["cont"].position.x = enemyDict[en]["cont"].position.x + 50
 		enemyDict[en]["cont"].add_theme_constant_override("separation", enemyDict[en]["res"].battle_y_sep)
 		enemyDict[en]["atb"] = 0
 		enemyDict[en]["max_atb"] = enemyDict[en]["res"].atb
-	
 	_turn_calc()
 
 signal pressedSomething
@@ -470,7 +473,7 @@ func _attack_phase_2():
 		await get_tree().create_timer(0.5).timeout
 	else:
 		await get_tree().create_timer(0.75).timeout
-	await set_health(selected_enemy.get_node("EnemyHP"), curEnemyStats["hp"], enemyDict[y]["res"].health)
+	await set_health(selected_enemy.get_node("EnemyHP"), curEnemyStats["hp"], enemyDict[y]["res"].max_health)
 	curEnemyStats["hp"] = max(0, curEnemyStats["hp"] - dealt_dmg)
 	await combat_log("%s hit for %d damage" % [curPlayer["res"]._name, dealt_dmg])
 	enemyDict[y]["live"] = curEnemyStats
@@ -478,6 +481,10 @@ func _attack_phase_2():
 		await(enemy_died())
 	if enemyDict.is_empty():
 		await(_drops())
+		for p in playerDict:
+			if p > 1:
+				if playerDict[p]["res"].lvl >= playerDict[p]["res"].evo_lvl:
+					await(evolve(p))
 		sceneManager.goto_scene(sceneManager.last_scene)
 	_turn_calc()
 
@@ -508,11 +515,21 @@ func enemy_died():
 			await get_tree().create_timer(0.7).timeout
 			await(combat_log("Attack Power increased by %d!" % [playerDict[p]["res"].dmg_grow]))
 			await get_tree().create_timer(0.7).timeout
-			playerDict[p]["res"].hp_grow = 0
-			playerDict[p]["res"].dmg_grow = 0
+			
 		playerDict[p]["res"].health = playerDict[p]["live"]["hp"]
 	enemyDict.erase(y)
 
+func evolve(p):
+	var lvl = playerDict[p]["res"].lvl
+	await(combat_log("WHAT??????????!!!!!!"))
+	var tween = get_tree().create_tween()
+	tween.tween_property(playerDict[p]["txtbox"], "position", (playerDict[p]["txtbox"].get_parent().size / 2) - (playerDict[p]["txtbox"].size / 2), 1)
+	tween.tween_property(playerDict[p]["txtbox"], "scale", playerDict[p]["txtbox"].scale * 1.5 , 1.1)
+	await get_tree().create_timer(4).timeout
+	await(combat_log("%s Evolved into %s!" % [playerDict[p]["res"]._name, playerDict[p]["res"].evolution._name]))
+	inv.itemInventory.monsterlist[p - 2]._monster = inv.itemInventory.monsterlist[p - 2]._monster.evolution.duplicate()
+	inv.itemInventory.monsterlist[p - 2]._monster.lvl = lvl
+	
 func enemy_turn(e):
 	if enemyDict[e]["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
 		combat_log("%s is chillin'" % (enemyDict[e]["res"]._name))

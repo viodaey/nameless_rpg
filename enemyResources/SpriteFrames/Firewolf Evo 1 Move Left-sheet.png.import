@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2makaog7dumf"
-path="res://.godot/imported/Firewolf Evo 1 Move Left-sheet.png-8f78f76901f3d428168e0fbb6a056ed9.ctex"
+path="res://.godot/imported/Firewolf Evo 1 Move Left-sheet.png-5e640900c747211511bfc379ff67080a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemyResources/SpriteFrames/Firewolf Evo 1 Move Left-sheet.png"
-dest_files=["res://.godot/imported/Firewolf Evo 1 Move Left-sheet.png-8f78f76901f3d428168e0fbb6a056ed9.ctex"]
+source_file="res://enemyResources/spriteFrames/Firewolf Evo 1 Move Left-sheet.png"
+dest_files=["res://.godot/imported/Firewolf Evo 1 Move Left-sheet.png-5e640900c747211511bfc379ff67080a.ctex"]
 
 [params]
 

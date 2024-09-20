@@ -4,7 +4,10 @@ class_name Enemy
 
 @export var _name: String = "Enemy"
 @export var texture: Texture = null
+@export var evolution: Enemy
+@export var evo_lvl: int = 9000
 @export var health: float = 100
+@export var base_health: float = 30
 @export var damage: float = 20
 @export var critc: int = 5
 @export var xp: int = 10
@@ -48,19 +51,22 @@ const allEnemies: Dictionary = {
 	}
 
 func level_up():
-	#var done_lvl_up: bool = false
-	#while done_lvl_up == false:
+	var hp_old = health
+	var dmg_old = damage
 	hp_grow = 0
 	dmg_grow = 0
 	while xp >= max_xp:
-		hp_grow = hp_grow + round(max_health * 0.10)
-		dmg_grow = dmg_grow + round(damage * 0.1)
-		max_health = max_health + hp_grow
-		#health = health + hp_grow
-		damage = damage + dmg_grow
 		lvl = lvl + 1
 		xp = xp - max_xp
 		max_xp = round(max_xp * 1.4)
+	var calc_lvl = lvl - 1
+	for i in calc_lvl:
+		health = health * 1.08 * _class.hp_mult
+		damage = damage * 1.08 * _class.dmg_mult
+	hp_grow = health - hp_old
+	dmg_grow = damage - dmg_old
+	max_health = health
+
 
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:

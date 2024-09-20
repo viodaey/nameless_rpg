@@ -28,6 +28,11 @@ func _on_gui_focus_changed(node: Node) -> void:
 		displayStats.get_child(1).text = "%d / %d" % [selectedMonster.stats["hp"], selectedMonster._monster.max_health]
 		displayStats.get_child(5).text = "%d" % selectedMonster._monster.damage
 		selected = i
+	
+
+#func _input(_event):
+	#if Input.is_action_pressed("ui_cancel"):
+		#self.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fpfv3t5rsfob"
-path="res://.godot/imported/Warbear Evo 1 Idle movementcheck-sheet.png-d0e3afcf126b82f9003d2a48db9e09c6.ctex"
+path="res://.godot/imported/Warbear Evo 1 Idle movementcheck-sheet.png-295705043d8040a33ab6a4278c5b5c48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemyResources/SpriteFrames/Warbear Evo 1 Idle movementcheck-sheet.png"
-dest_files=["res://.godot/imported/Warbear Evo 1 Idle movementcheck-sheet.png-d0e3afcf126b82f9003d2a48db9e09c6.ctex"]
+source_file="res://enemyResources/spriteFrames/Warbear Evo 1 Idle movementcheck-sheet.png"
+dest_files=["res://.godot/imported/Warbear Evo 1 Idle movementcheck-sheet.png-295705043d8040a33ab6a4278c5b5c48.ctex"]
 
 [params]
 
