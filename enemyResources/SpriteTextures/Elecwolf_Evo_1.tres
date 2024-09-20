@@ -2,14 +2,16 @@
 
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_7diab"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_8lmyu"]
-[ext_resource type="SpriteFrames" uid="uid://y2l57j2l0xb5" path="res://enemyResources/SpriteFrames/Elecwolf_Evo_1sf.tres" id="2_2wa2v"]
+[ext_resource type="SpriteFrames" uid="uid://y2l57j2l0xb5" path="res://enemyResources/spriteFrames/Elecwolf_Evo_1sf.tres" id="2_2wa2v"]
 [ext_resource type="Texture2D" uid="uid://jpasapc1gh8x" path="res://textures/Mobs/Elecwolf Evo 1.png" id="4_vdql0"]
 
 [resource]
 script = ExtResource("1_8lmyu")
 _name = "Electric wolf"
 texture = ExtResource("4_vdql0")
+evo_lvl = 9000
 health = 35.0
+base_health = 35.0
 damage = 12.0
 critc = 5
 xp = 10

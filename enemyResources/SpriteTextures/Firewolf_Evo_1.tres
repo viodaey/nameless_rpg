@@ -1,15 +1,19 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://dai41k5tskn4b"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3 uid="uid://dai41k5tskn4b"]
 
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_8pyv1"]
-[ext_resource type="SpriteFrames" uid="uid://dfu73cl600trr" path="res://enemyResources/SpriteFrames/Firewolf_Evo_1sf.tres" id="2_5bbnn"]
+[ext_resource type="SpriteFrames" uid="uid://dfu73cl600trr" path="res://enemyResources/spriteFrames/Firewolf_Evo_1sf.tres" id="2_5bbnn"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="3_8l357"]
+[ext_resource type="Resource" uid="uid://0ajqppuq0yd1" path="res://enemyResources/SpriteTextures/Firewolf_Evo_2.tres" id="3_748ro"]
 [ext_resource type="Texture2D" uid="uid://udqo7tn6udns" path="res://textures/Mobs/Mobs+Idle Movement/Firewolf_Evo_1.png" id="4_5t1mr"]
 
 [resource]
 script = ExtResource("3_8l357")
 _name = "Fire Wolf"
 texture = ExtResource("4_5t1mr")
+evolution = ExtResource("3_748ro")
+evo_lvl = 12
 health = 35.0
+base_health = 35.0
 damage = 12.0
 critc = 5
 xp = 10

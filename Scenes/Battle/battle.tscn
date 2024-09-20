@@ -1,4 +1,4 @@
-[gd_scene load_steps=275 format=3 uid="uid://b7kga5w7hkr5o"]
+[gd_scene load_steps=277 format=3 uid="uid://b7kga5w7hkr5o"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
 [ext_resource type="Resource" uid="uid://cb3ouqjr5sgqc" path="res://enemyResources/SpriteTextures/orc_baby.tres" id="2_pjcb0"]
@@ -8,13 +8,15 @@
 [ext_resource type="LabelSettings" uid="uid://16a2edh71l7i" path="res://Scenes/Battle/hplabel.tres" id="4_jbr0v"]
 [ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="5_uugxd"]
 [ext_resource type="Texture2D" uid="uid://cv5mk2thosujc" path="res://test_sprites/60FPS_AC2Q001_Slash.png" id="7_g8lpc"]
-[ext_resource type="Texture2D" uid="uid://b8uefsykva2cc" path="res://textures/Mobs/Icewolf_Evo_2.tres" id="8_8xvtf"]
+[ext_resource type="SpriteFrames" uid="uid://cce8hps2ykyjo" path="res://enemyResources/spriteFrames/Earthwolf_Evo_1SF.tres" id="8_2lwc3"]
 [ext_resource type="Texture2D" uid="uid://cm7ugrxdww20r" path="res://textures/Selection Marker/selectionTriangle_full.png" id="8_ype7g"]
+[ext_resource type="SpriteFrames" uid="uid://bc1rqsi5swyop" path="res://enemyResources/spriteFrames/golem_sf.tres" id="9_ral05"]
+[ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemyResources/spriteFrames/orc_baby_sf.tres" id="10_0tvd3"]
 [ext_resource type="Texture2D" uid="uid://wnj06sa4uqhj" path="res://textures/hitAnimations/castDark/60FPS_ASDark_01_Cast.png" id="11_4l3t2"]
 [ext_resource type="Texture2D" uid="uid://dh0shujnvljsx" path="res://textures/hitAnimations/castDark/60FPS_ASDark_10_CalamityB.png" id="11_4o82x"]
+[ext_resource type="SpriteFrames" uid="uid://dwwjdf0gv8nii" path="res://enemyResources/spriteFrames/Warbear_Evo_1SF.tres" id="11_d76h5"]
 [ext_resource type="Texture2D" uid="uid://ff0jakmrpruh" path="res://textures/hitAnimations/castDark/60FPS_ASDark_02_Cast2.png" id="12_uigp2"]
 [ext_resource type="Texture2D" uid="uid://bbtdq4jxsklwt" path="res://textures/hitAnimations/castDark/60FPS_ASDark_05_Subdue.png" id="14_f08gt"]
-[ext_resource type="Texture2D" uid="uid://b3cxijemwg6ji" path="res://textures/Mobs/humanoids/Orc_baby.png" id="16_2ah2c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qufg"]
 bg_color = Color(0.0882, 0.14, 0.0890633, 0)
@@ -2395,12 +2397,11 @@ stretch_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="EnemyText" type="TextureRect" parent="EnemyContainer1/AspectContainer"]
+[node name="EnemyText" type="AnimatedSprite2D" parent="EnemyContainer1/AspectContainer"]
 texture_filter = 1
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("8_8xvtf")
-expand_mode = 1
+position = Vector2(94.9106, 68.9669)
+sprite_frames = ExtResource("8_2lwc3")
+animation = &"idle"
 
 [node name="EnemyHP" type="ProgressBar" parent="EnemyContainer1"]
 visible = false
@@ -2466,12 +2467,11 @@ stretch_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="EnemyText" type="TextureRect" parent="EnemyContainer2/AspectContainer"]
+[node name="EnemyText" type="AnimatedSprite2D" parent="EnemyContainer2/AspectContainer"]
 texture_filter = 1
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("8_8xvtf")
-expand_mode = 1
+position = Vector2(98.1706, 75.4083)
+sprite_frames = ExtResource("9_ral05")
+animation = &"idle"
 
 [node name="EnemyHP" type="ProgressBar" parent="EnemyContainer2"]
 visible = false
@@ -2537,12 +2537,11 @@ stretch_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="EnemyText" type="TextureRect" parent="EnemyContainer3/AspectContainer"]
+[node name="EnemyText" type="AnimatedSprite2D" parent="EnemyContainer3/AspectContainer"]
 texture_filter = 1
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("8_8xvtf")
-expand_mode = 1
+position = Vector2(101.82, 73.5324)
+sprite_frames = ExtResource("10_0tvd3")
+animation = &"idle"
 
 [node name="EnemyHP" type="ProgressBar" parent="EnemyContainer3"]
 visible = false
@@ -2607,12 +2606,11 @@ stretch_mode = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="EnemyText" type="TextureRect" parent="EnemyContainer4/AspectContainer"]
+[node name="EnemyText" type="AnimatedSprite2D" parent="EnemyContainer4/AspectContainer"]
 texture_filter = 1
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("8_8xvtf")
-expand_mode = 1
+position = Vector2(113.545, 67.0983)
+sprite_frames = ExtResource("11_d76h5")
+animation = &"idle"
 
 [node name="EnemyHP" type="ProgressBar" parent="EnemyContainer4"]
 visible = false
@@ -2725,13 +2723,11 @@ size_flags_vertical = 0
 texture = ExtResource("8_ype7g")
 stretch_mode = 3
 
-[node name="SoulText" type="TextureRect" parent="soulContainer1/VBoxContainer"]
+[node name="SoulText" type="AnimatedSprite2D" parent="soulContainer1/VBoxContainer"]
 texture_filter = 1
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("16_2ah2c")
-expand_mode = 1
+position = Vector2(89.5, 81)
+sprite_frames = ExtResource("8_2lwc3")
+animation = &"idle"
 flip_h = true
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
