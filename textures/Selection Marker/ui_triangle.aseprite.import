@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cp0byfafbhv4j"
+path="res://.godot/imported/ui_triangle.aseprite-b885495c6ac749dec07fe72c0172e3ca.res"
+
+[deps]
+
+source_file="res://textures/Selection Marker/ui_triangle.aseprite"
+dest_files=["res://.godot/imported/ui_triangle.aseprite-b885495c6ac749dec07fe72c0172e3ca.res"]
+
+[params]
+

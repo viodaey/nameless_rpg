@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6n7em3otq0o0"]
 
 [ext_resource type="Script" path="res://Global/invScene.gd" id="1_4cyy0"]
-[ext_resource type="Texture2D" uid="uid://cm7ugrxdww20r" path="res://textures/selectionTriangle_full.png" id="2_nbb2x"]
+[ext_resource type="Texture2D" uid="uid://cm7ugrxdww20r" path="res://textures/Selection Marker/selectionTriangle_full.png" id="2_nbb2x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_25jqj"]
 
