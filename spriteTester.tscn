@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://b5qmhq1tofh5x"]
 
 [ext_resource type="Texture2D" uid="uid://bwptoht8nkv2x" path="res://textures/Mobs/Fire_pixie_evo_1_Idle_movementcheck.png" id="1_q7cl2"]
-[ext_resource type="Texture2D" uid="uid://d1ykbj821uir1" path="res://Skeletal warrior Evo 1.png" id="2_52ya0"]
+[ext_resource type="Texture2D" uid="uid://d1ykbj821uir1" path="res://textures/Mobs/Mobs+Idle Movement/Skeletal warrior Evo 1.png" id="2_52ya0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfwjh"]
 atlas = ExtResource("1_q7cl2")

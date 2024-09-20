@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://umrjtekw8axd" path="res://inventory/items/potion.tres" id="2_5kui5"]
 [ext_resource type="Script" path="res://inventory/invSlots.gd" id="2_uwir1"]
 [ext_resource type="Resource" uid="uid://b0q1w51bjrvl" path="res://inventory/items/basicCaptureCard.tres" id="3_o10kb"]
-[ext_resource type="Resource" uid="uid://dm2dnaly8eoku" path="res://enemyResources/birdman_chick.tres" id="4_aum48"]
+[ext_resource type="Resource" uid="uid://dm2dnaly8eoku" path="res://enemyResources/SpriteTextures/birdman_chick.tres" id="4_aum48"]
 [ext_resource type="Script" path="res://inventory/monSlots.gd" id="5_f7j3f"]
 [ext_resource type="Resource" uid="uid://c7piqrup0imda" path="res://enemyResources/golem.tres" id="6_i0480"]
 
