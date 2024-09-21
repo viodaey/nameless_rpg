@@ -113,3 +113,4 @@ battle_y_sep = 0
 _class = ExtResource("1_5el2r")
 lvl = 1
 atb = 110
+max_health = 0

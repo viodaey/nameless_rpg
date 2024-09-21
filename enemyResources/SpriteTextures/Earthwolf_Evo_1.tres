@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_kkytr"]
 [ext_resource type="SpriteFrames" uid="uid://cce8hps2ykyjo" path="res://enemyResources/spriteFrames/Earthwolf_Evo_1SF.tres" id="2_jell6"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="3_71oco"]
-[ext_resource type="Resource" uid="uid://bmlto5qmau708" path="res://enemyResources/spriteTextures/Earthwolf_Evo_2.tres" id="3_888pl"]
+[ext_resource type="Resource" uid="uid://bmlto5qmau708" path="res://enemyResources/SpriteTextures/Earthwolf_Evo_2.tres" id="3_888pl"]
 [ext_resource type="Texture2D" uid="uid://cspbaanasq48y" path="res://textures/Mobs/Mobs+Idle Movement/Earthwolf Evo 1.png" id="4_gnr4b"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_35voi"]

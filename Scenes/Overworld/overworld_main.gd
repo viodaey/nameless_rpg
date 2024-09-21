@@ -27,7 +27,10 @@ func _ready() -> void:
 
 func _input(_event):
 	if Input.is_action_pressed("ui_cancel"):
+		set_process_input(false)
 		main_menu()
+		await (get_tree().create_timer(0.5).timeout)
+		set_process_input(true)
 
 	#pass
 func main_menu():
