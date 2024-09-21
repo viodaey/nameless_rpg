@@ -27,10 +27,10 @@ func _ready() -> void:
 
 func _input(_event):
 	if Input.is_action_pressed("ui_cancel"):
-		mainMenu()
+		main_menu()
 
 	#pass
-func mainMenu():
+func main_menu():
 	var mainMenuScene = load("res://Global/mainMenu.tscn").instantiate()
 	get_node("Player").get_node("Camera2D").enabled = false
 	add_child(mainMenuScene)

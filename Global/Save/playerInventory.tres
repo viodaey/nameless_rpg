@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="inventory" load_steps=10 format=3 uid="uid://dtujrdqeru1yj"]
+
+[ext_resource type="Script" path="res://inventory/invSlots.gd" id="1_uley0"]
+[ext_resource type="Resource" uid="uid://umrjtekw8axd" path="res://inventory/items/potion.tres" id="2_rn4hh"]
+[ext_resource type="Resource" uid="uid://b0q1w51bjrvl" path="res://inventory/items/basicCaptureCard.tres" id="3_uljal"]
+[ext_resource type="Resource" uid="uid://d1y8eprvwt18s" path="res://enemyResources/spriteTextures/Earthwolf_Evo_1.tres" id="4_8lmod"]
+[ext_resource type="Script" path="res://inventory/inventoryMain.gd" id="4_lymk2"]
+[ext_resource type="Script" path="res://inventory/monSlots.gd" id="5_iucrq"]
+
+[sub_resource type="Resource" id="Resource_m83ba"]
+script = ExtResource("1_uley0")
+_item = ExtResource("2_rn4hh")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_fl20x"]
+script = ExtResource("1_uley0")
+_item = ExtResource("3_uljal")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_87u5w"]
+script = ExtResource("5_iucrq")
+_monster = ExtResource("4_8lmod")
+stats = {
+"hp": 30,
+"mp": 0,
+"xp": 0
+}
+
+[resource]
+script = ExtResource("4_lymk2")
+list = Array[ExtResource("1_uley0")]([SubResource("Resource_m83ba"), SubResource("Resource_fl20x")])
+monsterlist = [SubResource("Resource_87u5w")]

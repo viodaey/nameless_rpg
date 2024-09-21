@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://d3jpakoms3ml7" path="res://Global/Classes/Normy.tres" id="1_34ij2"]
 [ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemyResources/spriteFrames/orc_baby_sf.tres" id="1_mlwnj"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="2_6mctt"]
-[ext_resource type="Resource" uid="uid://bq75vos4ne52c" path="res://enemyResources/SpriteTextures/orc_teen.tres" id="3_aowwv"]
+[ext_resource type="Resource" uid="uid://bq75vos4ne52c" path="res://enemyResources/spriteTextures/orc_teen.tres" id="3_aowwv"]
 [ext_resource type="Texture2D" uid="uid://b3cxijemwg6ji" path="res://textures/Mobs/humanoids/Orc_baby.png" id="4_nfjpu"]
 
 [resource]

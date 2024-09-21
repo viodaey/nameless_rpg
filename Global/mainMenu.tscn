@@ -103,3 +103,6 @@ size_flags_vertical = 3
 text = "Quit game"
 
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/Monsters" to="." method="_on_monsters_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2/Load" to="." method="_on_load_pressed"]
