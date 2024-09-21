@@ -21,9 +21,17 @@ func _ready() -> void:
 		print(sceneManager.last_scene)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _input(_event):
+	if Input.is_action_pressed("ui_cancel"):
+		await (get_tree().create_timer(0.3).timeout)
+		main_menu()
+
+	#pass
+func main_menu():
+	var mainMenuScene = load("res://Global/mainMenu.tscn").instantiate()
+	get_node("Player").get_node("Camera2D").enabled = false
+	add_child(mainMenuScene)
+	get_tree().paused = true
 
 #func _spawn_npc():
 	#if is_instance_valid($NPC_spawn):

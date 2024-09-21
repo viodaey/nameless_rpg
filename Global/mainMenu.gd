@@ -22,8 +22,11 @@ func _on_resume_pressed() -> void:
 	
 func _input(_event):
 	if Input.is_action_pressed("ui_cancel"):
-		await(get_tree().create_timer(0.03).timeout)
-		_on_resume_pressed()
+		if confirm_c.visible == true:
+			_on_confirm_no_pressed()
+		else:
+			await(get_tree().create_timer(0.1).timeout)
+			_on_resume_pressed()
 
 func _on_monsters_pressed() -> void:
 	get_parent().add_child(monManagerScene)
