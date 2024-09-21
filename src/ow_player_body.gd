@@ -49,6 +49,7 @@ func _physics_process(_delta):
 	move_and_slide()
 	for i in get_slide_collision_count():
 		if get_slide_collision(i).get_collider().get_parent().has_method("initiate_battle"):
+			print("battle initiated from player")
 			get_slide_collision(i).get_collider().get_praent().initiate_battle()
 
 	if moved > move_dice:

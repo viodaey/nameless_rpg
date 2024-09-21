@@ -26,10 +26,12 @@ func _ready() -> void:
 		_player_body.position = _forest_entrance.position + Vector2(20,0)
 
 func _input(_event):
-	#if Input.is_action_pressed("ui_cancel"):
-		#var monInvSc = preload("res://Global/monManager.tscn").instantiate()
-		#get_node("Player").add_child(monInvSc)
-	pass
+	if Input.is_action_pressed("ui_cancel"):
+		var monInvSc = load("res://Global/monManager.tscn").instantiate()
+		get_node("Player").get_node("Camera2D").enabled = false
+		add_child(monInvSc)
+		get_tree().paused = true
+	#pass
 
 		
 
