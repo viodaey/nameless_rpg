@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0rm74cf7vkyk"]
+
+[ext_resource type="Texture2D" uid="uid://6fi1fruu0f0e" path="res://textures/UI/menu_ui_test_300.png" id="1_3na3v"]
+[ext_resource type="Script" path="res://Global/mainMenu.gd" id="1_yocc6"]
+[ext_resource type="LabelSettings" uid="uid://m48ou1arcktr" path="res://Global/ui_heading.tres" id="2_8ci6e"]
+
+[node name="MainMenu" type="Control"]
+process_mode = 3
+z_index = 50
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yocc6")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -250.0
+offset_right = 175.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3na3v")
+region_rect = Rect2(21, 21, 150, 150)
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Header" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+label_settings = ExtResource("2_8ci6e")
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Resume"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Monsters" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Monsters"
+
+[node name="Inventory" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Inventory"
+
+[node name="Player" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Player"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Save" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Save"
+
+[node name="Load" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Load"
+
+[node name="Quit" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit game"
+
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
