@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://dabp5cxdcoql3"]
+[gd_scene load_steps=55 format=4 uid="uid://dabp5cxdcoql3"]
 
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="1_31bpk"]
 [ext_resource type="Script" path="res://Scenes/Forest/Forest_main.gd" id="1_qxm8l"]
@@ -11,34 +11,7 @@
 [ext_resource type="Resource" uid="uid://dai41k5tskn4b" path="res://enemyResources/SpriteTextures/Firewolf_Evo_1.tres" id="5_4o8e8"]
 [ext_resource type="Texture2D" uid="uid://dbpaufsf3au26" path="res://bg_art/Forest.png" id="5_fbqhi"]
 [ext_resource type="Resource" uid="uid://dnvlg3d57lcll" path="res://enemyResources/SpriteTextures/Elecwolf_Evo_1.tres" id="5_uy8b2"]
-[ext_resource type="SpriteFrames" uid="uid://dwwjdf0gv8nii" path="res://enemyResources/SpriteFrames/Warbear_Evo_1sf.tres" id="7_2lsxc"]
-[ext_resource type="Resource" uid="uid://cvd5r1g0o1jx" path="res://Global/Classes/Bruiser.tres" id="7_y57w6"]
-[ext_resource type="Texture2D" uid="uid://j8qc7x3ro7dg" path="res://textures/Mobs/Warbear Evo 1.png" id="8_skcie"]
-
-[sub_resource type="Resource" id="Resource_80ow4"]
-script = ExtResource("2_gis04")
-_name = "Warbear"
-texture = ExtResource("8_skcie")
-health = 40.0
-damage = 12.0
-critc = 5
-xp = 10
-speed = 40
-music = "battle01"
-can_chill = true
-lifesteal = 0
-animatedSprite = ExtResource("7_2lsxc")
-affliction_type = ""
-affliction_chance = 0
-map_scale = 1.0
-max_group_size = 3
-min_group_size = 1
-friends = Array[String]([])
-battle_scale_vec = Vector2(1, 1)
-battle_y_sep = 0
-_class = ExtResource("7_y57w6")
-lvl = 1
-atb = 110
+[ext_resource type="Resource" uid="uid://dkbwfc1rxwgmn" path="res://enemyResources/SpriteTextures/Warbear_Evo_1.tres" id="7_8o52o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq1fd"]
 atlas = ExtResource("3_6yabh")
@@ -369,7 +342,7 @@ size = Vector2(5.62465, 43.6385)
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_qxm8l")
-world_enemies = Array[ExtResource("2_gis04")]([ExtResource("3_c4v8d"), ExtResource("5_uy8b2"), ExtResource("5_4o8e8"), ExtResource("4_vekdt"), SubResource("Resource_80ow4")])
+world_enemies = Array[ExtResource("2_gis04")]([ExtResource("3_c4v8d"), ExtResource("5_uy8b2"), ExtResource("5_4o8e8"), ExtResource("4_vekdt"), ExtResource("7_8o52o")])
 battle_bg = ExtResource("5_fbqhi")
 
 [node name="TileMapLayer_0" type="TileMapLayer" parent="."]
