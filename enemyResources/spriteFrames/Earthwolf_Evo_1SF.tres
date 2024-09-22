@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://cce8hps2ykyjo"]
 
 [ext_resource type="Texture2D" uid="uid://dj40lix06r60b" path="res://textures/Mobs/Mobs+Idle Movement/Earthwolf Evo 1 Idle movementcheck.png" id="1_qvmuv"]
-[ext_resource type="Texture2D" uid="uid://deq0483okc45n" path="res://textures/Mobs/Earthwolf Evo 1 Move Left.png" id="1_ubi40"]
+[ext_resource type="Texture2D" uid="uid://y8756744u3wa" path="res://textures/Mobs/Earthwolf Evo 1 Move Left.png" id="1_ubi40"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tr33"]
 atlas = ExtResource("1_qvmuv")

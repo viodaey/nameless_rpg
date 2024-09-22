@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dolsod45aao4l"
-<<<<<<< HEAD:enemyResources/SpriteFrames/Icewolf Evo 1 Move Left .png.import
-path="res://.godot/imported/Icewolf Evo 1 Move Left .png-48c1c8e379e10e0796b8e60ca709efaf.ctex"
-=======
+uid="uid://b5sgbnnccxaky"
 path="res://.godot/imported/Icewolf Evo 1 Move Left .png-295bfe798e5d65364c7276005017cbfe.ctex"
->>>>>>> origin/Main2.1:textures/Mobs/Icewolf Evo 1 Move Left .png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<< HEAD:enemyResources/SpriteFrames/Icewolf Evo 1 Move Left .png.import
-source_file="res://enemyResources/spriteFrames/Icewolf Evo 1 Move Left .png"
-dest_files=["res://.godot/imported/Icewolf Evo 1 Move Left .png-48c1c8e379e10e0796b8e60ca709efaf.ctex"]
-=======
 source_file="res://textures/Mobs/Icewolf Evo 1 Move Left .png"
 dest_files=["res://.godot/imported/Icewolf Evo 1 Move Left .png-295bfe798e5d65364c7276005017cbfe.ctex"]
->>>>>>> origin/Main2.1:textures/Mobs/Icewolf Evo 1 Move Left .png.import
 
 [params]
 

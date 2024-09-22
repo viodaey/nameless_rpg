@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fpfv3t5rsfob"
-<<<<<<< HEAD:enemyResources/SpriteFrames/Warbear Evo 1 Idle movementcheck-sheet.png.import
-path="res://.godot/imported/Warbear Evo 1 Idle movementcheck-sheet.png-295705043d8040a33ab6a4278c5b5c48.ctex"
-=======
+uid="uid://cxo52fq1d3y8v"
 path="res://.godot/imported/Warbear Evo 1 Idle movementcheck-sheet.png-be0914832b758350b93bc5d24acc0462.ctex"
->>>>>>> origin/Main2.1:textures/Mobs/Warbear Evo 1 Idle movementcheck-sheet.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<< HEAD:enemyResources/SpriteFrames/Warbear Evo 1 Idle movementcheck-sheet.png.import
-source_file="res://enemyResources/spriteFrames/Warbear Evo 1 Idle movementcheck-sheet.png"
-dest_files=["res://.godot/imported/Warbear Evo 1 Idle movementcheck-sheet.png-295705043d8040a33ab6a4278c5b5c48.ctex"]
-=======
 source_file="res://textures/Mobs/Warbear Evo 1 Idle movementcheck-sheet.png"
 dest_files=["res://.godot/imported/Warbear Evo 1 Idle movementcheck-sheet.png-be0914832b758350b93bc5d24acc0462.ctex"]
->>>>>>> origin/Main2.1:textures/Mobs/Warbear Evo 1 Idle movementcheck-sheet.png.import
 
 [params]
 
