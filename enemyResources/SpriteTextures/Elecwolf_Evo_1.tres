@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("1_8lmyu")
-_name = "Electric wolf"
+_name = "Elecwolf"
 texture = ExtResource("4_vdql0")
 evo_lvl = 9000
 health = 35.0

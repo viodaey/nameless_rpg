@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://dwwjdf0gv8nii"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://dwwjdf0gv8nii"]
 
-[ext_resource type="Texture2D" uid="uid://fpfv3t5rsfob" path="res://enemyResources/spriteFrames/Warbear Evo 1 Idle movementcheck-sheet.png" id="1_y1nek"]
+[ext_resource type="Texture2D" uid="uid://fpfv3t5rsfob" path="res://textures/Mobs/Warbear Evo 1 Idle movementcheck-sheet.png" id="1_y1nek"]
+[ext_resource type="Texture2D" uid="uid://djg55jpv60plb" path="res://textures/Mobs/Warbear Evo 1 Idle + Run-sheet.png" id="2_nbm32"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hlqud"]
 atlas = ExtResource("1_y1nek")
@@ -22,25 +23,17 @@ region = Rect2(384, 0, 128, 128)
 atlas = ExtResource("1_y1nek")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dw3gf"]
-atlas = ExtResource("1_y1nek")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1d0v"]
+atlas = ExtResource("2_nbm32")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_egf55"]
-atlas = ExtResource("1_y1nek")
+[sub_resource type="AtlasTexture" id="AtlasTexture_isvw2"]
+atlas = ExtResource("2_nbm32")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8wvuq"]
-atlas = ExtResource("1_y1nek")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux0oj"]
+atlas = ExtResource("2_nbm32")
 region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u3she"]
-atlas = ExtResource("1_y1nek")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hbkjm"]
-atlas = ExtResource("1_y1nek")
-region = Rect2(512, 0, 128, 128)
 
 [resource]
 animations = [{
@@ -66,19 +59,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dw3gf")
+"texture": SubResource("AtlasTexture_b1d0v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_egf55")
+"texture": SubResource("AtlasTexture_isvw2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8wvuq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u3she")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hbkjm")
+"texture": SubResource("AtlasTexture_ux0oj")
 }],
 "loop": true,
 "name": &"run",
