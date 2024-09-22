@@ -8,7 +8,7 @@
 
 [resource]
 script = ExtResource("3_8l357")
-_name = "Fire Wolf"
+_name = "Firewolf"
 texture = ExtResource("4_5t1mr")
 evolution = ExtResource("3_748ro")
 evo_lvl = 12
