@@ -1,14 +1,10 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://dm2dnaly8eoku"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://dm2dnaly8eoku"]
 
-[ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_5el2r"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_e3sfw"]
-[ext_resource type="Texture2D" uid="uid://t6kd7wrlxyf4" path="res://textures/Mobs/Mobs+Idle Movement/Bird-man1.png" id="2_ua5hp"]
-[ext_resource type="SpriteFrames" uid="uid://da4a3tqobc1rd" path="res://enemyResources/SpriteFrames/Birdman_Evo_1sf.tres" id="4_j21sj"]
 
 [resource]
 script = ExtResource("1_e3sfw")
 _name = "Chick"
-texture = SubResource("CanvasTexture_gqbc1")
 evo_lvl = 2000
 health = 35.0
 base_health = 30.0
@@ -19,7 +15,6 @@ speed = 35
 music = "battle01"
 can_chill = true
 lifesteal = 0
-animatedSprite = ExtResource("4_j21sj")
 affliction_type = ""
 affliction_chance = 0
 map_scale = 0.4
@@ -28,7 +23,6 @@ min_group_size = 1
 friends = Array[String]([])
 battle_scale_vec = Vector2(1, 1)
 battle_y_sep = 0
-_class = ExtResource("1_5el2r")
 lvl = 1
 atb = 110
 max_health = 0
