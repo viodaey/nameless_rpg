@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b88maahl3e2ac"
-path="res://.godot/imported/Firewolf Evo 1 Move Left-sheet.png-84bf7fa33dbe457235a1fabb3dc5417d.ctex"
+uid="uid://djg55jpv60plb"
+path="res://.godot/imported/Warbear Evo 1 Idle + Run-sheet.png-2b9db93ab88c5ba8fddeb587aa38d36c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Mobs/Firewolf Evo 1 Move Left-sheet.png"
-dest_files=["res://.godot/imported/Firewolf Evo 1 Move Left-sheet.png-84bf7fa33dbe457235a1fabb3dc5417d.ctex"]
+source_file="res://textures/Mobs/Warbear Evo 1 Idle + Run-sheet.png"
+dest_files=["res://.godot/imported/Warbear Evo 1 Idle + Run-sheet.png-2b9db93ab88c5ba8fddeb587aa38d36c.ctex"]
 
 [params]
 

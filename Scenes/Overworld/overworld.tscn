@@ -1,10 +1,9 @@
-[gd_scene load_steps=61 format=4 uid="uid://df2s4i3dlmyrc"]
+[gd_scene load_steps=60 format=4 uid="uid://df2s4i3dlmyrc"]
 
 [ext_resource type="Script" path="res://Scenes/Overworld/overworld_main.gd" id="1_4ihds"]
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="2_5d18u"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="2_sr5fs"]
 [ext_resource type="Script" path="res://src/ow_player_body.gd" id="3_bewpa"]
-[ext_resource type="Resource" uid="uid://dai41k5tskn4b" path="res://enemyResources/SpriteTextures/Firewolf_Evo_1.tres" id="3_rse70"]
 [ext_resource type="Texture2D" uid="uid://rhh3il8k31mh" path="res://test_sprites/Hooman/Idle/Character_Idle.png" id="4_7edvl"]
 [ext_resource type="Resource" uid="uid://cb3ouqjr5sgqc" path="res://enemyResources/SpriteTextures/orc_baby.tres" id="5_cp6nb"]
 [ext_resource type="Texture2D" uid="uid://bgbbok7la0ucp" path="res://test_sprites/Hooman/Move/Character_Move.png" id="5_m2tqc"]
@@ -349,7 +348,7 @@ size = Vector2(5.96788, 41.0464)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_4ihds")
-world_enemies = Array[ExtResource("2_sr5fs")]([ExtResource("3_rse70"), ExtResource("5_cp6nb"), ExtResource("6_31cep"), ExtResource("7_k7cex"), ExtResource("7_56xsp")])
+world_enemies = Array[ExtResource("2_sr5fs")]([ExtResource("5_cp6nb"), ExtResource("6_31cep"), ExtResource("7_k7cex"), ExtResource("7_56xsp")])
 battle_bg = ExtResource("8_2e61n")
 drops = {
 0: 50,

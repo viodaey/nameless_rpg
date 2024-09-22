@@ -1,96 +1,14 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=17 format=3 uid="uid://dm2dnaly8eoku"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://dm2dnaly8eoku"]
 
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_5el2r"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_e3sfw"]
 [ext_resource type="Texture2D" uid="uid://t6kd7wrlxyf4" path="res://textures/Mobs/Mobs+Idle Movement/Bird-man1.png" id="2_ua5hp"]
-[ext_resource type="Texture2D" uid="uid://r1i2gpmtscij" path="res://textures/Mobs/Mobs+Idle Movement/Bird-man1 Idle movementcheck.png" id="3_3bbh7"]
-[ext_resource type="Texture2D" uid="uid://d0sso1iaghdic" path="res://textures/Mobs/Mobs+Idle Movement/Bird-man1_n.png" id="3_y756k"]
-[ext_resource type="Texture2D" uid="uid://dbqhn18pq4isq" path="res://textures/Mobs/Mobs+Idle Movement/Bird-man1_s.png" id="4_8ghch"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c75w7"]
-atlas = ExtResource("3_3bbh7")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t0ii8"]
-atlas = ExtResource("3_3bbh7")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lrs5o"]
-atlas = ExtResource("3_3bbh7")
-region = Rect2(0, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xmfui"]
-atlas = ExtResource("3_3bbh7")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ejsxv"]
-atlas = ExtResource("3_3bbh7")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c1rxc"]
-atlas = ExtResource("3_3bbh7")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rm3yd"]
-atlas = ExtResource("3_3bbh7")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8u7wt"]
-atlas = ExtResource("3_3bbh7")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0ajig"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c75w7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t0ii8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lrs5o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t0ii8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c75w7")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xmfui")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ejsxv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c1rxc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rm3yd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8u7wt")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_gqbc1"]
-diffuse_texture = ExtResource("2_ua5hp")
-normal_texture = ExtResource("3_y756k")
-specular_texture = ExtResource("4_8ghch")
+[ext_resource type="SpriteFrames" uid="uid://da4a3tqobc1rd" path="res://enemyResources/SpriteFrames/Birdman_Evo_1sf.tres" id="4_j21sj"]
 
 [resource]
 script = ExtResource("1_e3sfw")
 _name = "Chick"
-texture = SubResource("CanvasTexture_gqbc1")
+texture = ExtResource("2_ua5hp")
 health = 35.0
 damage = 12.0
 critc = 5
@@ -99,7 +17,7 @@ speed = 35
 music = "battle01"
 can_chill = true
 lifesteal = 0
-animatedSprite = SubResource("SpriteFrames_0ajig")
+animatedSprite = ExtResource("4_j21sj")
 affliction_type = ""
 affliction_chance = 0
 map_scale = 0.4

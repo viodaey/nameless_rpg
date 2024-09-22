@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctyb2klo7ysmn"
-path="res://.godot/imported/Elecwolf Evo 1 Move Left.png-158269e3d1ea5e1ea4741636533c4f2c.ctex"
+uid="uid://deq0483okc45n"
+path="res://.godot/imported/Earthwolf Evo 1 Move Left.png-ed053d2c1bc63de9cfd25df571cbb870.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemyResources/Elecwolf Evo 1 Move Left.png"
-dest_files=["res://.godot/imported/Elecwolf Evo 1 Move Left.png-158269e3d1ea5e1ea4741636533c4f2c.ctex"]
+source_file="res://textures/Mobs/Earthwolf Evo 1 Move Left.png"
+dest_files=["res://.godot/imported/Earthwolf Evo 1 Move Left.png-ed053d2c1bc63de9cfd25df571cbb870.ctex"]
 
 [params]
 
