@@ -28,7 +28,7 @@ class_name Enemy
 @export var _class: _Class
 @export var lvl: int = 1
 @export var atb: int = 110
-var max_health: int
+@export var max_health: int
 var hp_grow: int = 0
 var dmg_grow: int = 0
 var max_xp: int = 20

@@ -3,14 +3,14 @@
 [ext_resource type="LabelSettings" uid="uid://m48ou1arcktr" path="res://Global/ui_heading.tres" id="1_aato4"]
 [ext_resource type="Texture2D" uid="uid://b5f2orsf3cano" path="res://textures/Mobs/Mobs+Idle Movement/ShadowWraith2.png" id="1_d5g4i"]
 [ext_resource type="Script" path="res://Global/monManagerSc.gd" id="1_rfgsr"]
+[ext_resource type="Texture2D" uid="uid://6fi1fruu0f0e" path="res://textures/UI/menu_ui_test_300.png" id="2_78215"]
 [ext_resource type="Texture2D" uid="uid://6hqxyqcaal32" path="res://textures/Mobs/Firewolf_Evo_2.tres" id="2_oramg"]
 [ext_resource type="LabelSettings" uid="uid://bvrkgbk0n2lkp" path="res://Global/ui_regular.tres" id="4_ru1gb"]
 [ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="5_010gr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u34gh"]
-bg_color = Color(0.227451, 0.160784, 0.129412, 1)
-
 [node name="monManager" type="Control"]
+process_mode = 3
+z_index = 50
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,19 +19,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rfgsr")
 
-[node name="monsterPanel" type="Panel" parent="."]
+[node name="monsterPanel" type="NinePatchRect" parent="."]
+texture_filter = 1
 layout_mode = 0
 offset_left = 132.0
-offset_top = 55.0
+offset_top = 40.0
 offset_right = 1016.0
-offset_bottom = 585.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_u34gh")
+offset_bottom = 570.0
+texture = ExtResource("2_78215")
+region_rect = Rect2(21, 21, 150, 150)
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="monsterPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -44,10 +51,10 @@ horizontal_alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="monsterPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 5
+theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_bottom = 15
 
 [node name="HBoxContainer" type="HBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -343,9 +350,9 @@ popup/item_1/id = 1
 [node name="Display" type="MarginContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 25
+theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 15
 
 [node name="displayMain" type="VBoxContainer" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display"]
@@ -422,8 +429,22 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability1"]
+[node name="NinePatchRect" type="NinePatchRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability1"]
 layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_78215")
+region_rect = Rect2(21, 21, 150, 150)
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
+
+[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability1/NinePatchRect"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 76.0
+offset_bottom = 88.0
 size_flags_vertical = 3
 texture = ExtResource("5_010gr")
 expand_mode = 1
@@ -439,9 +460,24 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability2"]
+[node name="NinePatchRect" type="NinePatchRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability2"]
 layout_mode = 2
 size_flags_vertical = 3
+texture = ExtResource("2_78215")
+region_rect = Rect2(21, 21, 150, 150)
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
+
+[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability2/NinePatchRect"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 76.0
+offset_bottom = 88.0
+size_flags_vertical = 3
+texture = ExtResource("5_010gr")
 expand_mode = 1
 stretch_mode = 5
 
@@ -455,9 +491,24 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability3"]
+[node name="NinePatchRect" type="NinePatchRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability3"]
 layout_mode = 2
 size_flags_vertical = 3
+texture = ExtResource("2_78215")
+region_rect = Rect2(21, 21, 150, 150)
+patch_margin_left = 25
+patch_margin_top = 25
+patch_margin_right = 25
+patch_margin_bottom = 25
+
+[node name="TextureRect" type="TextureRect" parent="monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/Display/displayMain/Abilities/Ability3/NinePatchRect"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 76.0
+offset_bottom = 88.0
+size_flags_vertical = 3
+texture = ExtResource("5_010gr")
 expand_mode = 1
 stretch_mode = 5
 

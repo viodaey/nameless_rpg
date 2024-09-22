@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dw547jmx6shey"
+path="res://.godot/imported/Sprite-0001.aseprite-ade75f5164bdf0b4d8c176bd3685254b.res"
+
+[deps]
+
+source_file="res://textures/UI/Sprite-0001.aseprite"
+dest_files=["res://.godot/imported/Sprite-0001.aseprite-ade75f5164bdf0b4d8c176bd3685254b.res"]
+
+[params]
+

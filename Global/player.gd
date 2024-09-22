@@ -19,6 +19,7 @@ var enemy_encounter: String = "res://enemyResources/res_battle_spider.tres"
 #var enemy_stats = []
 var position = Vector2(256,256)
 var atb: int = 100
+var current_scene
 #var done: bool = false
 
 
@@ -36,6 +37,25 @@ func level_up():
 		lvl = lvl + 1
 		xp = xp - max_xp
 		max_xp = round(max_xp * 1.4)
+	
+func save():
+	var save_dict = {
+		"filename" : "player.gd",
+		"pos_x" : position.x,
+		"pos_y" : position.y,
+		"max_health": max_health,
+		"health" : health,
+		"damage" : damage,
+		"lvl" : lvl, 
+		"xp" : xp,
+		"max_xp" : max_xp, 
+		"mp" : mp, 
+		"max_mp" : max_mp,
+		"magicdmg" : magicdmg,
+		"current_scene" : current_scene
+	}
+	return save_dict
+
 	
 		#print(hp_grow)
 		#else:

@@ -14,7 +14,7 @@ func _ready() -> void:
 		currentContainer.get_child(0).texture = currentMonster._monster.texture
 		currentContainer.get_child(1).text = currentMonster._monster._name
 		currentContainer.get_child(1).disabled = false
-	blockContainer.get_child(0).get_child(1).grab_focus()	
+	blockContainer.get_child(0).get_child(1).grab_focus()
 	get_viewport().gui_focus_changed.connect(_on_gui_focus_changed)
 	_on_gui_focus_changed($monsterPanel/VBoxContainer/MarginContainer/HBoxContainer/GridContainer/Box1/Button)
 
@@ -30,9 +30,11 @@ func _on_gui_focus_changed(node: Node) -> void:
 		selected = i
 	
 
-#func _input(_event):
-	#if Input.is_action_pressed("ui_cancel"):
-		#self.queue_free()
+func _input(_event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		await get_tree().create_timer(0.03).timeout
+		MainMenu.visible = true
+		self.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

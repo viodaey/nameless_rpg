@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bolryanpi2lji"
+path="res://.godot/imported/menu_ui_test.aseprite-f73ea30cc792b8dc0163023501e9eb6c.res"
+
+[deps]
+
+source_file="res://textures/UI/menu_ui_test.aseprite"
+dest_files=["res://.godot/imported/menu_ui_test.aseprite-f73ea30cc792b8dc0163023501e9eb6c.res"]
+
+[params]
+

@@ -21,30 +21,8 @@ func _ready() -> void:
 		print(sceneManager.last_scene)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _input(_event):
 	pass
-
-#func _spawn_npc():
-	#if is_instance_valid($NPC_spawn):
-		#print("tried to spawn but valid instance found")
-	#else:
-		#var rng = RandomNumberGenerator.new()
-		#var enemy_select = rng.randi_range(1,len(world_enemies))
-		#var angle = rng.randi_range(0, TAU)
-		#var distance = rng.randi_range(80, 130)
-		#_player_body.get_node("RayCast2D").target_position += Vector2(distance*cos(angle), distance*sin(angle))
-		#if _player_body.get_node("RayCast2D") .is_colliding():
-			#_spawn_npc()
-		#else:
-			#spawn_request = load(world_enemies[enemy_select - 1].resource_path)
-			#add_child(spawn.duplicate())
-			#_spawned_npc = $NPC_spawn
-			#_spawned_npc.position = _player_body.position + Vector2(distance*cos(angle), distance*sin(angle))
-#
-#func _despawn_npc():
-	#_spawned_npc.queue_free()
-
 
 func _on_forest_exit_body_entered(body: Node2D) -> void:
 	if body.name == _player_body.name:

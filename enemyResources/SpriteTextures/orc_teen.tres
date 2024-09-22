@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://bq75vos4ne52c"]
 
-[ext_resource type="SpriteFrames" uid="uid://0bkl6b38521f" path="res://enemyResources/SpriteFrames/orc_teen_sf.tres" id="1_6bmmn"]
+[ext_resource type="SpriteFrames" uid="uid://0bkl6b38521f" path="res://enemyResources/spriteFrames/orc_teen_sf.tres" id="1_6bmmn"]
 [ext_resource type="Texture2D" uid="uid://bhpmkqbpnhat1" path="res://textures/Mobs/humanoids/Orc_teen.png" id="1_d7oji"]
 [ext_resource type="Resource" uid="uid://d3jpakoms3ml7" path="res://Global/Classes/Normy.tres" id="1_rpkex"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="2_h3ko4"]

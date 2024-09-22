@@ -114,3 +114,4 @@ battle_y_sep = 0
 _class = ExtResource("1_dx06m")
 lvl = 1
 atb = 110
+max_health = 0

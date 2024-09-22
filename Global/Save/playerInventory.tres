@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="inventory" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://inventory/invSlots.gd" id="1_fcx6c"]
+[ext_resource type="Resource" path="res://inventory/items/potion.tres" id="2_jhgpg"]
+[ext_resource type="Resource" path="res://inventory/items/basicCaptureCard.tres" id="3_u0qo8"]
+[ext_resource type="Script" path="res://inventory/inventoryMain.gd" id="4_oauty"]
+
+[sub_resource type="Resource" id="Resource_m83ba"]
+script = ExtResource("1_fcx6c")
+_item = ExtResource("2_jhgpg")
+amount = 3
+
+[sub_resource type="Resource" id="Resource_fl20x"]
+script = ExtResource("1_fcx6c")
+_item = ExtResource("3_u0qo8")
+amount = 2
+
+[resource]
+script = ExtResource("4_oauty")
+list = Array[ExtResource("1_fcx6c")]([SubResource("Resource_m83ba"), SubResource("Resource_fl20x")])
+monsterlist = []

@@ -10,11 +10,9 @@ const scene_type = 1
 @onready var _player_body = $Player
 @onready var _cave_entrance = $CaveEntrance
 @onready var _forest_entrance = $ForestEntrance
-var rng = RandomNumberGenerator.new()
-var _spawned_npc  
 var spawn_request
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	inv.drops = drops
 	AudioPlayer.play_music_level("fieldOverworld")
@@ -25,13 +23,34 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Forest/Forest.tscn":
 		_player_body.position = _forest_entrance.position + Vector2(20,0)
 
-func _input(_event):
+#func _input(_event):
 	#if Input.is_action_pressed("ui_cancel"):
-		#var monInvSc = preload("res://Global/monManager.tscn").instantiate()
-		#get_node("Player").add_child(monInvSc)
-	pass
+		#await (get_tree().create_timer(0.1).timeout)
+		#main_menu()
 
+#func main_menu():
+	#var mainMenuScene = load("res://Global/mainMenu.tscn").instantiate()
+	#get_node("Player").get_node("Camera2D").enabled = false
+	#get_parent().add_child(mainMenuScene)
+	#get_tree().paused = true
 		
+func _on_forest_entrance_body_entered(body: Node2D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/Forest/Forest.tscn")
+		
+func _on_cave_entrance_body_entered(body: Node2D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/Cave/cave_001.tscn")
+
+
+
+
+
+
+
+
+
+
 
 #func _spawn_npc():
 	#if is_instance_valid($NPC_spawn):
@@ -57,11 +76,3 @@ func _input(_event):
 #func _despawn_npc(npc):
 	#get_node(npc).queue_free()
 	#activeSpawns.erase(npc)
-
-func _on_forest_entrance_body_entered(body: Node2D) -> void:
-	if body.name == _player_body.name:
-		sceneManager.goto_scene("res://Scenes/Forest/Forest.tscn")
-		
-func _on_cave_entrance_body_entered(body: Node2D) -> void:
-	if body.name == _player_body.name:
-		sceneManager.goto_scene("res://Scenes/Cave/cave_001.tscn")
