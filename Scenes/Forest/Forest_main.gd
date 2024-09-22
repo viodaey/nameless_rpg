@@ -22,37 +22,7 @@ func _ready() -> void:
 
 
 func _input(_event):
-	if Input.is_action_pressed("ui_cancel"):
-		await (get_tree().create_timer(0.3).timeout)
-		main_menu()
-
-	#pass
-func main_menu():
-	var mainMenuScene = load("res://Global/mainMenu.tscn").instantiate()
-	get_node("Player").get_node("Camera2D").enabled = false
-	add_child(mainMenuScene)
-	get_tree().paused = true
-
-#func _spawn_npc():
-	#if is_instance_valid($NPC_spawn):
-		#print("tried to spawn but valid instance found")
-	#else:
-		#var rng = RandomNumberGenerator.new()
-		#var enemy_select = rng.randi_range(1,len(world_enemies))
-		#var angle = rng.randi_range(0, TAU)
-		#var distance = rng.randi_range(80, 130)
-		#_player_body.get_node("RayCast2D").target_position += Vector2(distance*cos(angle), distance*sin(angle))
-		#if _player_body.get_node("RayCast2D") .is_colliding():
-			#_spawn_npc()
-		#else:
-			#spawn_request = load(world_enemies[enemy_select - 1].resource_path)
-			#add_child(spawn.duplicate())
-			#_spawned_npc = $NPC_spawn
-			#_spawned_npc.position = _player_body.position + Vector2(distance*cos(angle), distance*sin(angle))
-#
-#func _despawn_npc():
-	#_spawned_npc.queue_free()
-
+	pass
 
 func _on_forest_exit_body_entered(body: Node2D) -> void:
 	if body.name == _player_body.name:

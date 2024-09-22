@@ -25,6 +25,7 @@ func _deferred_goto_scene(path):
 	current_scene = s.instantiate()
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
+	MainMenu.map_scene = current_scene
 
 	
 	

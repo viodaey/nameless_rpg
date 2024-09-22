@@ -23,16 +23,16 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Forest/Forest.tscn":
 		_player_body.position = _forest_entrance.position + Vector2(20,0)
 
-func _input(_event):
-	if Input.is_action_pressed("ui_cancel"):
-		await (get_tree().create_timer(0.1).timeout)
-		main_menu()
+#func _input(_event):
+	#if Input.is_action_pressed("ui_cancel"):
+		#await (get_tree().create_timer(0.1).timeout)
+		#main_menu()
 
-func main_menu():
-	var mainMenuScene = load("res://Global/mainMenu.tscn").instantiate()
-	get_node("Player").get_node("Camera2D").enabled = false
-	add_child(mainMenuScene)
-	get_tree().paused = true
+#func main_menu():
+	#var mainMenuScene = load("res://Global/mainMenu.tscn").instantiate()
+	#get_node("Player").get_node("Camera2D").enabled = false
+	#get_parent().add_child(mainMenuScene)
+	#get_tree().paused = true
 		
 func _on_forest_entrance_body_entered(body: Node2D) -> void:
 	if body.name == _player_body.name:

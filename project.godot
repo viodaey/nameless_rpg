@@ -21,6 +21,7 @@ player="*res://Global/player.gd"
 sceneManager="*res://Global/sceneManager.gd"
 AudioPlayer="*res://Global/audio_player.tscn"
 inv="*res://Global/invManager.gd"
+MainMenu="*res://Global/mainMenu.tscn"
 
 [display]
 

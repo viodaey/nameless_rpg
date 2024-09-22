@@ -33,7 +33,7 @@ func _on_gui_focus_changed(node: Node) -> void:
 func _input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		await get_tree().create_timer(0.03).timeout
-		self.get_parent().main_menu()
+		MainMenu.visible = true
 		self.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
