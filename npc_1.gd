@@ -25,7 +25,6 @@ func _physics_process(delta: float):
 		if not move_to_attack:
 			target_position = (player_position - position).normalized()
 			velocity = target_position * speed
-			#move_to_attack
 			_animated_sprite.play("run")
 			if player_position[0] - position[0] > 0:
 				_animated_sprite.flip_h = 1
@@ -35,7 +34,6 @@ func _physics_process(delta: float):
 		elif move_to_attack.get_collider() != _player_body:
 			target_position = (player_position - position).normalized()
 			velocity = target_position * speed
-			#move_to_attack
 			_animated_sprite.play("run")
 			if player_position[0] - position[0] > 0:
 				_animated_sprite.flip_h = 1
@@ -50,7 +48,7 @@ func _physics_process(delta: float):
 		_animated_sprite.play("idle")
 		velocity = Vector2(0,0)
 	if position.distance_to(player_position) > 250:
-		_player_body._despawn_npc(self.get_path())	
+		_player_body._despawn_npc(self.get_path())
 		
 func initiate_battle():
 	position = neutral_pos

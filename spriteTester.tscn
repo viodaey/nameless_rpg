@@ -1,89 +1,21 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5qmhq1tofh5x"]
+[gd_scene load_steps=5 format=3 uid="uid://b5qmhq1tofh5x"]
 
-[ext_resource type="Texture2D" uid="uid://bwptoht8nkv2x" path="res://textures/Mobs/Fire_pixie_evo_1_Idle_movementcheck.png" id="1_q7cl2"]
+[ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://textures/Mobs/Earthwolf_evo2_txt.png" id="1_3bpcc"]
 [ext_resource type="Texture2D" uid="uid://d1ykbj821uir1" path="res://textures/Mobs/Mobs+Idle Movement/Skeletal warrior Evo 1.png" id="2_52ya0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rfwjh"]
-atlas = ExtResource("1_q7cl2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b70o"]
+atlas = ExtResource("1_3bpcc")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lhytq"]
-atlas = ExtResource("1_q7cl2")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_immkf"]
-atlas = ExtResource("1_q7cl2")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ul8e3"]
-atlas = ExtResource("1_q7cl2")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c7e3q"]
-atlas = ExtResource("1_q7cl2")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sbhlu"]
-atlas = ExtResource("1_q7cl2")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nddvi"]
-atlas = ExtResource("1_q7cl2")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ql1x2"]
-atlas = ExtResource("1_q7cl2")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e6p1s"]
-atlas = ExtResource("1_q7cl2")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ge308"]
-atlas = ExtResource("1_q7cl2")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0s6h0"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_s6fof"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rfwjh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lhytq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_immkf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ul8e3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c7e3q")
+"texture": SubResource("AtlasTexture_4b70o")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"default",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sbhlu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nddvi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ql1x2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e6p1s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ge308")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
 }]
 
 [node name="Node2D" type="Node2D"]
@@ -91,24 +23,22 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(80, 80)
-sprite_frames = SubResource("SpriteFrames_0s6h0")
-animation = &"run"
-frame_progress = 0.17851
+sprite_frames = SubResource("SpriteFrames_s6fof")
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
 "o_ex_p": "",
 "o_folder": "",
-"o_name": "",
+"o_name": "Earthwolf_evo2_txt",
 "only_visible": false,
 "slice": "",
-"source": "res://textures/Mobs/FirePixie Evo 1.aseprite"
+"source": "res://textures/Mobs/Mobs+Idle Movement/Earthwolf Evo 2.aseprite"
 }
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "output_section": true,
 "slice_section": true
 }
-metadata/_aseprite_wizard_source_file_hash_ = "27a8284de24b8dd861539d2beada155e"
+metadata/_aseprite_wizard_source_file_hash_ = "b1d34ad3e13d75f3f1466dbef7352f1c"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1

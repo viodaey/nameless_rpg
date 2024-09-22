@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Global/Classes/_Classes.gd" id="1_ug3tj"]
 
 [resource]
+resource_name = "Normy"
 script = ExtResource("1_ug3tj")
 _classname = "Normy"
 base_hp = 40

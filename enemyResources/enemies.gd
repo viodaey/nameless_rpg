@@ -1,6 +1,7 @@
 extends Resource
 
 class_name Enemy
+const normy = preload("res://Global/Classes/Normy.tres") 
 
 @export var _name: String = "Enemy"
 @export var texture: Texture = null
@@ -25,7 +26,7 @@ class_name Enemy
 @export var friends: Array [String]
 @export var battle_scale_vec: Vector2 = Vector2(1,1)
 @export var battle_y_sep: int = 0
-@export var _class: _Class
+@export var _class: _Class = normy
 @export var lvl: int = 1
 @export var atb: int = 110
 @export var max_health: int
