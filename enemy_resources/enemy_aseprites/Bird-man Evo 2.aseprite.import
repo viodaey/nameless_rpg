@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cksjl24b6cla8"
+path="res://.godot/imported/Bird-man Evo 2.aseprite-3bc8711875f98766764a37e720bca638.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Bird-man Evo 2.aseprite"
+dest_files=["res://.godot/imported/Bird-man Evo 2.aseprite-3bc8711875f98766764a37e720bca638.res"]
+
+[params]
+

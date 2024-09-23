@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c6pxig4vmm1t5"
+path="res://.godot/imported/Icewolf Evo 1 Move Left .aseprite-9a6e5f2bea4feeee9ae544bcb6953b7a.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Icewolf Evo 1 Move Left .aseprite"
+dest_files=["res://.godot/imported/Icewolf Evo 1 Move Left .aseprite-9a6e5f2bea4feeee9ae544bcb6953b7a.res"]
+
+[params]
+

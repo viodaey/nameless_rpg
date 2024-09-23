@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bhyh5k21u0y3f"
+path="res://.godot/imported/WaterPixie Evo 2.aseprite-d24db23d37c85185b5aefe794832a923.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/WaterPixie Evo 2.aseprite"
+dest_files=["res://.godot/imported/WaterPixie Evo 2.aseprite-d24db23d37c85185b5aefe794832a923.res"]
+
+[params]
+

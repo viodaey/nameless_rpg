@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://dkbwfc1rxwgmn"]
+
+[ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_lww2v"]
+[ext_resource type="SpriteFrames" uid="uid://dwwjdf0gv8nii" path="res://enemy_resources/enemy_spriteframes/Warbear_Evo_1sf.tres" id="2_e5i2p"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="3_1x5y2"]
+[ext_resource type="Texture2D" uid="uid://j8qc7x3ro7dg" path="res://enemy_resources/enemy_texturefiles/idle+movement/ursidae/Warbear Evo 1.png" id="4_pxp3y"]
+
+[resource]
+script = ExtResource("3_1x5y2")
+_name = "Warbear"
+texture = ExtResource("4_pxp3y")
+health = 40.0
+damage = 11.0
+critc = 5
+xp = 10
+speed = 40
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = ExtResource("2_e5i2p")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 0.4
+max_group_size = 3
+min_group_size = 1
+friends = Array[String]([])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("1_lww2v")
+lvl = 1
+atb = 110

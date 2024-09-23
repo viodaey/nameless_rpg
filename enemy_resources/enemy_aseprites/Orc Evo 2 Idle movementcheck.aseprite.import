@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dstnagxl1yscl"
+path="res://.godot/imported/Orc Evo 2 Idle movementcheck.aseprite-8ffaf174701649b9aa96e071afcb4948.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Orc Evo 2 Idle movementcheck.aseprite"
+dest_files=["res://.godot/imported/Orc Evo 2 Idle movementcheck.aseprite-8ffaf174701649b9aa96e071afcb4948.res"]
+
+[params]
+

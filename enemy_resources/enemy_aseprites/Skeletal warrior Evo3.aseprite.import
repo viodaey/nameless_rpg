@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://u3gxa0k002s2"
+path="res://.godot/imported/Skeletal warrior Evo3.aseprite-de77e13aba4cb1c4b30a874630497632.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Skeletal warrior Evo3.aseprite"
+dest_files=["res://.godot/imported/Skeletal warrior Evo3.aseprite-de77e13aba4cb1c4b30a874630497632.res"]
+
+[params]
+

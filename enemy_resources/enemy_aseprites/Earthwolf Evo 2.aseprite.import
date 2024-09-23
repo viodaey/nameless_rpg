@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://3oa2hi6livhh"
+path="res://.godot/imported/Earthwolf Evo 2.aseprite-ba1a43520210dfed271e610ec1936899.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Earthwolf Evo 2.aseprite"
+dest_files=["res://.godot/imported/Earthwolf Evo 2.aseprite-ba1a43520210dfed271e610ec1936899.res"]
+
+[params]
+

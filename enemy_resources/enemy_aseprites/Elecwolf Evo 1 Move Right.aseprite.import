@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cfsh1v85uoki8"
+path="res://.godot/imported/Elecwolf Evo 1 Move Right.aseprite-0d1950bd6be68c70749812a40fc8d5af.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Elecwolf Evo 1 Move Right.aseprite"
+dest_files=["res://.godot/imported/Elecwolf Evo 1 Move Right.aseprite-0d1950bd6be68c70749812a40fc8d5af.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://7adoc6k82ma8"
+path="res://.godot/imported/Icewolf Evo 1.aseprite-42cf0a0c05d778e82116cc60e5c75ec4.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Icewolf Evo 1.aseprite"
+dest_files=["res://.godot/imported/Icewolf Evo 1.aseprite-42cf0a0c05d778e82116cc60e5c75ec4.res"]
+
+[params]
+

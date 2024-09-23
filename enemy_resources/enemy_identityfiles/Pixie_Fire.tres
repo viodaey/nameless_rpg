@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=16 format=3 uid="uid://bfltr74e5lteg"]
+
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_76vxc"]
+[ext_resource type="Resource" uid="uid://di86w42qhyu3s" path="res://Global/Classes/Mage.tres" id="1_ku7sv"]
+[ext_resource type="Texture2D" uid="uid://bwptoht8nkv2x" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Fire_pixie_evo_1_Idle_movementcheck.png" id="2_3so0q"]
+[ext_resource type="Texture2D" uid="uid://cwfwq8pylo4o3" path="res://enemy_resources/enemy_texturefiles/idle+movement/FirePixie Evo 1.png" id="4_d17ne"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oijt"]
+atlas = ExtResource("2_3so0q")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h333h"]
+atlas = ExtResource("2_3so0q")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6ewr"]
+atlas = ExtResource("2_3so0q")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf01c"]
+atlas = ExtResource("2_3so0q")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etc0h"]
+atlas = ExtResource("2_3so0q")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c481"]
+atlas = ExtResource("2_3so0q")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2wq0"]
+atlas = ExtResource("2_3so0q")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1qxi"]
+atlas = ExtResource("2_3so0q")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocy1i"]
+atlas = ExtResource("2_3so0q")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ybm3"]
+atlas = ExtResource("2_3so0q")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_erado"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oijt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h333h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6ewr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf01c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etc0h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c481")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2wq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1qxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocy1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ybm3")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_76vxc")
+_name = "Fire Pixie"
+texture = ExtResource("4_d17ne")
+evo_lvl = 9000
+health = 40.0
+base_health = 30.0
+damage = 12.0
+critc = 5
+xp = 10
+speed = 50
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = SubResource("SpriteFrames_erado")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 0.4
+max_group_size = 3
+min_group_size = 1
+friends = Array[String]([])
+battle_scale_vec = Vector2(0.6, 0.6)
+battle_y_sep = 0
+_class = ExtResource("1_ku7sv")
+lvl = 1
+atb = 110
+max_health = 0

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cu6uy72nb6vx"
+path="res://.godot/imported/Skeletal Mage Evo1.aseprite-2a534df504d925cd44d9fd6836901af4.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Skeletal Mage Evo1.aseprite"
+dest_files=["res://.godot/imported/Skeletal Mage Evo1.aseprite-2a534df504d925cd44d9fd6836901af4.res"]
+
+[params]
+

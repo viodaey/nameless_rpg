@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dqhf2dkfvfctu"
+path="res://.godot/imported/Sprite-0001 roy test Wolf Fire.aseprite-c1400b7d00514983bf08dce0a72ec394.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Sprite-0001 roy test Wolf Fire.aseprite"
+dest_files=["res://.godot/imported/Sprite-0001 roy test Wolf Fire.aseprite-c1400b7d00514983bf08dce0a72ec394.res"]
+
+[params]
+

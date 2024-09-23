@@ -1,0 +1,10 @@
+[gd_resource type="CanvasTexture" load_steps=4 format=3 uid="uid://b8uefsykva2cc"]
+
+[ext_resource type="Texture2D" uid="uid://cis26e3x6uudr" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Icewolf Evo 2.png" id="1_bkeon"]
+[ext_resource type="Texture2D" uid="uid://cy36ynr7b5x4s" path="res://enemy_resources/enemy_texturefiles/idle+movement/Icewolf Evo 2_n.png" id="2_guown"]
+[ext_resource type="Texture2D" uid="uid://dmsjmgpcuy5i3" path="res://enemy_resources/enemy_texturefiles/idle+movement/Icewolf Evo 2_s.png" id="3_lklwc"]
+
+[resource]
+diffuse_texture = ExtResource("1_bkeon")
+normal_texture = ExtResource("2_guown")
+specular_texture = ExtResource("3_lklwc")

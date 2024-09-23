@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://4mae2142cqix"
+path="res://.godot/imported/Sprite-0001 roy test Demon Ice.aseprite-408e21412d737c5d6a1f86d7208a33af.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/ele demon/Sprite-0001 roy test Demon Ice.aseprite"
+dest_files=["res://.godot/imported/Sprite-0001 roy test Demon Ice.aseprite-408e21412d737c5d6a1f86d7208a33af.res"]
+
+[params]
+
