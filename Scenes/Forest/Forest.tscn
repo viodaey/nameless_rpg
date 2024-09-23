@@ -418,7 +418,7 @@ rotation = -0.0733038
 scale = Vector2(0.32, 0.32)
 sprite_frames = ExtResource("6_qxf6a")
 animation = &"idle"
-frame_progress = 0.784857
+frame_progress = 0.81526
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": false,
 "output_section": false
@@ -430,14 +430,14 @@ rotation = -0.0733038
 scale = Vector2(0.316407, 0.273437)
 sprite_frames = ExtResource("7_16gu4")
 animation = &"idle"
-frame_progress = 0.0325066
+frame_progress = 0.0629094
 
 [node name="scen1orcteen" type="AnimatedSprite2D" parent="ForestExit"]
 position = Vector2(-244.52, -265.725)
 scale = Vector2(0.253906, 0.308594)
 sprite_frames = ExtResource("8_w6pyy")
 animation = &"idle"
-frame_progress = 0.782956
+frame_progress = 0.813359
 flip_h = true
 
 [node name="scen1orcbaby1" type="AnimatedSprite2D" parent="ForestExit"]

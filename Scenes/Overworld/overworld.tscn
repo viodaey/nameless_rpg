@@ -477,7 +477,7 @@ position = Vector2(119.5, 174.469)
 scale = Vector2(0.0244141, 0.0302125)
 sprite_frames = ExtResource("17_ueu4w")
 animation = &"idle"
-frame_progress = 0.299107
+frame_progress = 0.457803
 
 [node name="ForestEntrance" type="Area2D" parent="."]
 position = Vector2(14, 587)

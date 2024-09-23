@@ -1,21 +1,21 @@
 [gd_resource type="Resource" script_class="inventory" load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://inventory/invSlots.gd" id="1_fx8ua"]
-[ext_resource type="Resource" path="res://inventory/items/potion.tres" id="2_4nhlp"]
-[ext_resource type="Resource" path="res://inventory/items/basicCaptureCard.tres" id="3_qtyhh"]
-[ext_resource type="Script" path="res://inventory/inventoryMain.gd" id="4_iiws8"]
+[ext_resource type="Script" path="res://inventory/invSlots.gd" id="1_ktdpc"]
+[ext_resource type="Resource" path="res://inventory/items/potion.tres" id="2_afh02"]
+[ext_resource type="Resource" path="res://inventory/items/basicCaptureCard.tres" id="3_m6k0k"]
+[ext_resource type="Script" path="res://inventory/inventoryMain.gd" id="4_70u0s"]
 
 [sub_resource type="Resource" id="Resource_m83ba"]
-script = ExtResource("1_fx8ua")
-_item = ExtResource("2_4nhlp")
+script = ExtResource("1_ktdpc")
+_item = ExtResource("2_afh02")
 amount = 3
 
 [sub_resource type="Resource" id="Resource_fl20x"]
-script = ExtResource("1_fx8ua")
-_item = ExtResource("3_qtyhh")
+script = ExtResource("1_ktdpc")
+_item = ExtResource("3_m6k0k")
 amount = 2
 
 [resource]
-script = ExtResource("4_iiws8")
-list = Array[ExtResource("1_fx8ua")]([SubResource("Resource_m83ba"), SubResource("Resource_fl20x")])
+script = ExtResource("4_70u0s")
+list = Array[ExtResource("1_ktdpc")]([SubResource("Resource_m83ba"), SubResource("Resource_fl20x")])
 monsterlist = []
