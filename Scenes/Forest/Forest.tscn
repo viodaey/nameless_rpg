@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://dabp5cxdcoql3"]
+[gd_scene load_steps=54 format=4 uid="uid://dabp5cxdcoql3"]
 
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="1_31bpk"]
 [ext_resource type="Script" path="res://src/ow_player_body.gd" id="2_tgy2r"]
@@ -8,6 +8,7 @@
 [ext_resource type="SpriteFrames" uid="uid://be0locne7c2dw" path="res://enemy_resources/enemy_spriteframes/Waterwolf_Evo_1sf.tres" id="7_16gu4"]
 [ext_resource type="SpriteFrames" uid="uid://0bkl6b38521f" path="res://enemy_resources/enemy_spriteframes/orc_teen_sf.tres" id="8_w6pyy"]
 [ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemy_resources/enemy_spriteframes/orc_baby_sf.tres" id="9_cti20"]
+[ext_resource type="SpriteFrames" uid="uid://djk8gh7hhiy1q" path="res://enemy_resources/enemy_spriteframes/Pixie_Water_Evo_1sf.tres" id="9_pqagv"]
 [ext_resource type="SpriteFrames" uid="uid://c5sruigmjquto" path="res://enemy_resources/enemy_spriteframes/Pixie_Fire_Evo_1sf.tres" id="10_0paa1"]
 
 [sub_resource type="GDScript" id="GDScript_2wjhe"]
@@ -416,57 +417,56 @@ position = Vector2(4.47998, -0.724976)
 scale = Vector2(3.60262, 1.46176)
 shape = SubResource("RectangleShape2D_8ipso")
 
-[node name="scen1firewolf" type="AnimatedSprite2D" parent="."]
-position = Vector2(938, 271)
+[node name="scen1firewolf" type="AnimatedSprite2D" parent="ForestExit"]
+position = Vector2(-200.52, -272.725)
 rotation = -0.0733038
 scale = Vector2(0.32, 0.32)
 sprite_frames = ExtResource("6_qxf6a")
 animation = &"idle"
-frame_progress = 0.234054
+frame_progress = 0.323895
 
-[node name="scen1waterwolf" type="AnimatedSprite2D" parent="."]
-position = Vector2(946, 281)
+[node name="scen1waterwolf" type="AnimatedSprite2D" parent="ForestExit"]
+position = Vector2(-192.52, -262.725)
 rotation = -0.0733038
 scale = Vector2(0.316407, 0.273437)
 sprite_frames = ExtResource("7_16gu4")
 animation = &"idle"
-frame_progress = 0.0823725
+frame_progress = 0.172212
 
-[node name="scen1orcteen" type="AnimatedSprite2D" parent="."]
-position = Vector2(896.25, 282.375)
+[node name="scen1orcteen" type="AnimatedSprite2D" parent="ForestExit"]
+position = Vector2(-242.27, -261.35)
 scale = Vector2(0.23828, 0.271484)
 sprite_frames = ExtResource("8_w6pyy")
 animation = &"idle"
-frame_progress = 0.64384
+frame_progress = 0.733681
 flip_h = true
 
-[node name="scen1orcbaby1" type="AnimatedSprite2D" parent="."]
-position = Vector2(903, 333)
+[node name="scen1orcbaby1" type="AnimatedSprite2D" parent="ForestExit"]
+position = Vector2(-235.52, -210.725)
 scale = Vector2(0.232422, 0.261719)
 sprite_frames = ExtResource("9_cti20")
 animation = &"idle"
-frame_progress = 0.349718
+frame_progress = 0.439559
 
-[node name="scen1orcbaby2" type="AnimatedSprite2D" parent="."]
-position = Vector2(921, 332)
+[node name="scen1orcbaby2" type="AnimatedSprite2D" parent="ForestExit"]
+position = Vector2(-217.52, -211.725)
 scale = Vector2(0.238653, 0.277947)
 sprite_frames = ExtResource("9_cti20")
 animation = &"idle"
-frame_progress = 0.327482
+frame_progress = 0.417323
 flip_h = true
 
-[node name="scen1waterpixienogaanpassen" type="AnimatedSprite2D" parent="."]
-position = Vector2(961.188, 252.75)
+[node name="scen1waterpixienogaanpassen" type="AnimatedSprite2D" parent="ForestExit"]
+position = Vector2(-177.332, -290.975)
 scale = Vector2(0.231445, 0.214844)
-sprite_frames = ExtResource("10_0paa1")
+sprite_frames = ExtResource("9_pqagv")
 animation = &"idle"
-frame_progress = 0.444701
 
-[node name="scen1firepixie" type="AnimatedSprite2D" parent="."]
-position = Vector2(941, 250)
+[node name="scen1firepixie" type="AnimatedSprite2D" parent="ForestExit"]
+position = Vector2(-197.52, -293.725)
 scale = Vector2(0.226562, 0.242187)
 sprite_frames = ExtResource("10_0paa1")
 animation = &"run"
-frame_progress = 0.116188
+frame_progress = 0.198465
 
 [connection signal="body_entered" from="ForestExit" to="." method="_on_forest_exit_body_entered"]
