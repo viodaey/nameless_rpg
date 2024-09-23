@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5qmhq1tofh5x"]
 
-[ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://enemy_resources/enemy_texturefiles/idle+movement/Earthwolf_evo2_txt.png" id="1_3bpcc"]
-[ext_resource type="Texture2D" uid="uid://d1ykbj821uir1" path="res://enemy_resources/enemy_texturefiles/idle+movement/Skeletal warrior Evo 1.png" id="2_52ya0"]
+[ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Earthwolf2.png" id="1_3bpcc"]
+[ext_resource type="Texture2D" uid="uid://d1ykbj821uir1" path="res://enemy_resources/enemy_texturefiles/idle+movement/humans/Skeletal warrior Evo 1.png" id="2_52ya0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4b70o"]
 atlas = ExtResource("1_3bpcc")

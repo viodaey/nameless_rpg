@@ -2,9 +2,9 @@
 
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_5wcti"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_glvlr"]
-[ext_resource type="Texture2D" uid="uid://y4jauqgsa71h" path="res://enemy_resources/enemy_texturefiles/idle+movement/Earthwolf Evo 2 Idle movementcheck.png" id="2_6j1eh"]
-[ext_resource type="Texture2D" uid="uid://df03rjhnsnqm2" path="res://enemy_resources/enemy_texturefiles/idle+movement/Earthwolf Evo 1 Idle movementcheck.png" id="2_tcchn"]
-[ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://enemy_resources/enemy_texturefiles/idle+movement/Earthwolf_evo2_txt.png" id="5_jvhv3"]
+[ext_resource type="Texture2D" uid="uid://y4jauqgsa71h" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Earthwolf2_idle.png" id="2_6j1eh"]
+[ext_resource type="Texture2D" uid="uid://df03rjhnsnqm2" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Earthwolf1_idle.png" id="2_tcchn"]
+[ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Earthwolf2.png" id="5_jvhv3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1y34"]
 atlas = ExtResource("2_6j1eh")

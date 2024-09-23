@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_2dpwv"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_e3sfw"]
 [ext_resource type="SpriteFrames" uid="uid://da4a3tqobc1rd" path="res://enemy_resources/enemy_spriteframes/Birdman_Evo_1sf.tres" id="2_kutm6"]
-[ext_resource type="Texture2D" uid="uid://t6kd7wrlxyf4" path="res://enemy_resources/enemy_texturefiles/idle+movement/Bird-man1.png" id="4_55vqi"]
+[ext_resource type="Texture2D" uid="uid://t6kd7wrlxyf4" path="res://enemy_resources/enemy_texturefiles/idle+movement/ornis/Bird-man1.png" id="4_55vqi"]
 
 [resource]
 script = ExtResource("1_e3sfw")

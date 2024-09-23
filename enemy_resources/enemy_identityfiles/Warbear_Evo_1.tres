@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_lww2v"]
 [ext_resource type="SpriteFrames" uid="uid://dwwjdf0gv8nii" path="res://enemy_resources/enemy_spriteframes/Warbear_Evo_1sf.tres" id="2_e5i2p"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="3_1x5y2"]
-[ext_resource type="Texture2D" uid="uid://j8qc7x3ro7dg" path="res://enemy_resources/enemy_texturefiles/idle+movement/Warbear Evo 1.png" id="4_pxp3y"]
+[ext_resource type="Texture2D" uid="uid://j8qc7x3ro7dg" path="res://enemy_resources/enemy_texturefiles/idle+movement/ursidae/Warbear Evo 1.png" id="4_pxp3y"]
 
 [resource]
 script = ExtResource("3_1x5y2")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_76vxc"]
 [ext_resource type="Resource" uid="uid://di86w42qhyu3s" path="res://Global/Classes/Mage.tres" id="1_ku7sv"]
-[ext_resource type="Texture2D" uid="uid://bwptoht8nkv2x" path="res://enemy_resources/enemy_texturefiles/idle+movement/Fire_pixie_evo_1_Idle_movementcheck.png" id="2_3so0q"]
+[ext_resource type="Texture2D" uid="uid://bwptoht8nkv2x" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Fire_pixie_evo_1_Idle_movementcheck.png" id="2_3so0q"]
 [ext_resource type="Texture2D" uid="uid://cwfwq8pylo4o3" path="res://enemy_resources/enemy_texturefiles/idle+movement/FirePixie Evo 1.png" id="4_d17ne"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1oijt"]
