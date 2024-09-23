@@ -446,7 +446,8 @@ rotation = -0.0733038
 scale = Vector2(0.32, 0.32)
 sprite_frames = ExtResource("6_qxf6a")
 animation = &"idle"
-frame_progress = 0.634723
+autoplay = "idle"
+frame_progress = 0.321181
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": false,
 "output_section": false
@@ -458,14 +459,16 @@ rotation = -0.0733038
 scale = Vector2(0.316407, 0.273437)
 sprite_frames = ExtResource("7_16gu4")
 animation = &"idle"
-frame_progress = 0.445943
+autoplay = "idle"
+frame_progress = 0.655166
 
 [node name="scen1orcteen" type="AnimatedSprite2D" parent="ForestExit"]
 position = Vector2(-221.52, -257.725)
 scale = Vector2(0.253906, 0.308594)
 sprite_frames = ExtResource("8_w6pyy")
 animation = &"idle"
-frame_progress = 0.813359
+autoplay = "idle"
+frame_progress = 0.547617
 flip_h = true
 
 [node name="scen1orcbaby1" type="AnimatedSprite2D" parent="ForestExit"]
@@ -473,29 +476,33 @@ position = Vector2(-237.52, -214.725)
 scale = Vector2(0.232422, 0.261719)
 sprite_frames = ExtResource("9_cti20")
 animation = &"idle"
-frame_progress = 0.439559
+autoplay = "idle"
+frame_progress = 0.136595
 
 [node name="scen1orcbaby3" type="AnimatedSprite2D" parent="ForestExit"]
 position = Vector2(-223.52, -214.725)
 scale = Vector2(0.232422, 0.261719)
 sprite_frames = ExtResource("9_cti20")
 animation = &"idle"
-frame_progress = 0.439559
+autoplay = "idle"
+frame_progress = 0.163428
 flip_h = true
 
 [node name="scen1orcbaby4" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-213.52, -207.725)
+position = Vector2(-214.52, -205.725)
 scale = Vector2(0.232422, 0.261719)
 sprite_frames = ExtResource("9_cti20")
 animation = &"idle"
-frame_progress = 0.439559
+autoplay = "idle"
+frame_progress = 0.718307
 
 [node name="scen1orcbaby2" type="AnimatedSprite2D" parent="ForestExit"]
 position = Vector2(-233.52, -206.725)
 scale = Vector2(0.238653, 0.277947)
 sprite_frames = ExtResource("9_cti20")
 animation = &"idle"
-frame_progress = 0.417323
+autoplay = "idle"
+frame_progress = 0.845798
 flip_h = true
 
 [node name="scen1waterpixienogaanpassen" type="AnimatedSprite2D" parent="ForestExit"]
@@ -503,20 +510,23 @@ position = Vector2(-165.52, -301.725)
 scale = Vector2(0.231445, 0.214844)
 sprite_frames = ExtResource("9_pqagv")
 animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.167129
 
 [node name="scen1firepixie" type="AnimatedSprite2D" parent="ForestExit"]
 position = Vector2(-190.52, -302.725)
 scale = Vector2(0.226562, 0.242187)
 sprite_frames = ExtResource("10_0paa1")
-animation = &"run"
-frame_progress = 0.225186
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.881876
 
 [node name="scen1orc_text" type="Label" parent="."]
 visible = false
-offset_left = 994.0
-offset_top = 366.0
-offset_right = 1118.0
-offset_bottom = 431.0
+offset_left = 999.0
+offset_top = 360.0
+offset_right = 1123.0
+offset_bottom = 425.0
 size_flags_stretch_ratio = 0.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
