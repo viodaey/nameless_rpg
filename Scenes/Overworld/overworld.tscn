@@ -461,8 +461,8 @@ texture = ExtResource("16_qf6cj")
 
 [node name="Rowboat" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(127.355, 202.715)
-scale = Vector2(0.349304, 0.207581)
+position = Vector2(123.855, 204.715)
+scale = Vector2(0.403988, 0.23883)
 texture = ExtResource("17_72c7u")
 
 [node name="Dock" type="Sprite2D" parent="."]
@@ -479,8 +479,8 @@ texture = ExtResource("18_7rk37")
 
 [node name="Hooded Figure" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(119.5, 174.469)
-scale = Vector2(0.0244141, 0.0302125)
+position = Vector2(119, 173.969)
+scale = Vector2(0.0253906, 0.0311892)
 sprite_frames = ExtResource("17_ueu4w")
 animation = &"idle"
 frame_progress = 0.457803
