@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dvwuufca45uxn"
+path="res://.godot/imported/FirePixie Evo 1.aseprite-b95bdd874720e758bc799c3794fdde9e.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/FirePixie Evo 1.aseprite"
+dest_files=["res://.godot/imported/FirePixie Evo 1.aseprite-b95bdd874720e758bc799c3794fdde9e.res"]
+
+[params]
+

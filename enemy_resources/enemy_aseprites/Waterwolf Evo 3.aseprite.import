@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://btq6ugyf8hkv7"
+path="res://.godot/imported/Waterwolf Evo 3.aseprite-995cb983eea901999c8512f3b996ae44.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Waterwolf Evo 3.aseprite"
+dest_files=["res://.godot/imported/Waterwolf Evo 3.aseprite-995cb983eea901999c8512f3b996ae44.res"]
+
+[params]
+

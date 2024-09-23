@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ew27lyemlb36"
+path="res://.godot/imported/Orc Evo 1.aseprite-7aadb9061e87f9daa16e23447f673cd2.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Orc Evo 1.aseprite"
+dest_files=["res://.godot/imported/Orc Evo 1.aseprite-7aadb9061e87f9daa16e23447f673cd2.res"]
+
+[params]
+

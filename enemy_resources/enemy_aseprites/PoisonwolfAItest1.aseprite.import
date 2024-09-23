@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bbj2c6vk0gbc8"
+path="res://.godot/imported/PoisonwolfAItest1.aseprite-d3de37f64a9836c7effe975926ed2a46.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/PoisonwolfAItest1.aseprite"
+dest_files=["res://.godot/imported/PoisonwolfAItest1.aseprite-d3de37f64a9836c7effe975926ed2a46.res"]
+
+[params]
+

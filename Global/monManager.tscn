@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://coo6an2qhahif"]
 
 [ext_resource type="LabelSettings" uid="uid://m48ou1arcktr" path="res://Global/ui_heading.tres" id="1_aato4"]
-[ext_resource type="Texture2D" uid="uid://b5f2orsf3cano" path="res://textures/Mobs/Mobs+Idle Movement/ShadowWraith2.png" id="1_d5g4i"]
+[ext_resource type="Texture2D" uid="uid://b5f2orsf3cano" path="res://enemy_resources/enemy_texturefiles/idle+movement/ShadowWraith2.png" id="1_d5g4i"]
 [ext_resource type="Script" path="res://Global/monManagerSc.gd" id="1_rfgsr"]
 [ext_resource type="Texture2D" uid="uid://6fi1fruu0f0e" path="res://textures/UI/menu_ui_test_300.png" id="2_78215"]
-[ext_resource type="Texture2D" uid="uid://6hqxyqcaal32" path="res://textures/Mobs/Firewolf_Evo_2.tres" id="2_oramg"]
+[ext_resource type="Texture2D" uid="uid://6hqxyqcaal32" path="res://enemy_resources/enemy_texturefiles/idle+movement/Firewolf_Evo_2.tres" id="2_oramg"]
 [ext_resource type="LabelSettings" uid="uid://bvrkgbk0n2lkp" path="res://Global/ui_regular.tres" id="4_ru1gb"]
 [ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="5_010gr"]
 

@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://dp2nf2e3s476e"]
+
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_hfi3l"]
+[ext_resource type="Resource" uid="uid://d3jpakoms3ml7" path="res://Global/Classes/Normy.tres" id="1_rrb2o"]
+[ext_resource type="Texture2D" uid="uid://broqcoyatuls0" path="res://enemy_resources/enemy_texturefiles/bosses/boss_11_N.png" id="2_aamxd"]
+[ext_resource type="Texture2D" uid="uid://nam14ceegehh" path="res://enemy_resources/enemy_texturefiles/bosses/boss_13_N.png" id="2_ker8k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5otb"]
+atlas = ExtResource("2_ker8k")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsqr6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5otb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5otb")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_hfi3l")
+_name = "ROY THE TERRIBLE"
+texture = ExtResource("2_aamxd")
+evo_lvl = 9000
+health = 100.0
+base_health = 30.0
+damage = 20.0
+critc = 5
+xp = 666
+speed = 1
+music = "res://musig/Battle_-_No_Way_Out.ogg"
+can_chill = false
+lifesteal = 6
+animatedSprite = SubResource("SpriteFrames_vsqr6")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 1.0
+max_group_size = 1
+min_group_size = 1
+friends = Array[String]([])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("1_rrb2o")
+lvl = 1
+atb = 110
+max_health = 0

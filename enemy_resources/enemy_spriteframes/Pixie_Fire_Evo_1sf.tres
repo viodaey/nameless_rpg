@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://c5sruigmjquto"]
+
+[ext_resource type="Texture2D" uid="uid://b5o3gxeyq07sl" path="res://enemy_resources/enemy_texturefiles/idle+movement/Fire pixie evo 1 Idle movementcheck.png" id="1_ba64f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upyx7"]
+atlas = ExtResource("1_ba64f")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psdwd"]
+atlas = ExtResource("1_ba64f")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sq6g"]
+atlas = ExtResource("1_ba64f")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlbpp"]
+atlas = ExtResource("1_ba64f")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xen4j"]
+atlas = ExtResource("1_ba64f")
+region = Rect2(512, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upyx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psdwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sq6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlbpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xen4j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upyx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psdwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sq6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlbpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xen4j")
+}],
+"loop": true,
+"name": &"run",
+"speed": 4.97
+}]

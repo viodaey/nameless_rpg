@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bxmwx76xxpojx"
+path="res://.godot/imported/Windwolf Evo 2.aseprite-72663659fcf5dfd1b77330672c9f5d85.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Windwolf Evo 2.aseprite"
+dest_files=["res://.godot/imported/Windwolf Evo 2.aseprite-72663659fcf5dfd1b77330672c9f5d85.res"]
+
+[params]
+

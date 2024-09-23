@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://caano24m8m8w3"
+path="res://.godot/imported/Earthwolf Evo 2 Idle movementcheck.aseprite-d915d174ac4dec0b87ca39244cdbc9ab.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Earthwolf Evo 2 Idle movementcheck.aseprite"
+dest_files=["res://.godot/imported/Earthwolf Evo 2 Idle movementcheck.aseprite-d915d174ac4dec0b87ca39244cdbc9ab.res"]
+
+[params]
+

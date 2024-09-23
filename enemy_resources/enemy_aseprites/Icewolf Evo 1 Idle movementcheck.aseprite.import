@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cvc368hyrusja"
+path="res://.godot/imported/Icewolf Evo 1 Idle movementcheck.aseprite-fd970336ec3f2464b4d03daa082e60bb.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Icewolf Evo 1 Idle movementcheck.aseprite"
+dest_files=["res://.godot/imported/Icewolf Evo 1 Idle movementcheck.aseprite-fd970336ec3f2464b4d03daa082e60bb.res"]
+
+[params]
+

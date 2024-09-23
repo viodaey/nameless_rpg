@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bo01q6un4cir7"
+path="res://.godot/imported/Windwolf Evo 2 Idle movementcheck.aseprite-0dfcef34d8cf37351ecf948cc618be87.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Windwolf Evo 2 Idle movementcheck.aseprite"
+dest_files=["res://.godot/imported/Windwolf Evo 2 Idle movementcheck.aseprite-0dfcef34d8cf37351ecf948cc618be87.res"]
+
+[params]
+

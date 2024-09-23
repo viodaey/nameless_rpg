@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cq2h5jf65bcke"
+path="res://.godot/imported/Centaur Evo1.aseprite-5af71602b86d72ed34a87185eb23f639.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Centaur Evo1.aseprite"
+dest_files=["res://.godot/imported/Centaur Evo1.aseprite-5af71602b86d72ed34a87185eb23f639.res"]
+
+[params]
+

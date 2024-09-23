@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://bq72ft87yg5kg"]
+
+[ext_resource type="Resource" uid="uid://d3jpakoms3ml7" path="res://Global/Classes/Normy.tres" id="1_5endy"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_gct0t"]
+[ext_resource type="SpriteFrames" uid="uid://h00a0ujcvs78" path="res://src/res_spritef_ow_canine_white.tres" id="1_lfmos"]
+[ext_resource type="Texture2D" uid="uid://ihlrkorw2pin" path="res://enemy_resources/enemy_texturefiles/bosses/boss_0_N.png" id="2_edobr"]
+
+[resource]
+resource_name = "spider"
+script = ExtResource("1_gct0t")
+_name = "Spider"
+texture = ExtResource("2_edobr")
+health = 40
+damage = 10
+critc = 5
+xp = 40
+speed = 40
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = ExtResource("1_lfmos")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 1.0
+max_group_size = 3
+min_group_size = 2
+friends = Array[String]([])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("1_5endy")
+lvl = 1
+atb = 110

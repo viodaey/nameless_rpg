@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ddhy2s44nyfgg"
+path="res://.godot/imported/Warbear Evo 1 Idle movementcheck.aseprite-7841d5a5d40166b0fa5ce90531bc873c.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Warbear Evo 1 Idle movementcheck.aseprite"
+dest_files=["res://.godot/imported/Warbear Evo 1 Idle movementcheck.aseprite-7841d5a5d40166b0fa5ce90531bc873c.res"]
+
+[params]
+
