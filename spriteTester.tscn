@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5qmhq1tofh5x"]
 
 [ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Earthwolf2.png" id="1_3bpcc"]
-[ext_resource type="Texture2D" uid="uid://d1ykbj821uir1" path="res://enemy_resources/enemy_texturefiles/idle+movement/humanoid/Skeletal warrior Evo 1.png" id="2_52ya0"]
+[ext_resource type="Texture2D" uid="uid://bv5xohluss2du" path="res://Sprite-0001 roy test Demon Earth.png" id="2_yaona"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4b70o"]
 atlas = ExtResource("1_3bpcc")
@@ -46,7 +46,7 @@ offset_left = 192.0
 offset_top = 80.0
 offset_right = 232.0
 offset_bottom = 120.0
-texture = ExtResource("2_52ya0")
+texture = ExtResource("2_yaona")
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
 "keep_anim_length": false,
@@ -57,11 +57,11 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "",
 "slice": "",
-"source": "res://textures/Mobs/Skeletal warrior Evo 1.aseprite"
+"source": "res://enemy_resources/enemy_aseprites/ele demon/Sprite-0001 roy test Demon Earth.aseprite"
 }
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "output_section": true,
 "slice_section": true
 }
-metadata/_aseprite_wizard_source_file_hash_ = "938cc60d6a975682b2bea57ebf63ddc2"
+metadata/_aseprite_wizard_source_file_hash_ = "432c396f791b7013389f46dcc34e30b1"

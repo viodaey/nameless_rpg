@@ -8,6 +8,7 @@ var last_input = "right"
 var moved : float = 0
 var activeSpawns: Array
 var move_dice : int
+var disabled_spawn : bool = false
 @onready var map = get_parent()
 
 # Called when the node enters the scene tree for the first time.
@@ -52,7 +53,7 @@ func _physics_process(_delta):
 			print("battle initiated from player")
 			get_slide_collision(i).get_collider().get_praent().initiate_battle()
 
-	if moved > move_dice:
+	if moved > move_dice and disabled_spawn == false:
 		_spawn_npc()
 		moved = 0
 		move_dice = rng.randi_range(25, 75)
@@ -62,7 +63,7 @@ func _spawn_npc():
 	var enemy_select = rng.randi_range(1,len(map.world_enemies))
 	var angle = rng.randi_range(0, TAU)
 	var distance = rng.randi_range(80, 150)
-	self.get_node("RayCast2D").target_position = get_parent().position + Vector2(distance*cos(angle), distance*sin(angle))
+	self.get_node("RayCast2D").target_position = get_parent().position + Vector2((distance+30)*cos(angle), (distance+30)*sin(angle))
 	if self.get_node("RayCast2D").is_colliding():
 		await get_tree().create_timer(0.03).timeout
 		_spawn_npc()
