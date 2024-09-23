@@ -2,9 +2,9 @@
 
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_5wcti"]
 [ext_resource type="Script" path="res://enemyResources/enemies.gd" id="1_glvlr"]
-[ext_resource type="Texture2D" uid="uid://cspbaanasq48y" path="res://textures/Mobs/Mobs+Idle Movement/Earthwolf Evo 1.png" id="2_0isjr"]
 [ext_resource type="Texture2D" uid="uid://y4jauqgsa71h" path="res://textures/Mobs/Earthwolf Evo 2 Idle movementcheck.png" id="2_6j1eh"]
 [ext_resource type="Texture2D" uid="uid://dj40lix06r60b" path="res://textures/Mobs/Mobs+Idle Movement/Earthwolf Evo 1 Idle movementcheck.png" id="2_tcchn"]
+[ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://textures/Mobs/Earthwolf_evo2_txt.png" id="5_jvhv3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1y34"]
 atlas = ExtResource("2_6j1eh")
@@ -92,7 +92,7 @@ animations = [{
 [resource]
 script = ExtResource("1_glvlr")
 _name = "Earth Wolf Alpha"
-texture = ExtResource("2_0isjr")
+texture = ExtResource("5_jvhv3")
 evo_lvl = 9000
 health = 40.0
 base_health = 40.0
