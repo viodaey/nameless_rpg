@@ -1,1 +1,1 @@
-{"current_scene":"res://Scenes/Overworld/overworld.tscn","damage":20,"filename":"player.gd","health":80,"lvl":1,"magicdmg":600,"max_health":80,"max_mp":10,"max_xp":20,"mp":10,"pos_x":659.193298339844,"pos_y":188.036209106445,"xp":0}
+{"current_scene":"res://Scenes/Overworld/overworld.tscn","damage":20,"filename":"player.gd","health":80,"lvl":1,"magicdmg":600,"max_health":80,"max_mp":10,"max_xp":20,"mp":10,"pos_x":1063.16516113281,"pos_y":529.087280273438,"xp":0}

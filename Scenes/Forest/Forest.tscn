@@ -424,6 +424,10 @@ scale = Vector2(0.32, 0.32)
 sprite_frames = ExtResource("6_qxf6a")
 animation = &"idle"
 frame_progress = 0.323895
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": false
+}
 
 [node name="scen1waterwolf" type="AnimatedSprite2D" parent="ForestExit"]
 position = Vector2(-192.52, -262.725)
@@ -467,6 +471,6 @@ position = Vector2(-197.52, -293.725)
 scale = Vector2(0.226562, 0.242187)
 sprite_frames = ExtResource("10_0paa1")
 animation = &"run"
-frame_progress = 0.198465
+frame_progress = 0.225186
 
 [connection signal="body_entered" from="ForestExit" to="." method="_on_forest_exit_body_entered"]
