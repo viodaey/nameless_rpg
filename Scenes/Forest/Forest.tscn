@@ -446,7 +446,7 @@ rotation = -0.0733038
 scale = Vector2(0.32, 0.32)
 sprite_frames = ExtResource("6_qxf6a")
 animation = &"idle"
-frame_progress = 0.922105
+frame_progress = 0.634723
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": false,
 "output_section": false
@@ -458,7 +458,7 @@ rotation = -0.0733038
 scale = Vector2(0.316407, 0.273437)
 sprite_frames = ExtResource("7_16gu4")
 animation = &"idle"
-frame_progress = 0.733324
+frame_progress = 0.445943
 
 [node name="scen1orcteen" type="AnimatedSprite2D" parent="ForestExit"]
 position = Vector2(-221.52, -257.725)
@@ -528,7 +528,6 @@ text = "    (at coord 62,23 to 69,23)
 label_settings = SubResource("LabelSettings_hd6jd")
 
 [node name="scen1waterpixie_text" type="Label" parent="scen1orc_text"]
-visible = false
 offset_left = 16.0
 offset_top = -126.0
 offset_right = 176.0
@@ -543,7 +542,6 @@ text = "    (at coord 64,16 to 69,16)
 label_settings = SubResource("LabelSettings_lu6qq")
 
 [node name="scen1firepixie_text" type="Label" parent="scen1orc_text/scen1waterpixie_text"]
-visible = false
 offset_left = 5.0
 offset_top = -47.0
 offset_right = 165.0
