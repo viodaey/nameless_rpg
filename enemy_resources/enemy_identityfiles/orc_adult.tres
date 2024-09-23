@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://b2jjy620rqbnm"]
 
 [ext_resource type="Resource" uid="uid://cvd5r1g0o1jx" path="res://Global/Classes/Bruiser.tres" id="1_1yrsc"]
-[ext_resource type="Texture2D" uid="uid://j564ccm4ffso" path="res://enemy_resources/enemy_texturefiles/humanoids/Orc_adult.png" id="1_xi4g8"]
+[ext_resource type="Texture2D" uid="uid://j564ccm4ffso" path="res://enemy_resources/enemy_texturefiles/idle+movement/humanoids/Orc_adult.png" id="1_xi4g8"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_51aog"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uxowe"]

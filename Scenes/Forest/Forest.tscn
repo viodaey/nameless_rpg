@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://dabp5cxdcoql3"]
+[gd_scene load_steps=60 format=4 uid="uid://dabp5cxdcoql3"]
 
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="1_31bpk"]
 [ext_resource type="Script" path="res://Scenes/Forest/Forest_main.gd" id="1_urbvk"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://dkbwfc1rxwgmn" path="res://enemy_resources/enemy_identityfiles/Warbear_Evo_1.tres" id="6_lnmqo"]
 [ext_resource type="SpriteFrames" uid="uid://dfu73cl600trr" path="res://enemy_resources/enemy_spriteframes/Firewolf_Evo_1sf.tres" id="6_qxf6a"]
 [ext_resource type="SpriteFrames" uid="uid://be0locne7c2dw" path="res://enemy_resources/enemy_spriteframes/Waterwolf_Evo_1sf.tres" id="7_16gu4"]
+[ext_resource type="Texture2D" uid="uid://dbpaufsf3au26" path="res://bg_art/Forest.png" id="7_t11y4"]
 [ext_resource type="SpriteFrames" uid="uid://0bkl6b38521f" path="res://enemy_resources/enemy_spriteframes/orc_teen_sf.tres" id="8_w6pyy"]
 [ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemy_resources/enemy_spriteframes/orc_baby_sf.tres" id="9_cti20"]
 [ext_resource type="SpriteFrames" uid="uid://djk8gh7hhiy1q" path="res://enemy_resources/enemy_spriteframes/Pixie_Water_Evo_1sf.tres" id="9_pqagv"]
@@ -347,6 +348,7 @@ size = Vector2(5.62465, 43.6385)
 texture_filter = 1
 script = ExtResource("1_urbvk")
 world_enemies = Array[ExtResource("2_x4t0h")]([ExtResource("3_05bn4"), ExtResource("4_5mdwq"), ExtResource("5_taf6e"), ExtResource("6_lnmqo")])
+battle_bg = ExtResource("7_t11y4")
 
 [node name="TileMapLayer_0" type="TileMapLayer" parent="."]
 z_index = -2
@@ -411,31 +413,31 @@ scale = Vector2(3.60262, 1.46176)
 shape = SubResource("RectangleShape2D_8ipso")
 
 [node name="scen1firewolf" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-200.52, -272.725)
+position = Vector2(-208.52, -267.725)
 rotation = -0.0733038
 scale = Vector2(0.32, 0.32)
 sprite_frames = ExtResource("6_qxf6a")
 animation = &"idle"
-frame_progress = 0.323895
+frame_progress = 0.784857
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": false,
 "output_section": false
 }
 
 [node name="scen1waterwolf" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-192.52, -262.725)
+position = Vector2(-204.52, -253.725)
 rotation = -0.0733038
 scale = Vector2(0.316407, 0.273437)
 sprite_frames = ExtResource("7_16gu4")
 animation = &"idle"
-frame_progress = 0.172212
+frame_progress = 0.0325066
 
 [node name="scen1orcteen" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-242.27, -261.35)
-scale = Vector2(0.23828, 0.271484)
+position = Vector2(-244.52, -265.725)
+scale = Vector2(0.253906, 0.308594)
 sprite_frames = ExtResource("8_w6pyy")
 animation = &"idle"
-frame_progress = 0.733681
+frame_progress = 0.782956
 flip_h = true
 
 [node name="scen1orcbaby1" type="AnimatedSprite2D" parent="ForestExit"]

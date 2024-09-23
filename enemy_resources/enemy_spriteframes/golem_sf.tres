@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=26 format=3 uid="uid://bc1rqsi5swyop"]
 
-[ext_resource type="Texture2D" uid="uid://dxm1kbiow71ua" path="res://enemy_resources/enemy_texturefiles/golem/golem_idle_1-Sheet_d.png" id="1_4xcrg"]
+[ext_resource type="Texture2D" uid="uid://dxm1kbiow71ua" path="res://enemy_resources/enemy_texturefiles/idle+movement/golem/golem_idle_1-Sheet_d.png" id="1_4xcrg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hj4de"]
 atlas = ExtResource("1_4xcrg")

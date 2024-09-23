@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Scenes/Cave/cave_00b_exit.gd" id="8_5ltb2"]
 [ext_resource type="Script" path="res://Scenes/Cave/boss_r.gd" id="9_gmaix"]
 [ext_resource type="Resource" uid="uid://dp2nf2e3s476e" path="res://enemy_resources/enemy_identityfiles/roy_the_terrible.tres" id="10_wgmse"]
-[ext_resource type="Texture2D" uid="uid://broqcoyatuls0" path="res://enemy_resources/enemy_texturefiles/bosses/boss_11_N.png" id="11_3oo2m"]
+[ext_resource type="Texture2D" uid="uid://broqcoyatuls0" path="res://enemy_resources/enemy_texturefiles/idle+movement/bosses/boss_11_N.png" id="11_3oo2m"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b810d"]
 

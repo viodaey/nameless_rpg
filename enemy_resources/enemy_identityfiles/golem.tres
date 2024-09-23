@@ -3,7 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bc1rqsi5swyop" path="res://enemy_resources/enemy_spriteframes/golem_sf.tres" id="1_d4v52"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_ebnkj"]
 [ext_resource type="Resource" uid="uid://cvd5r1g0o1jx" path="res://Global/Classes/Bruiser.tres" id="1_gw4bn"]
-[ext_resource type="Texture2D" uid="uid://cmro446n4bs4" path="res://enemy_resources/enemy_texturefiles/golem/golem1_d.png" id="2_vmo1x"]
+[ext_resource type="Texture2D" uid="uid://cmro446n4bs4" path="res://enemy_resources/enemy_texturefiles/idle+movement/golem/golem1_d.png" id="2_vmo1x"]
 
 [resource]
 script = ExtResource("1_ebnkj")

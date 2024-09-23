@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://d3jpakoms3ml7" path="res://Global/Classes/Normy.tres" id="1_5endy"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_gct0t"]
 [ext_resource type="SpriteFrames" uid="uid://h00a0ujcvs78" path="res://src/res_spritef_ow_canine_white.tres" id="1_lfmos"]
-[ext_resource type="Texture2D" uid="uid://ihlrkorw2pin" path="res://enemy_resources/enemy_texturefiles/bosses/boss_0_N.png" id="2_edobr"]
+[ext_resource type="Texture2D" uid="uid://ihlrkorw2pin" path="res://enemy_resources/enemy_texturefiles/idle+movement/bosses/boss_0_N.png" id="2_edobr"]
 
 [resource]
 resource_name = "spider"

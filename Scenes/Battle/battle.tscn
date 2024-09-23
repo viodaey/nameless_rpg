@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
 [ext_resource type="Resource" uid="uid://cb3ouqjr5sgqc" path="res://enemy_resources/enemy_identityfiles/orc_baby.tres" id="2_pjcb0"]
-[ext_resource type="Texture2D" uid="uid://dwvjcsn3e1bam" path="res://enemy_resources/enemy_texturefiles/bosses/boss_12_S.png" id="3_8u46x"]
+[ext_resource type="Texture2D" uid="uid://dwvjcsn3e1bam" path="res://enemy_resources/enemy_texturefiles/idle+movement/bosses/boss_12_S.png" id="3_8u46x"]
 [ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="3_hqtvv"]
 [ext_resource type="FontFile" uid="uid://dmjq6coypb7ll" path="res://textures/fonts/Merienda-Bold.ttf" id="4_0ge1k"]
 [ext_resource type="LabelSettings" uid="uid://16a2edh71l7i" path="res://Scenes/Battle/hplabel.tres" id="4_jbr0v"]
@@ -14,7 +14,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemy_resources/enemy_spriteframes/orc_baby_sf.tres" id="10_0tvd3"]
 [ext_resource type="Texture2D" uid="uid://wnj06sa4uqhj" path="res://textures/hitAnimations/castDark/60FPS_ASDark_01_Cast.png" id="11_4l3t2"]
 [ext_resource type="Texture2D" uid="uid://dh0shujnvljsx" path="res://textures/hitAnimations/castDark/60FPS_ASDark_10_CalamityB.png" id="11_4o82x"]
-[ext_resource type="SpriteFrames" uid="uid://dwwjdf0gv8nii" path="res://enemy_resources/enemy_spriteframes/Warbear_Evo_1SF.tres" id="11_d76h5"]
+[ext_resource type="SpriteFrames" uid="uid://dwwjdf0gv8nii" path="res://enemy_resources/enemy_spriteframes/Warbear_Evo_1sf.tres" id="11_d76h5"]
 [ext_resource type="Texture2D" uid="uid://ff0jakmrpruh" path="res://textures/hitAnimations/castDark/60FPS_ASDark_02_Cast2.png" id="12_uigp2"]
 [ext_resource type="Texture2D" uid="uid://bbtdq4jxsklwt" path="res://textures/hitAnimations/castDark/60FPS_ASDark_05_Subdue.png" id="14_f08gt"]
 
