@@ -62,4 +62,6 @@ func save():
 			#done_lvl_up = true
 
 	
+	# SCENES
+var forest_scene1 = 0
 	

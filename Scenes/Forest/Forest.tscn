@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://dabp5cxdcoql3"]
+[gd_scene load_steps=70 format=4 uid="uid://dabp5cxdcoql3"]
 
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="1_31bpk"]
 [ext_resource type="Script" path="res://Scenes/Forest/Forest_main.gd" id="1_urbvk"]
@@ -18,6 +18,11 @@
 [ext_resource type="SpriteFrames" uid="uid://djk8gh7hhiy1q" path="res://enemy_resources/enemy_spriteframes/Pixie_Water_Evo_1sf.tres" id="9_pqagv"]
 [ext_resource type="SpriteFrames" uid="uid://c5sruigmjquto" path="res://enemy_resources/enemy_spriteframes/Pixie_Fire_Evo_1sf.tres" id="10_0paa1"]
 [ext_resource type="FontFile" uid="uid://sjkcdvf4fndg" path="res://textures/fonts/Merienda-Light.ttf" id="18_n8lyq"]
+[ext_resource type="Texture2D" uid="uid://ck3y1hmcyk2ou" path="res://textures/UI/menu_ui_test_100.png" id="19_svrua"]
+[ext_resource type="LabelSettings" uid="uid://m48ou1arcktr" path="res://Global/ui_heading.tres" id="20_5swc1"]
+[ext_resource type="Texture2D" uid="uid://b1ubyvpebkco0" path="res://textures/UI/menu_ui_pink_100.png" id="21_wol33"]
+[ext_resource type="LabelSettings" uid="uid://bvrkgbk0n2lkp" path="res://Global/ui_regular.tres" id="22_oyj0p"]
+[ext_resource type="Texture2D" uid="uid://dsyyfajxbaskb" path="res://textures/UI/menu_ui_pixieblue_100.png" id="23_bngdi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jq1fd"]
 atlas = ExtResource("3_6yabh")
@@ -372,6 +377,9 @@ outline_color = Color(100, 0, 0, 0.935)
 shadow_size = 15
 shadow_color = Color(0, 0.351551, 0, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh4ma"]
+size = Vector2(96, 20)
+
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_urbvk")
@@ -440,87 +448,6 @@ position = Vector2(4.47998, -0.724976)
 scale = Vector2(3.60262, 1.46176)
 shape = SubResource("RectangleShape2D_8ipso")
 
-[node name="scen1firewolf" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-195.52, -279.725)
-rotation = -0.0733038
-scale = Vector2(0.32, 0.32)
-sprite_frames = ExtResource("6_qxf6a")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.321181
-metadata/_aseprite_wizard_interface_config_ = {
-"layer_section": false,
-"output_section": false
-}
-
-[node name="scen1waterwolf" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-181.52, -265.725)
-rotation = -0.0733038
-scale = Vector2(0.316407, 0.273437)
-sprite_frames = ExtResource("7_16gu4")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.655166
-
-[node name="scen1orcteen" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-221.52, -257.725)
-scale = Vector2(0.253906, 0.308594)
-sprite_frames = ExtResource("8_w6pyy")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.547617
-flip_h = true
-
-[node name="scen1orcbaby1" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-237.52, -214.725)
-scale = Vector2(0.232422, 0.261719)
-sprite_frames = ExtResource("9_cti20")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.136595
-
-[node name="scen1orcbaby3" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-223.52, -214.725)
-scale = Vector2(0.232422, 0.261719)
-sprite_frames = ExtResource("9_cti20")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.163428
-flip_h = true
-
-[node name="scen1orcbaby4" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-214.52, -205.725)
-scale = Vector2(0.232422, 0.261719)
-sprite_frames = ExtResource("9_cti20")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.718307
-
-[node name="scen1orcbaby2" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-233.52, -206.725)
-scale = Vector2(0.238653, 0.277947)
-sprite_frames = ExtResource("9_cti20")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.845798
-flip_h = true
-
-[node name="scen1waterpixienogaanpassen" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-165.52, -301.725)
-scale = Vector2(0.231445, 0.214844)
-sprite_frames = ExtResource("9_pqagv")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.167129
-
-[node name="scen1firepixie" type="AnimatedSprite2D" parent="ForestExit"]
-position = Vector2(-190.52, -302.725)
-scale = Vector2(0.226562, 0.242187)
-sprite_frames = ExtResource("10_0paa1")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.881876
-
 [node name="scen1orc_text" type="Label" parent="."]
 visible = false
 offset_left = 999.0
@@ -538,6 +465,7 @@ text = "    (at coord 62,23 to 69,23)
 label_settings = SubResource("LabelSettings_hd6jd")
 
 [node name="scen1waterpixie_text" type="Label" parent="scen1orc_text"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = -126.0
 offset_right = 176.0
@@ -552,6 +480,7 @@ text = "    (at coord 64,16 to 69,16)
 label_settings = SubResource("LabelSettings_lu6qq")
 
 [node name="scen1firepixie_text" type="Label" parent="scen1orc_text/scen1waterpixie_text"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = -47.0
 offset_right = 165.0
@@ -565,4 +494,226 @@ text = "
 Stay away from us you creep, help!!!"
 label_settings = SubResource("LabelSettings_w0ihp")
 
+[node name="Forest_subscene1" type="Node2D" parent="."]
+position = Vector2(848, 304)
+
+[node name="npcs" type="Node2D" parent="Forest_subscene1"]
+
+[node name="scen1firewolf" type="AnimatedSprite2D" parent="Forest_subscene1/npcs"]
+position = Vector2(95, -40)
+rotation = -0.0733038
+scale = Vector2(0.32, 0.32)
+sprite_frames = ExtResource("6_qxf6a")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.321181
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": false
+}
+
+[node name="scen1waterwolf" type="AnimatedSprite2D" parent="Forest_subscene1/npcs"]
+position = Vector2(109, -26)
+rotation = -0.0733038
+scale = Vector2(0.316407, 0.273437)
+sprite_frames = ExtResource("7_16gu4")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.655166
+
+[node name="scen1orcteen" type="AnimatedSprite2D" parent="Forest_subscene1/npcs"]
+position = Vector2(69, -18)
+scale = Vector2(0.253906, 0.308594)
+sprite_frames = ExtResource("8_w6pyy")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.547617
+flip_h = true
+
+[node name="scen1orcbaby1" type="AnimatedSprite2D" parent="Forest_subscene1/npcs"]
+position = Vector2(53, 25)
+scale = Vector2(0.232422, 0.261719)
+sprite_frames = ExtResource("9_cti20")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.136595
+
+[node name="scen1orcbaby3" type="AnimatedSprite2D" parent="Forest_subscene1/npcs"]
+position = Vector2(67, 25)
+scale = Vector2(0.232422, 0.261719)
+sprite_frames = ExtResource("9_cti20")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.163428
+flip_h = true
+
+[node name="scen1orcbaby4" type="AnimatedSprite2D" parent="Forest_subscene1/npcs"]
+position = Vector2(76, 34)
+scale = Vector2(0.232422, 0.261719)
+sprite_frames = ExtResource("9_cti20")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.718307
+
+[node name="scen1orcbaby2" type="AnimatedSprite2D" parent="Forest_subscene1/npcs"]
+position = Vector2(57, 33)
+scale = Vector2(0.238653, 0.277947)
+sprite_frames = ExtResource("9_cti20")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.845798
+flip_h = true
+
+[node name="scen1waterpixienogaanpassen" type="AnimatedSprite2D" parent="Forest_subscene1/npcs"]
+position = Vector2(125, -62)
+scale = Vector2(0.231445, 0.214844)
+sprite_frames = ExtResource("9_pqagv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.167129
+
+[node name="scen1firepixie" type="AnimatedSprite2D" parent="Forest_subscene1/npcs"]
+position = Vector2(100, -63)
+scale = Vector2(0.226562, 0.242187)
+sprite_frames = ExtResource("10_0paa1")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.881876
+
+[node name="dialogue" type="Node2D" parent="Forest_subscene1"]
+position = Vector2(-16, 0)
+
+[node name="dia_1" type="NinePatchRect" parent="Forest_subscene1/dialogue"]
+visible = false
+z_index = 2
+clip_contents = true
+offset_left = 8.0
+offset_top = -64.0
+offset_right = 80.0
+offset_bottom = -32.0
+texture = ExtResource("19_svrua")
+region_rect = Rect2(7, 7, 50, 50)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Forest_subscene1/dialogue/dia_1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 216.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="txt" type="Label" parent="Forest_subscene1/dialogue/dia_1/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "    You give us crystal,
+              NOW!"
+label_settings = ExtResource("20_5swc1")
+
+[node name="dia_2" type="NinePatchRect" parent="Forest_subscene1/dialogue"]
+visible = false
+z_index = 2
+clip_contents = true
+offset_left = 56.0
+offset_top = -112.0
+offset_right = 136.0
+offset_bottom = -72.0
+texture = ExtResource("21_wol33")
+region_rect = Rect2(7, 7, 50, 50)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Forest_subscene1/dialogue/dia_2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 240.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="txt" type="Label" parent="Forest_subscene1/dialogue/dia_2/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Stay away from us
+    you creep!
+                            Help!!"
+label_settings = ExtResource("22_oyj0p")
+
+[node name="dia_3" type="NinePatchRect" parent="Forest_subscene1/dialogue"]
+visible = false
+z_index = 2
+clip_contents = true
+offset_left = 144.0
+offset_top = -96.0
+offset_right = 192.0
+offset_bottom = -72.0
+texture = ExtResource("23_bngdi")
+region_rect = Rect2(7, 7, 50, 50)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Forest_subscene1/dialogue/dia_3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 216.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="txt" type="Label" parent="Forest_subscene1/dialogue/dia_3/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "..never!"
+label_settings = ExtResource("22_oyj0p")
+
+[node name="diaCamera2D" type="Camera2D" parent="Forest_subscene1/dialogue"]
+position = Vector2(-64, -8)
+enabled = false
+zoom = Vector2(3, 3)
+
+[node name="Fog" type="ColorRect" parent="Forest_subscene1/dialogue/diaCamera2D"]
+visible = false
+z_index = 5
+offset_left = -192.0
+offset_top = -112.0
+offset_right = 192.0
+offset_bottom = 112.0
+color = Color(0, 0, 0, 0.905882)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1056, 392)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(16, -19)
+shape = SubResource("RectangleShape2D_bh4ma")
+
 [connection signal="body_entered" from="ForestExit" to="." method="_on_forest_exit_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

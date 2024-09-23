@@ -72,10 +72,10 @@ Do you want to proceed?"
 func _on_confirm_yes_pressed() -> void:
 	if confirmCheck == "save":
 		save()
-		
+
 	if confirmCheck == "load":
 		await(load_game())
-				
+
 	if confirmCheck == "quit":
 		confirm_description.text = "UNABLE TO QUIT YOU QUITTER!!!!!"
 		await(get_tree().create_timer(3).timeout)

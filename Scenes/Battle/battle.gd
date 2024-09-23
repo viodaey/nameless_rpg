@@ -534,7 +534,7 @@ func enemy_turn(e):
 	if enemyDict[e]["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
 		combat_log("%s is chillin'" % (enemyDict[e]["res"]._name))
 		var tween = get_tree().create_tween()
-		await(tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", true, 1))
+		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", true, 1)
 		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", false, 1)
 	else:
 		x = rng.randi_range(1, len(playerDict))
