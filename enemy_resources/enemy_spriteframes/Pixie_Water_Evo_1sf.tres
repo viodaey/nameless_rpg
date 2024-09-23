@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://djk8gh7hhiy1q"]
 
-[ext_resource type="Texture2D" uid="uid://dio4flywbbe6e" path="res://enemy_resources/enemy_texturefiles/idle+movement/Water pixie evo 1 Idle movementcheck.png" id="1_jor3f"]
+[ext_resource type="Texture2D" uid="uid://y2u0v7gcm4k6" path="res://enemy_resources/enemy_texturefiles/idle+movement/Water pixie evo 1 Idle movementcheck.png" id="1_jor3f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wb613"]
 atlas = ExtResource("1_jor3f")
