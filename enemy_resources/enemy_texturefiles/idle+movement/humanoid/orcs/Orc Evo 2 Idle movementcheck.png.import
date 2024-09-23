@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1ykbj821uir1"
-path="res://.godot/imported/Skeletal warrior Evo 1.png-a9e79669103f72bfc7009d8b492e2758.ctex"
+uid="uid://0v262wxuuj12"
+path="res://.godot/imported/Orc Evo 2 Idle movementcheck.png-8e15e744a4633ac632cb6db0417b641d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/idle+movement/humans/Skeletal warrior Evo 1.png"
-dest_files=["res://.godot/imported/Skeletal warrior Evo 1.png-a9e79669103f72bfc7009d8b492e2758.ctex"]
+source_file="res://enemy_resources/enemy_texturefiles/idle+movement/humanoid/orcs/Orc Evo 2 Idle movementcheck.png"
+dest_files=["res://.godot/imported/Orc Evo 2 Idle movementcheck.png-8e15e744a4633ac632cb6db0417b641d.ctex"]
 
 [params]
 

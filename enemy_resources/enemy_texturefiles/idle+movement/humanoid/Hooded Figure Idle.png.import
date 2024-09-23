@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvnocuqirsr0e"
-path="res://.godot/imported/Orc_Evo_1_Idle_movementcheck.png-9f81350d68a1193e76374097404e4590.ctex"
+uid="uid://cr5vmvm33sorc"
+path="res://.godot/imported/Hooded Figure Idle.png-969e3cce99a4e46f85fb92ab4254596f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/idle+movement/humans/orcs/Orc_Evo_1_Idle_movementcheck.png"
-dest_files=["res://.godot/imported/Orc_Evo_1_Idle_movementcheck.png-9f81350d68a1193e76374097404e4590.ctex"]
+source_file="res://enemy_resources/enemy_texturefiles/idle+movement/humanoid/Hooded Figure Idle.png"
+dest_files=["res://.godot/imported/Hooded Figure Idle.png-969e3cce99a4e46f85fb92ab4254596f.ctex"]
 
 [params]
 

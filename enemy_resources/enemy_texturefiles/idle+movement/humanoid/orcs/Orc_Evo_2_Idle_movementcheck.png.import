@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1r6neriayral"
-path="res://.godot/imported/Orc Evo 1 Idle movementcheck.png-c7e51827a6e07bcc474285c9d748021a.ctex"
+uid="uid://db3l5v5cqy0w6"
+path="res://.godot/imported/Orc_Evo_2_Idle_movementcheck.png-71b57a4aee201b09b551994a35c0a582.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/idle+movement/humans/orcs/Orc Evo 1 Idle movementcheck.png"
-dest_files=["res://.godot/imported/Orc Evo 1 Idle movementcheck.png-c7e51827a6e07bcc474285c9d748021a.ctex"]
+source_file="res://enemy_resources/enemy_texturefiles/idle+movement/humanoid/orcs/Orc_Evo_2_Idle_movementcheck.png"
+dest_files=["res://.godot/imported/Orc_Evo_2_Idle_movementcheck.png-71b57a4aee201b09b551994a35c0a582.ctex"]
 
 [params]
 

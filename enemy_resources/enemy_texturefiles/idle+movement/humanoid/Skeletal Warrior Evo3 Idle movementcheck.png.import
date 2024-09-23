@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr5vmvm33sorc"
-path="res://.godot/imported/Hooded Figure Idle.png-809775a3c82f89cff4bbe53a844603fc.ctex"
+uid="uid://ctsowj2ouo4fv"
+path="res://.godot/imported/Skeletal Warrior Evo3 Idle movementcheck.png-e1025efeeda8d4e60b2f1d1cfd8a26d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/idle+movement/humans/Hooded Figure Idle.png"
-dest_files=["res://.godot/imported/Hooded Figure Idle.png-809775a3c82f89cff4bbe53a844603fc.ctex"]
+source_file="res://enemy_resources/enemy_texturefiles/idle+movement/humanoid/Skeletal Warrior Evo3 Idle movementcheck.png"
+dest_files=["res://.godot/imported/Skeletal Warrior Evo3 Idle movementcheck.png-e1025efeeda8d4e60b2f1d1cfd8a26d5.ctex"]
 
 [params]
 
