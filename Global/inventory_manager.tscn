@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6n7em3otq0o0"]
+[gd_scene load_steps=5 format=3 uid="uid://b6n7em3otq0o0"]
 
 [ext_resource type="Script" path="res://Global/invScene.gd" id="1_4cyy0"]
+[ext_resource type="Texture2D" uid="uid://6fi1fruu0f0e" path="res://textures/UI/menu_ui_test_300.png" id="2_aqbvy"]
 [ext_resource type="Texture2D" uid="uid://cm7ugrxdww20r" path="res://textures/Selection Marker/selectionTriangle_full.png" id="2_nbb2x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_25jqj"]
@@ -12,47 +13,69 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_4cyy0")
 
-[node name="ItemPanel" type="Panel" parent="."]
+[node name="ItemPanel" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 136.0
 offset_top = 123.0
 offset_right = 408.0
 offset_bottom = 318.0
+texture = ExtResource("2_aqbvy")
+region_rect = Rect2(21, 21, 150, 150)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
 
-[node name="ScrollCont" type="ScrollContainer" parent="ItemPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="ItemPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ItemPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="ItemPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Selector" type="TextureRect" parent="ItemPanel/MarginContainer/HBoxContainer/Control"]
 layout_mode = 0
-offset_left = 38.0
-offset_top = 1.0
-offset_right = 269.0
-offset_bottom = 195.0
+offset_left = 1.0
+offset_top = 19.0
+offset_right = 17.0
+offset_bottom = 34.0
+rotation = 4.71239
+texture = ExtResource("2_nbb2x")
 
-[node name="itemList" type="GridContainer" parent="ItemPanel/ScrollCont"]
+[node name="ScrollCont" type="ScrollContainer" parent="ItemPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="itemList" type="GridContainer" parent="ItemPanel/MarginContainer/HBoxContainer/ScrollCont"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="Item" type="Label" parent="ItemPanel/ScrollCont/itemList"]
+[node name="Item" type="Label" parent="ItemPanel/MarginContainer/HBoxContainer/ScrollCont/itemList"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "TestItem "
 label_settings = SubResource("LabelSettings_25jqj")
 
-[node name="Amount" type="Label" parent="ItemPanel/ScrollCont/itemList"]
+[node name="Amount" type="Label" parent="ItemPanel/MarginContainer/HBoxContainer/ScrollCont/itemList"]
 visible = false
 layout_mode = 2
 text = "99"
-
-[node name="Selector" type="TextureRect" parent="ItemPanel"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 21.0
-offset_right = 21.0
-offset_bottom = 36.0
-rotation = 4.71239
-texture = ExtResource("2_nbb2x")
 
 [node name="add_apple" type="Button" parent="."]
 visible = false

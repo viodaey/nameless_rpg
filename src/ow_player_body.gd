@@ -57,14 +57,20 @@ func _physics_process(_delta):
 		_spawn_npc()
 		moved = 0
 		move_dice = rng.randi_range(25, 75)
+	
+
 
 func _spawn_npc():
 	var rng = RandomNumberGenerator.new()
 	var enemy_select = rng.randi_range(1,len(map.world_enemies))
 	var angle = rng.randi_range(0, TAU)
 	var distance = rng.randi_range(80, 150)
-	self.get_node("RayCast2D").target_position = get_parent().position + Vector2((distance+30)*cos(angle), (distance+30)*sin(angle))
+	self.get_node("RayCast2D").position = self.position
+	self.get_node("RayCast2D").target_position = self.position + Vector2((distance+30)*cos(angle), (distance+30)*sin(angle))
+	self.get_node("RayCast2D").force_raycast_update()
+	#self.get_node("Target").position = get_parent().position + Vector2((distance+30)*cos(angle), (distance+30)*sin(angle))
 	if self.get_node("RayCast2D").is_colliding():
+		print(self.get_node("RayCast2D").collider)
 		await get_tree().create_timer(0.03).timeout
 		_spawn_npc()
 
