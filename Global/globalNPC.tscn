@@ -1,26 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnl6pxrijs1te"]
 
 [ext_resource type="Script" path="res://npc_1.gd" id="1_fqa05"]
-[ext_resource type="SpriteFrames" uid="uid://dfu73cl600trr" path="res://enemy_resources/enemy_spriteframes/Firewolf_Evo_1sf.tres" id="3_pi1fg"]
-[ext_resource type="Shape2D" uid="uid://dp0xh80wv33xr" path="res://src/golem_shape.tres" id="4_fd6gk"]
+[ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemy_resources/enemy_spriteframes/orc_baby_sf.tres" id="2_xc6bf"]
+[ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="3_jr2ca"]
 
 [node name="NPC_spawn" type="CharacterBody2D"]
 position = Vector2(552, 256)
-scale = Vector2(0.958, 1)
 motion_mode = 1
 script = ExtResource("1_fqa05")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 texture_filter = 1
-sprite_frames = ExtResource("3_pi1fg")
-animation = &"run"
+sprite_frames = ExtResource("2_xc6bf")
+animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-19.833, -5, -19.833, 5, -12.5261, 16, 12.5261, 16)
-disabled = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.86102e-06, 8)
-shape = ExtResource("4_fd6gk")
+position = Vector2(0, 30)
+shape = ExtResource("3_jr2ca")

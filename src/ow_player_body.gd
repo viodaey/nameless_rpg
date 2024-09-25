@@ -55,8 +55,10 @@ func _physics_process(_delta):
 			print("battle initiated from player")
 			get_slide_collision(i).get_collider().get_praent().initiate_battle()
 
+
+## 	spawn NPC
 	if moved > move_dice and disabled_spawn == false:
-		var vec_target = await(_spawn_npc())
+		var vec_target = await(_spawn_npc_loc())
 		#get_node("RayCast2D").position = self.position
 		raycast.target_position = raycast.position + vec_target
 		raycast.force_raycast_update()
@@ -73,31 +75,12 @@ func _physics_process(_delta):
 			activeSpawns.append(_spawned_npc.name)
 
 
-func _spawn_npc():
+func _spawn_npc_loc():
 	var rng = RandomNumberGenerator.new()
-	var enemy_select = rng.randi_range(1,len(map.world_enemies))
 	var angle = rng.randi_range(0, TAU)
 	var distance = rng.randi_range(80, 150)
 	var vec_target = Vector2((distance+5)*cos(angle), (distance+5)*sin(angle))
 	return vec_target
-	#self.get_node("RayCast2D").position = self.position
-	#self.get_node("RayCast2D").target_position = self.position + Vector2((distance+30)*cos(angle), (distance+30)*sin(angle))
-	#self.get_node("RayCast2D").force_raycast_update()
-	##self.get_node("Target").position = get_parent().position + Vector2((distance+30)*cos(angle), (distance+30)*sin(angle))
-	#if self.get_node("RayCast2D").is_colliding():
-		#print(self.get_node("RayCast2D").collider)
-		#await get_tree().create_timer(0.03).timeout
-		#_spawn_npc()
-#
-#
-	#else:
-		#map.spawn_request = load(map.world_enemies[enemy_select - 1].resource_path)
-		#map.add_child(spawn_npc.instantiate().duplicate())
-		#var num = len(activeSpawns)
-		#var _spawned_npc = map.get_node("NPC_spawn")
-		#_spawned_npc.name = "NPC_spawn" + "%d" %num
-		#_spawned_npc.position = self.position + Vector2(distance*cos(angle), distance*sin(angle))
-		#activeSpawns.append(_spawned_npc.name)
 
 func _despawn_npc(npc):
 	map.get_node(npc).queue_free()
