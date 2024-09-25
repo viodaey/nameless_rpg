@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://df2s4i3dlmyrc"]
+[gd_scene load_steps=61 format=4 uid="uid://df2s4i3dlmyrc"]
 
 [ext_resource type="Script" path="res://Scenes/Overworld/overworld_main.gd" id="1_4ihds"]
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="2_5d18u"]
@@ -11,7 +11,6 @@
 [ext_resource type="Resource" uid="uid://dkbwfc1rxwgmn" path="res://enemy_resources/enemy_identityfiles/Warbear_Evo_1.tres" id="7_56xsp"]
 [ext_resource type="Resource" uid="uid://bfltr74e5lteg" path="res://enemy_resources/enemy_identityfiles/Pixie_Fire.tres" id="7_k7cex"]
 [ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="8_2e61n"]
-[ext_resource type="Texture2D" uid="uid://cm7ugrxdww20r" path="res://textures/Selection Marker/selectionTriangle_full.png" id="12_6kxd7"]
 [ext_resource type="Texture2D" uid="uid://c1rw2eiakbw8p" path="res://textures/Tilesets/Dungeon_rogue/torch_1.png" id="14_2ptld"]
 [ext_resource type="Texture2D" uid="uid://bnj3e2fryr7gr" path="res://textures/Tilesets/Dungeon_rogue/torch_2.png" id="15_qbqf3"]
 [ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="16_qf6cj"]
@@ -405,15 +404,9 @@ drag_top_margin = 0.9
 drag_right_margin = 0.9
 drag_bottom_margin = 0.9
 
-[node name="Target" type="TextureRect" parent="Player"]
-texture = ExtResource("12_6kxd7")
-
 [node name="RayCast2D" type="RayCast2D" parent="Player"]
-position = Vector2(1099.78, 550.536)
-scale = Vector2(0.958, 1)
 target_position = Vector2(0, 0)
 collide_with_areas = true
-collide_with_bodies = false
 
 [node name="CaveEntrance" type="Area2D" parent="."]
 position = Vector2(232, 72)
