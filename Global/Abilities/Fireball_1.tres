@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="abilities" load_steps=2 format=3 uid="uid://bnnyw8xd4vqfk"]
+
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_tf6o7"]
+
+[resource]
+script = ExtResource("1_tf6o7")
+_name = "Fireball 1"
+target = ""
+eff_1 = "dmg"
+eff_1_ele = "fire"
+eff_1_value = 40
+eff_2 = "none"
+eff_2_ele = ""
+eff_2_value = 0

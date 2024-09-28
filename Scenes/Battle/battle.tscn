@@ -1,4 +1,4 @@
-[gd_scene load_steps=277 format=3 uid="uid://b7kga5w7hkr5o"]
+[gd_scene load_steps=279 format=3 uid="uid://b7kga5w7hkr5o"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
 [ext_resource type="Resource" uid="uid://cb3ouqjr5sgqc" path="res://enemy_resources/enemy_identityfiles/orc_baby.tres" id="2_pjcb0"]
@@ -14,9 +14,10 @@
 [ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemy_resources/enemy_spriteframes/orc_baby_sf.tres" id="10_0tvd3"]
 [ext_resource type="Texture2D" uid="uid://wnj06sa4uqhj" path="res://textures/hitAnimations/castDark/60FPS_ASDark_01_Cast.png" id="11_4l3t2"]
 [ext_resource type="Texture2D" uid="uid://dh0shujnvljsx" path="res://textures/hitAnimations/castDark/60FPS_ASDark_10_CalamityB.png" id="11_4o82x"]
-[ext_resource type="SpriteFrames" uid="uid://dwwjdf0gv8nii" path="res://enemy_resources/enemy_spriteframes/Warbear_Evo_1sf.tres" id="11_d76h5"]
+[ext_resource type="SpriteFrames" uid="uid://dwwjdf0gv8nii" path="res://enemy_resources/enemy_spriteframes/Warbear_Evo_1SF.tres" id="11_d76h5"]
 [ext_resource type="Texture2D" uid="uid://ff0jakmrpruh" path="res://textures/hitAnimations/castDark/60FPS_ASDark_02_Cast2.png" id="12_uigp2"]
 [ext_resource type="Texture2D" uid="uid://bbtdq4jxsklwt" path="res://textures/hitAnimations/castDark/60FPS_ASDark_05_Subdue.png" id="14_f08gt"]
+[ext_resource type="Texture2D" uid="uid://6fi1fruu0f0e" path="res://textures/UI/menu_ui_test_300.png" id="18_vd5ne"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qufg"]
 bg_color = Color(0.0882, 0.14, 0.0890633, 0)
@@ -1912,6 +1913,8 @@ animations = [{
 "speed": 45.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_aokps"]
+
 [node name="battle" type="Control"]
 z_index = -1
 layout_mode = 3
@@ -2304,18 +2307,18 @@ z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_right = NodePath("../../Actions2/Item")
-focus_neighbor_bottom = NodePath("../Skills")
+focus_neighbor_bottom = NodePath("../Abilities")
 theme_override_constants/h_separation = 0
 text = "     Attack     "
 
-[node name="Skills" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions"]
+[node name="Abilities" type="Button" parent="ActionMenu/MarginActions/HBoxContainer/Actions"]
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
 focus_neighbor_top = NodePath("../Attack")
 focus_neighbor_right = NodePath("../../Actions2/Escape")
 theme_override_constants/h_separation = 0
-text = "     Skills     "
+text = "     Abilities     "
 
 [node name="Actions2" type="VBoxContainer" parent="ActionMenu/MarginActions/HBoxContainer"]
 z_index = 2
@@ -2335,7 +2338,7 @@ text = "     Item     "
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
-focus_neighbor_left = NodePath("../../Actions/Skills")
+focus_neighbor_left = NodePath("../../Actions/Abilities")
 focus_neighbor_top = NodePath("../Item")
 theme_override_constants/h_separation = 0
 text = "     Escape     "
@@ -2764,7 +2767,168 @@ size_flags_vertical = 0
 texture = ExtResource("8_ype7g")
 stretch_mode = 3
 
+[node name="Abilities" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AbilitiesSelection" type="NinePatchRect" parent="Abilities"]
+offset_left = 291.0
+offset_top = 504.0
+offset_right = 563.0
+offset_bottom = 616.0
+texture = ExtResource("18_vd5ne")
+region_rect = Rect2(21, 21, 150, 150)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Abilities/AbilitiesSelection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Abilities/AbilitiesSelection/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Selector" type="TextureRect" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 20.0
+offset_right = 17.0
+offset_bottom = 35.0
+rotation = 4.71239
+texture = ExtResource("8_ype7g")
+
+[node name="AbilityList" type="VBoxContainer" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Ability1" type="HBoxContainer" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/AbilityList"]
+visible = false
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/AbilityList/Ability1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Testability"
+label_settings = SubResource("LabelSettings_aokps")
+
+[node name="MP" type="Label" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/AbilityList/Ability1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+text = "999
+"
+label_settings = SubResource("LabelSettings_aokps")
+horizontal_alignment = 2
+
+[node name="Ability2" type="HBoxContainer" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/AbilityList"]
+visible = false
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/AbilityList/Ability2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Testability"
+label_settings = SubResource("LabelSettings_aokps")
+
+[node name="MP" type="Label" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/AbilityList/Ability2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+text = "999
+"
+label_settings = SubResource("LabelSettings_aokps")
+horizontal_alignment = 2
+
+[node name="Ability3" type="HBoxContainer" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/AbilityList"]
+visible = false
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/AbilityList/Ability3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Testability"
+label_settings = SubResource("LabelSettings_aokps")
+
+[node name="MP" type="Label" parent="Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/AbilityList/Ability3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+text = "999
+"
+label_settings = SubResource("LabelSettings_aokps")
+horizontal_alignment = 2
+
+[node name="AbilitiesDescription" type="NinePatchRect" parent="Abilities"]
+offset_left = 587.0
+offset_top = 384.0
+offset_right = 931.0
+offset_bottom = 616.0
+texture = ExtResource("18_vd5ne")
+region_rect = Rect2(21, 21, 150, 150)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Abilities/AbilitiesDescription"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Abilities/AbilitiesDescription/MarginContainer"]
+layout_mode = 2
+
+[node name="Description" type="Label" parent="Abilities/AbilitiesDescription/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "This is the ability description. I do fire damage AND IT BURNS"
+label_settings = SubResource("LabelSettings_aokps")
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Abilities/AbilitiesDescription/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="MP" type="Label" parent="Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "MP: "
+label_settings = SubResource("LabelSettings_aokps")
+
+[node name="Cooldown" type="Label" parent="Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_aokps")
+
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Attack" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Skills" to="." method="_on_magic_pressed"]
+[connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Abilities" to="." method="_on_abilities_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Item" to="." method="_on_item_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Escape" to="." method="_on_escape_pressed"]

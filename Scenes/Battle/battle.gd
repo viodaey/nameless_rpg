@@ -42,6 +42,8 @@ var curPlayer = playerDict[1]
 var next_phase: int = 0
 var used_item: Resource
 var used_item_slot: int = 0
+var ax : int = 0
+var ay : int = 1
 
 @onready var _playerhp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerHP
 @onready var _playermp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerMP
@@ -55,6 +57,8 @@ var used_item_slot: int = 0
 @onready var _enemycont4 = $EnemyContainer4
 @onready var _actionmenu = $ActionMenu
 @onready var _actionmenufoc = $ActionMenu/MarginActions/HBoxContainer/Actions/Attack
+@onready var _abilitiesnode = $Abilities
+@onready var _abilitiesmenu = $Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/AbilityList
 #@onready var _player2statscont = $Panel_Menu/VBoxContainer/PlayerContainer2
 @onready var _player3statscont = $Panel_Menu/VBoxContainer/PlayerContainer3
 @onready var _player4statscont = $Panel_Menu/VBoxContainer/PlayerContainer4
@@ -218,6 +222,7 @@ func _ready():
 		enemyDict[en]["max_atb"] = enemyDict[en]["res"].atb
 	_turn_calc()
 
+
 signal pressedSomething
 
 func _input(event) -> void:
@@ -293,7 +298,6 @@ func _turn_calc():
 					enemy_turn(e)
 					return
 		await get_tree().create_timer(0.001).timeout
-		
 				
 func _player_turn(p):
 	curPlayer = playerDict[p]
@@ -320,6 +324,58 @@ func _on_attack_pressed():
 	next_phase = 0
 	x = 0
 	_await_selection()
+
+func _on_abilities_pressed() -> void:
+	if not len(curPlayer["res"]._abilities) > 0:
+		return
+	_actionmenu.visible = false
+	_abilitiesnode.visible = true
+	for i in len(curPlayer["res"]._abilities):
+		_abilitiesmenu.get_node("Ability%s" %[i + 1]).visible = true
+		_abilitiesmenu.get_node("Ability%s" %[i + 1]).get_node("Name").text =   curPlayer["res"]._abilities[i]._name
+		_abilitiesmenu.get_node("Ability%s" %[i + 1]).get_node("MP").text =   ("%s" %curPlayer["res"]._abilities[i].mp)
+		ay = 1
+		_await_ability_selection()
+		
+	
+func _await_ability_selection():
+	var select_ability = $Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector
+	$Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/Description.text = curPlayer["res"]._abilities[ay-1].description
+	if curPlayer["res"]._abilities[ay-1].mp > 0:
+		$Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/VBoxContainer/MP.text = ("MP: %s" %curPlayer["res"]._abilities[ay-1].mp)
+	if curPlayer["res"]._abilities[ay-1].cooldown > 0:
+		$Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/VBoxContainer/Cooldown.text = ("CD: %s" %curPlayer["res"]._abilities[ay-1].cooldown)
+	ax = len(curPlayer["res"]._abilities)
+	await(pressedSomething)
+	if Input.is_action_pressed("ui_down"):
+	
+		if ax > ay:
+			select_ability.position.y = select_ability.position.y + 27
+			ay += 1
+	if Input.is_action_pressed("ui_up"):
+		if ay > 1:
+			select_ability.position.y = select_ability.position.y - 27
+			ay -= 1
+	if Input.is_action_just_released("ui_accept"):
+		if curPlayer["res"]._abilities[ay-1].target == "enemy":
+			next_phase = 2
+			_abilitiesnode.visible = false
+			_await_selection()
+			return
+	if Input.is_action_pressed("ui_cancel"):
+		get_parent()._actionmenu.visible = true
+		get_parent()._actionmenufoc.grab_focus()
+	_await_ability_selection()
+			
+	
+			
+
+	
+		
+		
+	
+	
+
 
 func _await_selection():
 	enemyCount = enemyDict.keys()
@@ -362,6 +418,9 @@ func _await_selection():
 			_attack_phase_1()
 		elif next_phase == 1:
 			use_item_2(enemyDict[y])
+		elif next_phase == 2:
+			use_ability(enemyDict[y])
+			
 	elif Input.is_action_pressed("ui_cancel"):
 		selected_enemy_ind.modulate.a = 0
 		_selector_tween.kill()
@@ -434,31 +493,6 @@ func _attack_phase_1():
 	await get_tree().create_timer(0.55).timeout
 	_attack_phase_2()
 
-func _on_magic_pressed():
-	var mp_cost = player.mp_cost_fireball
-	if current_player_mp < player.mp_cost_fireball and try < 2:
-		await combat_log("Not enough mana")
-		try = try + 1
-	elif current_player_mp < player.mp_cost_fireball and try < 4:
-		await combat_log("nOt eNoUgH mAnA...")
-		try = try + 1
-	elif current_player_mp < player.mp_cost_fireball and try >= 4:
-		await combat_log("NOT ENOUGH MANA!")
-		try = try + 1
-	else:
-		set_mp(_playermp, mp_cost, player.max_mp)
-		player.mp = current_player_mp
-		_actionmenu.visible = false
-		var m_pos = _fireballAnimate.position
-		dealt_dmg = player.magicdmg
-		await combat_log("You use FIREBALL on %s!" % [enemy._name])
-		var tween = get_tree().create_tween()
-		tween.tween_property(_fireballAnimate, "modulate:a", 1,0.3)
-		tween.tween_property(_fireballAnimate, "position", Vector2(m_pos[0] +350, m_pos[1]), 0.3)
-		tween.tween_property(_fireballAnimate, "modulate:a", 0,0.05)	
-		tween.tween_property(_fireballAnimate, "position", Vector2(m_pos[0], m_pos[1]), 0.1)
-		await tween.finished
-		_attack_phase_2()	
 	
 func _attack_phase_2():
 	var selected_enemy = enemyDict[y]["cont"]
@@ -519,16 +553,7 @@ func enemy_died():
 		playerDict[p]["res"].health = playerDict[p]["live"]["hp"]
 	enemyDict.erase(y)
 
-func evolve(p):
-	var lvl = playerDict[p]["res"].lvl
-	await(combat_log("WHAT??????????!!!!!!"))
-	var tween = get_tree().create_tween()
-	tween.tween_property(playerDict[p]["txtbox"], "position", (playerDict[p]["txtbox"].get_parent().size / 2) - (playerDict[p]["txtbox"].size / 2), 1)
-	tween.tween_property(playerDict[p]["txtbox"], "scale", playerDict[p]["txtbox"].scale * 1.5 , 1.1)
-	await get_tree().create_timer(4).timeout
-	await(combat_log("%s Evolved into %s!" % [playerDict[p]["res"]._name, playerDict[p]["res"].evolution._name]))
-	inv.itemInventory.monsterlist[p - 2]._monster = inv.itemInventory.monsterlist[p - 2]._monster.evolution.duplicate()
-	inv.itemInventory.monsterlist[p - 2]._monster.lvl = lvl
+
 	
 func enemy_turn(e):
 	if enemyDict[e]["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
@@ -552,7 +577,7 @@ func enemy_turn(e):
 			playerDict[y]["cont"].get_node("PlayerHP"), 
 			playerDict[y]["live"]["hp"], 
 			playerDict[y]["res"].max_health)
-		playerDict[y]["live"]["hp"] = (playerDict[y]["live"]["hp"] - dealt_dmg)
+		playerDict[y]["live"]["hp"] = max(0,(playerDict[y]["live"]["hp"] - dealt_dmg))
 		playerDict[y]["res"].health = playerDict[y]["live"]["hp"]
 		tween = get_tree().create_tween()
 		for i in 6:
@@ -569,6 +594,9 @@ func enemy_turn(e):
 		if enemyDict[e]["res"].affliction_chance > 0:
 			if rng.randi_range(0,100) <= enemyDict[e]["res"].affliction_chance:
 				await combat_log("You are %s!" % [enemyDict[e]["res"].affliction_type])
+		print(y)
+		if playerDict[y]["live"]["hp"] == 0:
+			await(_ally_died(y))
 	try = 0
 	_turn_calc()
 
@@ -648,6 +676,42 @@ func use_item_2(target):
 			target["res"].max_health)
 		action_menu()
 
+func use_ability(target):
+	var used_ability = curPlayer["res"].abilities[ay - 1]
+	if used_ability.target == 4:
+		if not used_ability.animation:
+			
+			
+			pass
+			
+			
+
+func _ally_died(y):
+	await(combat_log("%s died" % playerDict[y]["res"]._name))
+	#var tween = get_tree().create_tween()
+	
+	
+	if y == 1:
+		await(get_tree().create_timer(2).timeout)
+		gameover()
+		return
+	
+		
+func gameover():
+	sceneManager.goto_scene(sceneManager.last_scene)
+	
+func evolve(p):
+	var lvl = playerDict[p]["res"].lvl
+	await(combat_log("WHAT??????????!!!!!!"))
+	var tween = get_tree().create_tween()
+	tween.tween_property(playerDict[p]["txtbox"], "position", (playerDict[p]["txtbox"].get_parent().size / 2) - (playerDict[p]["txtbox"].size / 2), 1)
+	tween.tween_property(playerDict[p]["txtbox"], "scale", playerDict[p]["txtbox"].scale * 1.5 , 1.1)
+	await get_tree().create_timer(4).timeout
+	await(combat_log("%s Evolved into %s!" % [playerDict[p]["res"]._name, playerDict[p]["res"].evolution._name]))
+	inv.itemInventory.monsterlist[p - 2]._monster = inv.itemInventory.monsterlist[p - 2]._monster.evolution.duplicate()
+	inv.itemInventory.monsterlist[p - 2]._monster.lvl = lvl
+	
+
 func action_menu():
 	_actionmenu.visible = true
 	_actionmenufoc.grab_focus()
@@ -665,3 +729,37 @@ func _on_escape_pressed() -> void:
 		await combat_log("Escape failed!")
 		await get_tree().create_timer(0.5).timeout
 		_turn_calc()
+
+
+
+
+
+
+
+#func _on_magic_pressed():
+	#_turn_calc()
+	
+	#var mp_cost = player.mp_cost_fireball
+	#if current_player_mp < player.mp_cost_fireball and try < 2:
+		#await combat_log("Not enough mana")
+		#try = try + 1
+	#elif current_player_mp < player.mp_cost_fireball and try < 4:
+		#await combat_log("nOt eNoUgH mAnA...")
+		#try = try + 1
+	#elif current_player_mp < player.mp_cost_fireball and try >= 4:
+		#await combat_log("NOT ENOUGH MANA!")
+		#try = try + 1
+	#else:
+		#set_mp(_playermp, mp_cost, player.max_mp)
+		#player.mp = current_player_mp
+		#_actionmenu.visible = false
+		#var m_pos = _fireballAnimate.position
+		#dealt_dmg = player.magicdmg
+		#await combat_log("You use FIREBALL on %s!" % [enemy._name])
+		#var tween = get_tree().create_tween()
+		#tween.tween_property(_fireballAnimate, "modulate:a", 1,0.3)
+		#tween.tween_property(_fireballAnimate, "position", Vector2(m_pos[0] +350, m_pos[1]), 0.3)
+		#tween.tween_property(_fireballAnimate, "modulate:a", 0,0.05)	
+		#tween.tween_property(_fireballAnimate, "position", Vector2(m_pos[0], m_pos[1]), 0.1)
+		#await tween.finished
+		#_attack_phase_2()	

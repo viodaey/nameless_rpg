@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=17 format=3 uid="uid://bfltr74e5lteg"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=18 format=3 uid="uid://bfltr74e5lteg"]
 
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_7vltv"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_76vxc"]
 [ext_resource type="Resource" uid="uid://di86w42qhyu3s" path="res://Global/Classes/Mage.tres" id="1_ku7sv"]
 [ext_resource type="Texture2D" uid="uid://bwptoht8nkv2x" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Fire_pixie_evo_1_Idle_movementcheck.png" id="2_3so0q"]
@@ -117,3 +118,4 @@ _class = ExtResource("1_ku7sv")
 lvl = 1
 atb = 110
 max_health = 0
+_abilties = Array[ExtResource("1_7vltv")]([])

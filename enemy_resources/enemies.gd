@@ -32,6 +32,8 @@ const basic_shape = preload("res://enemy_resources/enemy_collision/capsule_shape
 @export var lvl: int = 1
 @export var atb: int = 110
 @export var max_health: int
+@export var _abilties: Array[abilities]
+@export var passive: abilities
 var hp_grow: int = 0
 var dmg_grow: int = 0
 var max_xp: int = 20
