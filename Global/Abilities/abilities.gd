@@ -25,7 +25,8 @@ class_name abilities
 @export var eff_2 : String
 @export var eff_2_ele : String
 @export var eff_2_value : int
-@export var animation: Animation
+@export var animation: SpriteFrames
+@export var animation_type: String
 @export var icon : Texture
 @export var mp: int = 0
 @export var cooldown: int = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=279 format=3 uid="uid://b7kga5w7hkr5o"]
+[gd_scene load_steps=274 format=3 uid="uid://b7kga5w7hkr5o"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle.gd" id="1_f8vj8"]
 [ext_resource type="Resource" uid="uid://cb3ouqjr5sgqc" path="res://enemy_resources/enemy_identityfiles/orc_baby.tres" id="2_pjcb0"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="3_hqtvv"]
 [ext_resource type="FontFile" uid="uid://dmjq6coypb7ll" path="res://textures/fonts/Merienda-Bold.ttf" id="4_0ge1k"]
 [ext_resource type="LabelSettings" uid="uid://16a2edh71l7i" path="res://Scenes/Battle/hplabel.tres" id="4_jbr0v"]
-[ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="5_uugxd"]
 [ext_resource type="Texture2D" uid="uid://cv5mk2thosujc" path="res://test_sprites/60FPS_AC2Q001_Slash.png" id="7_g8lpc"]
 [ext_resource type="SpriteFrames" uid="uid://cce8hps2ykyjo" path="res://enemy_resources/enemy_spriteframes/Earthwolf_Evo_1SF.tres" id="8_2lwc3"]
 [ext_resource type="Texture2D" uid="uid://cm7ugrxdww20r" path="res://textures/Selection Marker/selectionTriangle_full.png" id="8_ype7g"]
@@ -15,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://wnj06sa4uqhj" path="res://textures/hitAnimations/castDark/60FPS_ASDark_01_Cast.png" id="11_4l3t2"]
 [ext_resource type="Texture2D" uid="uid://dh0shujnvljsx" path="res://textures/hitAnimations/castDark/60FPS_ASDark_10_CalamityB.png" id="11_4o82x"]
 [ext_resource type="SpriteFrames" uid="uid://dwwjdf0gv8nii" path="res://enemy_resources/enemy_spriteframes/Warbear_Evo_1SF.tres" id="11_d76h5"]
+[ext_resource type="SpriteFrames" uid="uid://cjbbcg0c6cm0" path="res://Global/Abilities/an_Fireball.tres" id="12_k7k4m"]
 [ext_resource type="Texture2D" uid="uid://ff0jakmrpruh" path="res://textures/hitAnimations/castDark/60FPS_ASDark_02_Cast2.png" id="12_uigp2"]
 [ext_resource type="Texture2D" uid="uid://bbtdq4jxsklwt" path="res://textures/hitAnimations/castDark/60FPS_ASDark_05_Subdue.png" id="14_f08gt"]
 [ext_resource type="Texture2D" uid="uid://6fi1fruu0f0e" path="res://textures/UI/menu_ui_test_300.png" id="18_vd5ne"]
@@ -197,42 +197,6 @@ gradient = SubResource("Gradient_e0u30")
 fill = 1
 fill_from = Vector2(0.482906, 0.542735)
 fill_to = Vector2(0, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_055hs"]
-atlas = ExtResource("5_uugxd")
-region = Rect2(0, 0, 580, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8vwxa"]
-atlas = ExtResource("5_uugxd")
-region = Rect2(580, 0, 580, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ajdio"]
-atlas = ExtResource("5_uugxd")
-region = Rect2(0, 160, 580, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ryd2j"]
-atlas = ExtResource("5_uugxd")
-region = Rect2(580, 160, 580, 160)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5qdkq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_055hs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8vwxa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ajdio")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ryd2j")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2co5e"]
 atlas = ExtResource("11_4o82x")
@@ -2686,7 +2650,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Fireball" type="AnimatedSprite2D" parent="FX"]
+[node name="projectile" type="AnimatedSprite2D" parent="FX"]
 modulate = Color(1, 1, 1, 0)
 light_mask = 17
 visibility_layer = 16
@@ -2694,7 +2658,7 @@ z_index = -1
 position = Vector2(298.428, 403.321)
 rotation = -3.14159
 scale = Vector2(0.2, 0.2)
-sprite_frames = SubResource("SpriteFrames_5qdkq")
+sprite_frames = ExtResource("12_k7k4m")
 autoplay = "default"
 frame_progress = 0.0550403
 

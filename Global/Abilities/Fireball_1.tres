@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="abilities" load_steps=2 format=3 uid="uid://bnnyw8xd4vqfk"]
+[gd_resource type="Resource" script_class="abilities" load_steps=3 format=3 uid="uid://bnnyw8xd4vqfk"]
 
+[ext_resource type="SpriteFrames" uid="uid://cjbbcg0c6cm0" path="res://Global/Abilities/an_Fireball.tres" id="1_irmke"]
 [ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_tf6o7"]
 
 [resource]
@@ -10,9 +11,11 @@ target = "enemy"
 target_amount = 1
 eff_1 = "dmg"
 eff_1_ele = "fire"
-eff_1_value = 40
+eff_1_value = 20
 eff_2 = "none"
 eff_2_ele = ""
 eff_2_value = 0
-mp = 0
+animation = ExtResource("1_irmke")
+animation_type = "projectile"
+mp = 1
 cooldown = 0
