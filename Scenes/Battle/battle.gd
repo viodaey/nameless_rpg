@@ -1,6 +1,7 @@
 extends Control
 
 const scene_type = 2
+@onready var ability_start_pos = $Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector.position
 #1 = map, 2 = battle, 3 = village?
 @export var enemy : Resource 
 var enemy2: Resource
@@ -336,13 +337,14 @@ func _on_abilities_pressed() -> void:
 		_abilitiesmenu.get_node("Ability%s" %[i + 1]).get_node("MP").text =   ("%s" %curPlayer["res"]._abilities[i].mp)
 		ay = 1
 		_await_ability_selection()
-		
 	
 func _await_ability_selection():
 	var select_ability = $Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector
 	$Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/Description.text = curPlayer["res"]._abilities[ay-1].description
 	if curPlayer["res"]._abilities[ay-1].mp > 0:
 		$Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/VBoxContainer/MP.text = ("MP: %s" %curPlayer["res"]._abilities[ay-1].mp)
+	else:
+		$Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/VBoxContainer/MP.text = ""
 	if curPlayer["res"]._abilities[ay-1].cooldown > 0:
 		$Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/VBoxContainer/Cooldown.text = ("CD: %s" %curPlayer["res"]._abilities[ay-1].cooldown)
 	ax = len(curPlayer["res"]._abilities)
@@ -363,20 +365,14 @@ func _await_ability_selection():
 			_await_selection()
 			return
 	if Input.is_action_pressed("ui_cancel"):
-		get_parent()._actionmenu.visible = true
-		get_parent()._actionmenufoc.grab_focus()
+		$Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector.position = ability_start_pos
+		ay = 1
+		_abilitiesnode.visible = false
+		_actionmenu.visible = true
+		_actionmenufoc.grab_focus()
+		return
 	_await_ability_selection()
-			
 	
-			
-
-	
-		
-		
-	
-	
-
-
 func _await_selection():
 	enemyCount = enemyDict.keys()
 	var _selector_tween: Tween
