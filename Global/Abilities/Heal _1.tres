@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="abilities" load_steps=2 format=3 uid="uid://cpldv8c71noe"]
+
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_hyqda"]
+
+[resource]
+script = ExtResource("1_hyqda")
+_name = "Heal"
+target = ""
+eff_1 = "heal"
+eff_1_ele = "none"
+eff_1_value = 30
+eff_2 = ""
+eff_2_ele = ""
+eff_2_value = 0

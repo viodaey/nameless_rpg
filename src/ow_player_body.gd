@@ -9,7 +9,9 @@ var moved : float = 0
 var activeSpawns: Array
 var move_dice : int
 var disabled_spawn : bool = false
+var rng = RandomNumberGenerator.new()
 @onready var map = get_parent()
+@onready var raycast = $RayCast2D
 
 # Called when the node enters the scene tree for the first time.
 func get_input():
@@ -20,7 +22,7 @@ func _ready() -> void:
 	#pass # Replace with function body.
 	move_dice = rng.randi_range(30, 100)
 
-var rng = RandomNumberGenerator.new()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
@@ -53,30 +55,32 @@ func _physics_process(_delta):
 			print("battle initiated from player")
 			get_slide_collision(i).get_collider().get_praent().initiate_battle()
 
-	if moved > move_dice and disabled_spawn == false:
-		_spawn_npc()
-		moved = 0
-		move_dice = rng.randi_range(25, 75)
 
-func _spawn_npc():
+## 	spawn NPC
+	if moved > move_dice and disabled_spawn == false:
+		var vec_target = await(_spawn_npc_loc())
+		#get_node("RayCast2D").position = self.position
+		raycast.target_position = raycast.position + vec_target
+		raycast.force_raycast_update()
+		if not raycast.is_colliding():
+			moved = 0
+			move_dice = rng.randi_range(25, 75)
+			var enemy_select = rng.randi_range(1,len(map.world_enemies))
+			map.spawn_request = load(map.world_enemies[enemy_select - 1].resource_path)
+			map.add_child(spawn_npc.instantiate().duplicate())
+			var num = len(activeSpawns)
+			var _spawned_npc = map.get_node("NPC_spawn")
+			_spawned_npc.name = "NPC_spawn" + "%d" %num
+			_spawned_npc.position = self.position + vec_target
+			activeSpawns.append(_spawned_npc.name)
+
+
+func _spawn_npc_loc():
 	var rng = RandomNumberGenerator.new()
-	var enemy_select = rng.randi_range(1,len(map.world_enemies))
 	var angle = rng.randi_range(0, TAU)
 	var distance = rng.randi_range(80, 150)
-	self.get_node("RayCast2D").target_position = get_parent().position + Vector2((distance+30)*cos(angle), (distance+30)*sin(angle))
-	if self.get_node("RayCast2D").is_colliding():
-		await get_tree().create_timer(0.03).timeout
-		_spawn_npc()
-
-
-	else:
-		map.spawn_request = load(map.world_enemies[enemy_select - 1].resource_path)
-		map.add_child(spawn_npc.instantiate().duplicate())
-		var num = len(activeSpawns)
-		var _spawned_npc = map.get_node("NPC_spawn")
-		_spawned_npc.name = "NPC_spawn" + "%d" %num
-		_spawned_npc.position = self.position + Vector2(distance*cos(angle), distance*sin(angle))
-		activeSpawns.append(_spawned_npc.name)
+	var vec_target = Vector2((distance+5)*cos(angle), (distance+5)*sin(angle))
+	return vec_target
 
 func _despawn_npc(npc):
 	map.get_node(npc).queue_free()

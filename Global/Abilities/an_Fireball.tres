@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cjbbcg0c6cm0"]
+
+[ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="1_f5tvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_055hs"]
+atlas = ExtResource("1_f5tvc")
+region = Rect2(0, 0, 580, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vwxa"]
+atlas = ExtResource("1_f5tvc")
+region = Rect2(580, 0, 580, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajdio"]
+atlas = ExtResource("1_f5tvc")
+region = Rect2(0, 160, 580, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryd2j"]
+atlas = ExtResource("1_f5tvc")
+region = Rect2(580, 160, 580, 160)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_055hs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vwxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajdio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryd2j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

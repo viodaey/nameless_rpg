@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="abilities" load_steps=2 format=3 uid="uid://cawgwsmfnu3l2"]
+
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_xuv6u"]
+
+[resource]
+script = ExtResource("1_xuv6u")
+_name = "Multistrike 1"
+description = "This strikes all enemies and is a very long description. Please observe how long this description actually is to test the container sizing etc etc blablabla"
+target = "enemy"
+target_amount = 4
+eff_1 = "dmg"
+eff_1_ele = "none"
+eff_1_value = 30
+eff_2 = "none"
+eff_2_ele = "none"
+eff_2_value = 0
+mp = 1
+cooldown = 0

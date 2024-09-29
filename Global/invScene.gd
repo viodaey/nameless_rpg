@@ -1,8 +1,8 @@
 extends Control
 
 #var itemInventory = load("res://inventory/playerInventory.tres")
-@onready var select = $ItemPanel/Selector
-@onready var itemList = $ItemPanel/ScrollCont/itemList
+@onready var select = $ItemPanel/MarginContainer/HBoxContainer/Control/Selector
+@onready var itemList = $ItemPanel/MarginContainer/HBoxContainer/ScrollCont/itemList
 var x = 0 #valid item num
 var z = 0 #selector position on valid item num
 @onready var select_start = select.position.y

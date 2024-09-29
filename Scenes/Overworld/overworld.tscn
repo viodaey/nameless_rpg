@@ -407,7 +407,6 @@ drag_bottom_margin = 0.9
 [node name="RayCast2D" type="RayCast2D" parent="Player"]
 target_position = Vector2(0, 0)
 collide_with_areas = true
-collide_with_bodies = false
 
 [node name="CaveEntrance" type="Area2D" parent="."]
 position = Vector2(232, 72)
@@ -484,7 +483,6 @@ scale = Vector2(0.0253906, 0.0311892)
 sprite_frames = ExtResource("17_ueu4w")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.457803
 
 [node name="ForestEntrance" type="Area2D" parent="."]
 position = Vector2(14, 587)

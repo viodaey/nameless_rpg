@@ -1,21 +1,65 @@
-[gd_resource type="Resource" script_class="inventory" load_steps=7 format=3]
+[gd_resource type="Resource" script_class="inventory" load_steps=15 format=3]
 
-[ext_resource type="Script" path="res://inventory/invSlots.gd" id="1_qm57o"]
-[ext_resource type="Resource" path="res://inventory/items/potion.tres" id="2_yxlx1"]
-[ext_resource type="Resource" path="res://inventory/items/basicCaptureCard.tres" id="3_hg6xc"]
-[ext_resource type="Script" path="res://inventory/inventoryMain.gd" id="4_grro7"]
+[ext_resource type="Script" path="res://inventory/invSlots.gd" id="1_a700l"]
+[ext_resource type="Resource" path="res://inventory/items/potion.tres" id="2_qetvl"]
+[ext_resource type="Resource" path="res://inventory/items/basicCaptureCard.tres" id="3_u2w44"]
+[ext_resource type="Resource" path="res://Global/Classes/Assassin.tres" id="4_3wtvq"]
+[ext_resource type="SpriteFrames" path="res://enemy_resources/enemy_spriteframes/Birdman_Evo_1sf.tres" id="5_d55xo"]
+[ext_resource type="Shape2D" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="6_vs2j3"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="7_whoy5"]
+[ext_resource type="Texture2D" path="res://enemy_resources/enemy_texturefiles/idle+movement/ornis/Bird-man1.png" id="8_1ctyf"]
+[ext_resource type="Script" path="res://inventory/monSlots.gd" id="9_bjssr"]
+[ext_resource type="Script" path="res://inventory/inventoryMain.gd" id="10_js024"]
 
 [sub_resource type="Resource" id="Resource_m83ba"]
-script = ExtResource("1_qm57o")
-_item = ExtResource("2_yxlx1")
+script = ExtResource("1_a700l")
+_item = ExtResource("2_qetvl")
 amount = 3
 
-[sub_resource type="Resource" id="Resource_fl20x"]
-script = ExtResource("1_qm57o")
-_item = ExtResource("3_hg6xc")
-amount = 2
+[sub_resource type="Resource" id="Resource_5ktsc"]
+script = ExtResource("1_a700l")
+_item = ExtResource("3_u2w44")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_m53v0"]
+script = ExtResource("7_whoy5")
+_name = "Chick"
+texture = ExtResource("8_1ctyf")
+evo_lvl = 2000
+health = 60.2904
+base_health = 30.0
+damage = 39.6049
+critc = 5
+xp = 129
+speed = 35
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = ExtResource("5_d55xo")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 0.4
+collision_shape = ExtResource("6_vs2j3")
+max_group_size = 3
+min_group_size = 1
+friends = Array[String]([])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("4_3wtvq")
+lvl = 8
+atb = 110
+max_health = 61
+
+[sub_resource type="Resource" id="Resource_08qse"]
+script = ExtResource("9_bjssr")
+_monster = SubResource("Resource_m53v0")
+stats = {
+"hp": 60.2904,
+"mp": 0,
+"xp": 0
+}
 
 [resource]
-script = ExtResource("4_grro7")
-list = Array[ExtResource("1_qm57o")]([SubResource("Resource_m83ba"), SubResource("Resource_fl20x")])
-monsterlist = []
+script = ExtResource("10_js024")
+list = Array[ExtResource("1_a700l")]([SubResource("Resource_m83ba"), SubResource("Resource_5ktsc")])
+monsterlist = [SubResource("Resource_08qse")]
