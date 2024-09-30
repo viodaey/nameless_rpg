@@ -26,9 +26,10 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Forest/Forest.tscn":
 		_player_body.position = _forest_entrance.position + Vector2(20,0)
 	if sceneManager.last_scene == "res://Scenes/H1/H1.tscn":
-		_player_body.position = _h1entrancefront.position + Vector2(0,20)
-	if sceneManager.last_scene == "res://Scenes/H1/H1.tscn":
-		_player_body.position = _h1entranceback.position + Vector2(20,0)
+		if player.last_exit == 'south':
+			_player_body.position = _h1entrancefront.position + Vector2(0,20)
+		if player.last_exit == 'west':
+			_player_body.position = _h1entranceback.position + Vector2(-20,0)
 
 func _on_forest_entrance_body_entered(body: Node2D) -> void:
 	if body.name == _player_body.name:
@@ -39,9 +40,11 @@ func _on_cave_entrance_body_entered(body: Node2D) -> void:
 func _on_h1entrancefront_body_entered(body: Node2D) -> void:
 	if body.name == _player_body.name:
 		sceneManager.goto_scene("res://Scenes/H1/H1.tscn")
+		player.last_exit = 'south'
 func _on_h1entranceback_body_entered(body: Node2D) -> void:
 	if body.name == _player_body.name:
 		sceneManager.goto_scene("res://Scenes/H1/H1.tscn")
+		player.last_exit = 'west'
 
 #func _input(_event):
 	#if Input.is_action_pressed("ui_cancel"):

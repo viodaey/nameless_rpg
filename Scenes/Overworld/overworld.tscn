@@ -400,18 +400,18 @@ scale = Vector2(3.60262, 1.46176)
 shape = SubResource("RectangleShape2D_texwq")
 
 [node name="H1Entrancefront" type="Area2D" parent="."]
-position = Vector2(13, 594)
+position = Vector2(416, 232)
 
 [node name="H1Entrancefront" type="CollisionShape2D" parent="H1Entrancefront"]
-position = Vector2(402, -363)
+position = Vector2(-0.999969, -2.00003)
 scale = Vector2(3.60262, 1.46176)
 shape = SubResource("RectangleShape2D_ymk0v")
 
 [node name="H1Entranceback" type="Area2D" parent="."]
-position = Vector2(13, 594)
+position = Vector2(352, 184)
 
 [node name="H1Entranceback" type="CollisionShape2D" parent="H1Entranceback"]
-position = Vector2(337.938, -410)
+position = Vector2(-1.90735e-06, -4.76837e-07)
 scale = Vector2(3.60262, 1.46176)
 shape = SubResource("RectangleShape2D_b27h6")
 
