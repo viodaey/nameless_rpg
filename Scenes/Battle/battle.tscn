@@ -2341,14 +2341,14 @@ editor_draw_limits = true
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.726
-anchor_top = 0.427
-anchor_right = 0.92
-anchor_bottom = 0.703
-offset_left = 23.7514
-offset_top = 14.7531
-offset_right = -1.87061
-offset_bottom = 15.0771
+anchor_left = 0.746
+anchor_top = 0.45
+anchor_right = 0.917
+anchor_bottom = 0.725
+offset_left = 0.491333
+offset_top = 0.0331116
+offset_right = 1.61829
+offset_bottom = 0.997101
 pivot_offset = Vector2(90, 90)
 size_flags_vertical = 0
 theme_override_constants/separation = -5
@@ -2481,14 +2481,14 @@ label_settings = SubResource("LabelSettings_mdogy")
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.573
-anchor_top = 0.602
-anchor_right = 0.767
-anchor_bottom = 0.879
-offset_left = 34.7805
-offset_top = 2.18756
-offset_right = 9.15845
-offset_bottom = 1.86053
+anchor_left = 0.603
+anchor_top = 0.605
+anchor_right = 0.775
+anchor_bottom = 0.882
+offset_left = -0.109558
+offset_top = 0.267548
+offset_right = -0.145569
+offset_bottom = -0.0595093
 pivot_offset = Vector2(90, 90)
 size_flags_vertical = 0
 theme_override_constants/separation = -5
@@ -2550,13 +2550,13 @@ label_settings = SubResource("LabelSettings_mdogy")
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.523
+anchor_left = 0.565
 anchor_top = 0.37
-anchor_right = 0.717
+anchor_right = 0.759
 anchor_bottom = 0.647
-offset_left = 49.2064
+offset_left = 0.360474
 offset_top = 0.101669
-offset_right = 49.1744
+offset_right = 0.328308
 offset_bottom = -0.225342
 pivot_offset = Vector2(90, 90)
 size_flags_vertical = 0
@@ -2662,14 +2662,33 @@ sprite_frames = ExtResource("12_k7k4m")
 autoplay = "default"
 frame_progress = 0.0550403
 
-[node name="hitAnimate" type="AnimatedSprite2D" parent="FX"]
+[node name="hitAnimate1" type="AnimatedSprite2D" parent="FX"]
 z_index = 1
 position = Vector2(570.239, 326.741)
 scale = Vector2(1, 1.0154)
 sprite_frames = SubResource("SpriteFrames_pvakd")
-animation = &"castDark2"
-frame = 45
-frame_progress = 1.0
+animation = &"slash"
+
+[node name="hitAnimate2" type="AnimatedSprite2D" parent="FX"]
+z_index = 1
+position = Vector2(570.239, 326.741)
+scale = Vector2(1, 1.0154)
+sprite_frames = SubResource("SpriteFrames_pvakd")
+animation = &"slash"
+
+[node name="hitAnimate3" type="AnimatedSprite2D" parent="FX"]
+z_index = 1
+position = Vector2(570.239, 326.741)
+scale = Vector2(1, 1.0154)
+sprite_frames = SubResource("SpriteFrames_pvakd")
+animation = &"slash"
+
+[node name="hitAnimate4" type="AnimatedSprite2D" parent="FX"]
+z_index = 1
+position = Vector2(570.239, 326.741)
+scale = Vector2(1, 1.0154)
+sprite_frames = SubResource("SpriteFrames_pvakd")
+animation = &"slash"
 
 [node name="soulContainer1" type="AspectRatioContainer" parent="."]
 layout_mode = 0
