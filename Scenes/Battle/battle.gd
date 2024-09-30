@@ -1,7 +1,7 @@
 extends Control
 
 const scene_type = 2
-@onready var ability_start_pos = $Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector.position
+@onready var ability_ind_pos = $Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector.position
 #1 = map, 2 = battle, 3 = village?
 @export var enemy : Resource 
 var enemy2: Resource
@@ -66,13 +66,16 @@ var ay : int = 1
 @onready var selected_enemy_ind : TextureRect #= _enemycont1.get_node("Select")
 @onready var active_enemies: Array = [_enemycont1]
 @onready var fx = $FX
+@onready var onhit1 = $FX/hitAnimate1
+@onready var onhit2 = $FX/hitAnimate2
+@onready var onhit3 = $FX/hitAnimate3
+@onready var onhit4 = $FX/hitAnimate4
+
 @onready var hp: int
 @onready var min_lvl: int = sceneManager.mon_min_lvl
 @onready var max_lvl: int = sceneManager.mon_max_lvl
 
 func _ready():
-	#if player_count == 1:
-		#_player2statscont.visible = false
 ##	setup player 1
 	$Background.texture = sceneManager.battle_bg
 	set_health_init(_playerhp, player.health, player.max_health)
@@ -86,6 +89,7 @@ func _ready():
 	playerDict_1["ind"].modulate.a = 0
 	playerDict_1["live"]["hp"] = player.health
 	playerDict_1["live"]["mp"] = player.mp
+	playerDict_1["live"]["dmg"] = player.damage
 	playerDict_1["cont"].get_node("Name").text = ("%s lvl %d" %[playerDict_1["res"]._name, playerDict_1["res"].lvl])
 	playerDict_1["atb"] = 0
 	playerDict_1["max_atb"] = player.atb
@@ -109,14 +113,11 @@ func _ready():
 		playerDict_2["txt"].play("idle")
 		if playerDict_2["res"].battle_scale_vec < Vector2(1,1):
 			playerDict_2["txt"].scale = playerDict_2["res"].battle_scale_vec
-			#playerDict_2["txtbox"].position += (playerDict_2["txtbox"].size - (playerDict_2["txtbox"].size * playerDict_2["res"].battle_scale_vec.x)) / 2
-			#playerDict_2["txtbox"].size = playerDict_2["txtbox"].size * playerDict_2["res"].battle_scale_vec
 		set_health_init(playerDict_2["cont"].get_node("PlayerHP"), playerDict_2["live"]["hp"], playerDict_2["res"].max_health)
 		playerDict_2["atb"] = 0
 		playerDict_2["max_atb"] = playerDict_2["res"].atb
 		playerDict_2["dmg"] = playerDict_2["res"].damage
 		playerDict_2["cont"].get_node("PlayerATB").max_value = playerDict_2["max_atb"]
-		
 		
 	else:
 		$Panel_Menu/VBoxContainer/PlayerContainer2.visible = false
@@ -126,9 +127,8 @@ func _ready():
 		_player3statscont.visible = false
 		_player4statscont.visible = false
 		
-	
 ##	load enemy resource from encounter -- TURN OFF LOAD TO TEST EXPORT RESOURCE
-	enemy 	= load(player.enemy_encounter)
+	enemy = load(player.enemy_encounter)
 	AudioPlayer.play_music_level(enemy.music)
 	enemyDict_1["res"] = enemy
 	enemyDict_1["cont"] = _enemycont1
@@ -326,19 +326,19 @@ func _on_attack_pressed():
 	_await_selection()
 
 func _on_abilities_pressed() -> void:
-	if not len(curPlayer["res"]._abilities) > 0:
-		return
-	_actionmenu.visible = false
-	_abilitiesnode.visible = true
-	for i in len(curPlayer["res"]._abilities):
-		_abilitiesmenu.get_node("Ability%s" %[i + 1]).visible = true
-		_abilitiesmenu.get_node("Ability%s" %[i + 1]).get_node("Name").text =   curPlayer["res"]._abilities[i]._name
-		_abilitiesmenu.get_node("Ability%s" %[i + 1]).get_node("MP").text =   ("%s" %curPlayer["res"]._abilities[i].mp)
+	if len(curPlayer["res"]._abilities) > 0:
+		_actionmenu.visible = false
+		_abilitiesnode.visible = true
+		x = 0
 		ay = 1
+		for i in len(curPlayer["res"]._abilities):
+			_abilitiesmenu.get_node("Ability%s" %[i + 1]).visible = true
+			_abilitiesmenu.get_node("Ability%s" %[i + 1]).get_node("Name").text =   curPlayer["res"]._abilities[i]._name
+			_abilitiesmenu.get_node("Ability%s" %[i + 1]).get_node("MP").text =   ("%s" %curPlayer["res"]._abilities[i].mp)
 		_await_ability_selection()
 	
 func _await_ability_selection():
-	var select_ability = $Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector
+	var ability_ind = $Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector
 	$Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/Description.text = curPlayer["res"]._abilities[ay-1].description
 	if curPlayer["res"]._abilities[ay-1].mp > 0:
 		$Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/VBoxContainer/MP.text = ("MP: %s" %curPlayer["res"]._abilities[ay-1].mp)
@@ -350,21 +350,21 @@ func _await_ability_selection():
 	await(pressedSomething)
 	if Input.is_action_pressed("ui_down"):
 		if ax > ay:
-			select_ability.position.y = select_ability.position.y + 27
+			ability_ind.position.y = ability_ind.position.y + 27
 			ay += 1
 	if Input.is_action_pressed("ui_up"):
 		if ay > 1:
-			select_ability.position.y = select_ability.position.y - 27
+			ability_ind.position.y = ability_ind.position.y - 27
 			ay -= 1
 	if Input.is_action_pressed("ui_accept"):
 		if curPlayer["res"]._abilities[ay-1].target == "enemy":
 			next_phase = 2
 			_abilitiesnode.visible = false
+			ability_ind.position = ability_ind_pos
 			_await_selection()
-			#print("you passed the accept_ability_test")
 			return
 	if Input.is_action_pressed("ui_cancel"):
-		$Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector.position = ability_start_pos
+		ability_ind.position = ability_ind_pos
 		ay = 1
 		_abilitiesnode.visible = false
 		_actionmenu.visible = true
@@ -472,7 +472,7 @@ func _player_selection():
 		_actionmenufoc.grab_focus()
 	else:
 		_player_selection()
-
+		
 func _attack_phase_1():
 	var curEnemyCont = enemyDict[y]["cont"]
 	var pos = curPlayer["txt"].position
@@ -483,11 +483,10 @@ func _attack_phase_1():
 	tween.tween_property(curPlayer["txt"], "position", Vector2(pos[0] + 20, pos[1]),0.15)
 	tween.tween_property(curPlayer["txt"], "position", Vector2(pos[0], pos[1]),0.5)
 	await get_tree().create_timer(0.75).timeout
-	fx.get_node("hitAnimate").position = curEnemyCont.position + (curEnemyCont.size / 2)
-	fx.get_node("hitAnimate").play('slash')
+	onhit1.position = curEnemyCont.position + (curEnemyCont.size / 2)
+	onhit1.play('slash')
 	await get_tree().create_timer(0.55).timeout
 	_attack_phase_2()
-
 	
 func _attack_phase_2():
 	var selected_enemy = enemyDict[y]["cont"]
@@ -544,10 +543,9 @@ func enemy_died():
 			await get_tree().create_timer(0.7).timeout
 			await(combat_log("Attack Power increased by %d!" % [playerDict[p]["res"].dmg_grow]))
 			await get_tree().create_timer(0.7).timeout
-			
 		playerDict[p]["res"].health = playerDict[p]["live"]["hp"]
 	enemyDict.erase(y)
-	
+
 func enemy_turn(e):
 	if enemyDict[e]["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
 		combat_log("%s is chillin'" % (enemyDict[e]["res"]._name))
@@ -612,14 +610,14 @@ func use_item(z) -> void:
 		x = 0
 		_player_selection()
 		get_node("InventScene").queue_free()
-
+		
 func use_item_2(target):
 	inv.sub_item(used_item_slot)
 	await(combat_log("You use %s on %s" % [used_item._name, target["res"]._name]))
 	if used_item.effects.has("Capture"):
-		fx.get_node("hitAnimate").position = target["cont"].position + (target["cont"].size / 2)
-		fx.get_node("hitAnimate").z_index = -1
-		fx.get_node("hitAnimate").play('castDark2')
+		onhit1.position = target["cont"].position + (target["cont"].size / 2)
+		onhit1.z_index = -1
+		onhit1.play('castDark2')
 		var tween = get_tree().create_tween()
 		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:v", 0, 0.2)
 		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:v", 1, 0.03)
@@ -660,7 +658,7 @@ func use_item_2(target):
 			tween = get_tree().create_tween()
 			tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "modulate:a", 1, 0.2)
 			_turn_calc()
-		fx.get_node("hitAnimate").z_index = 1
+		onhit1.z_index = 1
 	if used_item.effects.has("Heal"):
 		target["live"]["hp"] = min(target["live"]["hp"] + used_item.effects["Heal"], target["res"].max_health)
 		set_health_init(
@@ -670,12 +668,23 @@ func use_item_2(target):
 		action_menu()
 
 func use_ability(target):
+	var base_mult = 1
 	var used_ability = curPlayer["res"]._abilities[ay - 1]
 	await combat_log("%s casts %s on %s!" % [curPlayer["res"]._name, used_ability._name, target["res"]._name])
 	set_mp(_playermp, used_ability.mp, player.max_mp)
+	var additive = 0
+	if used_ability.eff_1_multiplier != "none":
+		base_mult = curPlayer["live"].get(used_ability.eff_1_multiplier)
+	if used_ability.eff_1_additive != "none":
+		additive = curPlayer["live"].get(used_ability.eff_1_additive) * used_ability.eff_1_additive_multiplier
 	if used_ability.target_amount == 4:
 		if not used_ability.animation:
-			pass
+			for en in enemyDict:
+				var hitnode = fx.get_node("hitAnimate%d" %en)
+				hitnode.position = enemyDict[en]["cont"].position + (enemyDict[en]["cont"].size / 2)
+				hitnode.play('slash')
+
+			
 	if used_ability.target_amount == 1:
 		if not used_ability.animation:
 			pass
@@ -685,26 +694,21 @@ func use_ability(target):
 			var target_position = target["cont"].position + (target["cont"].size / 2)
 			var tween = get_tree().create_tween()
 			tween.tween_property(_projectile, "modulate:a", 1,0.3)
-			tween.tween_property(_projectile, "position", target_position, 0.3)
+			tween.tween_property(_projectile, "position", target_position, 0.5)
 			tween.tween_property(_projectile, "modulate:a", 0,0.05)	
 			#tween.tween_property($FX/projectile, "position", Vector2(m_pos[0], m_pos[1]), 0.1)
 			await tween.finished
-			dealt_dmg = used_ability.eff_1_value
-			_attack_phase_2()	
-			
-			
-			
+	dealt_dmg = ((used_ability.eff_1_base * base_mult) + additive)
+	_attack_phase_2()	
 			
 func _ally_died(y):
 	await(combat_log("%s died" % playerDict[y]["res"]._name))
 	#var tween = get_tree().create_tween()
-	
 	if y == 1:
 		await(get_tree().create_timer(2).timeout)
 		gameover()
 		return
-
-		
+	
 func gameover():
 	sceneManager.goto_scene(sceneManager.last_scene)
 	
@@ -719,7 +723,6 @@ func evolve(p):
 	inv.itemInventory.monsterlist[p - 2]._monster = inv.itemInventory.monsterlist[p - 2]._monster.evolution.duplicate()
 	inv.itemInventory.monsterlist[p - 2]._monster.lvl = lvl
 	
-
 func action_menu():
 	_actionmenu.visible = true
 	_actionmenufoc.grab_focus()
@@ -737,11 +740,6 @@ func _on_escape_pressed() -> void:
 		await combat_log("Escape failed!")
 		await get_tree().create_timer(0.5).timeout
 		_turn_calc()
-
-
-
-
-
 
 
 #func _on_magic_pressed():

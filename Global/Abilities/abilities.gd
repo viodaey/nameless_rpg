@@ -15,6 +15,10 @@ class_name abilities
 # targets
 # define main + additional? or just global?
 
+## enum multipliers (attributes)
+# attributes
+# eg atp, mag, def, res, crt etc
+
 @export var _name: String = "Ability"
 @export var description: String = "This is an ability"
 @export var target: String = "enemy"
@@ -22,9 +26,19 @@ class_name abilities
 @export var eff_1 : String
 @export var eff_1_ele : String
 @export var eff_1_value : int
+@export var eff_1_base: int
+@export var eff_1_additive: String
+@export var eff_1_additive_multiplier: float = 1
+@export var eff_1_multiplier : String
+@export var eff_1_multiplier_multiplier: float = 1
 @export var eff_2 : String
 @export var eff_2_ele : String
 @export var eff_2_value : int
+@export var eff_2_base: int
+@export var eff_2_additive: String = "none"
+@export var eff_2_additive_multiplier: float
+@export var eff_2_multiplier : String = "none"
+@export var eff_2_multiplier_multiplier: float
 @export var animation: SpriteFrames
 @export var animation_type: String
 @export var icon : Texture
