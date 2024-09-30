@@ -14,11 +14,9 @@ var spawn_request
 func _ready() -> void:
 	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
-		#print(sceneManager.last_scene)
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/Overworld/overworld.tscn":
 		_player_body.position = $ForestExit.position + Vector2(-15,0)
-		#print(sceneManager.last_scene)
 	if player.forest_scene1 == 0:
 		$Player.disabled_spawn = true
 	MainMenu.map_scene = get_tree().current_scene

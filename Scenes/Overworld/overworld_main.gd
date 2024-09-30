@@ -10,6 +10,9 @@ const scene_type = 1
 @onready var _player_body = $Player
 @onready var _cave_entrance = $CaveEntrance
 @onready var _forest_entrance = $ForestEntrance
+
+@onready var _h1entrancefront = $H1Entrancefront
+@onready var _h1entranceback = $H1Entranceback
 var spawn_request
 
 
@@ -22,6 +25,23 @@ func _ready() -> void:
 		_player_body.position = _cave_entrance.position + Vector2(0,20)
 	if sceneManager.last_scene == "res://Scenes/Forest/Forest.tscn":
 		_player_body.position = _forest_entrance.position + Vector2(20,0)
+	if sceneManager.last_scene == "res://Scenes/H1/H1.tscn":
+		_player_body.position = _h1entrancefront.position + Vector2(0,20)
+	if sceneManager.last_scene == "res://Scenes/H1/H1.tscn":
+		_player_body.position = _h1entranceback.position + Vector2(20,0)
+
+func _on_forest_entrance_body_entered(body: Node2D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/Forest/Forest.tscn")
+func _on_cave_entrance_body_entered(body: Node2D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/Cave/cave_001.tscn")
+func _on_h1entrancefront_body_entered(body: Node2D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/H1/H1.tscn")
+func _on_h1entranceback_body_entered(body: Node2D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/H1/H1.tscn")
 
 #func _input(_event):
 	#if Input.is_action_pressed("ui_cancel"):
@@ -33,24 +53,6 @@ func _ready() -> void:
 	#get_node("Player").get_node("Camera2D").enabled = false
 	#get_parent().add_child(mainMenuScene)
 	#get_tree().paused = true
-		
-func _on_forest_entrance_body_entered(body: Node2D) -> void:
-	if body.name == _player_body.name:
-		sceneManager.goto_scene("res://Scenes/Forest/Forest.tscn")
-		
-func _on_cave_entrance_body_entered(body: Node2D) -> void:
-	if body.name == _player_body.name:
-		sceneManager.goto_scene("res://Scenes/Cave/cave_001.tscn")
-
-
-
-
-
-
-
-
-
-
 
 #func _spawn_npc():
 	#if is_instance_valid($NPC_spawn):
