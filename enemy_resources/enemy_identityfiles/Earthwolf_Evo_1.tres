@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3 uid="uid://d1y8eprvwt18s"]
 
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_kkytr"]
-[ext_resource type="SpriteFrames" uid="uid://cce8hps2ykyjo" path="res://enemy_resources/enemy_spriteframes/Earthwolf_Evo_1SF.tres" id="2_jell6"]
+[ext_resource type="SpriteFrames" uid="uid://cce8hps2ykyjo" path="res://enemy_resources/enemy_spriteframes/Earthwolf_Evo_1sf.tres" id="2_jell6"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="3_71oco"]
 [ext_resource type="Resource" uid="uid://bmlto5qmau708" path="res://enemy_resources/enemy_identityfiles/Earthwolf_Evo_2.tres" id="3_888pl"]
 [ext_resource type="Texture2D" uid="uid://cspbaanasq48y" path="res://enemy_resources/enemy_texturefiles/canine/Earthwolf1.png" id="5_x2yaa"]
