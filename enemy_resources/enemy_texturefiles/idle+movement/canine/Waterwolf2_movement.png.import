@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b50aos3c1ne8j"
-path="res://.godot/imported/Firewolf Evo 1 Idle movementcheck.png-bcf3b346d89bfa7d3ae6d5f98b4089e1.ctex"
+uid="uid://b12402bybcwv3"
+path="res://.godot/imported/Waterwolf2_movement.png-86778b540c3174a7a6b93b16b958bb1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Firewolf Evo 1 Idle movementcheck.png"
-dest_files=["res://.godot/imported/Firewolf Evo 1 Idle movementcheck.png-bcf3b346d89bfa7d3ae6d5f98b4089e1.ctex"]
+source_file="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Waterwolf2_movement.png"
+dest_files=["res://.godot/imported/Waterwolf2_movement.png-86778b540c3174a7a6b93b16b958bb1a.ctex"]
 
 [params]
 

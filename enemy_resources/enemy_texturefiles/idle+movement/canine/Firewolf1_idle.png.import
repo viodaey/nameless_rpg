@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2makaog7dumf"
-path="res://.godot/imported/Firewolf Evo 1 Move Left-sheet.png-d1f8fb0fb2e7ec141fe0b5916ccc8863.ctex"
+uid="uid://b50aos3c1ne8j"
+path="res://.godot/imported/Firewolf1_idle.png-75de7b84bc724ec3d3b6a5cb4ff7bc9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Firewolf Evo 1 Move Left-sheet.png"
-dest_files=["res://.godot/imported/Firewolf Evo 1 Move Left-sheet.png-d1f8fb0fb2e7ec141fe0b5916ccc8863.ctex"]
+source_file="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Firewolf1_idle.png"
+dest_files=["res://.godot/imported/Firewolf1_idle.png-75de7b84bc724ec3d3b6a5cb4ff7bc9b.ctex"]
 
 [params]
 

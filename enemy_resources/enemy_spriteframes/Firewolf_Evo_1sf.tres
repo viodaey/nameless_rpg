@@ -1,42 +1,42 @@
 [gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://dfu73cl600trr"]
 
-[ext_resource type="Texture2D" uid="uid://b50aos3c1ne8j" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Firewolf Evo 1 Idle movementcheck.png" id="1_m8jrt"]
-[ext_resource type="Texture2D" uid="uid://2makaog7dumf" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Firewolf Evo 1 Move Left-sheet.png" id="2_khfxq"]
+[ext_resource type="Texture2D" uid="uid://b50aos3c1ne8j" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Firewolf1_idle.png" id="1_pggyf"]
+[ext_resource type="Texture2D" uid="uid://2makaog7dumf" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Firewolf1_movement.png" id="2_7pnvr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqrd8"]
-atlas = ExtResource("1_m8jrt")
+atlas = ExtResource("1_pggyf")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00ljf"]
-atlas = ExtResource("1_m8jrt")
+atlas = ExtResource("1_pggyf")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p1pxd"]
-atlas = ExtResource("1_m8jrt")
+atlas = ExtResource("1_pggyf")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_le4uc"]
-atlas = ExtResource("1_m8jrt")
+atlas = ExtResource("1_pggyf")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_box0y"]
-atlas = ExtResource("1_m8jrt")
+atlas = ExtResource("1_pggyf")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u0hjs"]
-atlas = ExtResource("2_khfxq")
+atlas = ExtResource("2_7pnvr")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsmjn"]
-atlas = ExtResource("2_khfxq")
+atlas = ExtResource("2_7pnvr")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ov7c0"]
-atlas = ExtResource("2_khfxq")
+atlas = ExtResource("2_7pnvr")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4y405"]
-atlas = ExtResource("2_khfxq")
+atlas = ExtResource("2_7pnvr")
 region = Rect2(384, 0, 128, 128)
 
 [resource]

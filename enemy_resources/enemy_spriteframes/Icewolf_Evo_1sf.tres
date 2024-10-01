@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://b05eaacutddo1"]
 
-[ext_resource type="Texture2D" uid="uid://belk168mqjfln" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Icewolf Evo 1 Idle movementcheck.png" id="1_tm42y"]
-[ext_resource type="Texture2D" uid="uid://b5sgbnnccxaky" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Icewolf Evo 1 Move Left .png" id="2_3a5nu"]
+[ext_resource type="Texture2D" uid="uid://belk168mqjfln" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Icewolf1_idle.png" id="1_tm42y"]
+[ext_resource type="Texture2D" uid="uid://b5sgbnnccxaky" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Icewolf1_movement.png" id="2_3a5nu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uv0uh"]
 atlas = ExtResource("1_tm42y")
