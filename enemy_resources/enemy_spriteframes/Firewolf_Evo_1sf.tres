@@ -1,61 +1,61 @@
 [gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://dfu73cl600trr"]
 
-[ext_resource type="Texture2D" uid="uid://b50aos3c1ne8j" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Firewolf1_idle.png" id="1_pggyf"]
-[ext_resource type="Texture2D" uid="uid://2makaog7dumf" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Firewolf1_movement.png" id="2_7pnvr"]
+[ext_resource type="Texture2D" uid="uid://bggykmnrpug4w" path="res://enemy_resources/enemy_texturefiles/canine/Firewolf2_idle.png" id="1_f6jve"]
+[ext_resource type="Texture2D" uid="uid://n2xjh0jp61g" path="res://enemy_resources/enemy_texturefiles/canine/Firewolf2_movement.png" id="2_dtii5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mqrd8"]
-atlas = ExtResource("1_pggyf")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_00ljf"]
-atlas = ExtResource("1_pggyf")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p1pxd"]
-atlas = ExtResource("1_pggyf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_seiok"]
+atlas = ExtResource("1_f6jve")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_le4uc"]
-atlas = ExtResource("1_pggyf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6u2n"]
+atlas = ExtResource("1_f6jve")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxrgi"]
+atlas = ExtResource("1_f6jve")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vyhi"]
+atlas = ExtResource("1_f6jve")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_box0y"]
-atlas = ExtResource("1_pggyf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkgmg"]
+atlas = ExtResource("1_f6jve")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u0hjs"]
-atlas = ExtResource("2_7pnvr")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6mec"]
+atlas = ExtResource("2_dtii5")
+region = Rect2(17, 6, 129, 122)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bsmjn"]
-atlas = ExtResource("2_7pnvr")
-region = Rect2(128, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_id6yb"]
+atlas = ExtResource("2_dtii5")
+region = Rect2(146, 6, 129, 122)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ov7c0"]
-atlas = ExtResource("2_7pnvr")
-region = Rect2(256, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3skm"]
+atlas = ExtResource("2_dtii5")
+region = Rect2(275, 6, 129, 122)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4y405"]
-atlas = ExtResource("2_7pnvr")
-region = Rect2(384, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3evni"]
+atlas = ExtResource("2_dtii5")
+region = Rect2(386, 6, 123, 122)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mqrd8")
+"texture": SubResource("AtlasTexture_seiok")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_00ljf")
+"texture": SubResource("AtlasTexture_s6u2n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p1pxd")
+"texture": SubResource("AtlasTexture_wxrgi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_le4uc")
+"texture": SubResource("AtlasTexture_5vyhi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_box0y")
+"texture": SubResource("AtlasTexture_wkgmg")
 }],
 "loop": true,
 "name": &"idle",
@@ -63,16 +63,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u0hjs")
+"texture": SubResource("AtlasTexture_q6mec")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bsmjn")
+"texture": SubResource("AtlasTexture_id6yb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ov7c0")
+"texture": SubResource("AtlasTexture_q3skm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4y405")
+"texture": SubResource("AtlasTexture_3evni")
 }],
 "loop": true,
 "name": &"run",

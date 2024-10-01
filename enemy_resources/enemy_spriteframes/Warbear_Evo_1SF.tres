@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://dwwjdf0gv8nii"]
 
-[ext_resource type="Texture2D" uid="uid://cxo52fq1d3y8v" path="res://enemy_resources/enemy_texturefiles/idle+movement/ursidae/Warbear Evo 1 Idle movementcheck-sheet.png" id="1_y1nek"]
-[ext_resource type="Texture2D" uid="uid://djg55jpv60plb" path="res://enemy_resources/enemy_texturefiles/idle+movement/ursidae/Warbear Evo 1 Idle + Run-sheet.png" id="2_nbm32"]
+[ext_resource type="Texture2D" uid="uid://cxo52fq1d3y8v" path="res://enemy_resources/enemy_texturefiles/ursidae/Warbear Evo 1 Idle movementcheck-sheet.png" id="1_y1nek"]
+[ext_resource type="Texture2D" uid="uid://djg55jpv60plb" path="res://enemy_resources/enemy_texturefiles/ursidae/Warbear Evo 1 Idle + Run-sheet.png" id="2_nbm32"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hlqud"]
 atlas = ExtResource("1_y1nek")

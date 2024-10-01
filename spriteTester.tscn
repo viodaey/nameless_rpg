@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5qmhq1tofh5x"]
 
-[ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Earthwolf2.png" id="1_3bpcc"]
+[ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://enemy_resources/enemy_texturefiles/canine/Earthwolf2.png" id="1_3bpcc"]
 [ext_resource type="Texture2D" uid="uid://bv5xohluss2du" path="res://Sprite-0001 roy test Demon Earth.png" id="2_yaona"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4b70o"]

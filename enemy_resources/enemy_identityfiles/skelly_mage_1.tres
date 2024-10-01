@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://di86w42qhyu3s" path="res://Global/Classes/Mage.tres" id="1_llonu"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_pcyw6"]
-[ext_resource type="Texture2D" uid="uid://b8byxdvvqhncu" path="res://enemy_resources/enemy_texturefiles/idle+movement/humanoid/Skeletal_Mage_Evo1_Idle_movementcheck.png" id="2_lu1u1"]
+[ext_resource type="Texture2D" uid="uid://b8byxdvvqhncu" path="res://enemy_resources/enemy_texturefiles/humanoid/Skeletal_Mage_Evo1_Idle_movementcheck.png" id="2_lu1u1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qu4c"]
 atlas = ExtResource("2_lu1u1")

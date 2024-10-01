@@ -1,10 +1,38 @@
-[gd_resource type="CanvasTexture" load_steps=4 format=3 uid="uid://6hqxyqcaal32"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://blpccv8frf4ql"]
 
-[ext_resource type="Texture2D" uid="uid://gopacafe0dok" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Firewolf Evo 2_d.png" id="1_vqxrm"]
-[ext_resource type="Texture2D" uid="uid://dco3fuw147hde" path="res://enemy_resources/enemy_texturefiles/idle+movement/Firewolf Evo 2_n.png" id="2_r73o4"]
-[ext_resource type="Texture2D" uid="uid://ukpkineg63k4" path="res://enemy_resources/enemy_texturefiles/idle+movement/Firewolf Evo 2_s.png" id="3_q0jbx"]
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_5l5uw"]
+[ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="2_md2c0"]
+[ext_resource type="SpriteFrames" uid="uid://dfu73cl600trr" path="res://enemy_resources/enemy_spriteframes/Firewolf_Evo_1sf.tres" id="3_h4clf"]
+[ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_5n8pi"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="7_o88jr"]
+[ext_resource type="Texture2D" uid="uid://b5vq628nn5gh3" path="res://enemy_resources/enemy_texturefiles/canine/Firewolf2.png" id="8_2lqki"]
 
 [resource]
-diffuse_texture = ExtResource("1_vqxrm")
-normal_texture = ExtResource("2_r73o4")
-specular_texture = ExtResource("3_q0jbx")
+script = ExtResource("7_o88jr")
+_name = "Firewolf Alpha"
+texture = ExtResource("8_2lqki")
+evo_lvl = 20
+health = 35.0
+base_health = 35.0
+damage = 12.0
+critc = 5
+xp = 10
+speed = 40
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = ExtResource("3_h4clf")
+affliction_type = "burning"
+affliction_chance = 15
+map_scale = 0.5
+collision_shape = ExtResource("4_5n8pi")
+max_group_size = 3
+min_group_size = 1
+friends = Array[String](["Ice Wolf", "Earth Wolf"])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("2_md2c0")
+lvl = 1
+atb = 110
+max_health = 0
+_abilties = Array[ExtResource("1_5l5uw")]([])

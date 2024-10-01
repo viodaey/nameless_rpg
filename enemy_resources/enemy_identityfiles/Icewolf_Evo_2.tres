@@ -1,10 +1,38 @@
-[gd_resource type="CanvasTexture" load_steps=4 format=3 uid="uid://b8uefsykva2cc"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://bhpdv8bm5fyf6"]
 
-[ext_resource type="Texture2D" uid="uid://cis26e3x6uudr" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Icewolf2.png" id="1_bkeon"]
-[ext_resource type="Texture2D" uid="uid://cy36ynr7b5x4s" path="res://enemy_resources/enemy_texturefiles/idle+movement/Icewolf Evo 2_n.png" id="2_guown"]
-[ext_resource type="Texture2D" uid="uid://dmsjmgpcuy5i3" path="res://enemy_resources/enemy_texturefiles/idle+movement/Icewolf Evo 2_s.png" id="3_lklwc"]
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_0ckw2"]
+[ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="2_uyjxy"]
+[ext_resource type="SpriteFrames" uid="uid://b05eaacutddo1" path="res://enemy_resources/enemy_spriteframes/Icewolf_Evo_1sf.tres" id="3_j32ng"]
+[ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_ypo30"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="5_we6q2"]
+[ext_resource type="Texture2D" uid="uid://cis26e3x6uudr" path="res://enemy_resources/enemy_texturefiles/canine/Icewolf2.png" id="6_peh42"]
 
 [resource]
-diffuse_texture = ExtResource("1_bkeon")
-normal_texture = ExtResource("2_guown")
-specular_texture = ExtResource("3_lklwc")
+script = ExtResource("5_we6q2")
+_name = "Icewolf"
+texture = ExtResource("6_peh42")
+evo_lvl = 12
+health = 35.0
+base_health = 30.0
+damage = 20.0
+critc = 5
+xp = 10
+speed = 40
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = ExtResource("3_j32ng")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 0.4
+collision_shape = ExtResource("4_ypo30")
+max_group_size = 3
+min_group_size = 1
+friends = Array[String]([])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("2_uyjxy")
+lvl = 1
+atb = 110
+max_health = 0
+_abilties = Array[ExtResource("1_0ckw2")]([])

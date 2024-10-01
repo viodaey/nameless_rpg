@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=19 format=3 uid="uid://bmlto5qmau708"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=18 format=3 uid="uid://bmlto5qmau708"]
 
 [ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_5klod"]
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_5wcti"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_glvlr"]
-[ext_resource type="Texture2D" uid="uid://y4jauqgsa71h" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Earthwolf2_idle.png" id="2_6j1eh"]
-[ext_resource type="Texture2D" uid="uid://df03rjhnsnqm2" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Earthwolf1_idle.png" id="2_tcchn"]
+[ext_resource type="Texture2D" uid="uid://y4jauqgsa71h" path="res://enemy_resources/enemy_texturefiles/canine/Earthwolf2_idle.png" id="2_6j1eh"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_jb45y"]
-[ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://enemy_resources/enemy_texturefiles/idle+movement/canine/Earthwolf2.png" id="5_jvhv3"]
+[ext_resource type="Texture2D" uid="uid://dcxei23kkg6mw" path="res://enemy_resources/enemy_texturefiles/canine/Earthwolf2_movement.png" id="4_ndvaw"]
+[ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://enemy_resources/enemy_texturefiles/canine/Earthwolf2.png" id="5_jvhv3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1y34"]
 atlas = ExtResource("2_6j1eh")
@@ -28,25 +28,21 @@ region = Rect2(384, 0, 128, 128)
 atlas = ExtResource("2_6j1eh")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dl1qn"]
-atlas = ExtResource("2_tcchn")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7i46"]
+atlas = ExtResource("4_ndvaw")
+region = Rect2(17, 0, 129, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gt6ym"]
-atlas = ExtResource("2_tcchn")
-region = Rect2(128, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_p84ka"]
+atlas = ExtResource("4_ndvaw")
+region = Rect2(146, 0, 129, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4w55t"]
-atlas = ExtResource("2_tcchn")
-region = Rect2(256, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ayvi"]
+atlas = ExtResource("4_ndvaw")
+region = Rect2(275, 0, 129, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ha2yi"]
-atlas = ExtResource("2_tcchn")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vryy6"]
-atlas = ExtResource("2_tcchn")
-region = Rect2(512, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_emg65"]
+atlas = ExtResource("4_ndvaw")
+region = Rect2(387, 0, 124, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_knjwx"]
 animations = [{
@@ -72,19 +68,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dl1qn")
+"texture": SubResource("AtlasTexture_f7i46")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gt6ym")
+"texture": SubResource("AtlasTexture_p84ka")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4w55t")
+"texture": SubResource("AtlasTexture_0ayvi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ha2yi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vryy6")
+"texture": SubResource("AtlasTexture_emg65")
 }],
 "loop": true,
 "name": &"run",
@@ -93,7 +86,7 @@ animations = [{
 
 [resource]
 script = ExtResource("1_glvlr")
-_name = "Earth Wolf Alpha"
+_name = "Earthwolf Alpha"
 texture = ExtResource("5_jvhv3")
 evo_lvl = 9000
 health = 40.0
