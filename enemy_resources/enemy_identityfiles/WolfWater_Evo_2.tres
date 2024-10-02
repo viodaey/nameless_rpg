@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_n6mdb"]
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="2_omwsl"]
-[ext_resource type="SpriteFrames" uid="uid://b05eaacutddo1" path="res://enemy_resources/enemy_spriteframes/WolfIce_Evo_1sf.tres" id="3_cw3h3"]
+[ext_resource type="SpriteFrames" uid="uid://w1vaf0a27naw" path="res://enemy_resources/enemy_spriteframes/WolfWater_Evo_2sf.tres" id="3_xkt21"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_tpge8"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="5_c7mnt"]
 [ext_resource type="Texture2D" uid="uid://ds4qkt5k3l06w" path="res://enemy_resources/enemy_texturefiles/canine/Waterwolf2.png" id="6_4whjk"]
@@ -21,7 +21,7 @@ speed = 40
 music = "battle01"
 can_chill = true
 lifesteal = 0
-animatedSprite = ExtResource("3_cw3h3")
+animatedSprite = ExtResource("3_xkt21")
 affliction_type = ""
 affliction_chance = 0
 map_scale = 0.4

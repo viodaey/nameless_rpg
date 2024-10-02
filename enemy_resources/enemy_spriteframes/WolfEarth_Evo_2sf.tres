@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://bbf4222hse13n"]
 
 [ext_resource type="Texture2D" uid="uid://y4jauqgsa71h" path="res://enemy_resources/enemy_texturefiles/canine/Earthwolf2_idle.png" id="1_6it1y"]
-[ext_resource type="Texture2D" uid="uid://dcxei23kkg6mw" path="res://enemy_resources/enemy_texturefiles/canine/Earthwolf2_movement.png" id="2_b2d77"]
+[ext_resource type="Texture2D" uid="uid://cxohirhq3ul72" path="res://enemy_resources/enemy_texturefiles/canine/Earthwolf2_movement.png" id="2_b2d77"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1y34"]
 atlas = ExtResource("1_6it1y")
@@ -23,21 +23,21 @@ region = Rect2(384, 0, 128, 128)
 atlas = ExtResource("1_6it1y")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f7i46"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebhme"]
 atlas = ExtResource("2_b2d77")
-region = Rect2(17, 0, 129, 128)
+region = Rect2(22, 0, 127, 125)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p84ka"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5awx7"]
 atlas = ExtResource("2_b2d77")
-region = Rect2(146, 0, 129, 128)
+region = Rect2(149, 0, 127, 125)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ayvi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhdco"]
 atlas = ExtResource("2_b2d77")
-region = Rect2(275, 0, 129, 128)
+region = Rect2(276, 0, 127, 125)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_emg65"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mmft"]
 atlas = ExtResource("2_b2d77")
-region = Rect2(387, 0, 124, 128)
+region = Rect2(384, 0, 128, 128)
 
 [resource]
 animations = [{
@@ -63,16 +63,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f7i46")
+"texture": SubResource("AtlasTexture_ebhme")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p84ka")
+"texture": SubResource("AtlasTexture_5awx7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ayvi")
+"texture": SubResource("AtlasTexture_mhdco")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_emg65")
+"texture": SubResource("AtlasTexture_0mmft")
 }],
 "loop": true,
 "name": &"run",
