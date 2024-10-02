@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource("5_c7mnt")
-_name = "Icewolf"
+_name = "Waterwolf Alpha"
 texture = ExtResource("6_4whjk")
 evo_lvl = 12
 health = 35.0
