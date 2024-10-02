@@ -144,6 +144,9 @@ func _ready():
 	if player.lvl < 10 and e_groupsize > 3:
 		e_groupsize = 3
 		
+#### TESTING - SHOULD BE COMMENTED OUT
+	e_groupsize = 3
+		
 ##	roll and allocate enemy 2
 	if e_groupsize > 1:
 		if len(enemy.friends) > 0:
@@ -488,6 +491,7 @@ func _attack_phase_1():
 	await get_tree().create_timer(0.55).timeout
 	_attack_phase_2()
 	
+## 	get targets, iterate through targets
 func _attack_phase_2():
 	var selected_enemy = enemyDict[y]["cont"]
 	var curEnemyStats = enemyDict[y]["live"]
@@ -669,12 +673,13 @@ func use_item_2(target):
 
 func use_ability(target):
 	var base_mult = 1
+	var additive = 0
 	var used_ability = curPlayer["res"]._abilities[ay - 1]
 	await combat_log("%s casts %s on %s!" % [curPlayer["res"]._name, used_ability._name, target["res"]._name])
 	set_mp(_playermp, used_ability.mp, player.max_mp)
-	var additive = 0
 	if used_ability.eff_1_multiplier != "none":
 		base_mult = curPlayer["live"].get(used_ability.eff_1_multiplier)
+		base_mult = base_mult * used_ability.eff_1_multiplier_mulitplier
 	if used_ability.eff_1_additive != "none":
 		additive = curPlayer["live"].get(used_ability.eff_1_additive) * used_ability.eff_1_additive_multiplier
 	if used_ability.target_amount == 4:
@@ -683,7 +688,6 @@ func use_ability(target):
 				var hitnode = fx.get_node("hitAnimate%d" %en)
 				hitnode.position = enemyDict[en]["cont"].position + (enemyDict[en]["cont"].size / 2)
 				hitnode.play('slash')
-
 			
 	if used_ability.target_amount == 1:
 		if not used_ability.animation:
