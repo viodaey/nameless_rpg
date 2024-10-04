@@ -40,19 +40,19 @@ var max_xp: int = 20
 #@export var pivot_offset: Vector2 = size / 2
 
 const allEnemies: Dictionary = {
-	"Fire Wolf (Evo1)": "res://enemyResources/Firewolf_Evo_1.tres",
-	"Fire Wolf (Evo2)": "res://enemyResources/Firewolf_Evo_2.tres",
-	"Ice Wolf (Evo1)": "res://enemyResources/Icewolf_Evo_1.tres",
-	"Ice Wolf (Evo2)": "res://enemyResources/Icewolf_Evo_2.tres",
-	"Elecwolf (Evo1)": "res://enemyResources/Elecwolf_Evo_1.tres",
-	"Earth Wolf (Evo1)": "res://enemyResources/Earthwolf_Evo_1.tres",
-	"Golem": "res://enemyResources/golem.tres",
-	"Fire Pixie": "res://enemyResources/Pixie_Fire.tres",
-	"Shadow Wraith": "res://enemyResources/shadow_wraith.tres",
-	"Baby Orc": "res://enemyResources/orc_baby.tres",
-	"Teen Orc": "res://enemyResources/orc_teen.tres",
-	"Orc": "res://enemyResources/orc_adult.tres",
-	"Warbear (Evo1)": "res://enemyResources/Warbear_Evo_1.tres",
+	"Fire Wolf (Evo1)": "res://enemy_resources/enemy_identityfiles/Firewolf_Evo_1.tres",
+	"Fire Wolf (Evo2)": "res://enemy_resources/enemy_identityfiles/Firewolf_Evo_2.tres",
+	"Ice Wolf (Evo1)": "res://enemy_resources/enemy_identityfiles/Icewolf_Evo_1.tres",
+	"Ice Wolf (Evo2)": "res://enemy_resources/enemy_identityfiles/Icewolf_Evo_2.tres",
+	"Elecwolf (Evo1)": "res://enemy_resources/enemy_identityfiles/Elecwolf_Evo_1.tres",
+	"Earth Wolf (Evo1)": "res://enemy_resources/enemy_identityfiles/Earthwolf_Evo_1.tres",
+	"Golem": "res://enemy_resources/enemy_identityfiles/golem.tres",
+	"Fire Pixie": "res://enemy_resources/enemy_identityfiles/Pixie_Fire.tres",
+	"Shadow Wraith": "res://enemy_resources/enemy_identityfiles/shadow_wraith.tres",
+	"Baby Orc": "res://enemy_resources/enemy_identityfiles/orc_baby.tres",
+	"Teen Orc": "res://enemy_resources/enemy_identityfiles/orc_teen.tres",
+	"Orc": "res://enemy_resources/enemy_identityfiles/orc_adult.tres",
+	"Warbear (Evo1)": "res://enemy_resources/enemy_identityfiles/Warbear_Evo_1.tres"
 	}
 
 func level_up():

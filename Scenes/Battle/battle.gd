@@ -34,6 +34,7 @@ var playerDict_3: Dictionary
 var playerDict_4: Dictionary
 var playerStats1 : Dictionary
 var enemyCount : Array
+var enemyTargets : Array
 var x : int
 var y : int = 0
 var calc_lvl: int
@@ -50,7 +51,6 @@ var ay : int = 1
 @onready var _playermp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerMP
 @onready var _log_timer = $CombatLogPanel/Timer
 @onready var _combat_log_box = $CombatLogPanel/CombatLog
-
 @onready var _projectile = $FX/projectile
 @onready var _enemycont1 = $EnemyContainer1
 @onready var _enemycont2 = $EnemyContainer2
@@ -85,7 +85,8 @@ func _ready():
 	playerDict_1["live"] = playerStats1
 	playerDict_1["txt"] = $Player_1
 	playerDict_1["cont"] = $Panel_Menu/VBoxContainer/PlayerContainer1
-	playerDict_1["ind"] = $Container/Select
+	playerDict_1["circle"] = $playerContainer1/selectCircle
+	playerDict_1["ind"] = $playerContainer1/Select
 	playerDict_1["ind"].modulate.a = 0
 	playerDict_1["live"]["hp"] = player.health
 	playerDict_1["live"]["mp"] = player.mp
@@ -103,6 +104,7 @@ func _ready():
 		playerDict_2["live"] = inv.itemInventory.monsterlist[0].stats
 		playerDict_2["txt"] = $soulContainer1/VBoxContainer/SoulText
 		playerDict_2["cont"] = $Panel_Menu/VBoxContainer/PlayerContainer2
+		playerDict_2["circle"] = $soulContainer1/VBoxContainer/SoulText/selectCircle
 		playerDict_2["txtbox"] = $soulContainer1
 		playerDict_2["ind"] = $soulContainer1/VBoxContainer/Select
 		playerDict_2["ind"].modulate.a = 0
@@ -285,6 +287,7 @@ func combat_log(text):
 
 
 func _turn_calc():
+	curPlayer["circle"].visible = false
 	while true:
 		for i in 5:
 			for p in playerDict:
@@ -304,7 +307,7 @@ func _turn_calc():
 				
 func _player_turn(p):
 	curPlayer = playerDict[p]
-	curPlayer["cont"].get_node("PlayerATB")
+	#curPlayer["cont"].get_node("PlayerATB")
 	if curPlayer["live"].has("affl"):
 		combat_log("%s is %s" % [curPlayer["res"]._name, curPlayer["live"]["affl"]])
 		if curPlayer["live"]["affl"] == "burning":
@@ -320,6 +323,7 @@ func _player_turn(p):
 				combat_log("%s stopped burning" % [playerDict[y]["res"]._name])
 	_actionmenu.visible = true
 	_actionmenufoc.grab_focus()
+	curPlayer["circle"].visible = true
 
 
 func _on_attack_pressed():
@@ -679,7 +683,7 @@ func use_ability(target):
 	set_mp(_playermp, used_ability.mp, player.max_mp)
 	if used_ability.eff_1_multiplier != "none":
 		base_mult = curPlayer["live"].get(used_ability.eff_1_multiplier)
-		base_mult = base_mult * used_ability.eff_1_multiplier_mulitplier
+		base_mult = base_mult * used_ability.eff_1_multiplier_multiplier
 	if used_ability.eff_1_additive != "none":
 		additive = curPlayer["live"].get(used_ability.eff_1_additive) * used_ability.eff_1_additive_multiplier
 	if used_ability.target_amount == 4:
@@ -687,7 +691,7 @@ func use_ability(target):
 			for en in enemyDict:
 				var hitnode = fx.get_node("hitAnimate%d" %en)
 				hitnode.position = enemyDict[en]["cont"].position + (enemyDict[en]["cont"].size / 2)
-				hitnode.play('slash')
+				hitnode.play(used_ability.animation_type)
 			
 	if used_ability.target_amount == 1:
 		if not used_ability.animation:
@@ -703,6 +707,7 @@ func use_ability(target):
 			#tween.tween_property($FX/projectile, "position", Vector2(m_pos[0], m_pos[1]), 0.1)
 			await tween.finished
 	dealt_dmg = ((used_ability.eff_1_base * base_mult) + additive)
+	print(dealt_dmg)
 	_attack_phase_2()	
 			
 func _ally_died(y):
