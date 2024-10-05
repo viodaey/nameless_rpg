@@ -26,7 +26,7 @@ class_name abilities
 @export var eff_1 : String
 @export var eff_1_ele : String
 @export var eff_1_value : int
-@export var eff_1_base: int
+@export var eff_1_base: float
 @export var eff_1_additive: String
 @export var eff_1_additive_multiplier: float = 1
 @export var eff_1_multiplier : String
