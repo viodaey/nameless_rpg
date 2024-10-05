@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dfj11x1cnrhcx"]
+
+[ext_resource type="Texture2D" uid="uid://d3d4evmdoyqs6" path="res://enemy_resources/enemy_texturefiles/Knight npc movement.png" id="1_1tgtw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vymw1"]
+atlas = ExtResource("1_1tgtw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3s0l"]
+atlas = ExtResource("1_1tgtw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jkni"]
+atlas = ExtResource("1_1tgtw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1whe"]
+atlas = ExtResource("1_1tgtw")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqk6y"]
+atlas = ExtResource("1_1tgtw")
+region = Rect2(512, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vymw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3s0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jkni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1whe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqk6y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vymw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3s0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jkni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1whe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqk6y")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]

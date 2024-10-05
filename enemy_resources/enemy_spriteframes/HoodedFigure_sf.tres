@@ -1,6 +1,10 @@
 [gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cikw515l1ch0k"]
 
-[ext_resource type="Texture2D" uid="uid://cr5vmvm33sorc" path="res://enemy_resources/enemy_texturefiles/idle+movement/humanoid/Hooded Figure Idle.png" id="1_b2r7i"]
+[ext_resource type="Texture2D" uid="uid://cr5vmvm33sorc" path="res://enemy_resources/enemy_texturefiles/humanoid/Hooded Figure Idle.png" id="1_b2r7i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx0vk"]
+atlas = ExtResource("1_b2r7i")
+region = Rect2(3072, 0, 1024, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nj8y6"]
 atlas = ExtResource("1_b2r7i")
@@ -14,13 +18,12 @@ region = Rect2(1024, 0, 1024, 1024)
 atlas = ExtResource("1_b2r7i")
 region = Rect2(2048, 0, 1024, 1024)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qx0vk"]
-atlas = ExtResource("1_b2r7i")
-region = Rect2(3072, 0, 1024, 1024)
-
 [resource]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx0vk")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nj8y6")
 }, {

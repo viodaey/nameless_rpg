@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3 uid="uid://dai41k5tskn4b"]
+
+[ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_8pyv1"]
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_eea8a"]
+[ext_resource type="SpriteFrames" uid="uid://dfu73cl600trr" path="res://enemy_resources/enemy_spriteframes/WolfFire_Evo_1sf.tres" id="2_5bbnn"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="3_8l357"]
+[ext_resource type="Resource" uid="uid://blpccv8frf4ql" path="res://enemy_resources/enemy_identityfiles/WolfFire_Evo_2.tres" id="3_748ro"]
+[ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_whjkq"]
+[ext_resource type="Texture2D" uid="uid://udqo7tn6udns" path="res://enemy_resources/enemy_texturefiles/canine/Firewolf1.png" id="7_2w58p"]
+
+[resource]
+script = ExtResource("3_8l357")
+_name = "Firewolf"
+texture = ExtResource("7_2w58p")
+evolution = ExtResource("3_748ro")
+evo_lvl = 12
+health = 35.0
+base_health = 35.0
+damage = 12.0
+critc = 5
+xp = 10
+speed = 40
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = ExtResource("2_5bbnn")
+affliction_type = "burning"
+affliction_chance = 15
+map_scale = 0.4
+collision_shape = ExtResource("4_whjkq")
+max_group_size = 3
+min_group_size = 1
+friends = Array[String](["Ice Wolf", "Earth Wolf"])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("1_8pyv1")
+lvl = 1
+atb = 110
+max_health = 0
+_abilties = Array[ExtResource("1_eea8a")]([])

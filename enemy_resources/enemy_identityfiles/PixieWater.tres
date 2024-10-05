@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://bg7t7yglxuhl7"]
+
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_78a27"]
+[ext_resource type="Resource" uid="uid://di86w42qhyu3s" path="res://Global/Classes/Mage.tres" id="2_f682b"]
+[ext_resource type="SpriteFrames" uid="uid://djk8gh7hhiy1q" path="res://enemy_resources/enemy_spriteframes/PixieWater_Evo_1sf.tres" id="3_bc6xi"]
+[ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_tp8lw"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="5_cbpdl"]
+[ext_resource type="Texture2D" uid="uid://dgj7n5y0liyeg" path="res://enemy_resources/enemy_texturefiles/WaterPixie Evo 1.png" id="6_8etnk"]
+
+[resource]
+script = ExtResource("5_cbpdl")
+_name = "Water Pixie"
+texture = ExtResource("6_8etnk")
+evo_lvl = 9000
+health = 40.0
+base_health = 30.0
+damage = 12.0
+critc = 5
+xp = 10
+speed = 50
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = ExtResource("3_bc6xi")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 0.4
+collision_shape = ExtResource("4_tp8lw")
+max_group_size = 3
+min_group_size = 1
+friends = Array[String]([])
+battle_scale_vec = Vector2(0.6, 0.6)
+battle_y_sep = 0
+_class = ExtResource("2_f682b")
+lvl = 1
+atb = 110
+max_health = 0
+_abilties = Array[ExtResource("1_78a27")]([])

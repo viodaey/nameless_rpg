@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://0bkl6b38521f"]
 
-[ext_resource type="Texture2D" uid="uid://db3l5v5cqy0w6" path="res://enemy_resources/enemy_texturefiles/idle+movement/humanoid/orcs/Orc_Evo_2_Idle_movementcheck.png" id="1_wc2l1"]
+[ext_resource type="Texture2D" uid="uid://db3l5v5cqy0w6" path="res://enemy_resources/enemy_texturefiles/humanoid/orcs/Orc_Evo_2_Idle_movementcheck.png" id="1_wc2l1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13mo3"]
 atlas = ExtResource("1_wc2l1")

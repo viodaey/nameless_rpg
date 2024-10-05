@@ -358,7 +358,7 @@ tile_set = ExtResource("8_rojlt")
 rendering_quadrant_size = 32
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(1099.78, 550.536)
+position = Vector2(875.191, 537.56)
 scale = Vector2(0.958, 1)
 motion_mode = 1
 script = ExtResource("17_y35vv")
