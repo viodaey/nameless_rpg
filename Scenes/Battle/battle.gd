@@ -34,13 +34,14 @@ var playerDict_3: Dictionary
 var playerDict_4: Dictionary
 var playerStats1 : Dictionary
 var enemyCount : Array
-var enemyTargets : Array
+#var enemyTargets : Array
+var targetCount : int
 var x : int
 var y : int = 0
 var calc_lvl: int
 var curPlayer = playerDict[1]
 
-# attack = 0, item = 1
+# attack = 0, item = 1, ability = 2
 var next_phase: int = 0
 var used_item: Resource
 var used_item_slot: int = 0
@@ -328,6 +329,7 @@ func _player_turn(p):
 
 func _on_attack_pressed():
 	_actionmenu.visible = false
+	targetCount = 1
 	next_phase = 0
 	x = 0
 	_await_selection()
@@ -366,8 +368,10 @@ func _await_ability_selection():
 	if Input.is_action_pressed("ui_accept"):
 		if curPlayer["res"]._abilities[ay-1].target == "enemy":
 			next_phase = 2
+			targetCount = curPlayer["res"]._abilities[ay-1].target_amount
 			_abilitiesnode.visible = false
 			ability_ind.position = ability_ind_pos
+			
 			_await_selection()
 			return
 	if Input.is_action_pressed("ui_cancel"):
@@ -383,7 +387,6 @@ func _await_selection():
 	enemyCount = enemyDict.keys()
 	var _selector_tween: Tween
 	selected_enemy_ind = enemyDict[enemyCount[x]]["cont"].get_node("Select")
-	selected_enemy_ind.modulate.a = 1
 	var max_x = len(enemyCount) - 1
 	var pos = selected_enemy_ind.position
 	var tween = get_tree().create_tween()
@@ -391,6 +394,15 @@ func _await_selection():
 	tween.tween_property(selected_enemy_ind, "position:y", 10, 0.5).as_relative().set_trans(tween.TRANS_SINE)
 	tween.tween_property(selected_enemy_ind, "position:y", -10, 0.5).as_relative().set_trans(tween.TRANS_SINE)
 	tween.set_loops()
+	for i in enemyDict:
+		enemyDict[i]["cont"].get_node("Select").modulate.a = 0
+	selected_enemy_ind.modulate.a = 1
+	if targetCount > 1 and len(enemyCount) > 1:
+		enemyDict[enemyCount[(x + 1) % len(enemyCount)]]["cont"].get_node("Select").modulate.a = 0.5
+		if targetCount > 2 and len(enemyCount) > 2:
+			enemyDict[enemyCount[(x - 1) % len(enemyCount)]]["cont"].get_node("Select").modulate.a = 0.5
+		if targetCount == 4 and len(enemyCount) == 4:
+			enemyDict[enemyCount[(x + 2) % len(enemyCount)]]["cont"].get_node("Select").modulate.a = 0.5
 	await(pressedSomething)
 	_selector_tween.kill()
 	selected_enemy_ind.position = pos
@@ -401,7 +413,7 @@ func _await_selection():
 		else:
 			x += 1
 		selected_enemy_ind = enemyDict[enemyCount[x]]["cont"].get_node("Select")
-		selected_enemy_ind.modulate.a = 1
+		#selected_enemy_ind.modulate.a = 1
 		_await_selection()
 	elif Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_left"):
 		selected_enemy_ind.modulate.a = 0
@@ -410,10 +422,11 @@ func _await_selection():
 		else:
 			x -= 1
 		selected_enemy_ind = enemyDict[enemyCount[x]]["cont"].get_node("Select")
-		selected_enemy_ind.modulate.a = 1
+		#selected_enemy_ind.modulate.a = 1
 		_await_selection()
 	elif Input.is_action_pressed("ui_accept"):
-		selected_enemy_ind.modulate.a = 0
+		for i in enemyDict:
+			enemyDict[i]["cont"].get_node("Select").modulate.a = 0
 		y = enemyCount[x]
 		_selector_tween.kill()
 		if next_phase == 0:
@@ -422,14 +435,15 @@ func _await_selection():
 			use_item_2(enemyDict[y])
 		elif next_phase == 2:
 			use_ability(enemyDict[y])
-			
 	elif Input.is_action_pressed("ui_cancel"):
-		selected_enemy_ind.modulate.a = 0
+		for i in enemyDict:
+			enemyDict[i]["cont"].get_node("Select").modulate.a = 0
 		_selector_tween.kill()
 		_actionmenu.visible = true
 		_actionmenufoc.grab_focus()
 	else:
 		_await_selection()
+
 		
 func _player_selection():
 	var playerCount = playerDict.keys()
@@ -600,6 +614,7 @@ func enemy_turn(e):
 	_turn_calc()
 
 func _on_item_pressed() -> void:
+	targetCount = 1
 	_actionmenu.visible = false
 	var itemInvSc = preload("res://Global/inventory_manager.tscn").instantiate()
 	add_child(itemInvSc)
@@ -710,10 +725,10 @@ func use_ability(target):
 	print(dealt_dmg)
 	_attack_phase_2()	
 			
-func _ally_died(y):
+func _ally_died(z):
 	await(combat_log("%s died" % playerDict[y]["res"]._name))
 	#var tween = get_tree().create_tween()
-	if y == 1:
+	if z == 1:
 		await(get_tree().create_timer(2).timeout)
 		gameover()
 		return
