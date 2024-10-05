@@ -1,15 +1,19 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://cd8gtrfi4by43"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://cd8gtrfi4by43"]
 
 [ext_resource type="Resource" uid="uid://di86w42qhyu3s" path="res://Global/Classes/Mage.tres" id="1_14rb8"]
 [ext_resource type="SpriteFrames" uid="uid://cx08gn5j74doe" path="res://enemy_resources/enemy_spriteframes/Shadowwraith_sf.tres" id="1_vu2gx"]
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_yviet"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_kj1tf"]
 [ext_resource type="Texture2D" uid="uid://b5f2orsf3cano" path="res://enemy_resources/enemy_texturefiles/ShadowWraith2.png" id="3_lk700"]
+[ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_nrwru"]
 
 [resource]
 script = ExtResource("2_kj1tf")
 _name = "Shadow Wraith"
 texture = ExtResource("3_lk700")
+evo_lvl = 9000
 health = 38
+base_health = 30.0
 damage = 8
 critc = 5
 xp = 25
@@ -21,6 +25,7 @@ animatedSprite = ExtResource("1_vu2gx")
 affliction_type = ""
 affliction_chance = 0
 map_scale = 0.5
+collision_shape = ExtResource("4_nrwru")
 max_group_size = 3
 min_group_size = 1
 friends = Array[String]([])
@@ -29,3 +34,5 @@ battle_y_sep = 0
 _class = ExtResource("1_14rb8")
 lvl = 1
 atb = 110
+max_health = 0
+_abilties = Array[ExtResource("1_yviet")]([])
