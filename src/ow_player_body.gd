@@ -74,12 +74,11 @@ func _physics_process(_delta):
 			_spawned_npc.position = self.position + vec_target
 			activeSpawns.append(_spawned_npc.name)
 
-
 func _spawn_npc_loc():
 	var rng = RandomNumberGenerator.new()
 	var angle = rng.randi_range(0, TAU)
 	var distance = rng.randi_range(80, 150)
-	var vec_target = Vector2((distance+5)*cos(angle), (distance+5)*sin(angle))
+	var vec_target = Vector2((distance)*cos(angle), (distance)*sin(angle))
 	return vec_target
 
 func _despawn_npc(npc):

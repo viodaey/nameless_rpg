@@ -309,7 +309,7 @@ func _player_turn(p):
 	curPlayer = playerDict[p]
 	#curPlayer["cont"].get_node("PlayerATB")
 	if curPlayer["live"].has("affl"):
-		combat_log("%s is %s" % [curPlayer["res"]._name, curPlayer["live"]["affl"]])
+		await combat_log("%s is %s" % [curPlayer["res"]._name, curPlayer["live"]["affl"]])
 		if curPlayer["live"]["affl"] == "burning":
 			dealt_dmg = 3
 			set_health(
@@ -320,7 +320,7 @@ func _player_turn(p):
 			curPlayer["res"].health = curPlayer["live"]["hp"]
 			if rng.randi_range(0,100) > 40:
 				curPlayer["live"].erase("affl")
-				combat_log("%s stopped burning" % [playerDict[y]["res"]._name])
+				await combat_log("%s stopped burning" % [playerDict[y]["res"]._name])
 	_actionmenu.visible = true
 	_actionmenufoc.grab_focus()
 	curPlayer["circle"].visible = true
@@ -344,7 +344,7 @@ func _on_abilities_pressed() -> void:
 			_abilitiesmenu.get_node("Ability%s" %[i + 1]).get_node("Name").text =   curPlayer["res"]._abilities[i]._name
 			_abilitiesmenu.get_node("Ability%s" %[i + 1]).get_node("MP").text =   ("%s" %curPlayer["res"]._abilities[i].mp)
 		_await_ability_selection()
-	
+
 func _await_ability_selection():
 	var ability_ind = $Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector
 	$Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/Description.text = curPlayer["res"]._abilities[ay-1].description
@@ -370,7 +370,6 @@ func _await_ability_selection():
 			targetCount = curPlayer["res"]._abilities[ay-1].target_amount
 			_abilitiesnode.visible = false
 			ability_ind.position = ability_ind_pos
-			
 			_await_selection()
 			return
 	if Input.is_action_pressed("ui_cancel"):
