@@ -58,6 +58,7 @@ const allEnemies: Dictionary = {
 func level_up():
 	var hp_old = health
 	var dmg_old = damage
+	health = base_health
 	hp_grow = 0
 	dmg_grow = 0
 	while xp >= max_xp:

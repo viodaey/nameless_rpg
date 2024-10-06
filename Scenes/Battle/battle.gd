@@ -14,7 +14,6 @@ var current_player_mp: int = 0
 var dealt_dmg: int = 0
 var enemy_dmg: int = 0
 var visible_characters: int = 0
-var try = 0
 var player_count = 1
 var e_groupsize: int = 1
 var enemyDict: Dictionary = {1: enemyDict_1}
@@ -540,9 +539,9 @@ func _attack_phase_2():
 		enemyDict[z]["live"] = curEnemyStats
 	if crit == true:
 		await combat_log("CRITICAL HIT!")
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.6).timeout
 	await combat_log("%s hit for %d damage" % [curPlayer["res"]._name, dealt_dmg])
-
+	await get_tree().create_timer(0.6).timeout
 	for z in targetList:
 		if enemyDict[z]["live"]["hp"] <= 0:
 			y = z
@@ -596,7 +595,7 @@ func enemy_turn(e):
 		x = rng.randi_range(1, len(playerDict))
 		var players_array = playerDict.keys()
 		y = players_array[x - 1]
-		dealt_dmg = round(rng.randf_range(0.8, 1.2) * enemyDict[e]["res"].damage)
+		dealt_dmg = round(rng.randf_range(0.9, 1.1) * enemyDict[e]["live"]["dmg"])
 		await combat_log("%s attacks %s!" % [enemyDict[e]["res"]._name, playerDict[y]["res"]._name])
 		var tween = get_tree().create_tween()
 		var pos = enemyDict[e]["cont"].position
@@ -625,10 +624,8 @@ func enemy_turn(e):
 		if enemyDict[e]["res"].affliction_chance > 0:
 			if rng.randi_range(0,100) <= enemyDict[e]["res"].affliction_chance:
 				await combat_log("You are %s!" % [enemyDict[e]["res"].affliction_type])
-		print(y)
 		if playerDict[y]["live"]["hp"] == 0:
 			await(_ally_died(y))
-	try = 0
 	_turn_calc()
 
 func _on_item_pressed() -> void:
