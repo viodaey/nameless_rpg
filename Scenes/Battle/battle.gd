@@ -14,7 +14,6 @@ var current_player_mp: int = 0
 var dealt_dmg: int = 0
 var enemy_dmg: int = 0
 var visible_characters: int = 0
-var try = 0
 var player_count = 1
 var e_groupsize: int = 1
 var enemyDict: Dictionary = {1: enemyDict_1}
@@ -33,14 +32,15 @@ var playerDict_2: Dictionary
 var playerDict_3: Dictionary
 var playerDict_4: Dictionary
 var playerStats1 : Dictionary
-var enemyCount : Array
-var enemyTargets : Array
+var enemyList : Array
+var targetCount : int
+var targetList : Array
 var x : int
 var y : int = 0
 var calc_lvl: int
 var curPlayer = playerDict[1]
 
-# attack = 0, item = 1
+# attack = 0, item = 1, ability = 2
 var next_phase: int = 0
 var used_item: Resource
 var used_item_slot: int = 0
@@ -147,7 +147,7 @@ func _ready():
 		e_groupsize = 3
 		
 #### TESTING - SHOULD BE COMMENTED OUT
-	e_groupsize = 3
+	#e_groupsize = 2
 		
 ##	roll and allocate enemy 2
 	if e_groupsize > 1:
@@ -309,7 +309,7 @@ func _player_turn(p):
 	curPlayer = playerDict[p]
 	#curPlayer["cont"].get_node("PlayerATB")
 	if curPlayer["live"].has("affl"):
-		combat_log("%s is %s" % [curPlayer["res"]._name, curPlayer["live"]["affl"]])
+		await combat_log("%s is %s" % [curPlayer["res"]._name, curPlayer["live"]["affl"]])
 		if curPlayer["live"]["affl"] == "burning":
 			dealt_dmg = 3
 			set_health(
@@ -320,7 +320,7 @@ func _player_turn(p):
 			curPlayer["res"].health = curPlayer["live"]["hp"]
 			if rng.randi_range(0,100) > 40:
 				curPlayer["live"].erase("affl")
-				combat_log("%s stopped burning" % [playerDict[y]["res"]._name])
+				await combat_log("%s stopped burning" % [playerDict[y]["res"]._name])
 	_actionmenu.visible = true
 	_actionmenufoc.grab_focus()
 	curPlayer["circle"].visible = true
@@ -328,6 +328,7 @@ func _player_turn(p):
 
 func _on_attack_pressed():
 	_actionmenu.visible = false
+	targetCount = 1
 	next_phase = 0
 	x = 0
 	_await_selection()
@@ -343,7 +344,7 @@ func _on_abilities_pressed() -> void:
 			_abilitiesmenu.get_node("Ability%s" %[i + 1]).get_node("Name").text =   curPlayer["res"]._abilities[i]._name
 			_abilitiesmenu.get_node("Ability%s" %[i + 1]).get_node("MP").text =   ("%s" %curPlayer["res"]._abilities[i].mp)
 		_await_ability_selection()
-	
+
 func _await_ability_selection():
 	var ability_ind = $Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector
 	$Abilities/AbilitiesDescription/MarginContainer/HBoxContainer/Description.text = curPlayer["res"]._abilities[ay-1].description
@@ -366,6 +367,7 @@ func _await_ability_selection():
 	if Input.is_action_pressed("ui_accept"):
 		if curPlayer["res"]._abilities[ay-1].target == "enemy":
 			next_phase = 2
+			targetCount = curPlayer["res"]._abilities[ay-1].target_amount
 			_abilitiesnode.visible = false
 			ability_ind.position = ability_ind_pos
 			_await_selection()
@@ -380,17 +382,25 @@ func _await_ability_selection():
 	_await_ability_selection()
 	
 func _await_selection():
-	enemyCount = enemyDict.keys()
+	enemyList = enemyDict.keys()
 	var _selector_tween: Tween
-	selected_enemy_ind = enemyDict[enemyCount[x]]["cont"].get_node("Select")
-	selected_enemy_ind.modulate.a = 1
-	var max_x = len(enemyCount) - 1
+	selected_enemy_ind = enemyDict[enemyList[x]]["cont"].get_node("Select")
+	var max_x = len(enemyList) - 1
 	var pos = selected_enemy_ind.position
 	var tween = get_tree().create_tween()
 	_selector_tween = tween
 	tween.tween_property(selected_enemy_ind, "position:y", 10, 0.5).as_relative().set_trans(tween.TRANS_SINE)
 	tween.tween_property(selected_enemy_ind, "position:y", -10, 0.5).as_relative().set_trans(tween.TRANS_SINE)
 	tween.set_loops()
+	for i in enemyDict:
+		enemyDict[i]["cont"].get_node("Select").modulate.a = 0
+	selected_enemy_ind.modulate.a = 1
+	if targetCount > 1 and len(enemyList) > 1:
+		enemyDict[enemyList[(x + 1) % len(enemyList)]]["cont"].get_node("Select").modulate.a = 0.5
+		if targetCount > 2 and len(enemyList) > 2:
+			enemyDict[enemyList[(x - 1) % len(enemyList)]]["cont"].get_node("Select").modulate.a = 0.5
+		if targetCount == 4 and len(enemyList) == 4:
+			enemyDict[enemyList[(x + 2) % len(enemyList)]]["cont"].get_node("Select").modulate.a = 0.5
 	await(pressedSomething)
 	_selector_tween.kill()
 	selected_enemy_ind.position = pos
@@ -400,8 +410,8 @@ func _await_selection():
 			x = 0
 		else:
 			x += 1
-		selected_enemy_ind = enemyDict[enemyCount[x]]["cont"].get_node("Select")
-		selected_enemy_ind.modulate.a = 1
+		selected_enemy_ind = enemyDict[enemyList[x]]["cont"].get_node("Select")
+		#selected_enemy_ind.modulate.a = 1
 		_await_selection()
 	elif Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_left"):
 		selected_enemy_ind.modulate.a = 0
@@ -409,27 +419,35 @@ func _await_selection():
 			x = max_x
 		else:
 			x -= 1
-		selected_enemy_ind = enemyDict[enemyCount[x]]["cont"].get_node("Select")
-		selected_enemy_ind.modulate.a = 1
+		selected_enemy_ind = enemyDict[enemyList[x]]["cont"].get_node("Select")
+		#selected_enemy_ind.modulate.a = 1
 		_await_selection()
 	elif Input.is_action_pressed("ui_accept"):
-		selected_enemy_ind.modulate.a = 0
-		y = enemyCount[x]
+		for i in enemyDict:
+			enemyDict[i]["cont"].get_node("Select").modulate.a = 0
 		_selector_tween.kill()
+		targetList = [enemyList[x]]
+		if targetCount > 1 and len(enemyList) > 1:
+			targetList.append(enemyList[(x + 1) % len(enemyList)])
+		if targetCount > 2 and len(enemyList) > 2:
+			targetList.append(enemyList[(x - 1) % len(enemyList)])
+		if targetCount == 4 and len(enemyList) == 4:
+			targetList.append(enemyList[(x + 2) % len(enemyList)])
 		if next_phase == 0:
 			_attack_phase_1()
 		elif next_phase == 1:
 			use_item_2(enemyDict[y])
 		elif next_phase == 2:
-			use_ability(enemyDict[y])
-			
+			use_ability()
 	elif Input.is_action_pressed("ui_cancel"):
-		selected_enemy_ind.modulate.a = 0
+		for i in enemyDict:
+			enemyDict[i]["cont"].get_node("Select").modulate.a = 0
 		_selector_tween.kill()
 		_actionmenu.visible = true
 		_actionmenufoc.grab_focus()
 	else:
 		_await_selection()
+
 		
 func _player_selection():
 	var playerCount = playerDict.keys()
@@ -481,6 +499,7 @@ func _player_selection():
 		_player_selection()
 		
 func _attack_phase_1():
+	y = targetList[0]
 	var curEnemyCont = enemyDict[y]["cont"]
 	var pos = curPlayer["txt"].position
 	dealt_dmg = round(rng.randf_range(0.85, 1.15) * curPlayer["dmg"])
@@ -497,24 +516,35 @@ func _attack_phase_1():
 	
 ## 	get targets, iterate through targets
 func _attack_phase_2():
-	var selected_enemy = enemyDict[y]["cont"]
-	var curEnemyStats = enemyDict[y]["live"]
-	var tween = get_tree().create_tween()
-	for i in 6:
-		tween.chain().tween_property(selected_enemy, "modulate:a", 0,  0.1)
-		tween.chain().tween_property(selected_enemy, "modulate:a", 1,  0.1)
-	if curPlayer["res"].critc >= rng.randi_range(1, 100):
+	var crit: bool = false
+	if curPlayer["res"].critc >= rng.randi_range(1, 100) and next_phase == 0:
 		dealt_dmg = round(dealt_dmg * 1.5)
+		crit = true
+	for z in targetList:
+		var selected_enemy = enemyDict[z]["cont"]
+		var curEnemyStats = enemyDict[z]["live"]
+		var tween = get_tree().create_tween()
+		for i in 6:
+			tween.chain().tween_property(selected_enemy, "modulate:a", 0,  0.1)
+			tween.chain().tween_property(selected_enemy, "modulate:a", 1,  0.1)
+	#if curPlayer["res"].critc >= rng.randi_range(1, 100):
+		#dealt_dmg = round(dealt_dmg * 1.5)
+		#await combat_log("CRITICAL HIT!")
+		#await get_tree().create_timer(0.5).timeout
+	#else:
+		#await get_tree().create_timer(0.75).timeout
+		set_health(selected_enemy.get_node("EnemyHP"), curEnemyStats["hp"], enemyDict[z]["res"].max_health)
+		curEnemyStats["hp"] = max(0, curEnemyStats["hp"] - dealt_dmg)
+		enemyDict[z]["live"] = curEnemyStats
+	if crit == true:
 		await combat_log("CRITICAL HIT!")
-		await get_tree().create_timer(0.5).timeout
-	else:
-		await get_tree().create_timer(0.75).timeout
-	await set_health(selected_enemy.get_node("EnemyHP"), curEnemyStats["hp"], enemyDict[y]["res"].max_health)
-	curEnemyStats["hp"] = max(0, curEnemyStats["hp"] - dealt_dmg)
+	await get_tree().create_timer(0.6).timeout
 	await combat_log("%s hit for %d damage" % [curPlayer["res"]._name, dealt_dmg])
-	enemyDict[y]["live"] = curEnemyStats
-	if curEnemyStats["hp"] <= 0:
-		await(enemy_died())
+	await get_tree().create_timer(0.6).timeout
+	for z in targetList:
+		if enemyDict[z]["live"]["hp"] <= 0:
+			y = z
+			await(enemy_died())
 	if enemyDict.is_empty():
 		await(_drops())
 		for p in playerDict:
@@ -564,7 +594,7 @@ func enemy_turn(e):
 		x = rng.randi_range(1, len(playerDict))
 		var players_array = playerDict.keys()
 		y = players_array[x - 1]
-		dealt_dmg = round(rng.randf_range(0.8, 1.2) * enemyDict[e]["res"].damage)
+		dealt_dmg = round(rng.randf_range(0.9, 1.1) * enemyDict[e]["live"]["dmg"])
 		await combat_log("%s attacks %s!" % [enemyDict[e]["res"]._name, playerDict[y]["res"]._name])
 		var tween = get_tree().create_tween()
 		var pos = enemyDict[e]["cont"].position
@@ -593,13 +623,12 @@ func enemy_turn(e):
 		if enemyDict[e]["res"].affliction_chance > 0:
 			if rng.randi_range(0,100) <= enemyDict[e]["res"].affliction_chance:
 				await combat_log("You are %s!" % [enemyDict[e]["res"].affliction_type])
-		print(y)
 		if playerDict[y]["live"]["hp"] == 0:
 			await(_ally_died(y))
-	try = 0
 	_turn_calc()
 
 func _on_item_pressed() -> void:
+	targetCount = 1
 	_actionmenu.visible = false
 	var itemInvSc = preload("res://Global/inventory_manager.tscn").instantiate()
 	add_child(itemInvSc)
@@ -675,9 +704,10 @@ func use_item_2(target):
 			target["res"].max_health)
 		action_menu()
 
-func use_ability(target):
+func use_ability():
 	var base_mult = 1
 	var additive = 0
+	var target = enemyDict[targetList[0]]
 	var used_ability = curPlayer["res"]._abilities[ay - 1]
 	await combat_log("%s casts %s on %s!" % [curPlayer["res"]._name, used_ability._name, target["res"]._name])
 	set_mp(_playermp, used_ability.mp, player.max_mp)
@@ -707,13 +737,12 @@ func use_ability(target):
 			#tween.tween_property($FX/projectile, "position", Vector2(m_pos[0], m_pos[1]), 0.1)
 			await tween.finished
 	dealt_dmg = ((used_ability.eff_1_base * base_mult) + additive)
-	print(dealt_dmg)
 	_attack_phase_2()	
 			
-func _ally_died(y):
+func _ally_died(z):
 	await(combat_log("%s died" % playerDict[y]["res"]._name))
 	#var tween = get_tree().create_tween()
-	if y == 1:
+	if z == 1:
 		await(get_tree().create_timer(2).timeout)
 		gameover()
 		return

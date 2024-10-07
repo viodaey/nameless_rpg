@@ -10,7 +10,7 @@ const basic_shape = preload("res://enemy_resources/enemy_collision/capsule_shape
 @export var evo_lvl: int = 9000
 @export var health: float = 100
 @export var base_health: float = 30
-@export var damage: float = 20
+@export var damage: float = 12
 @export var critc: int = 5
 @export var xp: int = 10
 @export var speed: int = 40
@@ -58,6 +58,7 @@ const allEnemies: Dictionary = {
 func level_up():
 	var hp_old = health
 	var dmg_old = damage
+	health = base_health
 	hp_grow = 0
 	dmg_grow = 0
 	while xp >= max_xp:
