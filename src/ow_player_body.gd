@@ -84,3 +84,7 @@ func _spawn_npc_loc():
 func _despawn_npc(npc):
 	map.get_node(npc).queue_free()
 	activeSpawns.erase(npc)
+
+
+func _on_forest2exit_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

@@ -1,1 +1,1 @@
-{"current_scene":"res://Scenes/Forest/Forest.tscn","damage":35,"filename":"player.gd","health":103,"lvl":6,"magicdmg":600,"max_health":153,"max_mp":10,"max_xp":108,"mp":10,"pos_x":998.656127929688,"pos_y":548.80126953125,"xp":6}
+{"current_scene":"res://Scenes/Forest/Forest.tscn","damage":20,"filename":"player.gd","health":69,"lvl":1,"magicdmg":600,"max_health":80,"max_mp":10,"max_xp":20,"mp":10,"pos_x":1073.06958007813,"pos_y":490.053771972656,"xp":0}
