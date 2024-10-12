@@ -20,6 +20,7 @@ func _ready() -> void:
 		_player_body.position = $Forest2Exit.position + Vector2(-15,0)
 	MainMenu.map_scene = get_tree().current_scene
 
+
 func _input(_event):
 	pass
 
