@@ -1,7 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=38 format=3 uid="uid://dmvwqo5pb0ppd"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kcr5h"]
-load_path = "res://.godot/imported/Ent Idle.png-a651ab902fae6b3bbaf8382fb41fd225.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgeeo"]
 atlas = SubResource("CompressedTexture2D_kcr5h")

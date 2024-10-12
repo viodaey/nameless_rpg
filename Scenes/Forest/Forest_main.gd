@@ -132,7 +132,6 @@ func _forestscene2():
 	orctween.set_loops(3)
 	await(get_tree().create_timer(3.5).timeout)
 	dia1.visible = false
-	
 	dia3.visible = true
 	dialog(dia3label, "HAHA")
 	dia2.visible = true
