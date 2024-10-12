@@ -80,11 +80,6 @@ func _forestscene1():
 
 func _forestscene2():
 	var hold_speed = $Player.speed
-	$Player.speed = 0
-	$Player/Camera2D.enabled = false
-	$Forest_subscene1.visible = true
-	$Forest_subscene1/dialogue/diaCamera2D.enabled = true
-	$Forest_subscene1/dialogue/diaCamera2D/Fog.visible = true 
 	var dia1 = $Forest_subscene1/dialogue/dia_1
 	var dia2 = $Forest_subscene1/dialogue/dia_2
 	var dia3 = $Forest_subscene1/dialogue/dia_3
@@ -92,38 +87,61 @@ func _forestscene2():
 	var dia2label = $Forest_subscene1/dialogue/dia_2/MarginContainer/txt
 	var dia3label = $Forest_subscene1/dialogue/dia_3/MarginContainer/txt
 	var orcleader = $Forest_subscene1/npcs/scen1orcteen
+	$Player.speed = 0
+	$Player/Camera2D.enabled = false
+	$Forest_subscene1.visible = true
+	$Forest_subscene1/dialogue/diaCamera2D.enabled = true
+	$Forest_subscene1/dialogue/diaCamera2D/Fog.visible = true 
+	$Forest_subscene1/dialogue/diaCamera2D.position = orcleader.position + Vector2(20,-10)
+
 	dia1label.text = ""
 	dia2label.text = ""
 	dia3label.text = ""
 	var fogtween = get_tree().create_tween()
-	var camtween = get_tree().create_tween()
 	fogtween.tween_property($Forest_subscene1/dialogue/diaCamera2D/Fog, "color:a", 0, 3.5)
-	camtween.tween_property($Forest_subscene1/dialogue/diaCamera2D, "position:x", $Forest_subscene1/dialogue/diaCamera2D.position.x + 80, 8)
 	await get_tree().create_timer(2.2).timeout
 	dia3.visible = true
-	await dialog(dia3label, "Stop, please! \n The forest needs these!")
-	await get_tree().create_timer(1.5).timeout
+	await dialog(dia3label, "Just leave us alone!")
+	await get_tree().create_timer(2.5).timeout
 	dia3.visible = false
 	dia1.visible = true
-	await dialog(dia1label, "  ... NO GIVE CRYSTAL, I SMASH \n  KHAZ'KHE GRUB GRUB!")
-	await get_tree().create_timer(2.0).timeout
+	dialog(dia1label, "... NO GIVE CRYSTAL \n .... I SMASH!!")
+	await get_tree().create_timer(2.5).timeout
 	var orctween = get_tree().create_tween()
 	orctween.tween_property(orcleader, "position:y", orcleader.position.y - 1.5, 0.08)
 	orctween.tween_property(orcleader, "position:y", orcleader.position.y + 1.5, 0.08)
 	orctween.set_loops(3)
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(2.5).timeout
+	await dialog(dia1label, " KHAZ'KHE GRUB GRUB!!  ")
+	await get_tree().create_timer(2.5).timeout
+
 	#orcleader.flip_h = false
-	await(dialog(dia1label, "    ....... who dhere?!"))
+	await(dialog(dia1label, "....... who dhere?!"))
 	orctween = get_tree().create_tween()
 	orctween.tween_property(orcleader, "position", orcleader.position + Vector2(3, 8), 0.9)
-	await(get_tree().create_timer(3).timeout)
+	var camtween = get_tree().create_tween()
+	camtween.tween_property($Forest_subscene1/dialogue/diaCamera2D, "position:y", $Forest_subscene1/dialogue/diaCamera2D.position.y + 10, 1)
+	await get_tree().create_timer(2).timeout
+	await dialog(dia1label, ".... \n ......HUMAN??!!" )
+	await get_tree().create_timer(3).timeout
+	dialog(dia1label,"....SMASH HUMAN!!")
+	await get_tree().create_timer(1.1).timeout
+	orctween = get_tree().create_tween()
+	orctween.tween_property(orcleader, "position:y", orcleader.position.y - 1.5, 0.08)
+	orctween.tween_property(orcleader, "position:y", orcleader.position.y + 1.5, 0.08)
+	orctween.set_loops(3)
+	await(get_tree().create_timer(3.5).timeout)
 	dia1.visible = false
+	
 	dia3.visible = true
-	dialog(dia3label, "...never!")
-	await(get_tree().create_timer(2.5).timeout)
+	dialog(dia3label, "HAHA")
 	dia2.visible = true
-	await(dialog(dia2label, "Stay away from us \n you creep! \n                  Help!!"))
-	player.forest_scene1 = 1
+	await(dialog(dia2label, "GG"))
+	player.forest_scene1 = 2
+	var babytween = get_tree().create_tween()
+	babytween.tween_property($Forest_subscene1/npcs/scen1orcbaby3, "position", $Player.position - $Forest_subscene1.position, 4)
+	babytween = get_tree().create_tween()
+	babytween.tween_property($Forest_subscene1/npcs/scen1orcbaby4, "position", $Player.position - $Forest_subscene1.position, 4)
 	await(get_tree().create_timer(2.5).timeout)
 	fogtween = get_tree().create_tween()
 	fogtween.tween_property($Forest_subscene1/dialogue/diaCamera2D/Fog, "color:a", 1, 3)
@@ -143,7 +161,7 @@ func dialog(label, text):
 	for i in text: 
 		visible_characters = (visible_characters + 1)
 		label.visible_characters = visible_characters
-		await(get_tree().create_timer(0.05).timeout)
+		await(get_tree().create_timer(0.07).timeout)
 
 func _on_subscene1_trigger_entered(body: Node2D) -> void:
 	if body.name == _player_body.name:
@@ -155,3 +173,8 @@ func _on_subscene1_trigger_2_body_entered(body: Node2D) -> void:
 	if body.name == _player_body.name:
 		if player.forest_scene1 == 1:
 			_forestscene2()
+
+
+func _on_button_pressed() -> void:
+	_forestscene2()
+	 # Replace with function body.
