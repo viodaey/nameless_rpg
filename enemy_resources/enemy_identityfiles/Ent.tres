@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://di28wqrog2dc2"]
+
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_5vxal"]
+[ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="2_rjio0"]
+[ext_resource type="SpriteFrames" uid="uid://dmfp2cnwsluyw" path="res://enemy_resources/enemy_spriteframes/Ent_sf.tres" id="3_xsvkp"]
+[ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_crmm4"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="5_jk3qw"]
+[ext_resource type="Texture2D" uid="uid://b85osppvb8s7e" path="res://enemy_resources/enemy_texturefiles/EntIdle 1.png" id="6_4w55s"]
+
+[resource]
+script = ExtResource("5_jk3qw")
+_name = "Ent"
+texture = ExtResource("6_4w55s")
+evo_lvl = 9000
+health = 40.0
+base_health = 30.0
+damage = 11.0
+critc = 5
+xp = 10
+speed = 40
+music = "battle01"
+can_chill = true
+lifesteal = 1
+animatedSprite = ExtResource("3_xsvkp")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 0.4
+collision_shape = ExtResource("4_crmm4")
+max_group_size = 3
+min_group_size = 1
+friends = Array[String]([])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("2_rjio0")
+lvl = 8
+atb = 110
+max_health = 0
+_abilties = Array[ExtResource("1_5vxal")]([])

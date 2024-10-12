@@ -22,8 +22,6 @@ func _ready() -> void:
 	#pass # Replace with function body.
 	move_dice = rng.randi_range(30, 100)
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta):
 	if Input.is_anything_pressed() == false:
@@ -56,10 +54,10 @@ func _physics_process(_delta):
 			get_slide_collision(i).get_collider().get_praent().initiate_battle()
 
 
-## 	spawn NPC
+## 	spawn NPC	
 	if moved > move_dice and disabled_spawn == false:
 		var vec_target = await(_spawn_npc_loc())
-		#get_node("RayCast2D").position = self.position
+		get_node("RayCast2D").position = self.position
 		raycast.target_position = raycast.position + vec_target
 		raycast.force_raycast_update()
 		if not raycast.is_colliding():
@@ -77,7 +75,7 @@ func _physics_process(_delta):
 func _spawn_npc_loc():
 	var rng = RandomNumberGenerator.new()
 	var angle = rng.randi_range(0, TAU)
-	var distance = rng.randi_range(80, 150)
+	var distance = rng.randi_range(350, 350)
 	var vec_target = Vector2((distance)*cos(angle), (distance)*sin(angle))
 	return vec_target
 

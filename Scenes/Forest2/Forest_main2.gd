@@ -7,6 +7,7 @@ const scene_type = 1
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
 @onready var _player_body = $Player
+@export var drops: Dictionary
 var _spawned_npc  
 var spawn_request
 
@@ -17,8 +18,6 @@ func _ready() -> void:
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/Forest/Forest.tscn":
 		_player_body.position = $Forest2Exit.position + Vector2(-15,0)
-	if player.forest2_scene1 == 0:
-		$Player.disabled_spawn = true
 	MainMenu.map_scene = get_tree().current_scene
 
 func _input(_event):

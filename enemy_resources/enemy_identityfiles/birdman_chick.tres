@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=5 format=3 uid="uid://dm2dnaly8eoku"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://dm2dnaly8eoku"]
 
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_2dpwv"]
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_aly0o"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_e3sfw"]
 [ext_resource type="SpriteFrames" uid="uid://da4a3tqobc1rd" path="res://enemy_resources/enemy_spriteframes/Birdman_Evo_1sf.tres" id="2_kutm6"]
+[ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_2v5ua"]
 [ext_resource type="Texture2D" uid="uid://t6kd7wrlxyf4" path="res://enemy_resources/enemy_texturefiles/ornis/Bird-man1.png" id="4_55vqi"]
 
 [resource]
@@ -23,6 +25,7 @@ animatedSprite = ExtResource("2_kutm6")
 affliction_type = ""
 affliction_chance = 0
 map_scale = 0.4
+collision_shape = ExtResource("4_2v5ua")
 max_group_size = 3
 min_group_size = 1
 friends = Array[String]([])
@@ -32,3 +35,4 @@ _class = ExtResource("1_2dpwv")
 lvl = 1
 atb = 110
 max_health = 0
+_abilties = Array[ExtResource("1_aly0o")]([])
