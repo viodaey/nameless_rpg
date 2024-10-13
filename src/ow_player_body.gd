@@ -75,7 +75,7 @@ func _physics_process(_delta):
 func _spawn_npc_loc():
 	var rng = RandomNumberGenerator.new()
 	var angle = rng.randi_range(0, TAU)
-	var distance = rng.randi_range(300, 350)
+	var distance = rng.randi_range(290, 360)
 	var vec_target = Vector2((distance)*cos(angle), (distance)*sin(angle))
 	return vec_target
 

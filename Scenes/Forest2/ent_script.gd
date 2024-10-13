@@ -9,7 +9,7 @@ var target_position
 var move_to_attack
 var rng = RandomNumberGenerator.new()
 var initiated: bool = false
-const detection_range : float = 150
+const detection_range : float = 140
 @onready var neutral_pos = _animated_sprite.position
 signal initiation_done
 #enum states {AWAITING : 0}
