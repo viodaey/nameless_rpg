@@ -1,7 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=38 format=3 uid="uid://dmvwqo5pb0ppd"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kcr5h"]
-load_path = "res://.godot/imported/Ent Idle.png-a651ab902fae6b3bbaf8382fb41fd225.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgeeo"]
 atlas = SubResource("CompressedTexture2D_kcr5h")
@@ -11,6 +10,10 @@ region = Rect2(0, 0, 100, 200)
 atlas = SubResource("CompressedTexture2D_kcr5h")
 region = Rect2(100, 0, 100, 200)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0b0f"]
+atlas = SubResource("CompressedTexture2D_kcr5h")
+region = Rect2(400, 0, 100, 200)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pb5c4"]
 atlas = SubResource("CompressedTexture2D_kcr5h")
 region = Rect2(200, 0, 100, 200)
@@ -18,10 +21,6 @@ region = Rect2(200, 0, 100, 200)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4a8x0"]
 atlas = SubResource("CompressedTexture2D_kcr5h")
 region = Rect2(300, 0, 100, 200)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d0b0f"]
-atlas = SubResource("CompressedTexture2D_kcr5h")
-region = Rect2(400, 0, 100, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eaxml"]
 atlas = SubResource("CompressedTexture2D_kcr5h")
@@ -157,13 +156,13 @@ animations = [{
 "texture": SubResource("AtlasTexture_3o0jf")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_d0b0f")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pb5c4")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4a8x0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d0b0f")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eaxml")

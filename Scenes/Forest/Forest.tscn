@@ -608,7 +608,6 @@ position = Vector2(64, 120)
 position = Vector2(1, -8)
 shape = SubResource("RectangleShape2D_bh4ma")
 
-
 [node name="Forest2Entrance" type="Area2D" parent="."]
 position = Vector2(15.7974, 587.46)
 

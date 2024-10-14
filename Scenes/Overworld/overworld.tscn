@@ -1,19 +1,20 @@
-[gd_scene load_steps=70 format=4 uid="uid://df2s4i3dlmyrc"]
+[gd_scene load_steps=71 format=4 uid="uid://df2s4i3dlmyrc"]
 
 [ext_resource type="Script" path="res://Scenes/Overworld/overworld_main.gd" id="1_4ihds"]
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="2_5d18u"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_sr5fs"]
-[ext_resource type="Resource" uid="uid://d1y8eprvwt18s" path="res://enemy_resources/enemy_identityfiles/WolfEarth_Evo_1.tres" id="3_7ud5q"]
 [ext_resource type="Script" path="res://src/ow_player_body.gd" id="3_bewpa"]
 [ext_resource type="Texture2D" uid="uid://rhh3il8k31mh" path="res://test_sprites/Hooman/Idle/Character_Idle.png" id="4_7edvl"]
-[ext_resource type="Resource" uid="uid://dnvlg3d57lcll" path="res://enemy_resources/enemy_identityfiles/WolfElec_Evo_1.tres" id="4_nunsa"]
+[ext_resource type="Resource" uid="uid://d1y8eprvwt18s" path="res://enemy_resources/enemy_identityfiles/WolfEarth_Evo_1.tres" id="4_r4gs8"]
+[ext_resource type="Resource" uid="uid://dnvlg3d57lcll" path="res://enemy_resources/enemy_identityfiles/WolfElec_Evo_1.tres" id="5_5ensn"]
 [ext_resource type="Texture2D" uid="uid://bgbbok7la0ucp" path="res://test_sprites/Hooman/Move/Character_Move.png" id="5_m2tqc"]
-[ext_resource type="Resource" uid="uid://dai41k5tskn4b" path="res://enemy_resources/enemy_identityfiles/WolfFire_Evo_1.tres" id="5_mvvo2"]
-[ext_resource type="Resource" uid="uid://buuvbfet5ggvn" path="res://enemy_resources/enemy_identityfiles/WolfIce_Evo_1.tres" id="6_6ujfi"]
-[ext_resource type="Resource" uid="uid://n4bde36kqfs1" path="res://enemy_resources/enemy_identityfiles/WolfWater_Evo_1.tres" id="7_qme43"]
+[ext_resource type="Resource" uid="uid://db16601y4csii" path="res://enemy_resources/enemy_identityfiles/WolfWind_Evo_1.tres" id="6_4s8pr"]
+[ext_resource type="Resource" uid="uid://n4bde36kqfs1" path="res://enemy_resources/enemy_identityfiles/WolfWater_Evo_1.tres" id="7_qahtx"]
 [ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="8_2e61n"]
-[ext_resource type="Resource" uid="uid://db16601y4csii" path="res://enemy_resources/enemy_identityfiles/WolfWind_Evo_1.tres" id="8_rhy72"]
+[ext_resource type="Resource" uid="uid://dkbwfc1rxwgmn" path="res://enemy_resources/enemy_identityfiles/Warbear_Evo_1.tres" id="8_csm53"]
+[ext_resource type="Resource" uid="uid://dai41k5tskn4b" path="res://enemy_resources/enemy_identityfiles/WolfFire_Evo_1.tres" id="9_orr2g"]
 [ext_resource type="Resource" uid="uid://di28wqrog2dc2" path="res://enemy_resources/enemy_identityfiles/Ent.tres" id="9_xrlek"]
+[ext_resource type="Resource" uid="uid://buuvbfet5ggvn" path="res://enemy_resources/enemy_identityfiles/WolfIce_Evo_1.tres" id="10_l24xm"]
 [ext_resource type="Texture2D" uid="uid://c1rw2eiakbw8p" path="res://textures/Tilesets/Dungeon_rogue/torch_1.png" id="14_2ptld"]
 [ext_resource type="SpriteFrames" uid="uid://dfj11x1cnrhcx" path="res://enemy_resources/enemy_spriteframes/Knight_sf.tres" id="14_gob5f"]
 [ext_resource type="Texture2D" uid="uid://bnj3e2fryr7gr" path="res://textures/Tilesets/Dungeon_rogue/torch_2.png" id="15_qbqf3"]
@@ -366,7 +367,7 @@ animations = [{
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_4ihds")
-world_enemies = Array[ExtResource("2_sr5fs")]([ExtResource("3_7ud5q"), ExtResource("4_nunsa"), ExtResource("5_mvvo2"), ExtResource("6_6ujfi"), ExtResource("7_qme43"), ExtResource("8_rhy72"), ExtResource("9_xrlek")])
+world_enemies = Array[ExtResource("2_sr5fs")]([ExtResource("9_xrlek"), ExtResource("4_r4gs8"), ExtResource("5_5ensn"), ExtResource("6_4s8pr"), ExtResource("7_qahtx"), ExtResource("8_csm53"), ExtResource("9_orr2g"), ExtResource("10_l24xm"), ExtResource("9_xrlek"), ExtResource("4_r4gs8"), ExtResource("5_5ensn")])
 battle_bg = ExtResource("8_2e61n")
 drops = {
 0: 50,
