@@ -9,7 +9,7 @@ var target_position
 var move_to_attack
 var rng = RandomNumberGenerator.new()
 var initiated: bool = false
-const detection_range : float = 150
+const detection_range : float = 140
 @onready var neutral_pos = _animated_sprite.position
 signal initiation_done
 #enum states {AWAITING : 0}
@@ -39,8 +39,8 @@ func _physics_process(delta: float):
 	if not move_to_attack:
 		target_position = (player_position - position).normalized()
 		velocity = target_position * speed
-		look_at(_player_body.global_position)
-		self.rotate(4.71)
+		#look_at(_player_body.global_position)
+		#self.rotate(4.71)
 		_animated_sprite.play("run")
 		player_position = _player_body.position
 	elif move_to_attack.get_collider() == _player_body:
