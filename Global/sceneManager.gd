@@ -6,6 +6,7 @@ var current_scene = null
 var battle_bg: Texture = null
 var mon_min_lvl: int
 var mon_max_lvl: int
+var static_clear: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -19,11 +19,13 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Forest/Forest.tscn":
 		_player_body.position = $Forest2Exit.position + Vector2(-15,0)
 	MainMenu.map_scene = get_tree().current_scene
-
+	for i in len(sceneManager.static_clear):
+		get_node("%s" %sceneManager.static_clear[i-1]).queue_free()
 
 func _input(_event):
 	pass
 
 func _on_forest2exit_body_entered(body: Node2D) -> void:
 	if body.name == _player_body.name:
+		sceneManager.static_clear = []
 		sceneManager.goto_scene("res://Scenes/Forest/Forest.tscn")

@@ -45,15 +45,16 @@ func _physics_process(delta: float):
 		player_position = _player_body.position
 	elif move_to_attack.get_collider() == _player_body:
 		initiate_battle()
+		
 func initiate_battle():
 	position = neutral_pos
 	player.enemy_encounter = enemy.get_path()
 	player.position = player_position
 	sceneManager.mon_min_lvl = get_parent().min_lvl
 	sceneManager.mon_max_lvl = get_parent().max_lvl
+	sceneManager.static_clear.append(self.name)
 	sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
-	move_to_attack = false
-	queue_free()	
+
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	initiation_done.emit()
