@@ -512,14 +512,13 @@ position = Vector2(0, 30)
 shape = ExtResource("14_do8ke")
 
 [node name="Ent_6" type="CharacterBody2D" parent="."]
-position = Vector2(240, 32)
+position = Vector2(240, 37)
 scale = Vector2(0.8, 0.8)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
 detection_range = 125.0
-activation_chance = 0
 speed = 60
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_6"]
@@ -534,7 +533,7 @@ position = Vector2(0, 30)
 shape = ExtResource("14_do8ke")
 
 [node name="Ent_7" type="CharacterBody2D" parent="."]
-position = Vector2(176, 246)
+position = Vector2(176, 262)
 scale = Vector2(0.8, 0.8)
 disable_mode = 1
 motion_mode = 1
