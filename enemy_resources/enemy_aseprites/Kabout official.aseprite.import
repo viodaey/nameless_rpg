@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dbls2htvp8dkt"
+path="res://.godot/imported/Kabout official.aseprite-42ac8cef556f67d80430cb8b1d46aefe.res"
+
+[deps]
+
+source_file="res://enemy_resources/enemy_aseprites/Kabout official.aseprite"
+dest_files=["res://.godot/imported/Kabout official.aseprite-42ac8cef556f67d80430cb8b1d46aefe.res"]
+
+[params]
+
