@@ -352,7 +352,6 @@ animations = [{
 resource_name = "Kabout"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aqqal"]
-load_path = "res://.godot/imported/Kabout idle.png-287c38f0fd5ec34eaa5b9f33f546cf4d.ctex"
 
 [sub_resource type="Resource" id="Resource_lyvaa"]
 script = ExtResource("2_scewe")
@@ -435,7 +434,6 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shroomhouse1/StaticBody2D"]
 position = Vector2(2.74181e-06, -12.4088)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_xltue")
 
 [node name="Player" type="CharacterBody2D" parent="."]
