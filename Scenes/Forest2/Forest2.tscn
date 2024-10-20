@@ -846,7 +846,7 @@ position = Vector2(0, 30)
 shape = ExtResource("14_do8ke")
 
 [node name="Ent_12" type="CharacterBody2D" parent="."]
-position = Vector2(672.131, 245.945)
+position = Vector2(672.131, 340.945)
 scale = Vector2(0.8, 0.8)
 disable_mode = 1
 motion_mode = 1
