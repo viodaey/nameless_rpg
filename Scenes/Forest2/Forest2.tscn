@@ -623,7 +623,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_1"]
 position = Vector2(-3.05176e-05, 16)
@@ -644,7 +643,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_2"]
 position = Vector2(-3.05176e-05, 16)
@@ -665,7 +663,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_3"]
 position = Vector2(-3.05176e-05, 16)
@@ -686,7 +683,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_4"]
 position = Vector2(-3.05176e-05, 16)
@@ -707,7 +703,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_5"]
 position = Vector2(-3.05176e-05, 16)
@@ -728,7 +723,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_6"]
 position = Vector2(-3.05176e-05, 16)
@@ -749,7 +743,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_7"]
 position = Vector2(-3.05176e-05, 16)
@@ -770,7 +763,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_8"]
 position = Vector2(-3.05176e-05, 16)
@@ -791,7 +783,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_9"]
 position = Vector2(-3.05176e-05, 16)
@@ -811,7 +802,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_10"]
 position = Vector2(-3.05176e-05, 16)
@@ -831,7 +821,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_11"]
 position = Vector2(-3.05176e-05, 16)
@@ -852,7 +841,6 @@ disable_mode = 1
 motion_mode = 1
 script = ExtResource("13_ebxme")
 enemy = ExtResource("3_ii4gq")
-detection_range = 125.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ent_12"]
 position = Vector2(-3.05176e-05, 16)
