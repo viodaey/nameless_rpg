@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c16qpfwq47g27"
-path="res://.godot/imported/Ent Idle.png-af7bbaf870b273ee6b25dfcae039a41d.ctex"
+uid="uid://c4bhtjek20x7b"
+path="res://.godot/imported/Ent KRWLNG.png-9ddc631854f65db047604fbb797edc94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/Ent Idle.png"
-dest_files=["res://.godot/imported/Ent Idle.png-af7bbaf870b273ee6b25dfcae039a41d.ctex"]
+source_file="res://enemy_resources/enemy_texturefiles/natural/Ent KRWLNG.png"
+dest_files=["res://.godot/imported/Ent KRWLNG.png-9ddc631854f65db047604fbb797edc94.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_resource type="SpriteFrames" load_steps=65 format=3 uid="uid://c31f0pmwanqwi"]
 
-[ext_resource type="Texture2D" uid="uid://c16qpfwq47g27" path="res://enemy_resources/enemy_texturefiles/Ent Idle.png" id="1_3nqul"]
-[ext_resource type="Texture2D" uid="uid://c4bhtjek20x7b" path="res://enemy_resources/enemy_texturefiles/Ent KRWLNG.png" id="1_ucxgm"]
-[ext_resource type="Texture2D" uid="uid://jvk05ey2f2c3" path="res://enemy_resources/enemy_texturefiles/Ent Fall.png" id="2_5jkm7"]
+[ext_resource type="Texture2D" uid="uid://c16qpfwq47g27" path="res://enemy_resources/enemy_texturefiles/natural/Ent Idle.png" id="1_3nqul"]
+[ext_resource type="Texture2D" uid="uid://c4bhtjek20x7b" path="res://enemy_resources/enemy_texturefiles/natural/Ent KRWLNG.png" id="1_ucxgm"]
+[ext_resource type="Texture2D" uid="uid://jvk05ey2f2c3" path="res://enemy_resources/enemy_texturefiles/natural/Ent Fall.png" id="2_5jkm7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02dtr"]
 atlas = ExtResource("1_3nqul")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jvk05ey2f2c3"
-path="res://.godot/imported/Ent Fall.png-a5a3be3e4d2733e7ff8c66a21ca74c37.ctex"
+uid="uid://co4v7iflw4ogp"
+path="res://.godot/imported/Deadland.png-3e95a4bf23c74e1c98c513883ff3528c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/Ent Fall.png"
-dest_files=["res://.godot/imported/Ent Fall.png-a5a3be3e4d2733e7ff8c66a21ca74c37.ctex"]
+source_file="res://bg_art/Deadland.png"
+dest_files=["res://.godot/imported/Deadland.png-3e95a4bf23c74e1c98c513883ff3528c.ctex"]
 
 [params]
 
