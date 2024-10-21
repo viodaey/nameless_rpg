@@ -10,6 +10,8 @@ var target_position
 var move_to_attack
 const detection_range : float = 90
 @onready var neutral_pos = _animated_sprite.position
+var initiated: bool = false
+signal initiation_done
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +24,14 @@ func _physics_process(delta: float):
 	move_to_attack = move_and_collide(velocity * delta)
 	player_position = _player_body.position
 	if position.distance_to(player_position) < detection_range:
+		if not initiated:
+			if not _animated_sprite.sprite_frames.get_animation_names().has("initiate"):
+				initiated = true
+			else:
+				_animated_sprite.play("initiate")
+				await initiation_done
+				initiated = true
+			return
 		if not move_to_attack:
 			target_position = (player_position - position).normalized()
 			velocity = target_position * speed
@@ -59,3 +69,7 @@ func initiate_battle():
 	sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
 	move_to_attack = false
 	queue_free()	
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	initiation_done.emit()

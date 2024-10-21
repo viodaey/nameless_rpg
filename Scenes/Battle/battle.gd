@@ -128,7 +128,7 @@ func _ready():
 	if len(inv.itemInventory.monsterlist) <= 100:
 		_player3statscont.visible = false
 		_player4statscont.visible = false
-		
+
 ##	load enemy resource from encounter -- TURN OFF LOAD TO TEST EXPORT RESOURCE
 	enemy = load(player.enemy_encounter)
 	AudioPlayer.play_music_level(enemy.music)
