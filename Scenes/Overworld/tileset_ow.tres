@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://vs7cddl20pab"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://vs7cddl20pab"]
 
 [ext_resource type="Texture2D" uid="uid://d1n86qkykb55x" path="res://textures/Tilesets/forest tiles/forest-palette01-day.png" id="1_iela3"]
 [ext_resource type="Texture2D" uid="uid://c0efv3yhusd33" path="res://textures/Tilesets/Dungeon_rogue/mainlevbuild.png" id="2_j0qi2"]
 [ext_resource type="Texture2D" uid="uid://0jnv6yauoo8m" path="res://textures/Tilesets/forest tiles/forest-palette02-day.png" id="2_q8dja"]
 [ext_resource type="Texture2D" uid="uid://dfi2jmu25neki" path="res://textures/Tilesets/forest tiles/forest-palette03-night.png" id="4_pqwa1"]
 [ext_resource type="Texture2D" uid="uid://ijvw68j4ekxw" path="res://textures/carpentry/woodenFlooring.png" id="5_6fif7"]
+[ext_resource type="Texture2D" uid="uid://ka5iqb2qcoqs" path="res://textures/Tilesets/Deadtree.png" id="6_ds5rc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b810d"]
 
@@ -2649,6 +2650,81 @@ texture_region_size = Vector2i(350, 350)
 0:1/0 = 0
 1:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdihm"]
+texture = ExtResource("6_ds5rc")
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+6:8/0 = 0
+8:6/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_b810d")
@@ -2657,3 +2733,4 @@ sources/2 = SubResource("TileSetAtlasSource_yfbmp")
 sources/1 = SubResource("TileSetAtlasSource_c6opx")
 sources/3 = SubResource("TileSetAtlasSource_vxsl3")
 sources/4 = SubResource("TileSetAtlasSource_gsdmu")
+sources/6 = SubResource("TileSetAtlasSource_kdihm")
