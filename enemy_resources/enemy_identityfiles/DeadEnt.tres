@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource("5_a2nau")
-_name = "Ent"
+_name = "DeadEnt"
 texture = ExtResource("6_j4aal")
 evo_lvl = 9000
 health = 40.0

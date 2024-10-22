@@ -416,13 +416,13 @@ collide_with_areas = true
 
 [node name="DeadtreeEnt" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(245.617, 196.903)
+position = Vector2(246.617, 196.903)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt"]
 scale = Vector2(2.10056, 2.10056)
@@ -437,13 +437,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt2" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(903.1, 191.557)
+position = Vector2(904.1, 191.557)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt2"]
 scale = Vector2(2.10056, 2.10056)
@@ -459,13 +459,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt3" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(619.794, 280.647)
+position = Vector2(620.794, 280.647)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt3"]
 scale = Vector2(2.10056, 2.10056)
@@ -480,13 +480,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt4" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(864, 591)
+position = Vector2(865, 591)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt4"]
 scale = Vector2(2.10056, 2.10056)
@@ -501,13 +501,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt5" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(1029, 581)
+position = Vector2(1030, 581)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt5"]
 scale = Vector2(2.10056, 2.10056)
@@ -522,13 +522,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt6" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(393, 507)
+position = Vector2(394, 507)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt6"]
 scale = Vector2(2, 2)
@@ -543,13 +543,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt7" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(108, 100.345)
+position = Vector2(109, 100.345)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt7"]
 scale = Vector2(2.10056, 2.10056)
@@ -564,13 +564,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt8" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(765.483, 95)
+position = Vector2(766.483, 95)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt8"]
 scale = Vector2(2.10056, 2.10056)
@@ -585,13 +585,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt9" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(482.177, 184.09)
+position = Vector2(483.177, 184.09)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt9"]
 scale = Vector2(2.10056, 2.10056)
@@ -606,13 +606,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt10" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(782, 420)
+position = Vector2(783, 420)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt10"]
 scale = Vector2(2.10056, 2.10056)
@@ -627,13 +627,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt11" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(854.573, 290.998)
+position = Vector2(855.573, 290.998)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt11"]
 scale = Vector2(2.10056, 2.10056)
@@ -648,13 +648,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt12" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(238.071, 383.651)
+position = Vector2(239.071, 383.651)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt12"]
 scale = Vector2(2, 2)
@@ -669,13 +669,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt13" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(366, 177.345)
+position = Vector2(367, 177.345)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt13"]
 scale = Vector2(2.10056, 2.10056)
@@ -690,13 +690,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt14" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(1023.48, 172)
+position = Vector2(1024.48, 172)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt14"]
 scale = Vector2(2.10056, 2.10056)
@@ -711,13 +711,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt15" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(740.177, 261.09)
+position = Vector2(741.177, 261.09)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt15"]
 scale = Vector2(2.10056, 2.10056)
@@ -732,13 +732,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt16" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(948, 591)
+position = Vector2(949, 591)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt16"]
 scale = Vector2(2.10056, 2.10056)
@@ -753,13 +753,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt17" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(1112.57, 367.998)
+position = Vector2(1113.57, 367.998)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt17"]
 scale = Vector2(2.10056, 2.10056)
@@ -774,13 +774,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt18" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(472, 508)
+position = Vector2(473, 508)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt18"]
 scale = Vector2(2, 2)
@@ -795,13 +795,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt19" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(30, 159.345)
+position = Vector2(31, 159.345)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt19"]
 scale = Vector2(2.10056, 2.10056)
@@ -816,13 +816,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt20" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(687.483, 154)
+position = Vector2(688.483, 154)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt20"]
 scale = Vector2(2.10056, 2.10056)
@@ -837,13 +837,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt21" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(404.177, 243.09)
+position = Vector2(405.177, 243.09)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt21"]
 scale = Vector2(2.10056, 2.10056)
@@ -858,13 +858,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt22" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(634, 547)
+position = Vector2(635, 547)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt22"]
 scale = Vector2(2.10056, 2.10056)
@@ -879,13 +879,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt23" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(640, 313)
+position = Vector2(641, 313)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt23"]
 scale = Vector2(2.10056, 2.10056)
@@ -900,13 +900,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt24" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(177, 399)
+position = Vector2(178, 399)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt24"]
 scale = Vector2(2, 2)
@@ -921,13 +921,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt25" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(516, 587)
+position = Vector2(517, 587)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt25"]
 scale = Vector2(2.10056, 2.10056)
@@ -942,13 +942,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt26" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(574, 539)
+position = Vector2(575, 539)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt26"]
 scale = Vector2(2.10056, 2.10056)
@@ -963,13 +963,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt27" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(112, 359)
+position = Vector2(113, 359)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt27"]
 scale = Vector2(2, 2)
@@ -984,13 +984,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt28" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(1074, 45)
+position = Vector2(1075, 45)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt28"]
 scale = Vector2(2.10056, 2.10056)
@@ -1005,13 +1005,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt29" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(727, 319)
+position = Vector2(728, 319)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt29"]
 scale = Vector2(2.10056, 2.10056)
@@ -1026,14 +1026,14 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt30" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(66, 510)
+position = Vector2(67, 510)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
 activation_chance = 0
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt30"]
 scale = Vector2(2, 2)
@@ -1048,13 +1048,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt31" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(242.617, 306.903)
+position = Vector2(243.617, 306.903)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt31"]
 scale = Vector2(2.10056, 2.10056)
@@ -1069,13 +1069,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt32" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(900.1, 301.557)
+position = Vector2(901.1, 301.557)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt32"]
 scale = Vector2(2.10056, 2.10056)
@@ -1090,13 +1090,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt33" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(545, 498)
+position = Vector2(546, 498)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt33"]
 scale = Vector2(2.10056, 2.10056)
@@ -1111,13 +1111,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt34" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(927, 381)
+position = Vector2(928, 381)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt34"]
 scale = Vector2(2.10056, 2.10056)
@@ -1132,13 +1132,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt35" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(700, 590)
+position = Vector2(701, 590)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt35"]
 scale = Vector2(2.10056, 2.10056)
@@ -1153,13 +1153,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt36" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(372.688, 590.208)
+position = Vector2(373.688, 590.208)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt36"]
 scale = Vector2(2, 2)
@@ -1174,13 +1174,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt37" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(125, 216)
+position = Vector2(126, 216)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt37"]
 scale = Vector2(2.10056, 2.10056)
@@ -1195,13 +1195,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt38" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(762.483, 205)
+position = Vector2(763.483, 205)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt38"]
 scale = Vector2(2.10056, 2.10056)
@@ -1216,13 +1216,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt39" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(479.177, 294.09)
+position = Vector2(480.177, 294.09)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt39"]
 scale = Vector2(2.10056, 2.10056)
@@ -1237,13 +1237,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt40" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(783, 588)
+position = Vector2(784, 588)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt40"]
 scale = Vector2(2.10056, 2.10056)
@@ -1258,13 +1258,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt41" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(851.573, 400.998)
+position = Vector2(852.573, 400.998)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt41"]
 scale = Vector2(2.10056, 2.10056)
@@ -1279,13 +1279,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt42" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(320, 544)
+position = Vector2(321, 544)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt42"]
 scale = Vector2(2, 2)
@@ -1300,13 +1300,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt43" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(314, 352)
+position = Vector2(315, 352)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt43"]
 scale = Vector2(2.10056, 2.10056)
@@ -1321,13 +1321,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt44" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(1095, 264)
+position = Vector2(1096, 264)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt44"]
 scale = Vector2(2.10056, 2.10056)
@@ -1342,13 +1342,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt45" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(737.177, 371.09)
+position = Vector2(738.177, 371.09)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt45"]
 scale = Vector2(2.10056, 2.10056)
@@ -1363,13 +1363,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt46" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(86.0001, 255)
+position = Vector2(87.0001, 255)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt46"]
 scale = Vector2(2.10056, 2.10056)
@@ -1384,13 +1384,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt47" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(1109.57, 477.998)
+position = Vector2(1110.57, 477.998)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt47"]
 scale = Vector2(2.10056, 2.10056)
@@ -1405,13 +1405,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt48" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(439, 577)
+position = Vector2(440, 577)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt48"]
 scale = Vector2(2, 2)
@@ -1426,13 +1426,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt49" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(27, 269.345)
+position = Vector2(28, 269.345)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt49"]
 scale = Vector2(2.10056, 2.10056)
@@ -1447,13 +1447,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt50" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(684.483, 264)
+position = Vector2(685.483, 264)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt50"]
 scale = Vector2(2.10056, 2.10056)
@@ -1468,13 +1468,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt51" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(402, 333)
+position = Vector2(403, 333)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt51"]
 scale = Vector2(2.10056, 2.10056)
@@ -1489,13 +1489,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt52" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(546, 300)
+position = Vector2(547, 300)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt52"]
 scale = Vector2(2.10056, 2.10056)
@@ -1510,13 +1510,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt53" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(167, 317)
+position = Vector2(168, 317)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt53"]
 scale = Vector2(2.10056, 2.10056)
@@ -1531,13 +1531,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt54" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(796, 304)
+position = Vector2(797, 304)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt54"]
 scale = Vector2(2, 2)
@@ -1552,13 +1552,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt55" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(316, 222)
+position = Vector2(317, 222)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt55"]
 scale = Vector2(2.10056, 2.10056)
@@ -1573,13 +1573,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt56" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(612, 581)
+position = Vector2(613, 581)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt56"]
 scale = Vector2(2.10056, 2.10056)
@@ -1594,13 +1594,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt57" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(44, 374)
+position = Vector2(45, 374)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt57"]
 scale = Vector2(2, 2)
@@ -1615,13 +1615,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt58" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(1101, 182)
+position = Vector2(1102, 182)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt58"]
 scale = Vector2(2.10056, 2.10056)
@@ -1636,13 +1636,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt59" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(893.502, 128)
+position = Vector2(894.502, 128)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt59"]
 scale = Vector2(2.10056, 2.10056)
@@ -1657,13 +1657,13 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt60" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(569, 188)
+position = Vector2(570, 188)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
 script = ExtResource("16_t6yei")
 enemy = ExtResource("22_e0v4w")
-speed = 35
+speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt60"]
 scale = Vector2(2, 2)
