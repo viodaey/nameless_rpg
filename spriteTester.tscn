@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5qmhq1tofh5x"]
+[gd_scene load_steps=4 format=3 uid="uid://b5qmhq1tofh5x"]
 
 [ext_resource type="Texture2D" uid="uid://db1hlwmgdw14p" path="res://enemy_resources/enemy_texturefiles/canine/Earthwolf2.png" id="1_3bpcc"]
-[ext_resource type="Texture2D" uid="uid://bv5xohluss2du" path="res://Sprite-0001 roy test Demon Earth.png" id="2_yaona"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4b70o"]
 atlas = ExtResource("1_3bpcc")
@@ -46,7 +45,6 @@ offset_left = 192.0
 offset_top = 80.0
 offset_right = 232.0
 offset_bottom = 120.0
-texture = ExtResource("2_yaona")
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
 "keep_anim_length": false,

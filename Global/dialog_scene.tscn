@@ -1,0 +1,227 @@
+[gd_scene load_steps=8 format=3 uid="uid://cynyjcujhbvd0"]
+
+[ext_resource type="Script" path="res://Global/dialogScene.gd" id="1_noh02"]
+[ext_resource type="Texture2D" uid="uid://ck3y1hmcyk2ou" path="res://textures/UI/menu_ui_test_100.png" id="2_8ds1e"]
+[ext_resource type="Texture2D" uid="uid://b1ubyvpebkco0" path="res://textures/UI/menu_ui_pink_100.png" id="4_gem7d"]
+[ext_resource type="LabelSettings" uid="uid://bvrkgbk0n2lkp" path="res://Global/ui_regular.tres" id="5_h2df0"]
+[ext_resource type="Texture2D" uid="uid://dsyyfajxbaskb" path="res://textures/UI/menu_ui_pixieblue_100.png" id="6_6s8wm"]
+[ext_resource type="FontFile" uid="uid://dmjq6coypb7ll" path="res://textures/fonts/Merienda-Bold.ttf" id="7_43lyj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwukd"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="Dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_noh02")
+
+[node name="dia_1" type="NinePatchRect" parent="."]
+z_index = 2
+clip_contents = true
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 344.0
+offset_bottom = 240.0
+texture = ExtResource("2_8ds1e")
+region_rect = Rect2(7, 7, 50, 50)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="dia_1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 205.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="txt" type="Label" parent="dia_1/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "    You give us crystal,
+              NOW!"
+label_settings = ExtResource("5_h2df0")
+
+[node name="dia_2" type="NinePatchRect" parent="."]
+z_index = 2
+clip_contents = true
+offset_left = 256.0
+offset_top = 256.0
+offset_right = 344.0
+offset_bottom = 304.0
+texture = ExtResource("4_gem7d")
+region_rect = Rect2(7, 7, 50, 50)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="dia_2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 204.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="txt" type="Label" parent="dia_2/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Stay away from us
+    you creep!
+                            Help!!"
+label_settings = ExtResource("5_h2df0")
+
+[node name="dia_3" type="NinePatchRect" parent="."]
+z_index = 2
+clip_contents = true
+offset_left = 384.0
+offset_top = 192.0
+offset_right = 472.0
+offset_bottom = 240.0
+texture = ExtResource("6_6s8wm")
+region_rect = Rect2(7, 7, 50, 50)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="dia_3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 205.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="txt" type="Label" parent="dia_3/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "..never!"
+label_settings = ExtResource("5_h2df0")
+
+[node name="dia_4" type="NinePatchRect" parent="."]
+z_index = 2
+clip_contents = true
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 472.0
+offset_bottom = 304.0
+texture = ExtResource("6_6s8wm")
+region_rect = Rect2(7, 7, 50, 50)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="dia_4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 205.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="txt" type="Label" parent="dia_4/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "..never!"
+label_settings = ExtResource("5_h2df0")
+
+[node name="dia_decision" type="NinePatchRect" parent="."]
+z_index = 2
+clip_contents = true
+offset_left = 512.0
+offset_top = 232.0
+offset_right = 584.0
+offset_bottom = 288.0
+texture = ExtResource("2_8ds1e")
+region_rect = Rect2(7, 7, 50, 50)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="dia_decision"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 134.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.35, 0.35)
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="dia_decision/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Option1" type="Button" parent="dia_decision/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_43lyj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vwukd")
+text = "Yes"
+alignment = 0
+
+[node name="Option2" type="Button" parent="dia_decision/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_43lyj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vwukd")
+text = "No"
+alignment = 0
+
+[node name="Option3" type="Button" parent="dia_decision/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_43lyj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vwukd")
+text = "No"
+alignment = 0
+
+[connection signal="pressed" from="dia_decision/MarginContainer/VBoxContainer/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="dia_decision/MarginContainer/VBoxContainer/Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="dia_decision/MarginContainer/VBoxContainer/Option3" to="." method="_on_option_3_pressed"]
