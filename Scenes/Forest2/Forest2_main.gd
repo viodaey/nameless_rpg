@@ -26,15 +26,17 @@ func _ready() -> void:
 	#var load_dialog = load("res://Global/dialog_scene.tscn")
 	#add_child(load_dialog.instantiate())
 	#var dialog = get_node("Dialog")
-	#dialog.set_text(0, "You wanna vibe?", 10)
 	#dialog.dia[0].position = get_node("Player").position + Vector2(-200,-200)
 	#dialog.dia_decision.position = get_node("Player").position + Vector2(-200,-50)
+	
+	#dialog.set_text(0, "You wanna vibe?", 10)
+
 	#dialog.set_color(0,"green")
-	#var vibe_answers = ["No","LETS GO"]
-	#var vibe = await dialog.decide(vibe_answers)
-	#if vibe == 1:
+	#var possible_answers = ["No","LETS GO"]
+	#var answer = await dialog.decide(possible_answers)
+	#if answer == 1:
 		#dialog.set_text(0, "OKE BYE :(", 10)
-	#if vibe == 2:
+	#if answer == 2:
 		#dialog.set_text(0, "LETS DANCE!", 10)
 
 func _input(_event):
