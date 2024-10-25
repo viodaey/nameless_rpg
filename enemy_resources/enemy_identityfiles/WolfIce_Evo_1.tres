@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_rqym8"]
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="1_t6mpu"]
-[ext_resource type="SpriteFrames" uid="uid://b05eaacutddo1" path="res://enemy_resources/enemy_spriteframes/WolfIce_Evo_1sf.tres" id="2_j3ycf"]
+[ext_resource type="SpriteFrames" uid="uid://b05eaacutddo1" path="res://enemy_spriteframes/WolfIce_Evo_1sf.tres" id="2_j3ycf"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="3_o1erc"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_bkaqr"]
 [ext_resource type="Resource" uid="uid://bhpdv8bm5fyf6" path="res://enemy_resources/enemy_identityfiles/WolfIce_Evo_2.tres" id="5_rc0wn"]

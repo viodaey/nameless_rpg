@@ -12,11 +12,11 @@
 [ext_resource type="Resource" uid="uid://blpccv8frf4ql" path="res://enemy_resources/enemy_identityfiles/WolfFire_Evo_2.tres" id="8_y7qbr"]
 [ext_resource type="Texture2D" uid="uid://bgbbok7la0ucp" path="res://test_sprites/Hooman/Move/Character_Move.png" id="9_7hp3l"]
 [ext_resource type="Resource" uid="uid://bfltr74e5lteg" path="res://enemy_resources/enemy_identityfiles/PixieFire.tres" id="9_crqjr"]
-[ext_resource type="Resource" uid="uid://bq75vos4ne52c" path="res://enemy_resources/enemy_identityfiles/orc_teen.tres" id="10_x4neg"]
+[ext_resource type="Resource" uid="uid://bq75vos4ne52c" path="res://enemy_resources/enemy_identityfiles/orc_evo2.tres" id="10_x4neg"]
 [ext_resource type="Resource" uid="uid://dmroaf0lbxacy" path="res://enemy_resources/enemy_identityfiles/skelly_warrior_1.tres" id="11_3c35y"]
 [ext_resource type="Resource" uid="uid://4hyxykrulp8a" path="res://enemy_resources/enemy_identityfiles/skelly_mage_1.tres" id="12_i2gaf"]
 [ext_resource type="Script" path="res://Global/static_npc.gd" id="16_t6yei"]
-[ext_resource type="SpriteFrames" uid="uid://bhmcpra4r6v8t" path="res://enemy_resources/enemy_spriteframes/DeadTreeEnt_sf.tres" id="19_wpvjv"]
+[ext_resource type="SpriteFrames" uid="uid://bhmcpra4r6v8t" path="res://enemy_spriteframes/DeadTreeEnt_sf.tres" id="19_wpvjv"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="20_h104l"]
 [ext_resource type="Resource" uid="uid://bqtd4aervcacs" path="res://enemy_resources/enemy_identityfiles/DeadEnt.tres" id="22_e0v4w"]
 
@@ -416,7 +416,7 @@ collide_with_areas = true
 
 [node name="DeadtreeEnt" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(246.617, 196.903)
+position = Vector2(718, 19)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -437,7 +437,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt2" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(904.1, 191.557)
+position = Vector2(805, 92)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -459,7 +459,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt3" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(620.794, 280.647)
+position = Vector2(617.177, 94.09)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -480,7 +480,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt4" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(865, 591)
+position = Vector2(817, 383)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -501,7 +501,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt5" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(1030, 581)
+position = Vector2(1098, 591)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -522,7 +522,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt6" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(394, 507)
+position = Vector2(689, 143)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -543,7 +543,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt7" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(109, 100.345)
+position = Vector2(128, 17.345)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -564,7 +564,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt8" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(766.483, 95)
+position = Vector2(552, -10)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -585,7 +585,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt9" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(483.177, 184.09)
+position = Vector2(502.177, 101.09)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -606,7 +606,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt10" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(783, 420)
+position = Vector2(856, 221)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -627,7 +627,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt11" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(855.573, 290.998)
+position = Vector2(398, 229)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -648,7 +648,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt12" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(239.071, 383.651)
+position = Vector2(99, 123)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -669,7 +669,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt13" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(367, 177.345)
+position = Vector2(172.929, 81.345)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -690,7 +690,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt14" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(1024.48, 172)
+position = Vector2(619, 255)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -711,7 +711,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt15" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(741.177, 261.09)
+position = Vector2(425, 21)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -732,7 +732,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt16" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(949, 591)
+position = Vector2(1003, 558)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -753,7 +753,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt17" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(1113.57, 367.998)
+position = Vector2(896, 562)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -774,7 +774,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt18" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(473, 508)
+position = Vector2(207, 202)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -795,7 +795,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt19" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(31, 159.345)
+position = Vector2(50, 76.345)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -816,7 +816,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt20" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(688.483, 154)
+position = Vector2(343, 58)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -837,7 +837,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt21" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(405.177, 243.09)
+position = Vector2(272, 114)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -858,7 +858,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt22" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(635, 547)
+position = Vector2(485, 178)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -879,7 +879,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt23" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(641, 313)
+position = Vector2(482, 140)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -888,19 +888,20 @@ enemy = ExtResource("22_e0v4w")
 speed = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DeadtreeEnt23"]
+position = Vector2(-205.714, -77.1429)
 scale = Vector2(2.10056, 2.10056)
 sprite_frames = ExtResource("19_wpvjv")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeadtreeEnt23"]
-position = Vector2(0, 80)
+position = Vector2(-208.571, 2.85715)
 scale = Vector2(3.5, 3.5)
 shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt24" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(178, 399)
+position = Vector2(145, 393)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -921,7 +922,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt25" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(517, 587)
+position = Vector2(449, 502)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -942,7 +943,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt26" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(575, 539)
+position = Vector2(666, 492)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -963,7 +964,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt27" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(113, 359)
+position = Vector2(105, 311)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -1258,7 +1259,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt41" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(852.573, 400.998)
+position = Vector2(1112, 239)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -1321,7 +1322,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt44" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(1096, 264)
+position = Vector2(1113, 343)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -1342,7 +1343,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt45" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(738.177, 371.09)
+position = Vector2(950, 586)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -1363,7 +1364,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt46" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(87.0001, 255)
+position = Vector2(42, 179)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -1510,7 +1511,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt53" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(168, 317)
+position = Vector2(174, 270)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1
@@ -1531,7 +1532,7 @@ shape = ExtResource("20_h104l")
 
 [node name="DeadtreeEnt54" type="CharacterBody2D" parent="."]
 z_index = 3
-position = Vector2(797, 304)
+position = Vector2(802, 279)
 scale = Vector2(0.35, 0.35)
 disable_mode = 1
 motion_mode = 1

@@ -40,19 +40,33 @@ var max_xp: int = 20
 #@export var pivot_offset: Vector2 = size / 2
 
 const allEnemies: Dictionary = {
-	"Fire Wolf (Evo1)": "res://enemy_resources/enemy_identityfiles/Firewolf_Evo_1.tres",
-	"Fire Wolf (Evo2)": "res://enemy_resources/enemy_identityfiles/Firewolf_Evo_2.tres",
-	"Ice Wolf (Evo1)": "res://enemy_resources/enemy_identityfiles/Icewolf_Evo_1.tres",
-	"Ice Wolf (Evo2)": "res://enemy_resources/enemy_identityfiles/Icewolf_Evo_2.tres",
-	"Elecwolf (Evo1)": "res://enemy_resources/enemy_identityfiles/Elecwolf_Evo_1.tres",
-	"Earth Wolf (Evo1)": "res://enemy_resources/enemy_identityfiles/Earthwolf_Evo_1.tres",
 	"Golem": "res://enemy_resources/enemy_identityfiles/golem.tres",
+	"Pixie Water": "res://enemy_resources/enemy_identityfiles/PixieWater.tres",
 	"Fire Pixie": "res://enemy_resources/enemy_identityfiles/Pixie_Fire.tres",
 	"Shadow Wraith": "res://enemy_resources/enemy_identityfiles/shadow_wraith.tres",
 	"Baby Orc": "res://enemy_resources/enemy_identityfiles/orc_baby.tres",
 	"Teen Orc": "res://enemy_resources/enemy_identityfiles/orc_teen.tres",
 	"Orc": "res://enemy_resources/enemy_identityfiles/orc_adult.tres",
-	"Warbear (Evo1)": "res://enemy_resources/enemy_identityfiles/Warbear_Evo_1.tres"
+	"Warbear (Evo1)": "res://enemy_resources/enemy_identityfiles/Warbear_Evo_1.tres",
+	"Birdman (Evo1)": "res://enemy_resources/enemy_identityfiles/birdman_chick.tres",
+	"DeadEnt": "res://enemy_resources/enemy_identityfiles/DeadEnt.tres",
+	"Ent": "res://enemy_resources/enemy_identityfiles/Ent.tres",
+	"Spider": "res://enemy_resources/enemy_identityfiles/res_battle_spider.tres",
+	"Roy the terrible": "res://enemy_resources/enemy_identityfiles/roy_the_terrible.tres",
+	"Skelleton Mage (Evo1)": "res://enemy_resources/enemy_identityfiles/skelly_mage_1.tres",
+	"Skeleton Warrior": "res://enemy_resources/enemy_identityfiles/skelly_warrior_1.tres",
+	"Wolf Earth (Evo1)": "res://enemy_resources/enemy_identityfiles/WolfEarth_Evo_1.tres",
+	"Wolf Earth (Evo2)": "res://enemy_resources/enemy_identityfiles/WolfEarth_Evo_2.tres",
+	"Wolf Elec (Evo1)": "res://enemy_resources/enemy_identityfiles/WolfElec_Evo_1.tres",
+	"Wolf Elec (Evo2)": "res://enemy_resources/enemy_identityfiles/WolfElec_Evo_2.tres",
+	"Wolf Fire (Evo1)": "res://enemy_resources/enemy_identityfiles/WolfFire_Evo_1.tres",
+	"Wolf Fire (Evo2)": "res://enemy_resources/enemy_identityfiles/WolfFire_Evo_2.tres",
+	"Wolf Ice (Evo1)": "res://enemy_resources/enemy_identityfiles/WolfIce_Evo_1.tres",
+	"Wolf Ice (Evo2)": "res://enemy_resources/enemy_identityfiles/WolfIce_Evo_2.tres",
+	"Wolf Water (Evo1)": "res://enemy_resources/enemy_identityfiles/WolfWater_Evo_1.tres",
+	"Wolf Water (Evo2)": "res://enemy_resources/enemy_identityfiles/WolfWater_Evo_2.tres",
+	"Wolf Wind (Evo1)": "res://enemy_resources/enemy_identityfiles/WolfWind_Evo_1.tres",
+	"Wolf Wind (Evo2)": "res://enemy_resources/enemy_identityfiles/WolfWind_Evo_2.tres"
 	}
 
 func level_up():
