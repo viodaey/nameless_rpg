@@ -7,11 +7,14 @@ const scene_type = 1
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
 @export var drops: Dictionary
+@export var min_spawn_range: int = 350
+@export var max_spawn_range: int = 450
 @onready var _player_body = $Player
 @onready var _cave_entrance = $CaveEntrance
 @onready var _forest_entrance = $ForestEntrance
 @onready var _h1entrancefront = $H1Entrancefront
 @onready var _h1entranceback = $H1Entranceback
+
 var spawn_request
 
 

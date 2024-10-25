@@ -371,6 +371,7 @@ affliction_type = ""
 affliction_chance = 0
 map_scale = 1.0
 collision_shape = ExtResource("14_do8ke")
+can_wander = true
 max_group_size = 3
 min_group_size = 1
 friends = Array[String]([])
@@ -385,7 +386,7 @@ _abilties = Array[ExtResource("11_lqxiv")]([])
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_y4fht")
-world_enemies = Array[ExtResource("2_scewe")]([ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), null])
+world_enemies = Array[ExtResource("2_scewe")]([ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq")])
 battle_bg = ExtResource("5_1jj7n")
 
 [node name="TileMapLayer_0" type="TileMapLayer" parent="."]

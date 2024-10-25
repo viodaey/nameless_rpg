@@ -22,6 +22,7 @@ script = ExtResource("1_noh02")
 [node name="dia_1" type="NinePatchRect" parent="."]
 z_index = 2
 clip_contents = true
+layout_mode = 0
 offset_left = 256.0
 offset_top = 192.0
 offset_right = 344.0
@@ -58,6 +59,7 @@ label_settings = ExtResource("5_h2df0")
 [node name="dia_2" type="NinePatchRect" parent="."]
 z_index = 2
 clip_contents = true
+layout_mode = 0
 offset_left = 256.0
 offset_top = 256.0
 offset_right = 344.0
@@ -95,6 +97,7 @@ label_settings = ExtResource("5_h2df0")
 [node name="dia_3" type="NinePatchRect" parent="."]
 z_index = 2
 clip_contents = true
+layout_mode = 0
 offset_left = 384.0
 offset_top = 192.0
 offset_right = 472.0
@@ -130,6 +133,7 @@ label_settings = ExtResource("5_h2df0")
 [node name="dia_4" type="NinePatchRect" parent="."]
 z_index = 2
 clip_contents = true
+layout_mode = 0
 offset_left = 384.0
 offset_top = 256.0
 offset_right = 472.0
@@ -165,6 +169,7 @@ label_settings = ExtResource("5_h2df0")
 [node name="dia_decision" type="NinePatchRect" parent="."]
 z_index = 2
 clip_contents = true
+layout_mode = 0
 offset_left = 512.0
 offset_top = 232.0
 offset_right = 584.0

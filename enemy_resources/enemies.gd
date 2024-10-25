@@ -22,6 +22,7 @@ const basic_shape = preload("res://enemy_resources/enemy_collision/capsule_shape
 @export var affliction_chance: int = 0
 @export var map_scale: float = 1
 @export var collision_shape: Shape2D = basic_shape
+@export var can_wander: bool = true
 #@export var battle_scale: float = 1
 @export var max_group_size: int = 3
 @export var min_group_size: int = 1

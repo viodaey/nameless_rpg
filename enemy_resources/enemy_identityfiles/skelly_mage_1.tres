@@ -109,6 +109,7 @@ affliction_type = ""
 affliction_chance = 0
 map_scale = 1.0
 collision_shape = ExtResource("4_i3r4f")
+can_wander = true
 max_group_size = 3
 min_group_size = 1
 friends = Array[String]([])

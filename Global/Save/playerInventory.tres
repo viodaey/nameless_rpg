@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="inventory" load_steps=17 format=3]
+[gd_resource type="Resource" script_class="inventory" load_steps=17 format=3 uid="uid://c0gvbom1uaowg"]
 
 [ext_resource type="Script" path="res://inventory/invSlots.gd" id="1_boaer"]
 [ext_resource type="Resource" uid="uid://umrjtekw8axd" path="res://inventory/items/potion.tres" id="2_gsc6b"]

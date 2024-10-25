@@ -403,12 +403,13 @@ scale = Vector2(1.04384, 1)
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
-limit_right = 1152
-limit_bottom = 648
+limit_right = 8000
+limit_bottom = 7000
 drag_left_margin = 0.9
 drag_top_margin = 0.9
 drag_right_margin = 0.9
 drag_bottom_margin = 0.9
+editor_draw_limits = true
 
 [node name="RayCast2D" type="RayCast2D" parent="Player"]
 target_position = Vector2(0, 0)

@@ -6,6 +6,8 @@ const scene_type = 1
 @export var max_lvl: int = 14
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
+@export var min_spawn_range: int = 350
+@export var max_spawn_range: int = 450
 @onready var _player_body = $Player
 @export var drops: Dictionary
 var _spawned_npc  
