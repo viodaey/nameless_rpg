@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_78a27"]
 [ext_resource type="Resource" uid="uid://di86w42qhyu3s" path="res://Global/Classes/Mage.tres" id="2_f682b"]
-[ext_resource type="SpriteFrames" uid="uid://djk8gh7hhiy1q" path="res://enemy_resources/enemy_spriteframes/PixieWater_Evo_1sf.tres" id="3_bc6xi"]
+[ext_resource type="SpriteFrames" uid="uid://djk8gh7hhiy1q" path="res://enemy_spriteframes/PixieWater_Evo_1sf.tres" id="3_bc6xi"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_tp8lw"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="5_cbpdl"]
 [ext_resource type="Texture2D" uid="uid://dgj7n5y0liyeg" path="res://enemy_resources/enemy_texturefiles/WaterPixie Evo 1.png" id="6_8etnk"]

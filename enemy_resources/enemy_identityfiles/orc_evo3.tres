@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://icug083qen21"]
+
+[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_jckty"]
+[ext_resource type="Resource" uid="uid://cvd5r1g0o1jx" path="res://Global/Classes/Bruiser.tres" id="2_lnrbt"]
+[ext_resource type="Texture2D" uid="uid://j564ccm4ffso" path="res://enemy_resources/enemy_texturefiles/humanoid/orcs/Orc_adult.png" id="3_uk3mo"]
+[ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_hp4ij"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="5_sus6c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxowe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uk3mo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_uk3mo")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("5_sus6c")
+_name = "Orc"
+texture = ExtResource("3_uk3mo")
+evo_lvl = 9000
+health = 100.0
+base_health = 30.0
+damage = 20.0
+critc = 5
+xp = 10
+speed = 38
+music = "battle01"
+can_chill = true
+lifesteal = 0
+animatedSprite = SubResource("SpriteFrames_uxowe")
+affliction_type = ""
+affliction_chance = 0
+map_scale = 1.0
+collision_shape = ExtResource("4_hp4ij")
+max_group_size = 3
+min_group_size = 1
+friends = Array[String]([])
+battle_scale_vec = Vector2(1, 1)
+battle_y_sep = 0
+_class = ExtResource("2_lnrbt")
+lvl = 20
+atb = 110
+max_health = 0
+_abilties = Array[ExtResource("1_jckty")]([])

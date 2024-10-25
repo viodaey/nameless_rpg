@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Global/static_npc.gd" id="13_ebxme"]
 [ext_resource type="Texture2D" uid="uid://vjpu81u7vyki" path="res://textures/Objects/Closed Pirate chest.png" id="13_ywq4q"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="14_do8ke"]
-[ext_resource type="SpriteFrames" uid="uid://c0enab3usllmg" path="res://enemy_resources/enemy_spriteframes/Kabout_sf.tres" id="14_rlymw"]
+[ext_resource type="SpriteFrames" uid="uid://c0enab3usllmg" path="res://enemy_spriteframes/Kabout_sf.tres" id="14_rlymw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ipso"]
 size = Vector2(6.38424, 32.837)

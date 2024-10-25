@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_21hks"]
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="2_yl741"]
-[ext_resource type="SpriteFrames" uid="uid://b7gc360nlnarc" path="res://enemy_resources/enemy_spriteframes/WolfElec_Evo_2sf.tres" id="3_no8yq"]
+[ext_resource type="SpriteFrames" uid="uid://b7gc360nlnarc" path="res://enemy_spriteframes/WolfElec_Evo_2sf.tres" id="3_no8yq"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="5_17ppr"]
 [ext_resource type="Texture2D" uid="uid://brp478y1boxc3" path="res://enemy_resources/enemy_texturefiles/canine/Elecwolf2.png" id="6_0t2uu"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="6_skail"]

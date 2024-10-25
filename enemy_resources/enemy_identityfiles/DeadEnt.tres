@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_3xk1p"]
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="2_io3vk"]
-[ext_resource type="SpriteFrames" uid="uid://bhmcpra4r6v8t" path="res://enemy_resources/enemy_spriteframes/DeadTreeEnt_sf.tres" id="3_ul0xd"]
+[ext_resource type="SpriteFrames" uid="uid://bhmcpra4r6v8t" path="res://enemy_spriteframes/DeadTreeEnt_sf.tres" id="3_ul0xd"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_80l1m"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="5_a2nau"]
 [ext_resource type="Texture2D" uid="uid://ka5iqb2qcoqs" path="res://textures/Tilesets/Deadtree.png" id="6_j4aal"]

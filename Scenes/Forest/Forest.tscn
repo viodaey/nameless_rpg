@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://dabp5cxdcoql3"]
+[gd_scene load_steps=68 format=4 uid="uid://dabp5cxdcoql3"]
 
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="1_31bpk"]
 [ext_resource type="Script" path="res://Scenes/Forest/Forest_main.gd" id="1_urbvk"]
@@ -10,13 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://bgbbok7la0ucp" path="res://test_sprites/Hooman/Move/Character_Move.png" id="4_468wp"]
 [ext_resource type="Resource" uid="uid://dnvlg3d57lcll" path="res://enemy_resources/enemy_identityfiles/WolfElec_Evo_1.tres" id="5_taf6e"]
 [ext_resource type="Resource" uid="uid://dkbwfc1rxwgmn" path="res://enemy_resources/enemy_identityfiles/Warbear_Evo_1.tres" id="6_lnmqo"]
-[ext_resource type="SpriteFrames" uid="uid://dfu73cl600trr" path="res://enemy_resources/enemy_spriteframes/WolfFire_Evo_1sf.tres" id="6_qxf6a"]
-[ext_resource type="SpriteFrames" uid="uid://be0locne7c2dw" path="res://enemy_resources/enemy_spriteframes/WolfWater_Evo_1sf.tres" id="7_16gu4"]
+[ext_resource type="SpriteFrames" uid="uid://dfu73cl600trr" path="res://enemy_spriteframes/WolfFire_Evo_1sf.tres" id="6_qxf6a"]
+[ext_resource type="SpriteFrames" uid="uid://be0locne7c2dw" path="res://enemy_spriteframes/WolfWater_Evo_1sf.tres" id="7_16gu4"]
+[ext_resource type="Resource" uid="uid://cycixxenmnu5m" path="res://enemy_resources/enemy_identityfiles/birdman_Evo2.tres" id="7_ex0ym"]
 [ext_resource type="Texture2D" uid="uid://dbpaufsf3au26" path="res://bg_art/Forest.png" id="7_t11y4"]
-[ext_resource type="SpriteFrames" uid="uid://0bkl6b38521f" path="res://enemy_resources/enemy_spriteframes/orc_teen_sf.tres" id="8_w6pyy"]
-[ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemy_resources/enemy_spriteframes/orc_baby_sf.tres" id="9_cti20"]
-[ext_resource type="SpriteFrames" uid="uid://djk8gh7hhiy1q" path="res://enemy_resources/enemy_spriteframes/PixieWater_Evo_1sf.tres" id="9_pqagv"]
-[ext_resource type="SpriteFrames" uid="uid://c5sruigmjquto" path="res://enemy_resources/enemy_spriteframes/PixieFire_Evo_1sf.tres" id="10_0paa1"]
+[ext_resource type="SpriteFrames" uid="uid://0bkl6b38521f" path="res://enemy_spriteframes/orc_evo2_sf.tres" id="8_w6pyy"]
+[ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemy_spriteframes/orc_evo1_sf.tres" id="9_cti20"]
+[ext_resource type="SpriteFrames" uid="uid://djk8gh7hhiy1q" path="res://enemy_spriteframes/PixieWater_Evo_1sf.tres" id="9_pqagv"]
+[ext_resource type="SpriteFrames" uid="uid://c5sruigmjquto" path="res://enemy_spriteframes/PixieFire_Evo_1sf.tres" id="10_0paa1"]
 [ext_resource type="Texture2D" uid="uid://ck3y1hmcyk2ou" path="res://textures/UI/menu_ui_test_100.png" id="19_svrua"]
 [ext_resource type="LabelSettings" uid="uid://m48ou1arcktr" path="res://Global/ui_heading.tres" id="20_5swc1"]
 [ext_resource type="Texture2D" uid="uid://b1ubyvpebkco0" path="res://textures/UI/menu_ui_pink_100.png" id="21_wol33"]
@@ -358,7 +359,7 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_urbvk")
-world_enemies = Array[ExtResource("2_x4t0h")]([ExtResource("3_05bn4"), ExtResource("4_5mdwq"), ExtResource("5_taf6e"), ExtResource("6_lnmqo")])
+world_enemies = Array[ExtResource("2_x4t0h")]([ExtResource("3_05bn4"), ExtResource("4_5mdwq"), ExtResource("5_taf6e"), ExtResource("6_lnmqo"), ExtResource("7_ex0ym")])
 battle_bg = ExtResource("7_t11y4")
 
 [node name="TileMapLayer_0" type="TileMapLayer" parent="."]
