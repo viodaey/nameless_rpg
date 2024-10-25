@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4bhtjek20x7b"
-path="res://.godot/imported/Ent KRWLNG.png-cf6f4cf2a656ceecaf6dc2bdbc555cc5.ctex"
+uid="uid://co4v7iflw4ogp"
+path="res://.godot/imported/Deadland.png-3e95a4bf23c74e1c98c513883ff3528c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/Ent KRWLNG.png"
-dest_files=["res://.godot/imported/Ent KRWLNG.png-cf6f4cf2a656ceecaf6dc2bdbc555cc5.ctex"]
+source_file="res://bg_art/Deadland.png"
+dest_files=["res://.godot/imported/Deadland.png-3e95a4bf23c74e1c98c513883ff3528c.ctex"]
 
 [params]
 

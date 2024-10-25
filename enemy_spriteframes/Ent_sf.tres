@@ -1,8 +1,8 @@
 [gd_resource type="SpriteFrames" load_steps=70 format=3 uid="uid://dmfp2cnwsluyw"]
 
-[ext_resource type="Texture2D" uid="uid://jvk05ey2f2c3" path="res://enemy_resources/enemy_texturefiles/Ent Fall.png" id="1_d6i00"]
-[ext_resource type="Texture2D" uid="uid://c16qpfwq47g27" path="res://enemy_resources/enemy_texturefiles/Ent Idle.png" id="2_i5vk2"]
-[ext_resource type="Texture2D" uid="uid://c4bhtjek20x7b" path="res://enemy_resources/enemy_texturefiles/Ent KRWLNG.png" id="3_gp3er"]
+[ext_resource type="Texture2D" uid="uid://jvk05ey2f2c3" path="res://enemy_resources/enemy_texturefiles/natural/Ent Fall.png" id="1_d6i00"]
+[ext_resource type="Texture2D" uid="uid://c16qpfwq47g27" path="res://enemy_resources/enemy_texturefiles/natural/Ent Idle.png" id="2_i5vk2"]
+[ext_resource type="Texture2D" uid="uid://c4bhtjek20x7b" path="res://enemy_resources/enemy_texturefiles/natural/Ent KRWLNG.png" id="3_gp3er"]
 [ext_resource type="Texture2D" uid="uid://cf8p76jmk1bpx" path="res://enemy_resources/enemy_texturefiles/Ent Move Left.png" id="4_vvimy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w8uhi"]

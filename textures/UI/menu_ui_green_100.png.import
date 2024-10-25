@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jvk05ey2f2c3"
-path="res://.godot/imported/Ent Fall.png-a5a3be3e4d2733e7ff8c66a21ca74c37.ctex"
+uid="uid://cy3qlwowswbsi"
+path="res://.godot/imported/menu_ui_green_100.png-888c8eec67d677be39a3481a7dec938a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/Ent Fall.png"
-dest_files=["res://.godot/imported/Ent Fall.png-a5a3be3e4d2733e7ff8c66a21ca74c37.ctex"]
+source_file="res://textures/UI/menu_ui_green_100.png"
+dest_files=["res://.godot/imported/menu_ui_green_100.png-888c8eec67d677be39a3481a7dec938a.ctex"]
 
 [params]
 

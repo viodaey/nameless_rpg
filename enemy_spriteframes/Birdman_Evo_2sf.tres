@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://da4a3tqobc1rd"]
+
+[ext_resource type="Texture2D" uid="uid://u3053ve02pqu" path="res://enemy_resources/enemy_texturefiles/ornis/Bird-man2 Idle .png" id="1_8at3g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g0nb"]
+atlas = ExtResource("1_8at3g")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skudn"]
+atlas = ExtResource("1_8at3g")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ea0q"]
+atlas = ExtResource("1_8at3g")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5sib"]
+atlas = ExtResource("1_8at3g")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr4tq"]
+atlas = ExtResource("1_8at3g")
+region = Rect2(512, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g0nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skudn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ea0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5sib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr4tq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g0nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skudn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ea0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5sib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr4tq")
+}],
+"loop": true,
+"name": &"run",
+"speed": 13.0
+}]

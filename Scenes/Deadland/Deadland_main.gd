@@ -16,8 +16,8 @@ func _ready() -> void:
 	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
 		_player_body.position = player.position
-	if sceneManager.last_scene == "res://Scenes/Forest/Forest.tscn":
-		_player_body.position = $Forest2Exit.position + Vector2(-15,0)
+	if sceneManager.last_scene == "res://Scenes/Cave/cave_00b.tscn":
+		_player_body.position = $DeadlandExit.position + Vector2(-15,0)
 	MainMenu.map_scene = get_tree().current_scene
 	for i in len(sceneManager.static_clear):
 		get_node("%s" %sceneManager.static_clear[i-1]).queue_free()
@@ -25,7 +25,7 @@ func _ready() -> void:
 func _input(_event):
 	pass
 
-func _on_forest2exit_body_entered(body: Node2D) -> void:
+func _on_deadland_exit_body_entered(body: Node2D) -> void:
 	if body.name == _player_body.name:
 		sceneManager.static_clear = []
-		sceneManager.goto_scene("res://Scenes/Forest/Forest.tscn")
+		sceneManager.goto_scene("res://Scenes/Cave/cave_00b.tscn")

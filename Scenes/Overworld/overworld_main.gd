@@ -10,7 +10,6 @@ const scene_type = 1
 @onready var _player_body = $Player
 @onready var _cave_entrance = $CaveEntrance
 @onready var _forest_entrance = $ForestEntrance
-
 @onready var _h1entrancefront = $H1Entrancefront
 @onready var _h1entranceback = $H1Entranceback
 var spawn_request
