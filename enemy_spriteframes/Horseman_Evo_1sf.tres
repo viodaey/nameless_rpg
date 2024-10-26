@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=27 format=3 uid="uid://cooi50325l5ye"]
 
-[ext_resource type="Texture2D" uid="uid://bgik1grjtfoan" path="res://enemy_resources/enemy_texturefiles/Horseman Evo1 Idle.png" id="1_0grc5"]
+[ext_resource type="Texture2D" uid="uid://8xrqwh0vlm7h" path="res://enemy_resources/enemy_texturefiles/Horseman Evo1 Idle.png" id="1_0grc5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_va6e4"]
 atlas = ExtResource("1_0grc5")
