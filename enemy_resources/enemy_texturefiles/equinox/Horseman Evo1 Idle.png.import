@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8xrqwh0vlm7h"
-path="res://.godot/imported/Horseman Evo1 Idle.png-34ec96be96ca185782653a4f7d264775.ctex"
+path="res://.godot/imported/Horseman Evo1 Idle.png-7bf4526a8a50500c052f77ba2ea4bcb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/Horseman Evo1 Idle.png"
-dest_files=["res://.godot/imported/Horseman Evo1 Idle.png-34ec96be96ca185782653a4f7d264775.ctex"]
+source_file="res://enemy_resources/enemy_texturefiles/equinox/Horseman Evo1 Idle.png"
+dest_files=["res://.godot/imported/Horseman Evo1 Idle.png-7bf4526a8a50500c052f77ba2ea4bcb7.ctex"]
 
 [params]
 
