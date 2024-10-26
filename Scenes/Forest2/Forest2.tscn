@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Forest2/Forest2_main.gd" id="1_y4fht"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_scewe"]
-[ext_resource type="Resource" uid="uid://di28wqrog2dc2" path="res://enemy_resources/enemy_identityfiles/Ent.tres" id="3_ii4gq"]
+[ext_resource type="Resource" uid="uid://di28wqrog2dc2" path="res://enemy_resources/enemy_identityfiles/ent.tres" id="3_ii4gq"]
 [ext_resource type="Texture2D" uid="uid://dn3mhgh1vdccs" path="res://bg_art/Forest2.png" id="5_1jj7n"]
 [ext_resource type="Texture2D" uid="uid://b36b8f8llomcw" path="res://textures/Objects/Shroomhouse.png" id="7_4ydcn"]
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="8_kqsdu"]
