@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="inventory" load_steps=17 format=3]
+[gd_resource type="Resource" script_class="inventory" load_steps=17 format=3 uid="uid://c0gvbom1uaowg"]
 
 [ext_resource type="Script" path="res://inventory/invSlots.gd" id="1_boaer"]
 [ext_resource type="Resource" uid="uid://umrjtekw8axd" path="res://inventory/items/potion.tres" id="2_gsc6b"]
@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="5_8qg5t"]
 [ext_resource type="SpriteFrames" uid="uid://cce8hps2ykyjo" path="res://enemy_spriteframes/WolfEarth_Evo_1sf.tres" id="6_1tp52"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="7_0tayd"]
-[ext_resource type="Resource" uid="uid://bmlto5qmau708" path="res://enemy_resources/enemy_identityfiles/WolfEarth_Evo_2.tres" id="8_huflo"]
+[ext_resource type="Resource" uid="uid://bmlto5qmau708" path="res://enemy_resources/enemy_identityfiles/wolfearth_evo2.tres" id="8_huflo"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="9_milia"]
 [ext_resource type="Texture2D" uid="uid://cspbaanasq48y" path="res://enemy_resources/enemy_texturefiles/canine/Earthwolf1.png" id="10_m1ub8"]
 [ext_resource type="Script" path="res://inventory/monSlots.gd" id="11_wlqse"]

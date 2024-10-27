@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://cxi5p83hs4qp0"]
+[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://cxi5p83hs4qp0"]
 
 [ext_resource type="Texture2D" uid="uid://cvnocuqirsr0e" path="res://enemy_resources/enemy_texturefiles/humanoid/orcs/Orc_Evo_1_Idle_movementcheck.png" id="1_spt2l"]
+[ext_resource type="Texture2D" uid="uid://dsgbjdcpb834" path="res://enemy_resources/enemy_texturefiles/humanoid/orcs/Orc Evo 1 move.png" id="2_g0df1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pn8cb"]
 atlas = ExtResource("1_spt2l")
@@ -22,25 +23,33 @@ region = Rect2(384, 0, 128, 128)
 atlas = ExtResource("1_spt2l")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xirur"]
-atlas = ExtResource("1_spt2l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t6pn"]
+atlas = ExtResource("2_g0df1")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fkwpj"]
-atlas = ExtResource("1_spt2l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmh3i"]
+atlas = ExtResource("2_g0df1")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_utwka"]
-atlas = ExtResource("1_spt2l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8cpl"]
+atlas = ExtResource("2_g0df1")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jstkk"]
-atlas = ExtResource("1_spt2l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_52cid"]
+atlas = ExtResource("2_g0df1")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2qftq"]
-atlas = ExtResource("1_spt2l")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyvp8"]
+atlas = ExtResource("2_g0df1")
 region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vugbh"]
+atlas = ExtResource("2_g0df1")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ualap"]
+atlas = ExtResource("2_g0df1")
+region = Rect2(768, 0, 128, 128)
 
 [resource]
 animations = [{
@@ -66,19 +75,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xirur")
+"texture": SubResource("AtlasTexture_2t6pn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fkwpj")
+"texture": SubResource("AtlasTexture_kmh3i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_utwka")
+"texture": SubResource("AtlasTexture_l8cpl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jstkk")
+"texture": SubResource("AtlasTexture_52cid")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2qftq")
+"texture": SubResource("AtlasTexture_dyvp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vugbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ualap")
 }],
 "loop": true,
 "name": &"run",

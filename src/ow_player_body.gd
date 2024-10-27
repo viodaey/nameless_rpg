@@ -56,33 +56,36 @@ func _physics_process(_delta):
 
 ## 	spawn NPC	
 	if moved > move_dice and disabled_spawn == false:
-		var vec_target = await(_spawn_npc_loc())
-		get_node("RayCast2D").position = self.position
-		raycast.target_position = raycast.position + vec_target
-		raycast.force_raycast_update()
-		if not raycast.is_colliding():
-			moved = 0
-			move_dice = rng.randi_range(25, 75)
-			var enemy_select = rng.randi_range(1,len(map.world_enemies))
-			map.spawn_request = load(map.world_enemies[enemy_select - 1].resource_path)
-			map.add_child(spawn_npc.instantiate().duplicate())
-			var num = len(activeSpawns)
-			var _spawned_npc = map.get_node("NPC_spawn")
-			_spawned_npc.name = "NPC_spawn" + "%d" %num
-			_spawned_npc.position = self.position + vec_target
-			activeSpawns.append(_spawned_npc.name)
+		var rng = RandomNumberGenerator.new()
+		for i in rng.randi_range(1,2):
+			var vec_target = await(_spawn_npc_loc())
+			get_node("RayCast2D").position = self.position
+			raycast.target_position = raycast.position + vec_target
+			raycast.force_raycast_update()
+			if not raycast.is_colliding():
+				moved = 0
+				move_dice = rng.randi_range(25, 60)
+				var enemy_select = rng.randi_range(1,len(map.world_enemies))
+				map.spawn_request = load(map.world_enemies[enemy_select - 1].resource_path)
+				map.add_child(spawn_npc.instantiate().duplicate())
+				var num = len(activeSpawns)
+				var _spawned_npc = map.get_node("NPC_spawn")
+				_spawned_npc.name = "NPC_spawn" + "%d" %num
+				_spawned_npc.position = self.position + vec_target
+				activeSpawns.append(_spawned_npc.name)
 
 func _spawn_npc_loc():
 	var rng = RandomNumberGenerator.new()
-	var angle = rng.randi_range(0, TAU)
-	var distance = rng.randi_range(290, 360)
+	var angle = rng.randf_range(0, TAU)
+	var min_spawn_range = get_parent().min_spawn_range
+	var max_spawn_range = get_parent().max_spawn_range
+	var distance = rng.randi_range(min_spawn_range, max_spawn_range)
 	var vec_target = Vector2((distance)*cos(angle), (distance)*sin(angle))
 	return vec_target
 
 func _despawn_npc(npc):
 	map.get_node(npc).queue_free()
 	activeSpawns.erase(npc)
-
 
 func _on_forest2exit_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.

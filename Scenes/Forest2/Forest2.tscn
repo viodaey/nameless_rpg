@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Forest2/Forest2_main.gd" id="1_y4fht"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_scewe"]
-[ext_resource type="Resource" uid="uid://di28wqrog2dc2" path="res://enemy_resources/enemy_identityfiles/Ent.tres" id="3_ii4gq"]
+[ext_resource type="Resource" uid="uid://di28wqrog2dc2" path="res://enemy_resources/enemy_identityfiles/ent.tres" id="3_ii4gq"]
 [ext_resource type="Texture2D" uid="uid://dn3mhgh1vdccs" path="res://bg_art/Forest2.png" id="5_1jj7n"]
 [ext_resource type="Texture2D" uid="uid://b36b8f8llomcw" path="res://textures/Objects/Shroomhouse.png" id="7_4ydcn"]
 [ext_resource type="TileSet" uid="uid://vs7cddl20pab" path="res://Scenes/Overworld/tileset_ow.tres" id="8_kqsdu"]
@@ -371,6 +371,7 @@ affliction_type = ""
 affliction_chance = 0
 map_scale = 1.0
 collision_shape = ExtResource("14_do8ke")
+can_wander = true
 max_group_size = 3
 min_group_size = 1
 friends = Array[String]([])
@@ -385,7 +386,7 @@ _abilties = Array[ExtResource("11_lqxiv")]([])
 [node name="Node2D" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_y4fht")
-world_enemies = Array[ExtResource("2_scewe")]([ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), null])
+world_enemies = Array[ExtResource("2_scewe")]([ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq"), ExtResource("3_ii4gq")])
 battle_bg = ExtResource("5_1jj7n")
 
 [node name="TileMapLayer_0" type="TileMapLayer" parent="."]
