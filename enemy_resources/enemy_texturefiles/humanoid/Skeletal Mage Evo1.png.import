@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf0akwxejatru"
-path="res://.godot/imported/Horseman Evo1.png-5dd23e3ee80a5943e38f3688a37500c5.ctex"
+uid="uid://bwh6jcy0p44o8"
+path="res://.godot/imported/Skeletal Mage Evo1.png-d9cdcaa9e61ca545bd5c1599a1e7e8db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy_resources/enemy_texturefiles/Horseman Evo1.png"
-dest_files=["res://.godot/imported/Horseman Evo1.png-5dd23e3ee80a5943e38f3688a37500c5.ctex"]
+source_file="res://enemy_resources/enemy_texturefiles/humanoid/Skeletal Mage Evo1.png"
+dest_files=["res://.godot/imported/Skeletal Mage Evo1.png-d9cdcaa9e61ca545bd5c1599a1e7e8db.ctex"]
 
 [params]
 
