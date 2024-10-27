@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://o3837rhm3p2o"]
+
+[ext_resource type="Terrain3DStorage" uid="uid://pn2u0sl4nano" path="res://terrain3d_resources/terrain_3d_storage.res" id="1_o088c"]
+[ext_resource type="Terrain3DMaterial" uid="uid://dge3kxkoh7syd" path="res://terrain3d_resources/terrain_3d_material.tres" id="2_l4ell"]
+[ext_resource type="Terrain3DAssets" uid="uid://ggtkcr8t13k" path="res://terrain3d_resources/terrain_3d_assets.tres" id="3_g8mmo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h5yrn"]
+
+[sub_resource type="Sky" id="Sky_iu2i6"]
+sky_material = SubResource("ProceduralSkyMaterial_h5yrn")
+
+[sub_resource type="Environment" id="Environment_0g2g2"]
+background_mode = 2
+sky = SubResource("Sky_iu2i6")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0g2g2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("1_o088c")
+material = ExtResource("2_l4ell")
+assets = ExtResource("3_g8mmo")
