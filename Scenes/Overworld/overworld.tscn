@@ -367,7 +367,7 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_4ihds")
-world_enemies = Array[ExtResource("2_sr5fs")]([ExtResource("4_r4gs8"), ExtResource("5_5ensn"), ExtResource("6_4s8pr"), ExtResource("7_qahtx"), ExtResource("4_r4gs8"), ExtResource("5_5ensn"), ExtResource("7_bwdjk"), ExtResource("8_ec6s8"), ExtResource("9_hrocb")])
+world_enemies = Array[ExtResource("2_sr5fs")]([ExtResource("4_r4gs8"), ExtResource("5_5ensn"), ExtResource("6_4s8pr"), ExtResource("7_qahtx"), ExtResource("7_bwdjk"), ExtResource("8_ec6s8"), ExtResource("9_hrocb")])
 battle_bg = ExtResource("8_2e61n")
 drops = {
 0: 50,
