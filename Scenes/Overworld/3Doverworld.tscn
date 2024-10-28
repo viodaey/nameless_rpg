@@ -30,7 +30,7 @@ sky = SubResource("Sky_iu2i6")
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
-[sub_resource type="Resource" id="Resource_v553e"]
+[sub_resource type="Resource" id="Resource_uilaq"]
 script = ExtResource("12_ycwjm")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
@@ -59,7 +59,7 @@ mat_edge_fade = 0.432
 LodLod0Distance = 50.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_5hvap"]
+[sub_resource type="Curve3D" id="Curve3D_x5osq"]
 resource_local_to_scene = true
 bake_interval = 0.05
 _data = {
@@ -108,13 +108,13 @@ sprite_frames = ExtResource("6_5vwwl")
 animation = &"idledown"
 
 [node name="RiverManager" type="Node3D" parent="."]
-transform = Transform3D(0.517897, 0, -1127.82, 0, 81.6338, 0, 70.1488, 0, 8.32652, -968.5, 1.45899, -1708.41)
+transform = Transform3D(0.73668, 0, -1332.72, 0, 81.6338, 0, 99.7828, 0, 9.83924, -968.5, -7.85525, -1708.41)
 script = ExtResource("10_8u0x2")
-ShaderSettings = SubResource("Resource_v553e")
+ShaderSettings = SubResource("Resource_uilaq")
 ShapeStepLengthDivs = 1
 ShapeStepWidthDivs = 1
 PointWidths = [5.13067, 5.16049]
-Curve = SubResource("Curve3D_5hvap")
+Curve = SubResource("Curve3D_x5osq")
 
 [node name="H1" type="Sprite3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -609.499, 1.11989, -1338.46)
@@ -130,11 +130,11 @@ metadata/_aseprite_wizard_interface_config_ = {
 transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.86725, -1.22717, 2.1978)
 
 [node name="CollisionShape2D" type="CollisionShape3D" parent="H1/StaticBody2D"]
-transform = Transform3D(1, 0, 0, 0, 1, -3.55271e-15, 0, 3.55271e-15, 1, 0.761545, -2.7042, -1.86345)
+transform = Transform3D(1.87813, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0.840302, -2.7042, -1.86345)
 shape = SubResource("BoxShape3D_nvrgo")
 
 [node name="Hooded Figure" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, -1091.68, 54.8512, -1535.91)
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, -1091.68, 14.4146, -1535.91)
 texture_filter = 1
 sprite_frames = ExtResource("14_wj1u8")
 animation = &"idle"
