@@ -24,7 +24,6 @@ atlas = ExtResource("3_kmnjr")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j6vpb"]
-load_path = "res://.godot/imported/Skeletal_Mage_Evo1_Idle_movementcheck.png-a0988317a68e0e6ccc5c6ee46d22b9d5.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdtre"]
 atlas = SubResource("CompressedTexture2D_j6vpb")

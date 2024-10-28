@@ -1,9 +1,9 @@
-extends CharacterBody2D
+extends CharacterBody3D
 
-@onready var _animated_sprite = $AnimatedSprite2D
-@export var speed = 70
+@onready var _animated_sprite = $AnimatedSprite3D
+@export var speed = 45
 
-var spawn_npc = load("res://Global/globalNPC.tscn")
+var spawn_npc = load("res://Global/globalNPC3D.tscn")
 var last_input = "right"
 var moved : float = 0
 var activeSpawns: Array
@@ -11,53 +11,48 @@ var move_dice : int
 var disabled_spawn : bool = false
 var rng = RandomNumberGenerator.new()
 @onready var map = get_parent()
-@onready var raycast = $RayCast2D
+@onready var raycast = $RayCast3D
 
 func get_input():
-	var input_direction = Input.get_vector("left", "right", "up","down")
-	velocity = input_direction * speed
+	var _input_direction = Input.get_vector("left", "right", "up", "down")
+	velocity = Vector3(_input_direction.x, 0, _input_direction.y) * speed
 
 func _ready() -> void:
-	#pass # Replace with function body.
 	move_dice = rng.randi_range(30, 100)
+	position.y = 0.2
 
 func _physics_process(_delta):
 	if Input.is_anything_pressed() == false:
-		_animated_sprite.play(("idle " + last_input))
+		_animated_sprite.play(("idle" + last_input))
 	elif Input.is_action_pressed(last_input):
-		_animated_sprite.play("move " + last_input)
+		_animated_sprite.play("move" + last_input)
 		moved = moved + 0.1
 	else:
 		if Input.is_action_pressed("up"):
-			_animated_sprite.play("move up")
+			_animated_sprite.play("moveup")
 			last_input = "up"
 			moved = moved + 0.1
 		if Input.is_action_pressed("down"):
-			_animated_sprite.play("move down")
+			_animated_sprite.play("movedown")
 			last_input = "down"
 			moved = moved + 0.1
 		if Input.is_action_pressed("right"):
-			_animated_sprite.play("move right")
+			_animated_sprite.play("moveright")
 			last_input = "right"
 			moved = moved + 0.1
 		if Input.is_action_pressed("left"):
-			_animated_sprite.play("move left")
+			_animated_sprite.play("moveleft")
 			last_input = "left"
 			moved = moved + 0.1
 	get_input()
 	move_and_slide()
-	for i in get_slide_collision_count():
-		if get_slide_collision(i).get_collider().get_parent().has_method("initiate_battle"):
-			print("battle initiated from player")
-			get_slide_collision(i).get_collider().get_praent().initiate_battle()
-
 
 ## 	spawn NPC	
 	if moved > move_dice and disabled_spawn == false:
 		var rng = RandomNumberGenerator.new()
 		for i in rng.randi_range(1,2):
 			var vec_target = await(_spawn_npc_loc())
-			get_node("RayCast2D").position = self.position
+			get_node("RayCast3D").position = self.position
 			raycast.target_position = raycast.position + vec_target
 			raycast.force_raycast_update()
 			if not raycast.is_colliding():
@@ -78,12 +73,12 @@ func _spawn_npc_loc():
 	var min_spawn_range = get_parent().min_spawn_range
 	var max_spawn_range = get_parent().max_spawn_range
 	var distance = rng.randi_range(min_spawn_range, max_spawn_range)
-	var vec_target = Vector2((distance)*cos(angle), (distance)*sin(angle))
+	var vec_target = Vector3((distance)*cos(angle),0, (distance)*sin(angle))
 	return vec_target
 
 func _despawn_npc(npc):
 	map.get_node(npc).queue_free()
 	activeSpawns.erase(npc)
 
-func _on_forest2exit_body_entered(body: Node2D) -> void:
+func _on_forest2exit_body_entered(body: Node3D) -> void:
 	pass # Replace with function body.

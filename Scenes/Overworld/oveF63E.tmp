@@ -68,38 +68,6 @@ tile_map_data = PackedByteArray("AAALAAQAAAAIAAsAAAAMAAQAAAAIAAsAAAANAAQAAAAIAAs
 tile_set = ExtResource("2_5d18u")
 rendering_quadrant_size = 32
 
-[node name="Player" type="CharacterBody2D" parent="."]
-y_sort_enabled = true
-position = Vector2(1099.78, 550.536)
-scale = Vector2(0.958, 1)
-motion_mode = 1
-script = ExtResource("3_bewpa")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-y_sort_enabled = true
-sprite_frames = ExtResource("21_ygv8y")
-animation = &"idledown"
-autoplay = "idle right"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
-polygon = PackedVector2Array(-1.04382, -5, 7.30688, -5, 8.35068, 16, -8.35077, 16, -8.35071, -5)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-scale = Vector2(1.04384, 1)
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = 0
-limit_right = 1152
-limit_bottom = 648
-drag_left_margin = 0.9
-drag_top_margin = 0.9
-drag_right_margin = 0.9
-drag_bottom_margin = 0.9
-
-[node name="RayCast2D" type="RayCast2D" parent="Player"]
-target_position = Vector2(0, 0)
-collide_with_areas = true
-
 [node name="H1" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(414, 167)
@@ -237,6 +205,38 @@ position = Vector2(352, 184)
 position = Vector2(-1.90735e-06, -4.76837e-07)
 scale = Vector2(3.60262, 1.46176)
 shape = SubResource("RectangleShape2D_b27h6")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(1099.78, 550.536)
+scale = Vector2(0.958, 1)
+motion_mode = 1
+script = ExtResource("3_bewpa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+y_sort_enabled = true
+sprite_frames = ExtResource("21_ygv8y")
+animation = &"move down"
+autoplay = "idle right"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+polygon = PackedVector2Array(-1.04382, -5, 7.30688, -5, 8.35068, 16, -8.35077, 16, -8.35071, -5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(1.04384, 1)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1152
+limit_bottom = 648
+drag_left_margin = 0.9
+drag_top_margin = 0.9
+drag_right_margin = 0.9
+drag_bottom_margin = 0.9
+
+[node name="RayCast2D" type="RayCast2D" parent="Player"]
+target_position = Vector2(0, 0)
+collide_with_areas = true
 
 [connection signal="body_entered" from="CaveEntrance" to="." method="_on_cave_entrance_body_entered"]
 [connection signal="body_entered" from="ForestEntrance" to="." method="_on_forest_entrance_body_entered"]
