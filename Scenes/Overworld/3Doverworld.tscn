@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://do0sc0tw6bh6t"]
+[gd_scene load_steps=27 format=3 uid="uid://do0sc0tw6bh6t"]
 
 [ext_resource type="Script" path="res://Scenes/Overworld/3doverworld_main.gd" id="1_nr65l"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_df1jd"]
@@ -16,6 +16,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cikw515l1ch0k" path="res://enemy_spriteframes/HoodedFigure_sf.tres" id="14_wj1u8"]
 [ext_resource type="SpriteFrames" uid="uid://dfj11x1cnrhcx" path="res://enemy_spriteframes/Knight_sf.tres" id="15_ntyi7"]
 [ext_resource type="Texture2D" uid="uid://cosgk8bcrlbt0" path="res://textures/Objects/Dock.png" id="16_1yoks"]
+[ext_resource type="Texture2D" uid="uid://tlc7dpt1thgf" path="res://textures/Terrain/mountain1c.png" id="17_6b0qq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h5yrn"]
 
@@ -30,7 +31,7 @@ sky = SubResource("Sky_iu2i6")
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
-[sub_resource type="Resource" id="Resource_8u2ed"]
+[sub_resource type="Resource" id="Resource_f3cvx"]
 script = ExtResource("12_ycwjm")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
@@ -59,7 +60,7 @@ mat_edge_fade = 0.432
 LodLod0Distance = 50.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_n1jja"]
+[sub_resource type="Curve3D" id="Curve3D_sgsam"]
 resource_local_to_scene = true
 bake_interval = 0.05
 _data = {
@@ -108,13 +109,13 @@ sprite_frames = ExtResource("6_5vwwl")
 animation = &"idledown"
 
 [node name="RiverManager" type="Node3D" parent="."]
-transform = Transform3D(0.73668, 0, -1332.72, 0, 81.6338, 0, 99.7828, 0, 9.83924, -968.5, -7.85525, -1708.41)
+transform = Transform3D(1.20386, 0, -2925.05, 0, 81.6338, 0, 163.062, 0, 21.5952, -938.821, -2.60174, -1631.89)
 script = ExtResource("10_8u0x2")
-ShaderSettings = SubResource("Resource_8u2ed")
+ShaderSettings = SubResource("Resource_f3cvx")
 ShapeStepLengthDivs = 1
 ShapeStepWidthDivs = 1
-PointWidths = [5.13067, 5.16049]
-Curve = SubResource("Curve3D_n1jja")
+PointWidths = [6.04521, 5.16049]
+Curve = SubResource("Curve3D_sgsam")
 
 [node name="H1" type="Sprite3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -609.499, 1.11989, -1338.46)
@@ -162,3 +163,21 @@ transform = Transform3D(175, 0, 0, 0, -7.64949e-06, 175, 0, -175, -7.64949e-06, 
 alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("16_1yoks")
+
+[node name="Mountain" type="Sprite3D" parent="."]
+transform = Transform3D(75, 0, 0, 0, -3.27835e-06, 75, 0, -75, -3.27835e-06, 161.47, 3.38126, -1715.74)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("17_6b0qq")
+
+[node name="Mountain2" type="Sprite3D" parent="."]
+transform = Transform3D(75, 0, 0, 0, -3.27835e-06, 75, 0, -75, -3.27835e-06, -2007.94, 6.59159, -2227.6)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("17_6b0qq")
+
+[node name="Mountain3" type="Sprite3D" parent="."]
+transform = Transform3D(77.8351, 0, 0, 0, -3.37654e-06, 71.0606, 0, -77.2462, -3.10616e-06, 2364.69, 8.82556, -1169.76)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("17_6b0qq")
