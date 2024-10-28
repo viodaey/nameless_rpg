@@ -1,0 +1,16 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://c6aqoo6iifbxd"]
+
+[resource]
+emission_shape = 3
+emission_box_extents = Vector3(50, 1, 50)
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(1, -1, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = 30.0
+angular_velocity_max = 50.0
+linear_accel_min = 0.999998
+linear_accel_max = 10.0
+scale_max = 2.0
+collision_mode = 2

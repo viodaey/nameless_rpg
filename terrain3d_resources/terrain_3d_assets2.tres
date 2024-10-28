@@ -1,0 +1,41 @@
+[gd_resource type="Terrain3DAssets" load_steps=12 format=3 uid="uid://6hdvw4fc2dlu"]
+
+[ext_resource type="Texture2D" uid="uid://b35bc3xyqpp37" path="res://textures/Terrain/Grass1/packed_albedo_height.png" id="1_63bvn"]
+[ext_resource type="Texture2D" uid="uid://yg67q1or6xq4" path="res://textures/Terrain/Grass1/packed_normal_roughness.png" id="2_j5xyd"]
+[ext_resource type="Texture2D" uid="uid://bcyd7qrd3gc3e" path="res://textures/Terrain/Dirt1/packed_albedo_height.png" id="3_wr3sr"]
+[ext_resource type="Texture2D" uid="uid://cx5sidci33eeu" path="res://textures/Terrain/Dirt1/packed_normal_roughness.png" id="4_x2nbm"]
+[ext_resource type="Texture2D" uid="uid://ch0qrcho0aanj" path="res://textures/Terrain/Snow1/packed_albedo_height.png" id="5_52bcw"]
+[ext_resource type="Texture2D" uid="uid://chw0jh5h15ndy" path="res://textures/Terrain/Snow1/packed_normal_roughness.png" id="6_663x5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3h86g"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_8jib5"]
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_3h86g")
+generated_type = 1
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_vbpx5"]
+name = "packed_albedo_height"
+albedo_texture = ExtResource("1_63bvn")
+normal_texture = ExtResource("2_j5xyd")
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_2hbl3"]
+name = "packed_albedo_height"
+id = 1
+albedo_texture = ExtResource("3_wr3sr")
+normal_texture = ExtResource("4_x2nbm")
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_fnaix"]
+name = "packed_albedo_height"
+id = 2
+albedo_texture = ExtResource("5_52bcw")
+normal_texture = ExtResource("6_663x5")
+
+[resource]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_8jib5")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_vbpx5"), SubResource("Terrain3DTextureAsset_2hbl3"), SubResource("Terrain3DTextureAsset_fnaix")])
