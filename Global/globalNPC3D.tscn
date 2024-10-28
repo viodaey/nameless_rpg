@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs6mvxwxonvmn"]
+
+[ext_resource type="Script" path="res://Global/npc3D.gd" id="1_ma17h"]
+[ext_resource type="SpriteFrames" uid="uid://davtrkotti0nr" path="res://enemy_spriteframes/Birdman_Evo_1sf.tres" id="4_u4y75"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fb3a0"]
+radius = 6.0
+
+[node name="NPC_spawn" type="AnimatableBody3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.1, 0)
+script = ExtResource("1_ma17h")
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_fb3a0")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 1.39513, 19.9513, 0, -19.9513, 1.39513, 0, 0.5, 0)
+sprite_frames = ExtResource("4_u4y75")
+animation = &"idle"
+
+[connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

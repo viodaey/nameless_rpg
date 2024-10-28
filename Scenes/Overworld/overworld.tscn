@@ -78,7 +78,7 @@ script = ExtResource("3_bewpa")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 y_sort_enabled = true
 sprite_frames = ExtResource("21_ygv8y")
-animation = &"move down"
+animation = &"idledown"
 autoplay = "idle right"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
