@@ -41,7 +41,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/terrain_3d/plugin.cfg", "res://addons/waterways_net/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/ChannelPacker/plugin.cfg", "res://addons/terrain_3d/plugin.cfg", "res://addons/waterways_net/plugin.cfg")
 
 [input]
 
