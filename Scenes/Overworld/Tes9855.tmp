@@ -91,17 +91,17 @@ draw_pass_1 = ExtResource("9_ei27n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 832.125, 15, 248.155)
 amount = 10000
 lifetime = 5.0
-visibility_aabb = AABB(-54.7994, -339.262, -163.135, 282.765, 341.256, 333.163)
 process_material = ExtResource("10_yto34")
 draw_pass_1 = ExtResource("11_0em7g")
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Snow"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.2436, 0)
-size = Vector3(200, 3, 200)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+size = Vector3(100, 2, 100)
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 850.351, 1.00006, 554.27)
 script = ExtResource("4_axqju")
+speed = null
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.0697565, 0.997564, 0, -0.997564, 0.0697565, 0, 10, 0)
