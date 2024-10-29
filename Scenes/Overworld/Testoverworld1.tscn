@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cigtvftuuaame"]
+[gd_scene load_steps=25 format=3 uid="uid://cigtvftuuaame"]
 
 [ext_resource type="Script" path="res://Scenes/Overworld/3doverworld_main.gd" id="1_7td11"]
 [ext_resource type="Terrain3DStorage" uid="uid://bc8rf8txa5pic" path="res://terrain3d_resources/terrain_3d_storage2.res" id="1_mk85a"]
@@ -12,6 +12,10 @@
 [ext_resource type="QuadMesh" uid="uid://3l3hvurdmhdb" path="res://textures/Terrain/Weather/Rain/Drops_Quad_Mesh.tres" id="9_ei27n"]
 [ext_resource type="Material" uid="uid://c6aqoo6iifbxd" path="res://textures/Terrain/Weather/Snow/Snow_Process_Mat.tres" id="10_yto34"]
 [ext_resource type="QuadMesh" uid="uid://dwqksjdwl1mta" path="res://textures/Terrain/Weather/Snow/Snow_Quad_Mesh.tres" id="11_0em7g"]
+[ext_resource type="Shader" path="res://textures/Terrain/Ice/Ice1.gdshader" id="13_t4kne"]
+[ext_resource type="Texture2D" uid="uid://7p1y2g30opfk" path="res://textures/Terrain/Ice/Ice003_2K-PNG_Color.png" id="14_7dfht"]
+[ext_resource type="Texture2D" uid="uid://ccvd80gjpw55a" path="res://textures/Terrain/Ice/Ice003_2K-PNG_NormalGL.png" id="15_54gef"]
+[ext_resource type="Texture2D" uid="uid://lmm4lj7l2j3a" path="res://textures/Terrain/Ice/Ice003_2K-PNG_Roughness.png" id="16_iph43"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_asi82"]
 
@@ -23,6 +27,23 @@ background_mode = 2
 sky = SubResource("Sky_b4bdm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jwwe1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_edhq4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w7pu7"]
+noise = SubResource("FastNoiseLite_edhq4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_piqi8"]
+render_priority = 0
+shader = ExtResource("13_t4kne")
+shader_parameter/depth = 0.115
+shader_parameter/albedo_tex = ExtResource("14_7dfht")
+shader_parameter/normalmap_tex = ExtResource("15_54gef")
+shader_parameter/roughness_tex = ExtResource("16_iph43")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_w7pu7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a2nmr"]
+size = Vector2(60, 60)
 
 [node name="Testoverworld1" type="Node3D"]
 script = ExtResource("1_7td11")
@@ -90,3 +111,9 @@ shape = SubResource("BoxShape3D_jwwe1")
 transform = Transform3D(30, 0, 0, 0, 2.0927, 29.9269, 0, -29.9269, 2.0927, 0, 0, 0)
 sprite_frames = ExtResource("5_3loco")
 animation = &"idledown"
+
+[node name="Ice" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 736.664, -0.818634, 248.395)
+material_override = SubResource("ShaderMaterial_piqi8")
+transparency = 0.17
+mesh = SubResource("PlaneMesh_a2nmr")

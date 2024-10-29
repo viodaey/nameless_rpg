@@ -25,8 +25,8 @@ noise = SubResource("FastNoiseLite_cjj1k")
 _shader_parameters = {
 "blend_sharpness": 0.87,
 "height_blending": true,
-"macro_variation1": Color(1, 1, 1, 1),
-"macro_variation2": Color(1, 1, 1, 1),
+"macro_variation1": Color(0.925353, 0.925353, 0.925353, 1),
+"macro_variation2": Color(0.929715, 0.929715, 0.929715, 1),
 "noise1_angle": 0.0,
 "noise1_offset": Vector2(0.5, 0.5),
 "noise1_scale": 0.04,
