@@ -31,7 +31,7 @@ sky = SubResource("Sky_iu2i6")
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
-[sub_resource type="Resource" id="Resource_f3cvx"]
+[sub_resource type="Resource" id="Resource_rs2c7"]
 script = ExtResource("12_ycwjm")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
@@ -60,7 +60,7 @@ mat_edge_fade = 0.432
 LodLod0Distance = 50.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_sgsam"]
+[sub_resource type="Curve3D" id="Curve3D_llorb"]
 resource_local_to_scene = true
 bake_interval = 0.05
 _data = {
@@ -90,7 +90,7 @@ material = ExtResource("3_i4v71")
 assets = ExtResource("4_qmiew")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.354, 1, 140.858)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 18.354, 1, 140.858)
 script = ExtResource("5_arw2f")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
@@ -111,11 +111,11 @@ animation = &"idledown"
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(1.20386, 0, -2925.05, 0, 81.6338, 0, 163.062, 0, 21.5952, -938.821, -2.60174, -1631.89)
 script = ExtResource("10_8u0x2")
-ShaderSettings = SubResource("Resource_f3cvx")
+ShaderSettings = SubResource("Resource_rs2c7")
 ShapeStepLengthDivs = 1
 ShapeStepWidthDivs = 1
 PointWidths = [6.04521, 5.16049]
-Curve = SubResource("Curve3D_sgsam")
+Curve = SubResource("Curve3D_llorb")
 
 [node name="H1" type="Sprite3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -609.499, 1.11989, -1338.46)
