@@ -20,18 +20,20 @@ material_override = SubResource("StandardMaterial3D_3h86g")
 generated_type = 1
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_vbpx5"]
-name = "packed_albedo_height"
+name = "Grass"
 albedo_texture = ExtResource("1_63bvn")
 normal_texture = ExtResource("2_j5xyd")
+uv_scale = 0.025
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_2hbl3"]
-name = "packed_albedo_height"
+name = "Dirt1"
 id = 1
 albedo_texture = ExtResource("3_wr3sr")
 normal_texture = ExtResource("4_x2nbm")
+uv_scale = 0.025
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_fnaix"]
-name = "packed_albedo_height"
+name = "Snow1"
 id = 2
 albedo_texture = ExtResource("5_52bcw")
 normal_texture = ExtResource("6_663x5")
