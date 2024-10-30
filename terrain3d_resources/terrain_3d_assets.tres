@@ -27,7 +27,7 @@ name = "packed_albedo_height"
 id = 1
 albedo_texture = ExtResource("1_uhg3w")
 normal_texture = ExtResource("2_jwxug")
-uv_scale = 0.008
+uv_scale = 0.248
 
 [resource]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_xs53d")])

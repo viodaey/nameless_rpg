@@ -79,11 +79,3 @@ func _ready() -> void:
 ##func _despawn_npc(npc):
 	##get_node(npc).queue_free()
 	##activeSpawns.erase(npc)
-
-
-
-
-
-func _on_h_1_entrancefront_body_entered(body: Node3D) -> void:
-	if body.name == _player_body.name:
-		3dTpH1
