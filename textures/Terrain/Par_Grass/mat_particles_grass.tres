@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bftrnl2npnpee"]
+
+[ext_resource type="Shader" path="res://Textures/Par_Grass/sha_particles_grass2.gdshader" id="1_50i8y"]
+[ext_resource type="Texture2D" uid="uid://cuky61h5yws1" path="res://icon.svg" id="2_stm1j"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_50i8y")
+shader_parameter/grass_world_position_offset = null
+shader_parameter/ground_texture_scale = 0.215
+shader_parameter/color_top = Color(0, 0, 0, 1)
+shader_parameter/color_bottom = Color(0, 0, 0, 1)
+shader_parameter/deg_sway_pitch = 80.0
+shader_parameter/deg_sway_yaw = 45.0
+shader_parameter/wind_scale = 4.0
+shader_parameter/wind_speed = 1.0
+shader_parameter/wind_direction = Vector3(0, 0, -1)
+shader_parameter/ground_texture = ExtResource("2_stm1j")
