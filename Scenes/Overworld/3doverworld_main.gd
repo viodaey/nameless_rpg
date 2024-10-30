@@ -10,44 +10,40 @@ const scene_type = 1
 @export var min_spawn_range: int = 350
 @export var max_spawn_range: int = 450
 @onready var _player_body = $Player
-#@onready var _cave_entrance = $CaveEntrance
-#@onready var _forest_entrance = $ForestEntrance
-#@onready var _h1entrancefront = $H1Entrancefront
-#@onready var _h1entranceback = $H1Entranceback
+@onready var _cave_entrance = $CaveEntrance
+@onready var _h1entrancefront = $H1Entrancefront
+@onready var _h1entranceback = $H1Entranceback
 
 var spawn_request
 
-#
-#func _ready() -> void:
-	#inv.drops = drops
-	#AudioPlayer.play_music_level("fieldOverworld")
-	#if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
-		#_player_body.position = player.position
-	#if sceneManager.last_scene == "res://Scenes/Cave/cave_001.tscn":
-		#_player_body.position = _cave_entrance.position + Vector2(0,20)
-	#if sceneManager.last_scene == "res://Scenes/Forest/Forest.tscn":
-		#_player_body.position = _forest_entrance.position + Vector2(20,0)
-	#if sceneManager.last_scene == "res://Scenes/H1/H1.tscn":
-		#if player.last_exit == 'south':
-			#_player_body.position = _h1entrancefront.position + Vector2(0,20)
-		#if player.last_exit == 'west':
-			#_player_body.position = _h1entranceback.position + Vector2(-20,0)
-#
-#func _on_forest_entrance_body_entered(body: Node2D) -> void:
+
+func _ready() -> void:
+	inv.drops = drops
+	AudioPlayer.play_music_level("fieldOverworld")
+	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
+		_player_body.position = player.position
+	if sceneManager.last_scene == "res://Scenes/Cave/cave_001.tscn":
+		_player_body.position = _cave_entrance.position + Vector2(0,20)
+	if sceneManager.last_scene == "res://Scenes/H1/H1.tscn":
+		if player.last_exit == 'south':
+			_player_body.position = _h1entrancefront.position + Vector2(0,20)
+		if player.last_exit == 'west':
+			_player_body.position = _h1entranceback.position + Vector2(-20,0)
+
+#func _on_cave_entrance_body_entered(body: Node3D) -> void:
 	#if body.name == _player_body.name:
-		#sceneManager.goto_scene("res://Scenes/Forest/Forest.tscn")
-#func _on_cave_entrance_body_entered(body: Node2D) -> void:
+		#
+#func _on_h1entrancefront_body_entered(body: Node3D) -> void:
 	#if body.name == _player_body.name:
-		#sceneManager.goto_scene("res://Scenes/Cave/cave_001.tscn")
-#func _on_h1entrancefront_body_entered(body: Node2D) -> void:
-	#if body.name == _player_body.name:
-		#sceneManager.goto_scene("res://Scenes/H1/H1.tscn")
+		#
+
+
 		#player.last_exit = 'south'
 #func _on_h1entranceback_body_entered(body: Node2D) -> void:
 	#if body.name == _player_body.name:
 		#sceneManager.goto_scene("res://Scenes/H1/H1.tscn")
 		#player.last_exit = 'west'
-#
+
 ##func _input(_event):
 	##if Input.is_action_pressed("ui_cancel"):
 		##await (get_tree().create_timer(0.1).timeout)
@@ -83,3 +79,11 @@ var spawn_request
 ##func _despawn_npc(npc):
 	##get_node(npc).queue_free()
 	##activeSpawns.erase(npc)
+
+
+
+
+
+func _on_h_1_entrancefront_body_entered(body: Node3D) -> void:
+	if body.name == _player_body.name:
+		3dTpH1
