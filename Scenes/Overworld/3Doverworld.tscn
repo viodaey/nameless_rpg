@@ -30,7 +30,7 @@ sky = SubResource("Sky_iu2i6")
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
-[sub_resource type="Resource" id="Resource_v553e"]
+[sub_resource type="Resource" id="Resource_m02gj"]
 script = ExtResource("12_ycwjm")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
@@ -59,7 +59,7 @@ mat_edge_fade = 0.432
 LodLod0Distance = 50.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_5hvap"]
+[sub_resource type="Curve3D" id="Curve3D_d45h2"]
 resource_local_to_scene = true
 bake_interval = 0.05
 _data = {
@@ -110,11 +110,11 @@ animation = &"idledown"
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(0.517897, 0, -1127.82, 0, 81.6338, 0, 70.1488, 0, 8.32652, -968.5, 1.45899, -1708.41)
 script = ExtResource("10_8u0x2")
-ShaderSettings = SubResource("Resource_v553e")
+ShaderSettings = SubResource("Resource_m02gj")
 ShapeStepLengthDivs = 1
 ShapeStepWidthDivs = 1
 PointWidths = [5.13067, 5.16049]
-Curve = SubResource("Curve3D_5hvap")
+Curve = SubResource("Curve3D_d45h2")
 
 [node name="H1" type="Sprite3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, -609.499, 1.11989, -1338.46)
