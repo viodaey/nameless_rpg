@@ -34,7 +34,11 @@ sky = SubResource("Sky_iu2i6")
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
+<<<<<<< HEAD
 [sub_resource type="Resource" id="Resource_ffotx"]
+=======
+[sub_resource type="Resource" id="Resource_m02gj"]
+>>>>>>> origin/main
 script = ExtResource("12_ycwjm")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
@@ -63,7 +67,11 @@ mat_edge_fade = 0.454
 LodLod0Distance = 50.0
 _selectedShader = 1
 
+<<<<<<< HEAD
 [sub_resource type="Curve3D" id="Curve3D_51t4u"]
+=======
+[sub_resource type="Curve3D" id="Curve3D_d45h2"]
+>>>>>>> origin/main
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -159,6 +167,7 @@ transform = Transform3D(30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 
 sprite_frames = ExtResource("6_5vwwl")
 animation = &"idledown"
 
+<<<<<<< HEAD
 [node name="CaveEntrance" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -838.581, 1, -1658.65)
 
@@ -180,6 +189,16 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="H1Entranceback"]
 transform = Transform3D(1, 0, -1.86265e-09, 0, 1, 0, 1.86265e-09, 0, 1, 22.9863, 9.79095, -1.75684)
 shape = SubResource("BoxShape3D_es3fo")
+=======
+[node name="RiverManager" type="Node3D" parent="."]
+transform = Transform3D(0.517897, 0, -1127.82, 0, 81.6338, 0, 70.1488, 0, 8.32652, -968.5, 1.45899, -1708.41)
+script = ExtResource("10_8u0x2")
+ShaderSettings = SubResource("Resource_m02gj")
+ShapeStepLengthDivs = 1
+ShapeStepWidthDivs = 1
+PointWidths = [5.13067, 5.16049]
+Curve = SubResource("Curve3D_d45h2")
+>>>>>>> origin/main
 
 [node name="H1" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -921.334, 0.3, -1462.93)

@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var _animated_sprite = $AnimatedSprite3D
-@export var speed = 45
+@export var speed = 35
 
 var spawn_npc = load("res://Global/globalNPC3D.tscn")
 var last_input = "right"
@@ -19,7 +19,7 @@ func get_input():
 
 func _ready() -> void:
 	move_dice = rng.randi_range(30, 100)
-	position.y = 0.2
+	position.y = 0.1
 
 func _physics_process(_delta):
 	if Input.is_anything_pressed() == false:
@@ -79,6 +79,10 @@ func _spawn_npc_loc():
 func _despawn_npc(npc):
 	map.get_node(npc).queue_free()
 	activeSpawns.erase(npc)
+	
 
-func _on_forest2exit_body_entered(body: Node3D) -> void:
-	pass # Replace with function body.
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.has_method("initiate_battle"):
+		body.initiate_battle()
+	else:
+		print(body)

@@ -24,6 +24,7 @@ func _ready() -> void:
 	_animated_sprite.sprite_frames = enemy.animatedSprite
 	self.scale = self.scale * enemy.map_scale
 	position.y = 0.2
+	_animated_sprite.position.y += enemy.position_y_offset
 	#pass
 	
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -39,21 +40,14 @@ func _physics_process(delta: float):
 				await initiation_done
 				initiated = true
 			return
-		if not move_to_attack or move_to_attack.get_collider() != _player_body:
-			target_position = (player_position - position).normalized()
-			velocity = target_position * speed
-			_animated_sprite.play("run")
-			if player_position[0] - position[0] > 0:
-				_animated_sprite.flip_h = 1
-			else:
-				_animated_sprite.flip_h = 0
-			player_position = _player_body.position		
-			var printed = false
-			if printed == false:
-				print("attacking with speed: %s" %velocity)
-				printed = true
-		elif move_to_attack.get_collider() == _player_body:
-			initiate_battle()
+		target_position = (player_position - position).normalized()
+		velocity = target_position * speed * 0.75 # temp speed fix
+		_animated_sprite.play("run")
+		if player_position[0] - position[0] > 0:
+			_animated_sprite.flip_h = 1
+		else:
+			_animated_sprite.flip_h = 0
+		player_position = _player_body.position		
 	elif enemy.can_wander:
 		if wandering == true:
 			velocity = wander_vector * (speed / 2)

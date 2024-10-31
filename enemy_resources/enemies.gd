@@ -13,7 +13,7 @@ const basic_shape = preload("res://enemy_resources/enemy_collision/capsule_shape
 @export var damage: float = 12
 @export var critc: int = 5
 @export var xp: int = 10
-@export var speed: int = 40
+@export var speed: int = 25
 @export var music: String = "battle01"
 @export var can_chill: bool = true
 @export var lifesteal: int = 0
@@ -35,6 +35,7 @@ const basic_shape = preload("res://enemy_resources/enemy_collision/capsule_shape
 @export var max_health: int
 @export var _abilties: Array[abilities]
 @export var passive: abilities
+@export var position_y_offset: float
 var hp_grow: int = 0
 var dmg_grow: int = 0
 var max_xp: int = 20
