@@ -1,4 +1,4 @@
-extends AnimatableBody3D
+extends Area3D
 
 @onready var enemy = get_parent().spawn_request
 @onready var _animated_sprite = $AnimatedSprite3D
@@ -14,7 +14,7 @@ var time_not_wandering: float = 0
 var time_to_wander: float
 var time_to_not_wander: float 
 var wander_vector: Vector3
-const detection_range : float = 90
+const detection_range : float = 15
 @onready var neutral_pos = _animated_sprite.position
 var initiated: bool = false
 signal initiation_done
@@ -91,3 +91,8 @@ func initiate_battle():
 
 func _on_animated_sprite_3d_animation_finished() -> void:
 	initiation_done.emit()
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if body == _player_body:
+		initiate_battle()

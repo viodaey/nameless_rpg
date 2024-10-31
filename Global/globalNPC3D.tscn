@@ -1,23 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://cs6mvxwxonvmn"]
 
 [ext_resource type="Script" path="res://Global/npc3D.gd" id="1_ma17h"]
-[ext_resource type="SpriteFrames" uid="uid://davtrkotti0nr" path="res://enemy_spriteframes/Birdman_Evo_1sf.tres" id="4_u4y75"]
+[ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemy_spriteframes/orc_evo1_sf.tres" id="2_yk64b"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fb3a0"]
 radius = 6.0
 
-[node name="NPC_spawn" type="AnimatableBody3D"]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.1, 0)
+[node name="NPC_spawn" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 collision_layer = 2
-collision_mask = 0
 script = ExtResource("1_ma17h")
 
 [node name="CollisionShape2D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_fb3a0")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 0.872388, 19.981, 0, -19.981, 0.872388, 0, 0.5, 0)
-sprite_frames = ExtResource("4_u4y75")
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, 0, 0.5, 0)
+sprite_frames = ExtResource("2_yk64b")
 animation = &"idle"
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

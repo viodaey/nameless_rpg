@@ -15,9 +15,9 @@
 [ext_resource type="SpriteFrames" uid="uid://dfj11x1cnrhcx" path="res://enemy_spriteframes/Knight_sf.tres" id="14_gob5f"]
 [ext_resource type="Texture2D" uid="uid://bnj3e2fryr7gr" path="res://textures/Tilesets/Dungeon_rogue/torch_2.png" id="15_qbqf3"]
 [ext_resource type="Texture2D" uid="uid://b7ahodrtnbkpr" path="res://test_sprites/fireball_lol.png" id="16_qf6cj"]
-[ext_resource type="Texture2D" uid="uid://kuhobufukql3" path="res://textures/Objects/Rowboat.PNG" id="17_72c7u"]
+[ext_resource type="Texture2D" uid="uid://kuhobufukql3" path="res://Scenes/Overworld/Rowboat.PNG" id="17_72c7u"]
 [ext_resource type="SpriteFrames" uid="uid://cikw515l1ch0k" path="res://enemy_spriteframes/HoodedFigure_sf.tres" id="17_ueu4w"]
-[ext_resource type="Texture2D" uid="uid://cosgk8bcrlbt0" path="res://textures/Objects/Dock.png" id="18_7rk37"]
+[ext_resource type="Texture2D" uid="uid://cosgk8bcrlbt0" path="res://Scenes/Overworld/Dock.png" id="18_7rk37"]
 [ext_resource type="Texture2D" uid="uid://cbg7h3fsecjjl" path="res://textures/Objects/H1.png" id="18_byx0v"]
 [ext_resource type="SpriteFrames" uid="uid://jtk22f2psyhj" path="res://Scenes/Overworld/Playerbody_SF.tres" id="21_ygv8y"]
 
