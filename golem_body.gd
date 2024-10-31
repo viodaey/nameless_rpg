@@ -1,4 +1,4 @@
-extends CharacterBody2D
+rextends CharacterBody2D
 
 func generate_occluder_from_map(occlusion_map: Image, threshold: float = 0.5):
 	var width = occlusion_map.get_width()
