@@ -1,0 +1,125 @@
+[gd_scene load_steps=28 format=3 uid="uid://cigtvftuuaame"]
+
+[ext_resource type="Script" path="res://Scenes/Overworld/3doverworld_main.gd" id="1_7td11"]
+[ext_resource type="Terrain3DStorage" uid="uid://bc8rf8txa5pic" path="res://terrain3d_resources/terrain_3d_storage2.res" id="1_mk85a"]
+[ext_resource type="Terrain3DMaterial" uid="uid://cthbv3cuecn7h" path="res://terrain3d_resources/terrain_3d_material2.tres" id="2_1tpmd"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_k6dxf"]
+[ext_resource type="Resource" uid="uid://bg7t7yglxuhl7" path="res://enemy_resources/enemy_identityfiles/PixieWater.tres" id="3_3dwp2"]
+[ext_resource type="Terrain3DAssets" uid="uid://6hdvw4fc2dlu" path="res://terrain3d_resources/terrain_3d_assets2.tres" id="3_6w4pa"]
+[ext_resource type="Texture2D" uid="uid://dbpaufsf3au26" path="res://bg_art/Forest.png" id="4_0lv6h"]
+[ext_resource type="Script" path="res://Scenes/Overworld/3dcharacter_body.gd" id="4_axqju"]
+[ext_resource type="SpriteFrames" uid="uid://jtk22f2psyhj" path="res://Scenes/Overworld/Playerbody_SF.tres" id="5_3loco"]
+[ext_resource type="Material" uid="uid://lmnxkdoa2nph" path="res://textures/Terrain/Weather/Rain/Rain_Process_Mat.tres" id="6_7e68c"]
+[ext_resource type="RibbonTrailMesh" uid="uid://cgavta2jql87y" path="res://textures/Terrain/Weather/Rain/Ribbon_Trail_Mesh_1.tres" id="7_h5s8g"]
+[ext_resource type="Material" uid="uid://jlqxyr04mw7r" path="res://textures/Terrain/Weather/Rain/Drops_Process_Mat.tres" id="8_n75ap"]
+[ext_resource type="QuadMesh" uid="uid://3l3hvurdmhdb" path="res://textures/Terrain/Weather/Rain/Drops_Quad_Mesh.tres" id="9_ei27n"]
+[ext_resource type="Material" uid="uid://c6aqoo6iifbxd" path="res://textures/Terrain/Weather/Snow/Snow_Process_Mat.tres" id="10_yto34"]
+[ext_resource type="QuadMesh" uid="uid://dwqksjdwl1mta" path="res://textures/Terrain/Weather/Snow/Snow_Quad_Mesh.tres" id="11_0em7g"]
+[ext_resource type="Shader" path="res://textures/Terrain/Ice/Ice1.gdshader" id="13_t4kne"]
+[ext_resource type="Texture2D" uid="uid://7p1y2g30opfk" path="res://textures/Terrain/Ice/Ice003_2K-PNG_Color.png" id="14_7dfht"]
+[ext_resource type="Texture2D" uid="uid://ccvd80gjpw55a" path="res://textures/Terrain/Ice/Ice003_2K-PNG_NormalGL.png" id="15_54gef"]
+[ext_resource type="Texture2D" uid="uid://lmm4lj7l2j3a" path="res://textures/Terrain/Ice/Ice003_2K-PNG_Roughness.png" id="16_iph43"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_asi82"]
+
+[sub_resource type="Sky" id="Sky_b4bdm"]
+sky_material = SubResource("ProceduralSkyMaterial_asi82")
+
+[sub_resource type="Environment" id="Environment_xwcg6"]
+background_mode = 2
+sky = SubResource("Sky_b4bdm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jwwe1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_edhq4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w7pu7"]
+noise = SubResource("FastNoiseLite_edhq4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_piqi8"]
+render_priority = 0
+shader = ExtResource("13_t4kne")
+shader_parameter/depth = 0.115
+shader_parameter/albedo_tex = ExtResource("14_7dfht")
+shader_parameter/normalmap_tex = ExtResource("15_54gef")
+shader_parameter/roughness_tex = ExtResource("16_iph43")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_w7pu7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a2nmr"]
+size = Vector2(60, 60)
+
+[node name="Testoverworld1" type="Node3D"]
+script = ExtResource("1_7td11")
+world_enemies = Array[ExtResource("2_k6dxf")]([ExtResource("3_3dwp2")])
+battle_bg = ExtResource("4_0lv6h")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xwcg6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("1_mk85a")
+material = ExtResource("2_1tpmd")
+assets = ExtResource("3_6w4pa")
+
+[node name="Rain" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 850.29, 16, 552.231)
+amount = 1000
+sub_emitter = NodePath("Drops")
+lifetime = 2.0
+preprocess = 10.0
+visibility_aabb = AABB(-10.9619, -41.1673, -11.7475, 26.711, 42.6499, 23.8973)
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = ExtResource("6_7e68c")
+draw_pass_1 = ExtResource("7_h5s8g")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Rain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+size = Vector3(30, 2, 30)
+
+[node name="Drops" type="GPUParticles3D" parent="Rain"]
+amount = 5000
+lifetime = 0.6
+visibility_aabb = AABB(-857.642, -16.9037, -562.872, 871.252, 3.27372, 574.32)
+process_material = ExtResource("8_n75ap")
+draw_pass_1 = ExtResource("9_ei27n")
+
+[node name="Snow" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 832.125, 15, 248.155)
+amount = 10000
+lifetime = 5.0
+process_material = ExtResource("10_yto34")
+draw_pass_1 = ExtResource("11_0em7g")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Snow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
+size = Vector3(100, 2, 100)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 850.351, 1.00006, 554.27)
+script = ExtResource("4_axqju")
+speed = null
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.0697565, 0.997564, 0, -0.997564, 0.0697565, 0, 10, 0)
+fov = 168.0
+near = 0.026
+
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("BoxShape3D_jwwe1")
+
+[node name="RayCast3D" type="RayCast3D" parent="Player"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
+transform = Transform3D(30, 0, 0, 0, 2.0927, 29.9269, 0, -29.9269, 2.0927, 0, 0, 0)
+sprite_frames = ExtResource("5_3loco")
+animation = &"idledown"
+
+[node name="Ice" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 736.664, -0.818634, 248.395)
+material_override = SubResource("ShaderMaterial_piqi8")
+transparency = 0.17
+mesh = SubResource("PlaneMesh_a2nmr")
