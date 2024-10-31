@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://do0sc0tw6bh6t"]
+[gd_scene load_steps=35 format=3 uid="uid://do0sc0tw6bh6t"]
 
 [ext_resource type="Script" path="res://Scenes/Overworld/3doverworld_main.gd" id="1_nr65l"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_df1jd"]
@@ -34,7 +34,7 @@ sky = SubResource("Sky_iu2i6")
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
-[sub_resource type="Resource" id="Resource_tohyh"]
+[sub_resource type="Resource" id="Resource_jntr8"]
 script = ExtResource("12_ycwjm")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
@@ -63,7 +63,7 @@ mat_edge_fade = 0.454
 LodLod0Distance = 50.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_nljv0"]
+[sub_resource type="Curve3D" id="Curve3D_yornh"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -74,10 +74,13 @@ point_count = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_ae0k2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bdg2r"]
-size = Vector3(160.973, 83.4341, 0.001)
+size = Vector3(2.5, 2.5, 2.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rcogi"]
-size = Vector3(81.4261, 686.521, 146.628)
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3jem"]
+size = Vector3(2.5, 2.5, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_es3fo"]
+size = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nvrgo"]
 
@@ -103,12 +106,12 @@ assets = ExtResource("4_qmiew")
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(1.20386, 0, -2925.05, 0, 81.6338, 0, 163.062, 0, 21.5952, -938.821, -2.60174, -1631.89)
 script = ExtResource("10_8u0x2")
-ShaderSettings = SubResource("Resource_tohyh")
+ShaderSettings = SubResource("Resource_jntr8")
 ShapeStepLengthDivs = 7
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [6.04521, 5.16049]
-Curve = SubResource("Curve3D_nljv0")
+Curve = SubResource("Curve3D_yornh")
 
 [node name="Mountain" type="Sprite3D" parent="."]
 transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -686.731, 2.84323, -1457.78)
@@ -155,25 +158,25 @@ sprite_frames = ExtResource("6_5vwwl")
 animation = &"idledown"
 
 [node name="3dCaveEntrance" type="Area3D" parent="."]
-transform = Transform3D(0.0256286, 0, 0, 0, 0.0772213, 0, 0, 0, 0.00905275, -1156.66, 20.7051, -1494.17)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="3dCaveEntrance"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -863.442, 65.4962, -1972.01)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -930.261, 0.00018692, -1461.4)
 shape = SubResource("BoxShape3D_bdg2r")
 
 [node name="3dH1Entrancefront" type="Area3D" parent="."]
-transform = Transform3D(0.00741964, -3.7645e-07, 0, 6.68223e-05, 4.17993e-05, 0, 0, 0, 0.00132768, -920.03, 1.7927, -1456.34)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -921.005, 1.7927, -1456.41)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="3dH1Entrancefront"]
-transform = Transform3D(0.994229, 0, 0, 0, 0.359139, 0, 0, 0, 1, -157.531, -21791.6, 571.125)
-shape = SubResource("BoxShape3D_rcogi")
+transform = Transform3D(1, 1.04308e-06, 0, -1.07288e-06, 1, 0, 0, 0, 1, -0.288147, -1.73149, -0.457886)
+shape = SubResource("BoxShape3D_y3jem")
 
 [node name="3dH1Entranceback" type="Area3D" parent="."]
-transform = Transform3D(0.0370745, 0, 0, 0, 0.0697782, 0, 0, 0, 0.015832, -927.996, 2.096, -1458.89)
+transform = Transform3D(-0.00191974, 0, -0.0999816, 0, 0.1, 0, 0.0999816, 0, -0.00191974, -928.305, 2.52347, -1463.22)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="3dH1Entranceback"]
-transform = Transform3D(0.0284101, 0, 0, 0, 0.00560341, 0, 0, 0, 0.011991, -50.077, -31.1895, -113.554)
-shape = SubResource("BoxShape3D_rcogi")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5222, -25.8043, 26.3306)
+shape = SubResource("BoxShape3D_es3fo")
 
 [node name="H1" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -921.334, 1.11989, -1462.93)
