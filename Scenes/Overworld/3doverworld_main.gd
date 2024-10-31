@@ -10,11 +10,11 @@ const scene_type = 1
 @export var min_spawn_range: int = 350
 @export var max_spawn_range: int = 450
 @onready var _player_body = $Player
-@onready var _3dcave_entrance = $CaveEntrance
-@onready var _3dh1entrancefront = $H1Entrancefront
-@onready var _3dh1entranceback = $H1Entranceback
+@onready var _3dCave_entrance = $CaveEntrance
+@onready var _3dH1Entrancefront = $H1Entrancefront
+@onready var _3dH1Entranceback = $H1Entranceback
 
-var spawn_request
+var spawn_requestz
 
 
 func _ready() -> void:
@@ -23,12 +23,12 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
-		_player_body.position = _3dcave_entrance.position + Vector3()
+		_player_body.position = _3dCave_entrance.position + Vector3()
 	if sceneManager.last_scene == "res://Scenes/3dH1/3dH1.tscn":
 		if player.last_exit == 'south':
-			_player_body.position = _3dh1entrancefront.position + Vector3()
+			_player_body.position = _3dH1Entrancefront.position + Vector3()
 		if player.last_exit == 'west':
-			_player_body.position = _3dh1entranceback.position + Vector3()
+			_player_body.position = _3dH1Entranceback.position + Vector3()
 
 func _on_3dcave_entrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
