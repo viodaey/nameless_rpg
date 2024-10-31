@@ -7,15 +7,14 @@ const scene_type = 1
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
 @export var drops: Dictionary
-@export var min_spawn_range: int = 350
-@export var max_spawn_range: int = 450
+@export var min_spawn_range: int = 20
+@export var max_spawn_range: int = 35
 @onready var _player_body = $Player
 @onready var _Cave_entrance = $CaveEntrance
 @onready var _H1Entrancefront = $H1Entrancefront
 @onready var _H1Entranceback = $H1Entranceback
 
 var spawn_request
-
 
 func _ready() -> void:
 	inv.drops = drops
@@ -26,9 +25,9 @@ func _ready() -> void:
 		_player_body.position = _Cave_entrance.position + Vector3()
 	if sceneManager.last_scene == "res://Scenes/3dH1/3dH1.tscn":
 		if player.last_exit == 'south':
-			_player_body.position = _H1Entrancefront.position + Vector3()
+			_player_body.position = _H1Entrancefront.position + Vector3(-5,0,0)
 		if player.last_exit == 'west':
-			_player_body.position = _H1Entranceback.position + Vector3()
+			_player_body.position = _H1Entranceback.position + Vector3(0,0,5)
 
 func _on_Cave_entrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:

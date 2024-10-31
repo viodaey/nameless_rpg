@@ -11,9 +11,9 @@ var spawn_request
 func _ready() -> void:
 	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
 	if player.last_exit == 'south':
-		_player_body.position = _h1exitfront.position + Vector3(0,0,3)
+		_player_body.position = _h1exitfront.position + Vector3(0,0.1,-5)
 	if player.last_exit == 'west':
-		_player_body.position = _h1exitback.position + Vector3(0,0,0)
+		_player_body.position = _h1exitback.position + Vector3(5,0.1,0)
 	$Player.disabled_spawn = true
 	
 func _on_H1Exitfront_body_entered(body: Node3D) -> void:

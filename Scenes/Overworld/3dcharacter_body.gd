@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var _animated_sprite = $AnimatedSprite3D
-@export var speed = 35
+var speed = 15
 
 var spawn_npc = load("res://Global/globalNPC3D.tscn")
 var last_input = "right"
@@ -49,6 +49,7 @@ func _physics_process(_delta):
 
 ## 	spawn NPC	
 	if moved > move_dice and disabled_spawn == false:
+		print("passed check to spawn")
 		var rng = RandomNumberGenerator.new()
 		for i in rng.randi_range(1,2):
 			var vec_target = await(_spawn_npc_loc())
@@ -66,6 +67,7 @@ func _physics_process(_delta):
 				_spawned_npc.name = "NPC_spawn" + "%d" %num
 				_spawned_npc.position = self.position + vec_target
 				activeSpawns.append(_spawned_npc.name)
+				print(_spawned_npc)
 
 func _spawn_npc_loc():
 	var rng = RandomNumberGenerator.new()
