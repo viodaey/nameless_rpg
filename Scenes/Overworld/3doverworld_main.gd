@@ -10,7 +10,7 @@ const scene_type = 1
 @export var min_spawn_range: int = 350
 @export var max_spawn_range: int = 450
 @onready var _player_body = $Player
-@onready var _cave_entrance = $CaveEntrance
+@onready var _3dcave_entrance = $CaveEntrance
 @onready var _3dh1entrancefront = $H1Entrancefront
 @onready var _3dh1entranceback = $H1Entranceback
 
@@ -22,18 +22,17 @@ func _ready() -> void:
 	AudioPlayer.play_music_level("fieldOverworld")
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
 		_player_body.position = player.position
-	if sceneManager.last_scene == "res://Scenes/Cave/cave_001.tscn":
-		_player_body.position = _cave_entrance.position + Vector2(0,20)
+	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
+		_player_body.position = _3dcave_entrance.position + Vector3()
 	if sceneManager.last_scene == "res://Scenes/3dH1/3dH1.tscn":
 		if player.last_exit == 'south':
 			_player_body.position = _3dh1entrancefront.position + Vector3()
 		if player.last_exit == 'west':
 			_player_body.position = _3dh1entranceback.position + Vector3()
 
-func _on_cave_entrance_body_entered(body: Node3D) -> void:
+func _on_3dcave_entrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
-		sceneManager.goto_scene("res://Scenes/Cave/cave_001.tscn")
-		
+		sceneManager.goto_scene("res://Scenes/3dCave/3dcave_001.tscn")
 
 func _on_3dh1entrancefront_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
