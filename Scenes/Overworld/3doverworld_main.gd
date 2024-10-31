@@ -44,6 +44,7 @@ func _on_3dh1entranceback_body_entered(body: Node3D) -> void:
 		sceneManager.goto_scene("res://Scenes/3dH1/3dH1.tscn")
 		player.last_exit = 'west'
 
+
 ##func _input(_event):
 	##if Input.is_action_pressed("ui_cancel"):
 		##await (get_tree().create_timer(0.1).timeout)
