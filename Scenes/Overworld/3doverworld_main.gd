@@ -10,9 +10,9 @@ const scene_type = 1
 @export var min_spawn_range: int = 350
 @export var max_spawn_range: int = 450
 @onready var _player_body = $Player
-@onready var _3dCave_entrance = $CaveEntrance
-@onready var _3dH1Entrancefront = $H1Entrancefront
-@onready var _3dH1Entranceback = $H1Entranceback
+@onready var _Cave_entrance = $CaveEntrance
+@onready var _H1Entrancefront = $H1Entrancefront
+@onready var _H1Entranceback = $H1Entranceback
 
 var spawn_request
 
@@ -23,26 +23,27 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
-		_player_body.position = _3dCave_entrance.position + Vector3()
+		_player_body.position = _Cave_entrance.position + Vector3()
 	if sceneManager.last_scene == "res://Scenes/3dH1/3dH1.tscn":
 		if player.last_exit == 'south':
-			_player_body.position = _3dH1Entrancefront.position + Vector3()
+			_player_body.position = _H1Entrancefront.position + Vector3()
 		if player.last_exit == 'west':
-			_player_body.position = _3dH1Entranceback.position + Vector3()
+			_player_body.position = _H1Entranceback.position + Vector3()
 
-func _on_3dcave_entrance_body_entered(body: Node3D) -> void:
+func _on_Cave_entrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
+		player.last_exit = 'overworld'
 		sceneManager.goto_scene("res://Scenes/3dCave/3dcave_001.tscn")
 
-func _on_3dh1entrancefront_body_entered(body: Node3D) -> void:
+func _on_H1Entrancefront_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
-		sceneManager.goto_scene("res://Scenes/3dH1/3dH1.tscn")
 		player.last_exit = 'south'
-
-func _on_3dh1entranceback_body_entered(body: Node3D) -> void:
-	if body.name == _player_body.name:
 		sceneManager.goto_scene("res://Scenes/3dH1/3dH1.tscn")
+
+func _on_H1Entranceback_body_entered(body: Node3D) -> void:
+	if body.name == _player_body.name:
 		player.last_exit = 'west'
+		sceneManager.goto_scene("res://Scenes/3dH1/3dH1.tscn")
 
 
 ##func _input(_event):
