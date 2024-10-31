@@ -115,7 +115,7 @@ PointWidths = [6.04521, 5.16049]
 Curve = SubResource("Curve3D_51t4u")
 
 [node name="Mountain" type="Sprite3D" parent="."]
-transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -686.731, 2.84323, -1457.78)
+transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -686.731, 0.3, -1457.78)
 alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("17_6b0qq")
@@ -160,10 +160,9 @@ sprite_frames = ExtResource("6_5vwwl")
 animation = &"idledown"
 
 [node name="CaveEntrance" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -838.581, 1, -1658.65)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CaveEntrance"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -930.261, 0.00018692, -1461.4)
 shape = SubResource("BoxShape3D_bdg2r")
 
 [node name="H1Entrancefront" type="Area3D" parent="."]
