@@ -14,7 +14,7 @@ const scene_type = 1
 @onready var _3dH1Entrancefront = $H1Entrancefront
 @onready var _3dH1Entranceback = $H1Entranceback
 
-var spawn_requestz
+var spawn_request
 
 
 func _ready() -> void:
