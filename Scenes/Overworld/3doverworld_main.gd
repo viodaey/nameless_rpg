@@ -30,19 +30,20 @@ func _ready() -> void:
 		if player.last_exit == 'west':
 			_player_body.position = _3dh1entranceback.position + Vector3()
 
-#func _on_cave_entrance_body_entered(body: Node3D) -> void:
-	#if body.name == _player_body.name:
-		#
-#func _on_h1entrancefront_body_entered(body: Node3D) -> void:
-	#if body.name == _player_body.name:
-		#
+func _on_cave_entrance_body_entered(body: Node3D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/Cave/cave_001.tscn")
+		
 
+func _on_3dh1entrancefront_body_entered(body: Node3D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/3dH1/3dH1.tscn")
+		player.last_exit = 'south'
 
-		#player.last_exit = 'south'
-#func _on_h1entranceback_body_entered(body: Node2D) -> void:
-	#if body.name == _player_body.name:
-		#sceneManager.goto_scene("res://Scenes/H1/H1.tscn")
-		#player.last_exit = 'west'
+func _on_3dh1entranceback_body_entered(body: Node3D) -> void:
+	if body.name == _player_body.name:
+		sceneManager.goto_scene("res://Scenes/3dH1/3dH1.tscn")
+		player.last_exit = 'west'
 
 ##func _input(_event):
 	##if Input.is_action_pressed("ui_cancel"):
