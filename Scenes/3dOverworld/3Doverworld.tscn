@@ -37,7 +37,7 @@ size = Vector3(2.6059, 4.43323, 4.16797)
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
-[sub_resource type="Resource" id="Resource_agykd"]
+[sub_resource type="Resource" id="Resource_mb6e2"]
 script = ExtResource("17_41ba2")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
@@ -66,7 +66,7 @@ mat_edge_fade = 0.454
 LodLod0Distance = 50.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_6fv6i"]
+[sub_resource type="Curve3D" id="Curve3D_v0qog"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -104,16 +104,16 @@ material = ExtResource("11_8d4yb")
 assets = ExtResource("12_bpohc")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -926.382, 0.1, -1438.35)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -926.382, 0.1, -1495.78)
 script = ExtResource("13_wk6ks")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(0.970874, 0, 0, 0, -4.24383e-08, 0.970874, 0, -0.970874, -4.24383e-08, 0, 10, 0)
 projection = 1
 fov = 168.0
-size = 42.269
-near = 0.743
-far = 32.01
+size = 70.769
+near = 0.626
+far = 2238.55
 
 [node name="CollisionPolygon3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155518, 1.60785, 0.0849609)
@@ -131,12 +131,12 @@ animation = &"idledown"
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(1.20386, 0, -2925.05, 0, 81.6338, 0, 163.062, 0, 21.5952, -938.821, -2.60174, -1631.89)
 script = ExtResource("15_4bexd")
-ShaderSettings = SubResource("Resource_agykd")
+ShaderSettings = SubResource("Resource_mb6e2")
 ShapeStepLengthDivs = 7
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [6.04521, 5.16049]
-Curve = SubResource("Curve3D_6fv6i")
+Curve = SubResource("Curve3D_v0qog")
 
 [node name="Knight" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(2.4, 0, 0, 0, -1.04907e-07, 2.4, 0, -2.4, -1.04907e-07, -921.187, 0.265998, -1495.81)
@@ -153,22 +153,22 @@ transform = Transform3D(0.708466, 0, 0, 0, 0.576751, 0, 0, 0, 0, 2545.05, 822.69
 transform = Transform3D(1.27808e-12, 0, 0, 0, 1.2781e-12, 0, 0, 0, 0, -3.81906, -1.59909, 0)
 shape = SubResource("BoxShape3D_y7q7m")
 
-[node name="Mountain" type="Sprite3D" parent="."]
-transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -686.731, 2.84323, -1457.78)
-alpha_cut = 3
-texture_filter = 1
-texture = ExtResource("22_lsdq5")
-
-[node name="Mountain2" type="Sprite3D" parent="Mountain"]
-transform = Transform3D(1, 0, 0, 0, 1, -3.55271e-15, 0, 3.55271e-15, 1, -28.9255, 6.8248, 0.0428047)
+[node name="Mountain2" type="Sprite3D" parent="."]
+transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -903.672, 0.4, -1508.97)
 alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("22_lsdq5")
 region_enabled = true
 region_rect = Rect2(0, 0, 3264, 2056)
 
-[node name="Mountain3" type="Sprite3D" parent="Mountain"]
-transform = Transform3D(1.0378, 0, 0, 0, 1.02995, 8.17124e-14, 0, -7.10543e-14, 0.947475, 29.3763, -7.27973, 0.0725903)
+[node name="Mountain3" type="Sprite3D" parent="."]
+transform = Transform3D(7.7835, 0, 0, 0, -3.37654e-07, 7.10606, 0, -7.72463, -3.10616e-07, -466.409, 0.4, -1403.18)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("22_lsdq5")
+
+[node name="Mountain" type="Sprite3D" parent="."]
+transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -686.731, 0.4, -1457.78)
 alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("22_lsdq5")
