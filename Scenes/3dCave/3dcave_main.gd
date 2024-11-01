@@ -22,7 +22,7 @@ func _ready() -> void:
 		_player_body.position = $CaveExit.position + Vector3(0,0,15)
 		print(sceneManager.last_scene)
 	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_00b.tscn":
-		_player_body.position = $CaveRoyEntrance.position + Vector3(15,0,0)
+		_player_body.position = $Cave00bEntrance.position + Vector3(15,0,0)
 		print(sceneManager.last_scene)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,11 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://borm28vf7p31o"]
+[gd_scene load_steps=24 format=3 uid="uid://borm28vf7p31o"]
 
+[ext_resource type="Script" path="res://Scenes/3dCave/3dcave_main.gd" id="1_3o0a4"]
 [ext_resource type="Terrain3DStorage" uid="uid://puhpc13moxh0" path="res://terrain3d_resources/Cave.res" id="1_tfd8c"]
 [ext_resource type="Texture2D" uid="uid://c184u408sv5og" path="res://textures/Terrain/Dirt2/packed_albedo_height.png" id="2_8joem"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_nfvm5"]
+[ext_resource type="Resource" uid="uid://dmroaf0lbxacy" path="res://enemy_resources/enemy_identityfiles/skellywarrior_evo1.tres" id="3_ddf5n"]
 [ext_resource type="Texture2D" uid="uid://drl75kb14pej1" path="res://textures/Terrain/Dirt2/packed_normal_roughness.png" id="3_x1n1y"]
+[ext_resource type="Resource" uid="uid://4hyxykrulp8a" path="res://enemy_resources/enemy_identityfiles/skellymage_evo1.tres" id="4_6l3j0"]
 [ext_resource type="Script" path="res://Scenes/Overworld/3dcharacter_body.gd" id="4_m8c5l"]
 [ext_resource type="SpriteFrames" uid="uid://jtk22f2psyhj" path="res://Scenes/Overworld/Playerbody_SF.tres" id="5_4wyit"]
-[ext_resource type="Script" path="res://Scenes/3dCave/3dcave_00b_exit.gd" id="6_r8mnh"]
+[ext_resource type="Script" path="res://Scenes/3dCave/3dcave_00bexit.gd" id="6_r8mnh"]
 
 [sub_resource type="Gradient" id="Gradient_4prwo"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -68,12 +72,12 @@ texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_augdu"]
 
-[sub_resource type="Sky" id="Sky_iu2i6"]
+[sub_resource type="Sky" id="Sky_khh0i"]
 sky_material = SubResource("ProceduralSkyMaterial_augdu")
 
 [sub_resource type="Environment" id="Environment_mu28p"]
 background_mode = 2
-sky = SubResource("Sky_iu2i6")
+sky = SubResource("Sky_khh0i")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_65el1"]
 size = Vector3(2.6059, 4.43323, 4.16797)
@@ -82,6 +86,8 @@ size = Vector3(2.6059, 4.43323, 4.16797)
 size = Vector3(2.5, 2.5, 2.5)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_3o0a4")
+world_enemies = Array[ExtResource("2_nfvm5")]([ExtResource("3_ddf5n"), ExtResource("4_6l3j0")])
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 storage = ExtResource("1_tfd8c")
@@ -119,11 +125,11 @@ transform = Transform3D(30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 
 sprite_frames = ExtResource("5_4wyit")
 animation = &"idledown"
 
-[node name="CaveExit" type="Area3D" parent="."]
+[node name="Cave00bExit" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88137, 0, 1.935)
 script = ExtResource("6_r8mnh")
 
-[node name="caveexit" type="CollisionShape3D" parent="CaveExit"]
+[node name="caveexit" type="CollisionShape3D" parent="Cave00bExit"]
 shape = SubResource("BoxShape3D_u3vjg")
 
-[connection signal="body_entered" from="CaveExit" to="CaveExit" method="_on_body_entered"]
+[connection signal="body_entered" from="Cave00bExit" to="Cave00bExit" method="_on_body_entered"]

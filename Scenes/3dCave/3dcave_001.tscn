@@ -1,12 +1,17 @@
-[gd_scene load_steps=23 format=3 uid="uid://cj22v43gynqcq"]
+[gd_scene load_steps=28 format=3 uid="uid://cj22v43gynqcq"]
 
+[ext_resource type="Script" path="res://Scenes/3dCave/3dcave_main.gd" id="1_7ep2b"]
 [ext_resource type="Terrain3DStorage" uid="uid://puhpc13moxh0" path="res://terrain3d_resources/Cave.res" id="1_8rph6"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_1gudg"]
 [ext_resource type="Texture2D" uid="uid://c184u408sv5og" path="res://textures/Terrain/Dirt2/packed_albedo_height.png" id="2_oirmv"]
+[ext_resource type="Resource" uid="uid://4hyxykrulp8a" path="res://enemy_resources/enemy_identityfiles/skellymage_evo1.tres" id="3_8fywt"]
 [ext_resource type="Texture2D" uid="uid://drl75kb14pej1" path="res://textures/Terrain/Dirt2/packed_normal_roughness.png" id="3_hrkw8"]
+[ext_resource type="Resource" uid="uid://dmroaf0lbxacy" path="res://enemy_resources/enemy_identityfiles/skellywarrior_evo1.tres" id="4_bx1r7"]
 [ext_resource type="Script" path="res://Scenes/Overworld/3dcharacter_body.gd" id="4_ov045"]
 [ext_resource type="SpriteFrames" uid="uid://jtk22f2psyhj" path="res://Scenes/Overworld/Playerbody_SF.tres" id="5_smkki"]
+[ext_resource type="Texture2D" uid="uid://pfg3vn4uylma" path="res://Scenes/3dCave/cave_bg_1.png" id="5_xscrt"]
 [ext_resource type="Script" path="res://Scenes/3dCave/3dcave_exit.gd" id="6_154va"]
-[ext_resource type="Script" path="res://Scenes/3dCave/3dcave_roy_entrance.gd" id="7_43h0w"]
+[ext_resource type="Script" path="res://Scenes/3dCave/3dcave_00bentrance.gd" id="7_43h0w"]
 [ext_resource type="Script" path="res://Scenes/3dCave/3dboss_r.gd" id="8_73t4p"]
 
 [sub_resource type="Gradient" id="Gradient_4prwo"]
@@ -87,6 +92,9 @@ size = Vector3(2.5, 2.5, 2.5)
 size = Vector3(2.5, 2.5, 2.5)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_7ep2b")
+world_enemies = Array[ExtResource("2_1gudg")]([ExtResource("3_8fywt"), ExtResource("4_bx1r7")])
+battle_bg = ExtResource("5_xscrt")
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 storage = ExtResource("1_8rph6")
@@ -98,9 +106,11 @@ environment = SubResource("Environment_q3ava")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0.390306, 0.222148, 0.187284, 1)
+light_energy = 0.341
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -926.382, 0.1, -1438.35)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 510.709, 0.1, -75.2662)
 script = ExtResource("4_ov045")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
@@ -125,24 +135,34 @@ sprite_frames = ExtResource("5_smkki")
 animation = &"idledown"
 
 [node name="CaveExit" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88137, 0, 1.935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 511.958, 0, -0.37236)
 script = ExtResource("6_154va")
 
 [node name="caveexit" type="CollisionShape3D" parent="CaveExit"]
 shape = SubResource("BoxShape3D_dl51f")
 
-[node name="CaveRoyEntrance" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88137, 0, 1.935)
+[node name="Cave00bEntrance" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1021.24, 0, -516.216)
 script = ExtResource("7_43h0w")
 
-[node name="caveexit" type="CollisionShape3D" parent="CaveRoyEntrance"]
+[node name="caveexit" type="CollisionShape3D" parent="Cave00bEntrance"]
 shape = SubResource("BoxShape3D_dl51f")
 
 [node name="Boss_R" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.88137, 0, 1.935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 510.862, 0, -1010.84)
 script = ExtResource("8_73t4p")
 
 [node name="caveexit" type="CollisionShape3D" parent="Boss_R"]
 shape = SubResource("BoxShape3D_nu1w2")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.823136, 0.567844, 0, -0.567844, 0.823136, 512.017, 10, 7.56749)
+light_energy = 6.808
+light_specular = 9.096
+spot_range = 138.497
+spot_attenuation = 0.58
+spot_angle = 19.16
+
+[connection signal="body_entered" from="CaveExit" to="CaveExit" method="_on_body_entered"]
+[connection signal="body_entered" from="Cave00bEntrance" to="Cave00bEntrance" method="_on_body_entered"]
 [connection signal="body_entered" from="Boss_R" to="Boss_R" method="_on_body_entered"]
