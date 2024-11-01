@@ -1,4 +1,4 @@
-extends Area2D
+extends Area3D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,9 +13,9 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node3D) -> void:
 	if body.name == 'Player':
-		sceneManager.goto_scene("res://Scenes/Cave/cave_00b.tscn")
+		sceneManager.goto_scene("res://Scenes/3dCave/3dcave_001.tscn")
 
 	
 	pass # Replace with function body.

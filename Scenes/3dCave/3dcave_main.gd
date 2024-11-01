@@ -6,8 +6,8 @@ const scene_type = 1
 @export var max_lvl: int = 14
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
-@export var min_spawn_range: int = 350
-@export var max_spawn_range: int = 450
+@export var min_spawn_range: int = 15
+@export var max_spawn_range: int = 20
 @onready var _player_body = $Player
 var _spawned_npc  
 var spawn_request
@@ -19,10 +19,10 @@ func _ready() -> void:
 		print(sceneManager.last_scene)
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
-		_player_body.position = $CaveExit.position + Vector2(15,0)
+		_player_body.position = $CaveExit.position + Vector3(0,0,15)
 		print(sceneManager.last_scene)
-	if sceneManager.last_scene == "res://Scenes/Cave/cave_00b.tscn":
-		_player_body.position = $CaveRoyEntrance.position + Vector2(-15,0)
+	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_00b.tscn":
+		_player_body.position = $CaveRoyEntrance.position + Vector3(15,0,0)
 		print(sceneManager.last_scene)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

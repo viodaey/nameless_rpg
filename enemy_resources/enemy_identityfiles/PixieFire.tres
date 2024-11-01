@@ -120,3 +120,4 @@ lvl = 1
 atb = 110
 max_health = 0
 _abilties = Array[ExtResource("1_7vltv")]([])
+position_y_offset = 0.0

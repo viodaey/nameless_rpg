@@ -1,4 +1,4 @@
-extends Area2D
+extends Area3D
 
 @export var enemy : Resource
 @onready var _animated_sprite = $AnimatedSprite2D
@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node3D) -> void:
 	player.enemy_encounter = enemy.resource_path
 	player.position = _player_body.position
 	#AudioPlayer.play_music_level("res://musig/Battle_-_No_Way_Out.ogg")
