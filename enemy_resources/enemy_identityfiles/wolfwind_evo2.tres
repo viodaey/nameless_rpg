@@ -2,30 +2,31 @@
 
 [ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_6ku06"]
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="2_nyoh8"]
-[ext_resource type="SpriteFrames" uid="uid://w1vaf0a27naw" path="res://enemy_spriteframes/WolfWater_Evo_2sf.tres" id="3_0sthr"]
+[ext_resource type="SpriteFrames" uid="uid://c3mnc1uy1eo3" path="res://enemy_spriteframes/WolfWind_Evo_2sf.tres" id="3_urh62"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_po1ob"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="5_ge7jp"]
-[ext_resource type="Texture2D" uid="uid://ds4qkt5k3l06w" path="res://enemy_resources/enemy_texturefiles/canine/Waterwolf2.png" id="6_iegfe"]
+[ext_resource type="Texture2D" uid="uid://6yyurku0bgsj" path="res://enemy_resources/enemy_texturefiles/canine/Windwolf Evo 2 .png" id="6_fl4ov"]
 
 [resource]
 script = ExtResource("5_ge7jp")
 _name = "Windwolf Alpha"
-texture = ExtResource("6_iegfe")
+texture = ExtResource("6_fl4ov")
 evo_lvl = 12
 health = 35.0
 base_health = 30.0
 damage = 14.0
 critc = 5
 xp = 10
-speed = 40
+speed = 10
 music = "battle01"
 can_chill = true
 lifesteal = 0
-animatedSprite = ExtResource("3_0sthr")
+animatedSprite = ExtResource("3_urh62")
 affliction_type = ""
 affliction_chance = 0
 map_scale = 0.4
 collision_shape = ExtResource("4_po1ob")
+can_wander = true
 max_group_size = 3
 min_group_size = 1
 friends = Array[String]([])
@@ -36,3 +37,4 @@ lvl = 1
 atb = 110
 max_health = 0
 _abilties = Array[ExtResource("1_6ku06")]([])
+position_y_offset = 0.0

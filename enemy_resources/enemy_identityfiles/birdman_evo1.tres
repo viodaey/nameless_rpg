@@ -17,6 +17,7 @@ base_health = 30.0
 damage = 12.0
 critc = 5
 xp = 10
+speed = 10
 music = "battle01"
 can_chill = true
 lifesteal = 0

@@ -29,7 +29,7 @@ func _ready() -> void:
 		if player.last_exit == 'west':
 			_player_body.position = _H1Entranceback.position + Vector3(0,0,5)
 
-func _on_Cave_entrance_body_entered(body: Node3D) -> void:
+func _on_CaveEntrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
 		player.last_exit = 'overworld'
 		sceneManager.goto_scene("res://Scenes/3dCave/3dcave_001.tscn")
