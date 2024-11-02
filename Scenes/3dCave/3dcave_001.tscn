@@ -110,7 +110,7 @@ light_color = Color(0.390306, 0.222148, 0.187284, 1)
 light_energy = 0.341
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 510.709, 0.1, -75.2662)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 511.937, 0.1, -7.54227)
 script = ExtResource("4_ov045")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]

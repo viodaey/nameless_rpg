@@ -21,6 +21,7 @@ generated_type = 1
 name = "packed_albedo_height"
 albedo_texture = ExtResource("3_4n3fy")
 normal_texture = ExtResource("4_d4iyb")
+uv_scale = 0.05
 
 [sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_vkynj"]
 name = "packed_albedo_height"
