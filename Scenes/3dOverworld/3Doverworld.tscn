@@ -1,29 +1,29 @@
 [gd_scene load_steps=39 format=3 uid="uid://bccx782urtjhn"]
 
-[ext_resource type="Script" path="res://Scenes/Overworld/3doverworld_main.gd" id="1_f3uv4"]
-[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_5d31b"]
-[ext_resource type="Resource" uid="uid://d1y8eprvwt18s" path="res://enemy_resources/enemy_identityfiles/wolfearth_evo1.tres" id="3_pbcuk"]
-[ext_resource type="Resource" uid="uid://c8i7wb06r6rb" path="res://enemy_resources/enemy_identityfiles/orc_evo1.tres" id="4_tjnqw"]
-[ext_resource type="Resource" uid="uid://tqyg7cum5uao" path="res://enemy_resources/enemy_identityfiles/horseman_evo1.tres" id="5_to6y4"]
-[ext_resource type="Resource" uid="uid://di28wqrog2dc2" path="res://enemy_resources/enemy_identityfiles/ent.tres" id="6_moh50"]
-[ext_resource type="Resource" uid="uid://bqtd4aervcacs" path="res://enemy_resources/enemy_identityfiles/deadent.tres" id="7_0pd4n"]
-[ext_resource type="Resource" uid="uid://dkbwfc1rxwgmn" path="res://enemy_resources/enemy_identityfiles/warbear_evo1.tres" id="8_4rm6w"]
-[ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="9_c181s"]
-[ext_resource type="Terrain3DStorage" uid="uid://pn2u0sl4nano" path="res://terrain3d_resources/terrain_3d_storage.res" id="10_2hj0q"]
-[ext_resource type="Terrain3DMaterial" uid="uid://dge3kxkoh7syd" path="res://terrain3d_resources/terrain_3d_material.tres" id="11_8d4yb"]
-[ext_resource type="Terrain3DAssets" uid="uid://ggtkcr8t13k" path="res://terrain3d_resources/terrain_3d_assets.tres" id="12_bpohc"]
-[ext_resource type="Script" path="res://Scenes/Overworld/3dcharacter_body.gd" id="13_wk6ks"]
-[ext_resource type="SpriteFrames" uid="uid://jtk22f2psyhj" path="res://Scenes/Overworld/Playerbody_SF.tres" id="14_v7pgr"]
-[ext_resource type="Script" path="res://addons/waterways_net/RiverManager.cs" id="15_4bexd"]
-[ext_resource type="Texture2D" uid="uid://b85tlq8wcklbo" path="res://addons/waterways_net/Textures/water_normal_bump.png" id="16_gyxte"]
-[ext_resource type="Script" path="res://addons/waterways_net/Data/RiverShaderSettings.cs" id="17_41ba2"]
-[ext_resource type="Texture2D" uid="uid://cbg7h3fsecjjl" path="res://textures/Objects/H1.png" id="18_kf7qx"]
-[ext_resource type="Texture2D" uid="uid://cosgk8bcrlbt0" path="res://textures/Objects/Dock.png" id="19_s66hs"]
-[ext_resource type="Texture2D" uid="uid://l0fpotjrnhnh" path="res://Scenes/Cave/Black.png" id="20_ewv2e"]
-[ext_resource type="SpriteFrames" uid="uid://cikw515l1ch0k" path="res://enemy_spriteframes/HoodedFigure_sf.tres" id="20_qjilx"]
-[ext_resource type="SpriteFrames" uid="uid://dfj11x1cnrhcx" path="res://enemy_spriteframes/Knight_sf.tres" id="21_kx6y4"]
-[ext_resource type="Texture2D" uid="uid://tlc7dpt1thgf" path="res://textures/Terrain/mountain1c.png" id="22_lsdq5"]
-[ext_resource type="Texture2D" uid="uid://ijvw68j4ekxw" path="res://textures/carpentry/woodenFlooring.png" id="23_l2ach"]
+[ext_resource type="Script" path="res://Scenes/Overworld/3doverworld_main.gd" id="1_der68"]
+[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_j7gyc"]
+[ext_resource type="Resource" uid="uid://d1y8eprvwt18s" path="res://enemy_resources/enemy_identityfiles/wolfearth_evo1.tres" id="3_keqlm"]
+[ext_resource type="Resource" uid="uid://c8i7wb06r6rb" path="res://enemy_resources/enemy_identityfiles/orc_evo1.tres" id="4_dwpnh"]
+[ext_resource type="Resource" uid="uid://tqyg7cum5uao" path="res://enemy_resources/enemy_identityfiles/horseman_evo1.tres" id="5_cgedr"]
+[ext_resource type="Resource" uid="uid://di28wqrog2dc2" path="res://enemy_resources/enemy_identityfiles/ent.tres" id="6_irj3w"]
+[ext_resource type="Resource" uid="uid://bqtd4aervcacs" path="res://enemy_resources/enemy_identityfiles/deadent.tres" id="7_bdtjj"]
+[ext_resource type="Resource" uid="uid://dkbwfc1rxwgmn" path="res://enemy_resources/enemy_identityfiles/warbear_evo1.tres" id="8_2kc7s"]
+[ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="9_ut1lm"]
+[ext_resource type="Terrain3DStorage" uid="uid://pn2u0sl4nano" path="res://terrain3d_resources/terrain_3d_storage.res" id="10_6lybs"]
+[ext_resource type="Terrain3DMaterial" uid="uid://dge3kxkoh7syd" path="res://terrain3d_resources/terrain_3d_material.tres" id="11_60mgo"]
+[ext_resource type="Terrain3DAssets" uid="uid://ggtkcr8t13k" path="res://terrain3d_resources/terrain_3d_assets.tres" id="12_h332e"]
+[ext_resource type="Script" path="res://addons/waterways_net/RiverManager.cs" id="13_85v3n"]
+[ext_resource type="Texture2D" uid="uid://b85tlq8wcklbo" path="res://addons/waterways_net/Textures/water_normal_bump.png" id="14_lff8p"]
+[ext_resource type="Script" path="res://addons/waterways_net/Data/RiverShaderSettings.cs" id="15_1fsvq"]
+[ext_resource type="Script" path="res://Scenes/Overworld/3dcharacter_body.gd" id="16_35k6e"]
+[ext_resource type="SpriteFrames" uid="uid://jtk22f2psyhj" path="res://Scenes/Overworld/Playerbody_SF.tres" id="17_x1ww4"]
+[ext_resource type="SpriteFrames" uid="uid://dfj11x1cnrhcx" path="res://enemy_spriteframes/Knight_sf.tres" id="18_sbdxe"]
+[ext_resource type="Texture2D" uid="uid://l0fpotjrnhnh" path="res://Scenes/Cave/Black.png" id="19_4g6cj"]
+[ext_resource type="Texture2D" uid="uid://tlc7dpt1thgf" path="res://textures/Terrain/mountain1c.png" id="20_i0nof"]
+[ext_resource type="Texture2D" uid="uid://cosgk8bcrlbt0" path="res://textures/Objects/Dock.png" id="21_2xkea"]
+[ext_resource type="Texture2D" uid="uid://ijvw68j4ekxw" path="res://textures/carpentry/woodenFlooring.png" id="22_554jo"]
+[ext_resource type="SpriteFrames" uid="uid://cikw515l1ch0k" path="res://enemy_spriteframes/HoodedFigure_sf.tres" id="23_65lfy"]
+[ext_resource type="Texture2D" uid="uid://cbg7h3fsecjjl" path="res://textures/Objects/H1.png" id="24_b0vkk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h5yrn"]
 
@@ -36,8 +36,8 @@ sky = SubResource("Sky_k21ws")
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
-[sub_resource type="Resource" id="Resource_n0fpn"]
-script = ExtResource("17_41ba2")
+[sub_resource type="Resource" id="Resource_xd6x7"]
+script = ExtResource("15_1fsvq")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
 mat_albedo_color_first = Color(0.6, 0.7, 0.65, 1)
@@ -48,7 +48,7 @@ mat_transparency_clarity = 0.0
 mat_transparency_depth_curve = 1.6245
 mat_transparency_refraction = -0.00599995
 mat_normal_scale = -14.201
-mat_normal_bump_texture = ExtResource("16_gyxte")
+mat_normal_bump_texture = ExtResource("14_lff8p")
 mat_flow_speed = 0.015
 mat_flow_base = 8.0
 mat_flow_steepness = 8.0
@@ -65,7 +65,7 @@ mat_edge_fade = 0.454
 LodLod0Distance = 50.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_tykn7"]
+[sub_resource type="Curve3D" id="Curve3D_pi7ng"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -83,7 +83,7 @@ size = Vector3(0.001, 1, 1)
 size = Vector3(15.6608, 9.24354, 0.001)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v18bb"]
-albedo_texture = ExtResource("23_l2ach")
+albedo_texture = ExtResource("22_554jo")
 uv1_scale = Vector3(8, 8, 8)
 
 [sub_resource type="QuadMesh" id="QuadMesh_ypipv"]
@@ -101,9 +101,9 @@ size = Vector3(6.37515, 4.23935, 1)
 size = Vector3(2.63522, 1, 1)
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_f3uv4")
-world_enemies = Array[ExtResource("2_5d31b")]([ExtResource("3_pbcuk"), ExtResource("4_tjnqw"), ExtResource("5_to6y4"), ExtResource("6_moh50"), ExtResource("7_0pd4n"), ExtResource("8_4rm6w")])
-battle_bg = ExtResource("9_c181s")
+script = ExtResource("1_der68")
+world_enemies = Array[ExtResource("2_j7gyc")]([ExtResource("3_keqlm"), ExtResource("4_dwpnh"), ExtResource("5_cgedr"), ExtResource("6_irj3w"), ExtResource("7_bdtjj"), ExtResource("8_2kc7s")])
+battle_bg = ExtResource("9_ut1lm")
 max_spawn_range = 25
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -113,23 +113,23 @@ environment = SubResource("Environment_0g2g2")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
-storage = ExtResource("10_2hj0q")
-material = ExtResource("11_8d4yb")
-assets = ExtResource("12_bpohc")
+storage = ExtResource("10_6lybs")
+material = ExtResource("11_60mgo")
+assets = ExtResource("12_h332e")
 
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(0.761577, 0, -1138.87, 0, 35.0583, 0, 103.155, 0, 8.40808, -938.821, -2.60174, -1631.89)
-script = ExtResource("15_4bexd")
-ShaderSettings = SubResource("Resource_n0fpn")
+script = ExtResource("13_85v3n")
+ShaderSettings = SubResource("Resource_xd6x7")
 ShapeStepLengthDivs = 7
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 9.62877]
-Curve = SubResource("Curve3D_tykn7")
+Curve = SubResource("Curve3D_pi7ng")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -933.379, 0.6, -1475.42)
-script = ExtResource("13_wk6ks")
+script = ExtResource("16_35k6e")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(0.970874, 0, 0, 0, -4.24383e-08, 0.970874, 0, -0.970874, -4.24383e-08, 0, 10, 0)
@@ -149,14 +149,14 @@ target_position = Vector3(0, 0.2, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
 transform = Transform3D(30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 0.6, 0)
-sprite_frames = ExtResource("14_v7pgr")
+sprite_frames = ExtResource("17_x1ww4")
 animation = &"idledown"
 
 [node name="Knight" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(2.4, 0, 0, 0, -1.04907e-07, 2.4, 0, -2.4, -1.04907e-07, -921.187, 0.265998, -1491.92)
 alpha_cut = 3
 texture_filter = 1
-sprite_frames = ExtResource("21_kx6y4")
+sprite_frames = ExtResource("18_sbdxe")
 animation = &"idle"
 autoplay = "idle"
 
@@ -178,19 +178,19 @@ shape = SubResource("BoxShape3D_bdg2r")
 transform = Transform3D(13.9466, 0, 0, 0, -7.65276e-07, 9.44918, 0, -17.5075, -4.13036e-07, 1.28418, 0.399992, -25.6774)
 alpha_cut = 3
 texture_filter = 1
-texture = ExtResource("20_ewv2e")
+texture = ExtResource("19_4g6cj")
 
 [node name="Mountain" type="Sprite3D" parent="."]
 transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -686.731, 0.4, -1457.78)
 alpha_cut = 3
 texture_filter = 1
-texture = ExtResource("22_lsdq5")
+texture = ExtResource("20_i0nof")
 
 [node name="Mountain2" type="Sprite3D" parent="."]
 transform = Transform3D(7.56559, 0, 0, 0, -2.233e-07, 7.5, 0, -5.10851, -3.27835e-07, -892.113, 0.379254, -1509.9)
 alpha_cut = 3
 texture_filter = 1
-texture = ExtResource("22_lsdq5")
+texture = ExtResource("20_i0nof")
 region_enabled = true
 region_rect = Rect2(0, 0, 3264, 2056)
 
@@ -198,13 +198,13 @@ region_rect = Rect2(0, 0, 3264, 2056)
 transform = Transform3D(7.7835, 0, 0, 0, -3.37654e-07, 7.10606, 0, -7.72463, -3.10616e-07, -466.409, 0.4, -1403.18)
 alpha_cut = 3
 texture_filter = 1
-texture = ExtResource("22_lsdq5")
+texture = ExtResource("20_i0nof")
 
 [node name="Mountain5" type="Sprite3D" parent="."]
 transform = Transform3D(7.5, 0, 0, 0, -2.76018e-07, 7.5, 0, -6.31456, -3.27835e-07, -1033.53, 0.5, -1533.8)
 alpha_cut = 3
 texture_filter = 1
-texture = ExtResource("22_lsdq5")
+texture = ExtResource("20_i0nof")
 region_enabled = true
 region_rect = Rect2(0, 0, 3264, 2056)
 
@@ -212,7 +212,7 @@ region_rect = Rect2(0, 0, 3264, 2056)
 transform = Transform3D(-7.66378, 0, 0, 0, -2.80459e-07, 7.5, 0, -6.41617, -3.27835e-07, -808.253, 0.508926, -1533.26)
 alpha_cut = 3
 texture_filter = 1
-texture = ExtResource("22_lsdq5")
+texture = ExtResource("20_i0nof")
 region_enabled = true
 region_rect = Rect2(0, 0, 3264, 2056)
 
@@ -220,7 +220,7 @@ region_rect = Rect2(0, 0, 3264, 2056)
 transform = Transform3D(17.5, 0, 0, 0, -7.64949e-07, 17.5, 0, -17.5, -7.64949e-07, -955.203, -0.03, -1465.42)
 alpha_cut = 3
 texture_filter = 1
-texture = ExtResource("19_s66hs")
+texture = ExtResource("21_2xkea")
 
 [node name="MeshInstance3D48" type="MeshInstance3D" parent="Dock"]
 transform = Transform3D(-0.026968, 0, 0, 0, 0.00826257, -4.99558e-09, 0, 7.22337e-10, 0.0571428, 0.0690041, 0, -0.000185956)
@@ -238,14 +238,14 @@ shape = SubResource("ConcavePolygonShape3D_s0gyw")
 transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, 0.28, 0, -0.28, -1.22392e-08, -963.968, 0.306459, -1465.8)
 alpha_cut = 3
 texture_filter = 1
-sprite_frames = ExtResource("20_qjilx")
+sprite_frames = ExtResource("23_65lfy")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="H1" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -921.334, 0.2, -1462.93)
 alpha_cut = 3
-texture = ExtResource("18_kf7qx")
+texture = ExtResource("24_b0vkk")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
