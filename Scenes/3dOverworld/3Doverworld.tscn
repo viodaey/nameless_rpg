@@ -36,7 +36,7 @@ sky = SubResource("Sky_k21ws")
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
-[sub_resource type="Resource" id="Resource_bbc1d"]
+[sub_resource type="Resource" id="Resource_inftt"]
 script = ExtResource("17_41ba2")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
@@ -65,7 +65,7 @@ mat_edge_fade = 0.454
 LodLod0Distance = 50.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_52wuj"]
+[sub_resource type="Curve3D" id="Curve3D_ndyu6"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -82,12 +82,6 @@ size = Vector3(0.001, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bdg2r"]
 size = Vector3(15.6608, 9.24354, 0.001)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nvrgo"]
-size = Vector3(6.37515, 4.23935, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_rcogi"]
-size = Vector3(2.63522, 1, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v18bb"]
 albedo_texture = ExtResource("23_l2ach")
 uv1_scale = Vector3(8, 8, 8)
@@ -96,7 +90,15 @@ uv1_scale = Vector3(8, 8, 8)
 size = Vector2(40, 20)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s0gyw"]
+margin = 9.356
 data = PackedVector3Array(20, -10, 0, -20, -10, 0, 20, 10, 0, -20, -10, 0, -20, 10, 0, 20, 10, 0)
+backface_collision = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvrgo"]
+size = Vector3(6.37515, 4.23935, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rcogi"]
+size = Vector3(2.63522, 1, 1)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_f3uv4")
@@ -118,15 +120,15 @@ assets = ExtResource("12_bpohc")
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(0.761577, 0, -1138.87, 0, 35.0583, 0, 103.155, 0, 8.40808, -938.821, -2.60174, -1631.89)
 script = ExtResource("15_4bexd")
-ShaderSettings = SubResource("Resource_bbc1d")
+ShaderSettings = SubResource("Resource_inftt")
 ShapeStepLengthDivs = 7
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 9.62877]
-Curve = SubResource("Curve3D_52wuj")
+Curve = SubResource("Curve3D_ndyu6")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -933.379, 0.1, -1475.42)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -933.379, 0.6, -1475.42)
 script = ExtResource("13_wk6ks")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
@@ -134,8 +136,8 @@ transform = Transform3D(0.970874, 0, 0, 0, -4.24383e-08, 0.970874, 0, -0.970874,
 projection = 1
 fov = 168.0
 size = 70.769
-near = 0.041
-far = 11.51
+near = 0.019
+far = 38.07
 
 [node name="CollisionPolygon3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155518, 1.60785, 0.0849609)
@@ -146,7 +148,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664063, 0, -0.0214844)
 target_position = Vector3(0, 0.2, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
-transform = Transform3D(30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 0, 0)
+transform = Transform3D(30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 0.6, 0)
 sprite_frames = ExtResource("14_v7pgr")
 animation = &"idledown"
 
@@ -215,13 +217,25 @@ region_enabled = true
 region_rect = Rect2(0, 0, 3264, 2056)
 
 [node name="Dock" type="Sprite3D" parent="."]
-transform = Transform3D(17.5, 0, 0, 0, -7.64949e-07, 17.5, 0, -17.5, -7.64949e-07, -955.203, -1, -1465.42)
+transform = Transform3D(17.5, 0, 0, 0, -7.64949e-07, 17.5, 0, -17.5, -7.64949e-07, -955.203, -0.03, -1465.42)
 alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("19_s66hs")
 
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="Dock"]
+transform = Transform3D(-0.026968, 0, 0, 0, 0.00826257, -4.99558e-09, 0, 7.22337e-10, 0.0571428, 0.0690041, 0, -0.000185956)
+visible = false
+material_override = SubResource("StandardMaterial3D_v18bb")
+mesh = SubResource("QuadMesh_ypipv")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Dock/MeshInstance3D48"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dock/MeshInstance3D48/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_s0gyw")
+
 [node name="Hooded Figure" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, 0.28, 0, -0.28, -1.22392e-08, -963.968, -0.0347621, -1465.8)
+transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, 0.28, 0, -0.28, -1.22392e-08, -963.968, 0.306459, -1465.8)
 alpha_cut = 3
 texture_filter = 1
 sprite_frames = ExtResource("20_qjilx")
@@ -262,6 +276,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 shape = SubResource("BoxShape3D_rcogi")
 
 [node name="Inviswalls" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Inviswalls"]
 transform = Transform3D(0.747381, 0, 66.4396, 0, 1, 0, -0.664396, 0, 74.7381, -943.93, 4.052, -1484.96)
