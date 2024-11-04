@@ -5,8 +5,8 @@
 [ext_resource type="Resource" uid="uid://d1y8eprvwt18s" path="res://enemy_resources/enemy_identityfiles/wolfearth_evo1.tres" id="3_keqlm"]
 [ext_resource type="Resource" uid="uid://c8i7wb06r6rb" path="res://enemy_resources/enemy_identityfiles/orc_evo1.tres" id="4_dwpnh"]
 [ext_resource type="Resource" uid="uid://tqyg7cum5uao" path="res://enemy_resources/enemy_identityfiles/horseman_evo1.tres" id="5_cgedr"]
-[ext_resource type="Resource" uid="uid://di28wqrog2dc2" path="res://enemy_resources/enemy_identityfiles/Ent.tres" id="6_irj3w"]
-[ext_resource type="Resource" uid="uid://bqtd4aervcacs" path="res://enemy_resources/enemy_identityfiles/DeadEnt.tres" id="7_bdtjj"]
+[ext_resource type="Resource" uid="uid://di28wqrog2dc2" path="res://enemy_resources/enemy_identityfiles/ent.tres" id="6_irj3w"]
+[ext_resource type="Resource" uid="uid://bqtd4aervcacs" path="res://enemy_resources/enemy_identityfiles/deadent.tres" id="7_bdtjj"]
 [ext_resource type="Resource" uid="uid://dkbwfc1rxwgmn" path="res://enemy_resources/enemy_identityfiles/warbear_evo1.tres" id="8_2kc7s"]
 [ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="9_ut1lm"]
 [ext_resource type="Terrain3DStorage" uid="uid://pn2u0sl4nano" path="res://terrain3d_resources/terrain_3d_storage.res" id="10_6lybs"]
@@ -36,7 +36,7 @@ sky = SubResource("Sky_k21ws")
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
-[sub_resource type="Resource" id="Resource_grfnb"]
+[sub_resource type="Resource" id="Resource_661q1"]
 script = ExtResource("15_1fsvq")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
@@ -65,7 +65,7 @@ mat_edge_fade = 0.454
 LodLod0Distance = 50.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_vj47l"]
+[sub_resource type="Curve3D" id="Curve3D_idgkg"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -110,7 +110,7 @@ max_spawn_range = 25
 environment = SubResource("Environment_0g2g2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 329.012, 0, -465.114)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 storage = ExtResource("10_6lybs")
@@ -118,17 +118,17 @@ material = ExtResource("11_60mgo")
 assets = ExtResource("12_h332e")
 
 [node name="RiverManager" type="Node3D" parent="."]
-transform = Transform3D(0.761577, 0, -1138.87, 0, 35.0583, 0, 103.155, 0, 8.40808, -938.821, -2.60174, -1631.89)
+transform = Transform3D(0.541771, 0, -1136.44, 0, 35.0583, 0, 73.3824, 0, 8.39016, -609.809, -2.60174, -1993.24)
 script = ExtResource("13_85v3n")
-ShaderSettings = SubResource("Resource_grfnb")
+ShaderSettings = SubResource("Resource_661q1")
 ShapeStepLengthDivs = 7
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 9.62877]
-Curve = SubResource("Curve3D_vj47l")
+Curve = SubResource("Curve3D_idgkg")
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -933.379, 0.6, -1475.42)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -604.367, 0.6, -1940.53)
 script = ExtResource("16_35k6e")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
@@ -153,7 +153,7 @@ sprite_frames = ExtResource("17_x1ww4")
 animation = &"idledown"
 
 [node name="Knight" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(2.4, 0, 0, 0, -1.04907e-07, 2.4, 0, -2.4, -1.04907e-07, -921.187, 0.265998, -1491.92)
+transform = Transform3D(2.4, 0, 0, 0, -1.04907e-07, 2.4, 0, -2.4, -1.04907e-07, -592.175, 0.265998, -1957.03)
 alpha_cut = 3
 texture_filter = 1
 sprite_frames = ExtResource("18_sbdxe")
@@ -168,7 +168,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.81906, -1.59909, 0)
 shape = SubResource("BoxShape3D_y7q7m")
 
 [node name="CaveEntrance" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -923.675, 0, -1496.58)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -594.663, 0, -1961.69)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CaveEntrance"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24731, 0, -0.756714)
@@ -181,13 +181,13 @@ texture_filter = 1
 texture = ExtResource("19_4g6cj")
 
 [node name="Mountain" type="Sprite3D" parent="."]
-transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -686.731, 0.4, -1457.78)
+transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -357.719, 0.4, -1922.89)
 alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("20_i0nof")
 
 [node name="Mountain2" type="Sprite3D" parent="."]
-transform = Transform3D(7.56559, 0, 0, 0, -2.233e-07, 7.5, 0, -5.10851, -3.27835e-07, -892.113, 0.379254, -1509.9)
+transform = Transform3D(7.56559, 0, 0, 0, -2.233e-07, 7.5, 0, -5.10851, -3.27835e-07, -563.101, 0.379254, -1975.01)
 alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("20_i0nof")
@@ -195,13 +195,13 @@ region_enabled = true
 region_rect = Rect2(0, 0, 3264, 2056)
 
 [node name="Mountain3" type="Sprite3D" parent="."]
-transform = Transform3D(7.7835, 0, 0, 0, -3.37654e-07, 7.10606, 0, -7.72463, -3.10616e-07, -466.409, 0.4, -1403.18)
+transform = Transform3D(7.7835, 0, 0, 0, -3.37654e-07, 7.10606, 0, -7.72463, -3.10616e-07, -137.397, 0.4, -1868.29)
 alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("20_i0nof")
 
 [node name="Mountain5" type="Sprite3D" parent="."]
-transform = Transform3D(7.5, 0, 0, 0, -2.76018e-07, 7.5, 0, -6.31456, -3.27835e-07, -1033.53, 0.5, -1533.8)
+transform = Transform3D(7.5, 0, 0, 0, -2.76018e-07, 7.5, 0, -6.31456, -3.27835e-07, -704.518, 0.5, -1998.91)
 alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("20_i0nof")
@@ -209,7 +209,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 3264, 2056)
 
 [node name="Mountain6" type="Sprite3D" parent="."]
-transform = Transform3D(-7.66378, 0, 0, 0, -2.80459e-07, 7.5, 0, -6.41617, -3.27835e-07, -808.253, 0.508926, -1533.26)
+transform = Transform3D(-7.66378, 0, 0, 0, -2.80459e-07, 7.5, 0, -6.41617, -3.27835e-07, -479.241, 0.508926, -1998.37)
 alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("20_i0nof")
@@ -217,7 +217,7 @@ region_enabled = true
 region_rect = Rect2(0, 0, 3264, 2056)
 
 [node name="Dock" type="Sprite3D" parent="."]
-transform = Transform3D(17.5, 0, 0, 0, -7.64949e-07, 17.5, 0, -17.5, -7.64949e-07, -955.203, -0.03, -1465.42)
+transform = Transform3D(17.5, 0, 0, 0, -7.64949e-07, 17.5, 0, -17.5, -7.64949e-07, -626.191, -0.03, -1930.53)
 alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("21_2xkea")
@@ -235,7 +235,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
 
 [node name="Hooded Figure" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, 0.28, 0, -0.28, -1.22392e-08, -963.968, 0.306459, -1465.8)
+transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, 0.28, 0, -0.28, -1.22392e-08, -634.956, 0.306459, -1930.91)
 alpha_cut = 3
 texture_filter = 1
 sprite_frames = ExtResource("23_65lfy")
@@ -243,7 +243,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="H1" type="Sprite3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -921.334, 0.2, -1462.93)
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -592.322, 0.2, -1928.04)
 alpha_cut = 3
 texture = ExtResource("24_b0vkk")
 metadata/_aseprite_wizard_interface_config_ = {
@@ -261,7 +261,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0.940002
 shape = SubResource("BoxShape3D_nvrgo")
 
 [node name="H1Entrancefront" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -922.249, 0.2, -1455.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -593.237, 0.2, -1920.71)
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="H1Entrancefront"]
@@ -269,13 +269,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.817627, 0, 0)
 shape = SubResource("BoxShape3D_rcogi")
 
 [node name="H1Entranceback" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -929.015, 0.2, -1461.61)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600.003, 0.2, -1926.72)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="H1Entranceback"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_rcogi")
 
 [node name="Inviswalls" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 329.012, 0, -465.114)
 visible = false
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Inviswalls"]
@@ -674,63 +675,8 @@ skeleton = NodePath("../MeshInstance3D4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D16/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
 
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(11.8228, 0.0111646, 0.156058, -0.123882, 0.847179, -0.0326797, -1.38845, 0.0194802, 1.33177, -1819.94, 6.30491, -1115.46)
-material_override = SubResource("StandardMaterial3D_v18bb")
-mesh = SubResource("QuadMesh_ypipv")
-skeleton = NodePath("../MeshInstance3D4")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Inviswalls/MeshInstance3D17"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D17/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0gyw")
-
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(1.64618, 0.0232683, 4.46395, -0.0374134, 0.880234, -0.122393, -3.19612, 0.0016805, 2.30062, -2002.18, 7.91088, -1040.82)
-material_override = SubResource("StandardMaterial3D_v18bb")
-mesh = SubResource("QuadMesh_ypipv")
-skeleton = NodePath("../MeshInstance3D4")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Inviswalls/MeshInstance3D18"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D18/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0gyw")
-
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(-2.32129, 0.0108645, 2.43194, -0.0383765, 0.876955, -0.0762633, -2.86543, -0.0205464, -1.9691, -1969.74, 4.94293, -971.11)
-material_override = SubResource("StandardMaterial3D_v18bb")
-mesh = SubResource("QuadMesh_ypipv")
-skeleton = NodePath("../MeshInstance3D4")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Inviswalls/MeshInstance3D19"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D19/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0gyw")
-
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(1.28849, 0.0232024, 3.05418, -0.0300894, 0.876954, -0.0831589, -2.58839, 0.00135567, 1.52133, -1949.57, 6.31216, -863.337)
-material_override = SubResource("StandardMaterial3D_v18bb")
-mesh = SubResource("QuadMesh_ypipv")
-skeleton = NodePath("../MeshInstance3D4")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Inviswalls/MeshInstance3D20"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D20/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0gyw")
-
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(3.68537, 0.00836177, -0.111855, -0.0383765, 0.876955, -0.0762633, 0.130885, 0.0216857, 3.12717, -2048.86, 7.18803, -815.8)
-material_override = SubResource("StandardMaterial3D_v18bb")
-mesh = SubResource("QuadMesh_ypipv")
-skeleton = NodePath("../MeshInstance3D4")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Inviswalls/MeshInstance3D21"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D21/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0gyw")
-
 [node name="MeshInstance3D22" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(-0.418242, 0.0211411, 2.1913, -0.301547, 0.872818, -0.0534112, -28.9733, -0.00938926, -0.0310755, -2045.79, 9.56378, -595.981)
+transform = Transform3D(-1.14107e-06, 0, 2.18909, 0, 0.872194, 0, -26.1046, 0, -9.56881e-08, -1351.01, 7.83776, -1106)
 material_override = SubResource("StandardMaterial3D_v18bb")
 mesh = SubResource("QuadMesh_ypipv")
 skeleton = NodePath("../MeshInstance3D4")
@@ -741,7 +687,7 @@ skeleton = NodePath("../MeshInstance3D4")
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
 
 [node name="MeshInstance3D45" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(-0.164873, 0, -2.19214, 0, 0.873124, 0, 28.9774, 0, -0.0124726, 1020.71, 9.56378, -566.191)
+transform = Transform3D(-0.150111, 0, -2.19326, 0, 0.873124, 0, 26.3829, 0, -0.012479, -328.218, 9.56378, -1063.11)
 material_override = SubResource("StandardMaterial3D_v18bb")
 mesh = SubResource("QuadMesh_ypipv")
 skeleton = NodePath("../MeshInstance3D4")
@@ -752,7 +698,7 @@ skeleton = NodePath("../MeshInstance3D4")
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
 
 [node name="MeshInstance3D44" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(81.6341, 7.83452e-08, 0, -7.13668e-06, 0.896164, 0, 0, 0, -2.19217, -512.803, 5.15848, -4.06469)
+transform = Transform3D(-26.0565, 7.83452e-08, 0, 2.27793e-06, 0.896164, 0, 0, 0, -2.19217, -835.604, 5.15848, -560.832)
 material_override = SubResource("StandardMaterial3D_v18bb")
 mesh = SubResource("QuadMesh_ypipv")
 skeleton = NodePath("../MeshInstance3D4")
@@ -762,19 +708,8 @@ skeleton = NodePath("../MeshInstance3D4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D44/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
 
-[node name="MeshInstance3D46" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(0.119363, 0, -2.19215, 0, 0.873124, 0, 28.9776, 0, 0.00902975, 1021.89, 9.56378, -1706.39)
-material_override = SubResource("StandardMaterial3D_v18bb")
-mesh = SubResource("QuadMesh_ypipv")
-skeleton = NodePath("../MeshInstance3D4")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Inviswalls/MeshInstance3D46"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D46/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0gyw")
-
 [node name="MeshInstance3D47" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(35.7569, 0, -0.0510969, 0, 0.873124, 0, 0.838282, 0, 2.17953, 314.513, 6.99144, -1357.55)
+transform = Transform3D(4.15816, 0, -0.0521555, 0, 0.873124, 0, 0.0974835, 0, 2.22468, -307.958, 6.99144, -1357.55)
 material_override = SubResource("StandardMaterial3D_v18bb")
 mesh = SubResource("QuadMesh_ypipv")
 skeleton = NodePath("../MeshInstance3D4")
