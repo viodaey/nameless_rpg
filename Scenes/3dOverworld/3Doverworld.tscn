@@ -36,7 +36,7 @@ sky = SubResource("Sky_k21ws")
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
-[sub_resource type="Resource" id="Resource_kftkk"]
+[sub_resource type="Resource" id="Resource_nkid1"]
 script = ExtResource("15_1fsvq")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
@@ -65,7 +65,7 @@ mat_edge_fade = 0.454
 LodLod0Distance = 50.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_nqhaf"]
+[sub_resource type="Curve3D" id="Curve3D_63gt3"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -120,12 +120,12 @@ assets = ExtResource("12_h332e")
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(0.541771, 0, -1136.44, 0, 35.0583, 0, 73.3824, 0, 8.39016, -609.809, -2.60174, -1993.24)
 script = ExtResource("13_85v3n")
-ShaderSettings = SubResource("Resource_kftkk")
+ShaderSettings = SubResource("Resource_nkid1")
 ShapeStepLengthDivs = 7
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 9.62877]
-Curve = SubResource("Curve3D_nqhaf")
+Curve = SubResource("Curve3D_63gt3")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -604.367, 0.6, -1940.53)
@@ -531,39 +531,6 @@ skeleton = NodePath("../MeshInstance3D4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D40/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
 
-[node name="MeshInstance3D41" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(0.32038, 0, 75.2279, 0, 1, 0, -0.440222, 0, 54.7486, -378.045, 7.09625, -1345.85)
-material_override = SubResource("StandardMaterial3D_v18bb")
-mesh = SubResource("QuadMesh_ypipv")
-skeleton = NodePath("../MeshInstance3D4")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Inviswalls/MeshInstance3D41"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D41/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0gyw")
-
-[node name="MeshInstance3D42" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(0.216767, 0, 63.8361, 0, 1, 0, -0.250755, 0, 55.1835, -369.505, 7.86434, -1357.16)
-material_override = SubResource("StandardMaterial3D_v18bb")
-mesh = SubResource("QuadMesh_ypipv")
-skeleton = NodePath("../MeshInstance3D4")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Inviswalls/MeshInstance3D42"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D42/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0gyw")
-
-[node name="MeshInstance3D43" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(0.0181099, 0, 84.2557, 0, 1, 0, -0.330965, 0, 4.61031, -365.062, 6.96675, -1368.48)
-material_override = SubResource("StandardMaterial3D_v18bb")
-mesh = SubResource("QuadMesh_ypipv")
-skeleton = NodePath("../MeshInstance3D4")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Inviswalls/MeshInstance3D43"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D43/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0gyw")
-
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="Inviswalls"]
 transform = Transform3D(-1.60599e-08, 0, 100, 0, 1, 0, -0.367408, 0, -4.37114e-06, -963.335, 0, -1466.95)
 material_override = SubResource("StandardMaterial3D_v18bb")
@@ -675,7 +642,7 @@ skeleton = NodePath("../MeshInstance3D4")
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
 
 [node name="MeshInstance3D22" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(-1.14107e-06, 0, 2.18909, 0, 0.872194, 0, -26.1046, 0, -9.56881e-08, -1351.01, 7.83776, -1106)
+transform = Transform3D(-1.14107e-06, 0, 2.18909, 0, 0.872194, 0, -26.1046, 0, -9.56881e-08, -1285.72, 7.83776, -1106)
 material_override = SubResource("StandardMaterial3D_v18bb")
 mesh = SubResource("QuadMesh_ypipv")
 skeleton = NodePath("../MeshInstance3D4")
@@ -686,7 +653,7 @@ skeleton = NodePath("../MeshInstance3D4")
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
 
 [node name="MeshInstance3D45" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(-0.117499, 0, -1.71677, 0, 0.683436, 0, 20.6512, 0, -0.00976791, -331.158, 9.56378, -969.656)
+transform = Transform3D(-0.117499, 0, -1.71677, 0, 0.683436, 0, 20.6512, 0, -0.00976791, -395.663, 7.09849, -970.478)
 material_override = SubResource("StandardMaterial3D_v18bb")
 mesh = SubResource("QuadMesh_ypipv")
 skeleton = NodePath("../MeshInstance3D4")
@@ -697,7 +664,7 @@ skeleton = NodePath("../MeshInstance3D4")
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
 
 [node name="MeshInstance3D44" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(-26.0565, 7.83452e-08, 0, 2.27793e-06, 0.896164, 0, 0, 0, -2.19217, -835.604, 5.15848, -560.832)
+transform = Transform3D(-26.0565, 7.83452e-08, 0, 2.27793e-06, 0.896164, 0, 0, 0, -2.19217, -835.604, 5.15848, -622.399)
 material_override = SubResource("StandardMaterial3D_v18bb")
 mesh = SubResource("QuadMesh_ypipv")
 skeleton = NodePath("../MeshInstance3D4")
@@ -705,17 +672,6 @@ skeleton = NodePath("../MeshInstance3D4")
 [node name="StaticBody3D" type="StaticBody3D" parent="Inviswalls/MeshInstance3D44"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D44/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0gyw")
-
-[node name="MeshInstance3D47" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(4.15816, 0, -0.0521555, 0, 0.873124, 0, 0.0974835, 0, 2.22468, -307.958, 6.99144, -1357.55)
-material_override = SubResource("StandardMaterial3D_v18bb")
-mesh = SubResource("QuadMesh_ypipv")
-skeleton = NodePath("../MeshInstance3D4")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Inviswalls/MeshInstance3D47"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D47/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
 
 [connection signal="body_entered" from="CaveEntrance" to="." method="_on_CaveEntrance_body_entered"]
