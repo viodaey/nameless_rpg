@@ -1,7 +1,7 @@
 extends Area3D
 
 @export var enemy : Resource
-@onready var _animated_sprite = $AnimatedSprite2D
+#@onready var _animated_sprite = $AnimatedSprite2D
 @onready var _player_body = get_parent().get_node("Player")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

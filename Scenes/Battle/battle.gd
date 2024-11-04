@@ -427,6 +427,7 @@ func _await_selection():
 			enemyDict[i]["cont"].get_node("Select").modulate.a = 0
 		_selector_tween.kill()
 		targetList = [enemyList[x]]
+		y = enemyList[x]
 		if targetCount > 1 and len(enemyList) > 1:
 			targetList.append(enemyList[(x + 1) % len(enemyList)])
 		if targetCount > 2 and len(enemyList) > 2:
