@@ -72,9 +72,9 @@ func handle_animation():
 
 func spawn_npcs():
 	print("passed check to spawn")
-	var rng = RandomNumberGenerator.new()
+	rng = RandomNumberGenerator.new()
 	for i in rng.randi_range(1, 2):
-		var vec_target = await _spawn_npc_loc()
+		var vec_target = _spawn_npc_loc()
 		raycast.position = self.position
 		raycast.target_position = raycast.position + vec_target
 		raycast.force_raycast_update()

@@ -1,89 +1,11 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=18 format=3 uid="uid://4hyxykrulp8a"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://4hyxykrulp8a"]
 
 [ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_ig0h8"]
 [ext_resource type="Resource" uid="uid://di86w42qhyu3s" path="res://Global/Classes/Mage.tres" id="1_llonu"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_pcyw6"]
-[ext_resource type="Texture2D" uid="uid://jde1e1iqwq8c" path="res://enemy_resources/enemy_texturefiles/humanoid/Skeletal Mage Evo1 idle.png" id="3_kmnjr"]
+[ext_resource type="SpriteFrames" uid="uid://klhxlagxyb8w" path="res://Skelly mage.tres" id="3_1cmt0"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_i3r4f"]
 [ext_resource type="Texture2D" uid="uid://bwh6jcy0p44o8" path="res://enemy_resources/enemy_texturefiles/humanoid/Skeletal Mage Evo1.png" id="6_lkv55"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ihlr"]
-atlas = ExtResource("3_kmnjr")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nc6do"]
-atlas = ExtResource("3_kmnjr")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s665y"]
-atlas = ExtResource("3_kmnjr")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lnpkb"]
-atlas = ExtResource("3_kmnjr")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j6vpb"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xdtre"]
-atlas = SubResource("CompressedTexture2D_j6vpb")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lfihn"]
-atlas = SubResource("CompressedTexture2D_j6vpb")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xlgx8"]
-atlas = SubResource("CompressedTexture2D_j6vpb")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rbcof"]
-atlas = SubResource("CompressedTexture2D_j6vpb")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0w0mv"]
-atlas = SubResource("CompressedTexture2D_j6vpb")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rdibj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ihlr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nc6do")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s665y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lnpkb")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xdtre")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lfihn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xlgx8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rbcof")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0w0mv")
-}],
-"loop": true,
-"name": &"run",
-"speed": 5.0
-}]
 
 [resource]
 script = ExtResource("1_pcyw6")
@@ -99,7 +21,7 @@ speed = 10
 music = "battle01"
 can_chill = true
 lifesteal = 0
-animatedSprite = SubResource("SpriteFrames_rdibj")
+animatedSprite = ExtResource("3_1cmt0")
 affliction_type = ""
 affliction_chance = 0
 map_scale = 1.0

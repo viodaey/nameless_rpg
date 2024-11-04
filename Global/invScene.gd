@@ -62,7 +62,7 @@ func _input(_event):
 	if Input.is_action_just_released("ui_accept"):
 		if len(inv.itemInventory.list) == 0:
 			return
-		var item_selected = inv.itemInventory.list[z]._item
+		var _item_selected = inv.itemInventory.list[z]._item
 		_update()
 		get_parent().use_item(z)
 		#inv.sub_item(z)
