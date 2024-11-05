@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_ig0h8"]
 [ext_resource type="Resource" uid="uid://di86w42qhyu3s" path="res://Global/Classes/Mage.tres" id="1_llonu"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="1_pcyw6"]
-[ext_resource type="SpriteFrames" uid="uid://klhxlagxyb8w" path="res://Skelly mage.tres" id="3_1cmt0"]
+[ext_resource type="SpriteFrames" uid="uid://klhxlagxyb8w" path="res://enemy_spriteframes/Skelly mage.tres" id="3_1cmt0"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_i3r4f"]
 [ext_resource type="Texture2D" uid="uid://bwh6jcy0p44o8" path="res://enemy_resources/enemy_texturefiles/humanoid/Skeletal Mage Evo1.png" id="6_lkv55"]
 
