@@ -36,5 +36,5 @@ _class = ExtResource("2_omwsl")
 lvl = 1
 atb = 110
 max_health = 0
-_abilties = Array[ExtResource("1_n6mdb")]([])
+_abilities = Array[ExtResource("1_n6mdb")]([])
 position_y_offset = 0.0
