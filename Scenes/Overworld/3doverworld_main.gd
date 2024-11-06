@@ -25,9 +25,9 @@ func _ready() -> void:
 		_player_body.position = _Cave_entrance.position + Vector3()
 	if sceneManager.last_scene == "res://Scenes/3dH1/3dH1.tscn":
 		if player.last_exit == 'south':
-			_player_body.position = _H1Entrancefront.position + Vector3(-5,0,0)
+			_player_body.position = _H1Entrancefront.position + Vector3(0,5,3)
 		if player.last_exit == 'west':
-			_player_body.position = _H1Entranceback.position + Vector3(0,0,5)
+			_player_body.position = _H1Entranceback.position + Vector3(-3,5,0)
 
 func _on_CaveEntrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
