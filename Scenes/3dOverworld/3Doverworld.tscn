@@ -40,7 +40,7 @@ sky = SubResource("Sky_k21ws")
 
 [sub_resource type="MeshTexture" id="MeshTexture_wrk1x"]
 
-[sub_resource type="Resource" id="Resource_hevuq"]
+[sub_resource type="Resource" id="Resource_l7y7j"]
 script = ExtResource("15_1fsvq")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_wrk1x")
@@ -69,7 +69,7 @@ mat_edge_fade = 0.454
 LodLod0Distance = 50.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_shhfq"]
+[sub_resource type="Curve3D" id="Curve3D_0uwc5"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -177,7 +177,7 @@ radius = 8.011
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00105667, 0.0759277)
 script = ExtResource("1_der68")
-world_enemies = Array[ExtResource("2_j7gyc")]([ExtResource("3_keqlm"), ExtResource("4_dwpnh"), ExtResource("5_cgedr"), ExtResource("8_2kc7s"), ExtResource("7_qwchq"), ExtResource("8_075nn"), ExtResource("9_hnxfh"), ExtResource("3_keqlm"), ExtResource("8_075nn"), ExtResource("9_hnxfh"), ExtResource("3_keqlm"), ExtResource("9_hnxfh"), ExtResource("8_075nn"), ExtResource("3_keqlm"), ExtResource("9_hnxfh"), ExtResource("10_ctjmp"), ExtResource("3_keqlm"), ExtResource("10_ctjmp"), ExtResource("10_ctjmp"), ExtResource("10_ctjmp")])
+world_enemies = Array[ExtResource("2_j7gyc")]([ExtResource("3_keqlm"), ExtResource("4_dwpnh"), ExtResource("5_cgedr"), ExtResource("8_2kc7s"), ExtResource("7_qwchq"), ExtResource("8_075nn"), ExtResource("9_hnxfh"), ExtResource("3_keqlm"), ExtResource("10_ctjmp"), ExtResource("3_keqlm"), ExtResource("3_keqlm"), ExtResource("3_keqlm"), ExtResource("10_ctjmp"), ExtResource("3_keqlm"), ExtResource("3_keqlm"), ExtResource("10_ctjmp"), ExtResource("3_keqlm"), ExtResource("10_ctjmp"), ExtResource("10_ctjmp"), ExtResource("10_ctjmp")])
 battle_bg = ExtResource("9_ut1lm")
 max_spawn_range = 25
 
@@ -195,12 +195,12 @@ assets = ExtResource("12_h332e")
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(0.730036, 0, -1138.62, 0, 35.0583, 0, 98.8828, 0, 8.40628, 73.4748, -2.60174, -1636.2)
 script = ExtResource("13_85v3n")
-ShaderSettings = SubResource("Resource_hevuq")
+ShaderSettings = SubResource("Resource_l7y7j")
 ShapeStepLengthDivs = 7
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 4.71244]
-Curve = SubResource("Curve3D_shhfq")
+Curve = SubResource("Curve3D_0uwc5")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -596.97, 0.6, -1889.82)
