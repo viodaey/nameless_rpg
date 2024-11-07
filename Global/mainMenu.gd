@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _on_resume_pressed() -> void:
 	if map_scene.scene_type == 1:
-		map_scene.get_node("Player").get_node("Camera2D").enabled = true
+		map_scene.get_node("Player").get_node("Camera3D").enabled = true
 		get_tree().paused = false
 		self.visible = false
 	
@@ -24,7 +24,7 @@ func _input(_event):
 			if self.visible == false:
 				self.position = get_viewport_rect().get_center() - (self.size / 2)
 				resume.grab_focus() # Replace with function body.
-				map_scene.get_node("Player").get_node("Camera2D").enabled = false
+				map_scene.get_node("Player").get_node("Camera3D").enabled = false
 				get_tree().paused = true
 				self.visible = true
 			elif confirm_c.visible == true:
