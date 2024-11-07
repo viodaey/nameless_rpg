@@ -40,36 +40,36 @@ sky = SubResource("Sky_35tuv")
 
 [sub_resource type="MeshTexture" id="MeshTexture_2anvy"]
 
-[sub_resource type="Resource" id="Resource_256dy"]
+[sub_resource type="Resource" id="Resource_4yi58"]
 script = ExtResource("15_1fsvq")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_2anvy")
 mat_albedo_color_first = Color(0.6, 0.7, 0.65, 1)
 mat_albedo_color_second = Color(0.0541346, 0.176093, 0.307844, 1)
-mat_albedo_depth = 5.505
+mat_albedo_depth = 4.381
 mat_albedo_depth_curve = 0.148651
-mat_transparency_clarity = 0.0
-mat_transparency_depth_curve = 1.6245
-mat_transparency_refraction = -0.00599995
-mat_normal_scale = -14.201
+mat_transparency_clarity = 2.2
+mat_transparency_depth_curve = 2.21913
+mat_transparency_refraction = -0.736
+mat_normal_scale = 4.675
 mat_normal_bump_texture = ExtResource("14_lff8p")
-mat_flow_speed = 0.015
+mat_flow_speed = 0.057
 mat_flow_base = 8.0
 mat_flow_steepness = 8.0
 mat_flow_distance = 8.0
-mat_flow_pressure = 0.0
-mat_flow_max = 0.315
+mat_flow_pressure = 8.0
+mat_flow_max = 0.14
 mat_foam_color = Color(0.9, 0.9, 0.9, 1)
-mat_foam_amount = 0.0
+mat_foam_amount = 4.0
 mat_foam_steepness = 0.0
-mat_foam_smoothness = 0.0
+mat_foam_smoothness = 1.0
 mat_uv_scale = Vector3(5, 10, 10)
-mat_roughness = 0.282
-mat_edge_fade = 0.454
-LodLod0Distance = 50.0
+mat_roughness = 0.098
+mat_edge_fade = 0.25
+LodLod0Distance = 5.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_dsx5t"]
+[sub_resource type="Curve3D" id="Curve3D_qaovd"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -135,7 +135,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 3.5
+"speed": 3.8
 }, {
 "frames": [{
 "duration": 1.0,
@@ -193,14 +193,14 @@ material = ExtResource("11_60mgo")
 assets = ExtResource("12_h332e")
 
 [node name="RiverManager" type="Node3D" parent="."]
-transform = Transform3D(0.730036, 0, -1138.62, 0, 35.0583, 0, 98.8828, 0, 8.40628, 73.4748, -2.60174, -1636.2)
+transform = Transform3D(0.33098, 0, -414.84, 0, 34.021, 0, 44.831, 0, 3.0627, -619.587, -2.60168, -1858.19)
 script = ExtResource("13_85v3n")
-ShaderSettings = SubResource("Resource_256dy")
-ShapeStepLengthDivs = 7
+ShaderSettings = SubResource("Resource_4yi58")
+ShapeStepLengthDivs = 8
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 4.71244]
-Curve = SubResource("Curve3D_dsx5t")
+Curve = SubResource("Curve3D_qaovd")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -596.97, 0.6, -1889.82)
@@ -267,7 +267,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Rowboat" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(-3.65185, 1.86491, 7.70356e-09, 0, -1.62613e-07, 0.35156, -2.11571, -3.21895, -1.32968e-08, -635.09, 0.306459, -1928.6)
+transform = Transform3D(-3.65185, 1.86491, 7.70356e-09, 0, -1.62613e-07, 0.35156, -2.11571, -3.21895, -1.32968e-08, -635.09, 0.306459, -1928.07)
 alpha_cut = 3
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_g26qh")
@@ -290,7 +290,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
 
 [node name="CollisionShape2D" type="CollisionShape3D" parent="H1/StaticBody2D"]
-transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1.24823, -0.738892, -5.96046e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0.830597, -0.738892, -5.96046e-08)
 shape = SubResource("BoxShape3D_nvrgo")
 
 [node name="CaveEntrance" type="Area3D" parent="."]
@@ -306,6 +306,13 @@ alpha_cut = 3
 texture_filter = 1
 texture = ExtResource("19_4g6cj")
 
+[node name="ForestEntrance" type="Area3D" parent="."]
+transform = Transform3D(0.00848219, 0, 0.999964, 0, 1, 0, -0.999964, 0, 0.00848219, -956.283, 0, -1097.4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestEntrance"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.21631, 0, -4.40649)
+shape = SubResource("BoxShape3D_bdg2r")
+
 [node name="H1Entrancefront" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -593.237, 0.2, -1920.71)
 collision_layer = 0
@@ -318,7 +325,7 @@ shape = SubResource("BoxShape3D_rcogi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600.003, 0.2, -1926.72)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="H1Entranceback"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.565552, 0, 0.508057)
 shape = SubResource("BoxShape3D_rcogi")
 
 [node name="Mountains" type="Node3D" parent="."]
@@ -946,7 +953,7 @@ skeleton = NodePath("../MeshInstance3D4")
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Inviswalls"]
-transform = Transform3D(-0.521226, 0, -1.50996e-05, 0, 1, 0, 7.8703e-08, 0, -100, -960.069, 0, -1463.89)
+transform = Transform3D(-0.521226, 0, -1.50996e-05, 0, 1, 0, 7.8703e-08, 0, -100, -960.069, 0, -1464.14)
 material_override = SubResource("StandardMaterial3D_v18bb")
 mesh = SubResource("QuadMesh_ypipv")
 skeleton = NodePath("../MeshInstance3D4")
@@ -16822,5 +16829,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [connection signal="body_entered" from="CaveEntrance" to="." method="_on_CaveEntrance_body_entered"]
+[connection signal="body_entered" from="ForestEntrance" to="." method="_on_CaveEntrance_body_entered"]
 [connection signal="body_entered" from="H1Entrancefront" to="." method="_on_H1Entrancefront_body_entered"]
 [connection signal="body_entered" from="H1Entranceback" to="." method="_on_H1Entranceback_body_entered"]
