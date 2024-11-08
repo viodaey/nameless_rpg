@@ -40,7 +40,7 @@ sky = SubResource("Sky_35tuv")
 
 [sub_resource type="MeshTexture" id="MeshTexture_2anvy"]
 
-[sub_resource type="Resource" id="Resource_vhnyi"]
+[sub_resource type="Resource" id="Resource_w2yx6"]
 script = ExtResource("15_1fsvq")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_2anvy")
@@ -69,7 +69,7 @@ mat_edge_fade = 0.25
 LodLod0Distance = 5.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_kbsmj"]
+[sub_resource type="Curve3D" id="Curve3D_p1i2d"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -95,47 +95,47 @@ margin = 9.356
 data = PackedVector3Array(20, -10, 0, -20, -10, 0, 20, 10, 0, -20, -10, 0, -20, 10, 0, 20, 10, 0)
 backface_collision = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jffvm"]
-atlas = ExtResource("24_3i11d")
-region = Rect2(0, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_yg5lk"]
 atlas = ExtResource("24_3i11d")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ekwhk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jffvm"]
 atlas = ExtResource("24_3i11d")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_52vwk"]
-atlas = ExtResource("24_3i11d")
-region = Rect2(384, 0, 128, 128)
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d80px"]
 atlas = ExtResource("24_3i11d")
 region = Rect2(512, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_52vwk"]
+atlas = ExtResource("24_3i11d")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekwhk"]
+atlas = ExtResource("24_3i11d")
+region = Rect2(256, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_g26qh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jffvm")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_yg5lk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ekwhk")
+"texture": SubResource("AtlasTexture_jffvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d80px")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_52vwk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d80px")
+"texture": SubResource("AtlasTexture_ekwhk")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 3.8
+"speed": 2.2
 }, {
 "frames": [{
 "duration": 1.0,
@@ -195,12 +195,12 @@ assets = ExtResource("12_h332e")
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(0.33098, 0, -414.84, 0, 34.021, 0, 44.831, 0, 3.0627, -619.587, -2.60168, -1858.19)
 script = ExtResource("13_85v3n")
-ShaderSettings = SubResource("Resource_vhnyi")
+ShaderSettings = SubResource("Resource_w2yx6")
 ShapeStepLengthDivs = 8
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 4.71244]
-Curve = SubResource("Curve3D_kbsmj")
+Curve = SubResource("Curve3D_p1i2d")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -596.97, 0.6, -1889.82)
@@ -273,7 +273,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_g26qh")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.724455
+frame_progress = 0.560067
 
 [node name="H1" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -592.322, 0.2, -1928.04)
