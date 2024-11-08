@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cynyjcujhbvd0"]
+[gd_scene load_steps=10 format=3 uid="uid://cynyjcujhbvd0"]
 
 [ext_resource type="Script" path="res://Global/dialogScene.gd" id="1_noh02"]
-[ext_resource type="Texture2D" uid="uid://ck3y1hmcyk2ou" path="res://textures/UI/menu_ui_test_100.png" id="2_8ds1e"]
-[ext_resource type="Texture2D" uid="uid://b1ubyvpebkco0" path="res://textures/UI/menu_ui_pink_100.png" id="4_gem7d"]
+[ext_resource type="Texture2D" uid="uid://btbhd7wh30yot" path="res://textures/UI/dialog_texture-red.png" id="2_mwgg7"]
+[ext_resource type="Texture2D" uid="uid://chcm61hwobxih" path="res://textures/UI/dialog_texture-blue.png" id="4_42a0p"]
 [ext_resource type="LabelSettings" uid="uid://bvrkgbk0n2lkp" path="res://Global/ui_regular.tres" id="5_h2df0"]
-[ext_resource type="Texture2D" uid="uid://dsyyfajxbaskb" path="res://textures/UI/menu_ui_pixieblue_100.png" id="6_6s8wm"]
+[ext_resource type="Texture2D" uid="uid://dbj6iausn527u" path="res://textures/UI/dialog_texture-cyan.png" id="5_hpeja"]
+[ext_resource type="Texture2D" uid="uid://cp6og0151w5mm" path="res://textures/UI/dialog_texture-green.png" id="6_wvj3j"]
 [ext_resource type="FontFile" uid="uid://dmjq6coypb7ll" path="res://textures/fonts/Merienda-Bold.ttf" id="7_43lyj"]
+[ext_resource type="Texture2D" uid="uid://c3einb2ckrehp" path="res://textures/UI/tt_texture.png" id="7_k88a5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwukd"]
 bg_color = Color(0.9, 0.9, 0.9, 1)
@@ -27,8 +29,8 @@ offset_left = 256.0
 offset_top = 192.0
 offset_right = 344.0
 offset_bottom = 240.0
-texture = ExtResource("2_8ds1e")
-region_rect = Rect2(7, 7, 50, 50)
+texture = ExtResource("2_mwgg7")
+region_rect = Rect2(1, 1, 229, 94)
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
@@ -60,12 +62,12 @@ label_settings = ExtResource("5_h2df0")
 z_index = 2
 clip_contents = true
 layout_mode = 0
-offset_left = 256.0
-offset_top = 256.0
-offset_right = 344.0
-offset_bottom = 304.0
-texture = ExtResource("4_gem7d")
-region_rect = Rect2(7, 7, 50, 50)
+offset_left = 392.0
+offset_top = 192.0
+offset_right = 480.0
+offset_bottom = 240.0
+texture = ExtResource("4_42a0p")
+region_rect = Rect2(1, 1, 229, 94)
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
@@ -98,12 +100,12 @@ label_settings = ExtResource("5_h2df0")
 z_index = 2
 clip_contents = true
 layout_mode = 0
-offset_left = 384.0
-offset_top = 192.0
-offset_right = 472.0
-offset_bottom = 240.0
-texture = ExtResource("6_6s8wm")
-region_rect = Rect2(7, 7, 50, 50)
+offset_left = 256.0
+offset_top = 264.0
+offset_right = 344.0
+offset_bottom = 312.0
+texture = ExtResource("5_hpeja")
+region_rect = Rect2(1, 1, 229, 94)
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
@@ -134,12 +136,12 @@ label_settings = ExtResource("5_h2df0")
 z_index = 2
 clip_contents = true
 layout_mode = 0
-offset_left = 384.0
-offset_top = 256.0
-offset_right = 472.0
-offset_bottom = 304.0
-texture = ExtResource("6_6s8wm")
-region_rect = Rect2(7, 7, 50, 50)
+offset_left = 392.0
+offset_top = 264.0
+offset_right = 480.0
+offset_bottom = 312.0
+texture = ExtResource("6_wvj3j")
+region_rect = Rect2(1, 1, 229, 94)
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
@@ -174,8 +176,8 @@ offset_left = 512.0
 offset_top = 232.0
 offset_right = 584.0
 offset_bottom = 288.0
-texture = ExtResource("2_8ds1e")
-region_rect = Rect2(7, 7, 50, 50)
+texture = ExtResource("7_k88a5")
+region_rect = Rect2(1, 1, 229, 94)
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10

@@ -1,5 +1,6 @@
 extends Control
 
+@onready var menuContainer = $MenuVBox
 @onready var confirm_c = $Popup
 @onready var confirm_title = $Popup/MarginContainer/VBoxContainer/Title
 @onready var confirm_description = $Popup/MarginContainer/VBoxContainer/Description
@@ -22,7 +23,7 @@ func _input(_event):
 	if Input.is_action_pressed("ui_cancel"):
 		if sceneManager.current_scene_path != "res://Scenes/Battle/battle.tscn":
 			if self.visible == false:
-				self.position = get_viewport_rect().get_center() - (self.size / 2)
+				menuContainer.position = get_viewport_rect().get_center() - (menuContainer.size / 2)
 				resume.grab_focus() # Replace with function body.
 				#map_scene.get_node("Player").get_node("Camera3D").enabled = false
 				get_tree().paused = true
@@ -30,8 +31,9 @@ func _input(_event):
 			elif confirm_c.visible == true:
 				_on_confirm_no_pressed()
 			else:
-				await(get_tree().create_timer(0.1).timeout)
 				_on_resume_pressed()
+		#await(get_tree().create_timer(0.1).timeout)
+
 
 func _on_monsters_pressed() -> void:
 	var monManagerScene = load("res://Global/monManager.tscn").instantiate()

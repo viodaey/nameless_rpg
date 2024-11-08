@@ -21,12 +21,10 @@ texture = ExtResource("7_il4ff")
 texture = ExtResource("8_7xk0x")
 
 [node name="MainMenu" type="Control"]
+process_mode = 3
 z_index = 50
 layout_mode = 3
 anchors_preset = 0
-offset_top = 496.0
-offset_right = 305.0
-offset_bottom = 496.0
 script = ExtResource("1_yocc6")
 
 [node name="MenuVBox" type="VBoxContainer" parent="."]
@@ -281,10 +279,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.140447, 0.140447, 0.140447, 0.545098)
 
-[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/Resume" to="MenuVBox" method="_on_resume_pressed"]
-[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/Monsters" to="MenuVBox" method="_on_monsters_pressed"]
-[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2/Save" to="MenuVBox" method="_on_save_pressed"]
-[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2/Load" to="MenuVBox" method="_on_load_pressed"]
-[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/Quit" to="MenuVBox" method="_on_quit_pressed"]
-[connection signal="pressed" from="Popup/MarginContainer/VBoxContainer/HBoxContainer/Yes" to="MenuVBox" method="_on_confirm_yes_pressed"]
-[connection signal="pressed" from="Popup/MarginContainer/VBoxContainer/HBoxContainer/No" to="MenuVBox" method="_on_confirm_no_pressed"]
+[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/Monsters" to="." method="_on_monsters_pressed"]
+[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Popup/MarginContainer/VBoxContainer/HBoxContainer/Yes" to="." method="_on_confirm_yes_pressed"]
+[connection signal="pressed" from="Popup/MarginContainer/VBoxContainer/HBoxContainer/No" to="." method="_on_confirm_no_pressed"]
