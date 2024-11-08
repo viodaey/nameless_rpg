@@ -382,6 +382,7 @@ lvl = 1
 atb = 110
 max_health = 0
 _abilties = Array[ExtResource("11_lqxiv")]([])
+position_y_offset = 0.0
 
 [node name="Node2D" type="Node2D"]
 texture_filter = 1

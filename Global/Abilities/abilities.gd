@@ -19,6 +19,7 @@ class_name abilities
 # attributes
 # eg atp, mag, def, res, crt etc
 
+@warning_ignore("unused_private_class_variable")
 @export var _name: String = "Ability"
 @export var description: String = "This is an ability"
 @export var target: String = "enemy"

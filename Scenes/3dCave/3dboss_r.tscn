@@ -1,0 +1,118 @@
+[gd_scene load_steps=19 format=3 uid="uid://c0iel4ut8o4nk"]
+
+[ext_resource type="Script" path="res://Scenes/3dCave/3dboss_r.gd" id="1_pncqk"]
+[ext_resource type="Terrain3DStorage" uid="uid://puhpc13moxh0" path="res://terrain3d_resources/Cave.res" id="2_oejbs"]
+[ext_resource type="Texture2D" uid="uid://c184u408sv5og" path="res://textures/Terrain/Dirt2/packed_albedo_height.png" id="3_bbefu"]
+[ext_resource type="Texture2D" uid="uid://drl75kb14pej1" path="res://textures/Terrain/Dirt2/packed_normal_roughness.png" id="4_vnoi0"]
+[ext_resource type="Script" path="res://Scenes/Overworld/3dcharacter_body.gd" id="5_pp16d"]
+[ext_resource type="SpriteFrames" uid="uid://jtk22f2psyhj" path="res://Scenes/Overworld/Playerbody_SF.tres" id="6_mkpl7"]
+
+[sub_resource type="Gradient" id="Gradient_4prwo"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7vrug"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mqseu"]
+seamless = true
+color_ramp = SubResource("Gradient_4prwo")
+noise = SubResource("FastNoiseLite_7vrug")
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_t4g0y"]
+_shader_parameters = {
+"blend_sharpness": 0.87,
+"height_blending": true,
+"macro_variation1": Color(1, 1, 1, 1),
+"macro_variation2": Color(1, 1, 1, 1),
+"noise1_angle": 0.0,
+"noise1_offset": Vector2(0.5, 0.5),
+"noise1_scale": 0.04,
+"noise2_scale": 0.076,
+"noise3_scale": 0.225,
+"noise_texture": SubResource("NoiseTexture2D_mqseu"),
+"vertex_normals_distance": 128.0
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtuvx"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_kwcfv"]
+height_offset = 0.5
+density = 10.0
+material_override = SubResource("StandardMaterial3D_mtuvx")
+generated_type = 1
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_boe2f"]
+name = "packed_albedo_height"
+albedo_texture = ExtResource("3_bbefu")
+normal_texture = ExtResource("4_vnoi0")
+uv_scale = 0.841
+detiling = 1.0
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_dnijp"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_kwcfv")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_boe2f")])
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vjtcw"]
+
+[sub_resource type="Sky" id="Sky_iu2i6"]
+sky_material = SubResource("ProceduralSkyMaterial_vjtcw")
+
+[sub_resource type="Environment" id="Environment_d6pty"]
+background_mode = 2
+sky = SubResource("Sky_iu2i6")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ytgkq"]
+size = Vector3(2.6059, 4.43323, 4.16797)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_pncqk")
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("2_oejbs")
+material = SubResource("Terrain3DMaterial_t4g0y")
+assets = SubResource("Terrain3DAssets_dnijp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d6pty")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -926.382, 0.1, -1438.35)
+script = ExtResource("5_pp16d")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(0.970874, 0, 0, 0, -4.24383e-08, 0.970874, 0, -0.970874, -4.24383e-08, 0, 10, 0)
+projection = 1
+fov = 168.0
+size = 42.269
+near = 0.031
+far = 74.03
+
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155518, 1.60785, 0.0849609)
+shape = SubResource("BoxShape3D_ytgkq")
+
+[node name="RayCast3D" type="RayCast3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664063, 0, -0.0214844)
+target_position = Vector3(0, 0.2, 0)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
+transform = Transform3D(30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 0, 0)
+sprite_frames = ExtResource("6_mkpl7")
+animation = &"idledown"

@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)
-	
+
 func _deferred_goto_scene(path):
 	if current_scene.scene_type == 1:
 		battle_bg = current_scene.battle_bg

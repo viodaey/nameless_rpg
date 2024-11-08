@@ -203,7 +203,7 @@ func _ready():
 
 ##	setup enemies
 	for en in enemyDict:
-		var rng = RandomNumberGenerator.new()
+		rng = RandomNumberGenerator.new()
 		enemyDict[en]["live"]["hp"] = enemyDict[en]["res"].health
 		enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage
 		enemyDict[en]["live"]["xp"] = enemyDict[en]["res"].xp
@@ -230,12 +230,12 @@ func _ready():
 
 signal pressedSomething
 
-func _input(event) -> void:
+func _input(_event) -> void:
 	if Input.is_anything_pressed():
 		pressedSomething.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func set_mp_init(progress_bar, mp, max_mp):
@@ -254,6 +254,7 @@ func set_health(progress_bar, health, max_health):
 	var health_label_value: int = health
 	for i in steps:
 		progress_bar.value = progress_bar.value - stepsize
+		@warning_ignore("narrowing_conversion")
 		health_label_value = health_label_value - stepsize
 		progress_bar.get_node("HPLabel").text = "HP: %d/%d" % [max(0,health_label_value), max_health]
 		if i == steps - 1:
@@ -427,6 +428,7 @@ func _await_selection():
 			enemyDict[i]["cont"].get_node("Select").modulate.a = 0
 		_selector_tween.kill()
 		targetList = [enemyList[x]]
+		y = enemyList[x]
 		if targetCount > 1 and len(enemyList) > 1:
 			targetList.append(enemyList[(x + 1) % len(enemyList)])
 		if targetCount > 2 and len(enemyList) > 2:

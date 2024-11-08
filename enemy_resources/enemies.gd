@@ -4,6 +4,7 @@ class_name Enemy
 const normy = preload("res://Global/Classes/Normy.tres") 
 const basic_shape = preload("res://enemy_resources/enemy_collision/capsule_shape_15_50.tres")
 
+@warning_ignore("unused_private_class_variable")
 @export var _name: String = "Enemy"
 @export var texture: Texture = null
 @export var evolution: Enemy
@@ -33,7 +34,8 @@ const basic_shape = preload("res://enemy_resources/enemy_collision/capsule_shape
 @export var lvl: int = 1
 @export var atb: int = 110
 @export var max_health: int
-@export var _abilties: Array[abilities]
+@warning_ignore("unused_private_class_variable")
+@export var _abilities: Array[abilities]
 @export var passive: abilities
 @export var position_y_offset: float
 var hp_grow: int = 0
@@ -85,8 +87,11 @@ func level_up():
 	for i in calc_lvl:
 		health = health * 1.08 * _class.hp_mult
 		damage = damage * 1.08 * _class.dmg_mult
+	@warning_ignore("narrowing_conversion")
 	hp_grow = health - hp_old
+	@warning_ignore("narrowing_conversion")
 	dmg_grow = damage - dmg_old
+	@warning_ignore("narrowing_conversion")
 	max_health = health
 
 

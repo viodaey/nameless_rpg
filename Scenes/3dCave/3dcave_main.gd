@@ -6,8 +6,8 @@ const scene_type = 1
 @export var max_lvl: int = 14
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
-@export var min_spawn_range: int = 350
-@export var max_spawn_range: int = 450
+@export var min_spawn_range: int = 15
+@export var max_spawn_range: int = 20
 @onready var _player_body = $Player
 var _spawned_npc  
 var spawn_request
@@ -19,32 +19,33 @@ func _ready() -> void:
 		print(sceneManager.last_scene)
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
-		_player_body.position = $CaveExit.position + Vector2(15,0)
+		_player_body.position = $CaveExit.position + Vector3(0,0,15)
 		print(sceneManager.last_scene)
-	if sceneManager.last_scene == "res://Scenes/Cave/cave_00b.tscn":
-		_player_body.position = $CaveRoyEntrance.position + Vector2(-15,0)
+	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_00b.tscn":
+		_player_body.position = $Cave00bEntrance.position + Vector3(15,0,0)
 		print(sceneManager.last_scene)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+#Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
 	pass
 
-#func _spawn_npc():
-	#if is_instance_valid($NPC_spawn):
-		#print("tried to spawn but valid instance found")
-	#else:
-		#var rng = RandomNumberGenerator.new()
-		#var enemy_select = rng.randi_range(1,len(world_enemies))
-		#var angle = rng.randi_range(0, TAU)
-		#var distance = rng.randi_range(80, 130)
-		#_player_body.get_node("RayCast2D").target_position += Vector2(distance*cos(angle), distance*sin(angle))
-		#if _player_body.get_node("RayCast2D") .is_colliding():
-			#_spawn_npc()
-		#else:
-			#spawn_request = load(world_enemies[enemy_select - 1].resource_path)
-			#add_child(spawn.duplicate())
-			#_spawned_npc = $NPC_spawn
-			#_spawned_npc.position = _player_body.position + Vector2(distance*cos(angle), distance*sin(angle))
-#
-#func _despawn_npc():
-	#_spawned_npc.queue_free()
+func _spawn_npc():
+	if is_instance_valid($NPC_spawn):
+		print("tried to spawn but valid instance found")
+	else:
+		var rng = RandomNumberGenerator.new()
+		var enemy_select = rng.randi_range(1,len(world_enemies))
+		@warning_ignore("narrowing_conversion")
+		var angle = rng.randi_range(0, TAU)
+		var distance = rng.randi_range(80, 130)
+		_player_body.get_node("RayCast2D").target_position += Vector2(distance*cos(angle), distance*sin(angle))
+		if _player_body.get_node("RayCast2D") .is_colliding():
+			_spawn_npc()
+		else:
+			spawn_request = load(world_enemies[enemy_select - 1].resource_path)
+			add_child(_spawned_npc.duplicate())
+			_spawned_npc = $NPC_spawn
+			_spawned_npc.position = _player_body.position + Vector2(distance*cos(angle), distance*sin(angle))
+
+func _despawn_npc():
+	_spawned_npc.queue_free()
