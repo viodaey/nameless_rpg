@@ -40,7 +40,7 @@ sky = SubResource("Sky_35tuv")
 
 [sub_resource type="MeshTexture" id="MeshTexture_2anvy"]
 
-[sub_resource type="Resource" id="Resource_f4xqr"]
+[sub_resource type="Resource" id="Resource_vhnyi"]
 script = ExtResource("15_1fsvq")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_2anvy")
@@ -69,7 +69,7 @@ mat_edge_fade = 0.25
 LodLod0Distance = 5.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_t2wd6"]
+[sub_resource type="Curve3D" id="Curve3D_kbsmj"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -195,12 +195,12 @@ assets = ExtResource("12_h332e")
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(0.33098, 0, -414.84, 0, 34.021, 0, 44.831, 0, 3.0627, -619.587, -2.60168, -1858.19)
 script = ExtResource("13_85v3n")
-ShaderSettings = SubResource("Resource_f4xqr")
+ShaderSettings = SubResource("Resource_vhnyi")
 ShapeStepLengthDivs = 8
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 4.71244]
-Curve = SubResource("Curve3D_t2wd6")
+Curve = SubResource("Curve3D_kbsmj")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -596.97, 0.6, -1889.82)
