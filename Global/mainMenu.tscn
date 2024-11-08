@@ -1,41 +1,97 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0rm74cf7vkyk"]
+[gd_scene load_steps=13 format=3 uid="uid://d0rm74cf7vkyk"]
 
-[ext_resource type="Texture2D" uid="uid://6fi1fruu0f0e" path="res://textures/UI/menu_ui_test_300.png" id="1_3na3v"]
 [ext_resource type="Script" path="res://Global/mainMenu.gd" id="1_yocc6"]
+[ext_resource type="Texture2D" uid="uid://joxwbxwu5qbr" path="res://textures/UI/Citadel_MainMenu/mm_heading.png" id="2_1ve1y"]
 [ext_resource type="LabelSettings" uid="uid://m48ou1arcktr" path="res://Global/ui_heading.tres" id="2_8ci6e"]
+[ext_resource type="Texture2D" uid="uid://cvoec8sc3agen" path="res://textures/UI/Citadel_MainMenu/mm_label.png" id="3_a4u4y"]
+[ext_resource type="FontFile" uid="uid://uhhqq15a58ma" path="res://textures/fonts/GentiumBookPlus-Regular.ttf" id="4_3k2xw"]
+[ext_resource type="Texture2D" uid="uid://hv46if1ouc0k" path="res://textures/UI/Citadel_MainMenu/mm_box_body.png" id="5_8sgdw"]
+[ext_resource type="StyleBox" uid="uid://b2p0sdndrmxy8" path="res://textures/UI/buttonMenuFocus.tres" id="6_cuxcy"]
+[ext_resource type="Texture2D" uid="uid://d4btfj8yiluea" path="res://textures/UI/Citadel_MainMenu/wider2_p.png" id="7_il4ff"]
+[ext_resource type="Texture2D" uid="uid://djb2dpff7sig6" path="res://textures/UI/Citadel_MainMenu/wider2_n.png" id="8_7xk0x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rb1fn"]
+font = ExtResource("4_3k2xw")
+font_color = Color(0.257821, 0.135234, 2.40654e-08, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hwwa"]
+texture = ExtResource("7_il4ff")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cs0qa"]
+texture = ExtResource("8_7xk0x")
 
 [node name="MainMenu" type="Control"]
-process_mode = 3
 z_index = 50
 layout_mode = 3
+anchors_preset = 0
+offset_top = 496.0
+offset_right = 305.0
+offset_bottom = 496.0
+script = ExtResource("1_yocc6")
+
+[node name="MenuVBox" type="VBoxContainer" parent="."]
+process_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 552.0
+offset_top = -328.0
+offset_right = 552.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yocc6")
+theme_override_constants/separation = -8
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="MenuVBox"]
+z_index = 1
+layout_mode = 2
+texture = ExtResource("2_1ve1y")
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="MenuVBox/TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -250.0
-offset_right = 175.0
-offset_bottom = 250.0
+offset_left = -80.0
+offset_top = -31.0
+offset_right = 80.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_3na3v")
-region_rect = Rect2(21, 21, 150, 150)
+texture = ExtResource("3_a4u4y")
+
+[node name="Header" type="Label" parent="MenuVBox/TextureRect/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.5
+offset_top = -13.5
+offset_right = 102.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_rb1fn")
+horizontal_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_8sgdw")
+region_rect = Rect2(0, 0, 304, 374)
 patch_margin_left = 25
 patch_margin_top = 25
 patch_margin_right = 25
 patch_margin_bottom = 25
 
-[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuVBox/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,82 +99,111 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 15
+theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuVBox/NinePatchRect/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 30
 
-[node name="Header" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Main Menu"
-label_settings = ExtResource("2_8ci6e")
-horizontal_alignment = 1
-
-[node name="Resume" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_styles/focus = ExtResource("6_cuxcy")
+theme_override_styles/hover = ExtResource("6_cuxcy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cs0qa")
 text = "Resume"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
+size_flags_stretch_ratio = 3.3
+theme_override_constants/separation = 10
 
-[node name="Monsters" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Monsters" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_styles/focus = ExtResource("6_cuxcy")
+theme_override_styles/hover = ExtResource("6_cuxcy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cs0qa")
 text = "Monsters"
 
-[node name="Inventory" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Inventory" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_styles/focus = ExtResource("6_cuxcy")
+theme_override_styles/hover = ExtResource("6_cuxcy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cs0qa")
 text = "Inventory"
 
-[node name="Player" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="Player" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_styles/focus = ExtResource("6_cuxcy")
+theme_override_styles/hover = ExtResource("6_cuxcy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cs0qa")
 text = "Player"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
+size_flags_stretch_ratio = 2.1
+theme_override_constants/separation = 10
 
-[node name="Save" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="Save" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_styles/focus = ExtResource("6_cuxcy")
+theme_override_styles/hover = ExtResource("6_cuxcy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cs0qa")
 text = "Save"
 
-[node name="Load" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="Load" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_styles/focus = ExtResource("6_cuxcy")
+theme_override_styles/hover = ExtResource("6_cuxcy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cs0qa")
 text = "Load"
 
-[node name="Quit" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Quit game"
+theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_styles/focus = ExtResource("6_cuxcy")
+theme_override_styles/hover = ExtResource("6_cuxcy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cs0qa")
+text = "Quit
+"
 
 [node name="Popup" type="NinePatchRect" parent="."]
 visible = false
 z_index = 5
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -100.0
-offset_right = 175.0
-offset_bottom = 100.0
+layout_mode = 2
+offset_left = 512.0
+offset_top = -240.0
+offset_right = 896.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_3na3v")
-region_rect = Rect2(21, 21, 150, 150)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_8sgdw")
+region_rect = Rect2(0, 0, 304, 374)
 patch_margin_left = 25
 patch_margin_top = 25
 patch_margin_right = 25
@@ -131,9 +216,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 25
+theme_override_constants/margin_left = 35
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_right = 35
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Popup/MarginContainer"]
@@ -163,11 +248,23 @@ alignment = 1
 [node name="Yes" type="Button" parent="Popup/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_styles/focus = ExtResource("6_cuxcy")
+theme_override_styles/hover = ExtResource("6_cuxcy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cs0qa")
 text = "Yes"
 
 [node name="No" type="Button" parent="Popup/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_styles/focus = ExtResource("6_cuxcy")
+theme_override_styles/hover = ExtResource("6_cuxcy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cs0qa")
 text = "No"
 
 [node name="Shadow" type="ColorRect" parent="Popup"]
@@ -184,10 +281,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.140447, 0.140447, 0.140447, 0.545098)
 
-[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/Monsters" to="." method="_on_monsters_pressed"]
-[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2/Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2/Load" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Popup/MarginContainer/VBoxContainer/HBoxContainer/Yes" to="." method="_on_confirm_yes_pressed"]
-[connection signal="pressed" from="Popup/MarginContainer/VBoxContainer/HBoxContainer/No" to="." method="_on_confirm_no_pressed"]
+[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/Resume" to="MenuVBox" method="_on_resume_pressed"]
+[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/Monsters" to="MenuVBox" method="_on_monsters_pressed"]
+[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2/Save" to="MenuVBox" method="_on_save_pressed"]
+[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2/Load" to="MenuVBox" method="_on_load_pressed"]
+[connection signal="pressed" from="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/Quit" to="MenuVBox" method="_on_quit_pressed"]
+[connection signal="pressed" from="Popup/MarginContainer/VBoxContainer/HBoxContainer/Yes" to="MenuVBox" method="_on_confirm_yes_pressed"]
+[connection signal="pressed" from="Popup/MarginContainer/VBoxContainer/HBoxContainer/No" to="MenuVBox" method="_on_confirm_no_pressed"]

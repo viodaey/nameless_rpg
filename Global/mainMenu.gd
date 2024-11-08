@@ -3,7 +3,7 @@ extends Control
 @onready var confirm_c = $Popup
 @onready var confirm_title = $Popup/MarginContainer/VBoxContainer/Title
 @onready var confirm_description = $Popup/MarginContainer/VBoxContainer/Description
-@onready var resume = $NinePatchRect/MarginContainer/VBoxContainer/Resume
+@onready var resume = $MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/Resume
 
 var confirmCheck = ""
 @onready var map_scene = get_tree().root.get_child(get_tree().root.get_child_count() - 1)
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _on_resume_pressed() -> void:
 	if map_scene.scene_type == 1:
-		map_scene.get_node("Player").get_node("Camera3D").enabled = true
+		#map_scene.get_node("Player").get_node("Camera3D").enabled = true
 		get_tree().paused = false
 		self.visible = false
 	
@@ -24,7 +24,7 @@ func _input(_event):
 			if self.visible == false:
 				self.position = get_viewport_rect().get_center() - (self.size / 2)
 				resume.grab_focus() # Replace with function body.
-				map_scene.get_node("Player").get_node("Camera3D").enabled = false
+				#map_scene.get_node("Player").get_node("Camera3D").enabled = false
 				get_tree().paused = true
 				self.visible = true
 			elif confirm_c.visible == true:
@@ -77,9 +77,7 @@ func _on_confirm_yes_pressed() -> void:
 		await(load_game())
 
 	if confirmCheck == "quit":
-		confirm_description.text = "UNABLE TO QUIT YOU QUITTER!!!!!"
-		await(get_tree().create_timer(3).timeout)
-		confirm_description.text = "Okay bye"
+		confirm_description.text = "Exiting game"
 		await(get_tree().create_timer(1).timeout)
 		get_tree().quit()
 	confirm_c.visible = false
