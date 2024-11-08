@@ -40,7 +40,7 @@ sky = SubResource("Sky_35tuv")
 
 [sub_resource type="MeshTexture" id="MeshTexture_2anvy"]
 
-[sub_resource type="Resource" id="Resource_bp5am"]
+[sub_resource type="Resource" id="Resource_gm7pi"]
 script = ExtResource("15_1fsvq")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_2anvy")
@@ -69,7 +69,7 @@ mat_edge_fade = 0.25
 LodLod0Distance = 5.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_yg66v"]
+[sub_resource type="Curve3D" id="Curve3D_sdmbh"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -195,12 +195,12 @@ assets = ExtResource("12_h332e")
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(0.33098, 0, -414.84, 0, 34.021, 0, 44.831, 0, 3.0627, -619.587, -2.60168, -1858.19)
 script = ExtResource("13_85v3n")
-ShaderSettings = SubResource("Resource_bp5am")
+ShaderSettings = SubResource("Resource_gm7pi")
 ShapeStepLengthDivs = 8
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 4.71244]
-Curve = SubResource("Curve3D_yg66v")
+Curve = SubResource("Curve3D_sdmbh")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -596.97, 0.6, -1889.82)
@@ -1322,6 +1322,486 @@ metadata/_aseprite_wizard_interface_config_ = {
 transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
 
 [node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H11/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H793" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133167, 0.00672998, -0.152892, 0.00902221, -0.00823699, 2.29464, 0.00375862, -0.218669, -0.0911414, -24.3879, -3.25194, 171.418)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H793"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H793/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H794" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, 16.8624, -2.752, 294.315)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H794"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H794/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H795" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -25.1119, -2.752, 249.987)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H795"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H795/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H796" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, 4.19426, -2.752, 204.954)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H796"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H796/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H797" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, 16.3325, -2.752, 242.538)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H797"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H797/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H798" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.00376471, -0.233773, -0.0912293, 20.5848, -2.752, 273.328)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H798"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H798/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H799" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133167, 0.00672999, -0.152892, 0.00902221, -0.00823699, 2.29464, 0.00375862, -0.218669, -0.0911414, -46.2923, -3.25194, 176.844)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H799"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H799/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H800" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -4.63336, -2.752, 284.827)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H800"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H800/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H801" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -47.0162, -2.752, 255.414)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H801"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H801/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H802" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -12.8794, -2.752, 223.412)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H802"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H802/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H803" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -14.8573, -2.752, 247.965)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H803"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H803/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H804" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.00376471, -0.233773, -0.0912293, 56.0036, -2.752, 262.919)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H804"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H804/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H805" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133167, 0.00672999, -0.152892, 0.00902221, -0.00823699, 2.29464, 0.00375862, -0.218669, -0.0911414, -46.5768, -3.25194, 123.002)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H805"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H805/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H806" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -44.4278, -2.752, 284.414)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H806"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H806/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H807" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -47.3008, -2.752, 201.571)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H807"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H807/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H808" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -13.164, -2.752, 169.57)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H808"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H808/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H809" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -15.1419, -2.752, 194.123)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H809"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H809/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H810" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.00376471, -0.233773, -0.0912293, 39.7011, -2.752, 248.659)
+lod_bias = 0.001
+modulate = Color(0.833943, 0.611099, 0.394356, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H810"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H810/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H811" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133167, 0.00672999, -0.152892, 0.00902221, -0.00823699, 2.29464, 0.00375862, -0.218669, -0.0911414, -45.1336, -3.25194, 231.056)
+lod_bias = 0.001
+modulate = Color(0.909691, 0.573029, 0.25111, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H811"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H811/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H812" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -25.7754, -2.752, 268.604)
+lod_bias = 0.001
+modulate = Color(0.909691, 0.573029, 0.25111, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H812"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H812/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H813" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -45.8575, -2.752, 309.625)
+lod_bias = 0.001
+modulate = Color(0.909691, 0.573029, 0.25111, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H813"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H813/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H814" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -24.8524, -2.752, 301.467)
+lod_bias = 0.001
+modulate = Color(0.909691, 0.573029, 0.25111, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H814"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H814/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H815" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -11.4693, -2.752, 299.388)
+lod_bias = 0.001
+modulate = Color(0.909691, 0.573029, 0.25111, 1)
+alpha_cut = 3
+texture = ExtResource("24_sitde")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H815"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H815/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
+shape = SubResource("SphereShape3D_2sudt")
+
+[node name="H816" type="Sprite3D" parent="Trees"]
+transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.00376471, -0.233773, -0.0912293, 41.4193, -2.752, 309.772)
+lod_bias = 0.001
+modulate = Color(0.909691, 0.573029, 0.25111, 1)
+alpha_cut = 3
+texture = ExtResource("25_y1q10")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="Trees/H816"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Trees/H816/StaticBody2D"]
 transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, -5.96046e-08)
 shape = SubResource("SphereShape3D_2sudt")
 
@@ -8333,7 +8813,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H286" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133383, 0.00719501, -0.153039, 0.00903682, -0.00880592, 2.29685, 0.00376481, -0.233773, -0.0912293, -12.8233, -2.752, 298.272)
+transform = Transform3D(0.133383, 0.00719501, -0.153039, 0.00903682, -0.00880592, 2.29685, 0.00376481, -0.233773, -0.0912293, -15.121, -2.752, 304.276)
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
@@ -8353,7 +8833,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H292" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592, 2.29685, 0.00376474, -0.233773, -0.0912293, -23.443, -2.752, 294.19)
+transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592, 2.29685, 0.00376474, -0.233773, -0.0912293, -22.2542, -2.752, 294.373)
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
@@ -8373,7 +8853,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H293" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133383, 0.00719493, -0.153039, 0.00903681, -0.00880592, 2.29685, 0.00376477, -0.233773, -0.0912293, -27.9332, -2.752, 300.191)
+transform = Transform3D(0.133383, 0.00719493, -0.153039, 0.00903681, -0.00880592, 2.29685, 0.00376477, -0.233773, -0.0912293, -28.2943, -2.752, 305.691)
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
