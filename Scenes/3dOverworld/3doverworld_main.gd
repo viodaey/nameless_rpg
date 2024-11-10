@@ -22,7 +22,7 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
-		_player_body.position = _Cave_entrance.position + Vector3()
+		_player_body.position = _Cave_entrance.position + Vector3(0,5,3)
 	if sceneManager.last_scene == "res://Scenes/3dH1/3dh1.tscn":
 		if player.last_exit == 'south':
 			_player_body.position = _H1Entrancefront.position + Vector3(0,5,3)
