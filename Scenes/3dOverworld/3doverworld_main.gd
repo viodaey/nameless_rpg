@@ -23,7 +23,7 @@ func _ready() -> void:
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
 		_player_body.position = _Cave_entrance.position + Vector3()
-	if sceneManager.last_scene == "res://Scenes/3dH1/3dH1.tscn":
+	if sceneManager.last_scene == "res://Scenes/3dH1/3dh1.tscn":
 		if player.last_exit == 'south':
 			_player_body.position = _H1Entrancefront.position + Vector3(0,5,3)
 		if player.last_exit == 'west':
@@ -37,12 +37,12 @@ func _on_CaveEntrance_body_entered(body: Node3D) -> void:
 func _on_H1Entrancefront_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
 		player.last_exit = 'south'
-		sceneManager.goto_scene("res://Scenes/3dH1/3dH1.tscn")
+		sceneManager.goto_scene("res://Scenes/3dH1/3dh1.tscn")
 
 func _on_H1Entranceback_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
 		player.last_exit = 'west'
-		sceneManager.goto_scene("res://Scenes/3dH1/3dH1.tscn")
+		sceneManager.goto_scene("res://Scenes/3dH1/3dh1.tscn")
 
 
 ##func _input(_event):
