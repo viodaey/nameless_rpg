@@ -49,7 +49,7 @@ func _physics_process(_delta):
 
 ## 	spawn NPC	
 	if moved > move_dice and disabled_spawn == false:
-		var rng = RandomNumberGenerator.new()
+		rng = RandomNumberGenerator.new()
 		for i in rng.randi_range(1,2):
 			var vec_target = await(_spawn_npc_loc())
 			get_node("RayCast3D").position = self.position
@@ -68,7 +68,7 @@ func _physics_process(_delta):
 				activeSpawns.append(_spawned_npc.name)
 
 func _spawn_npc_loc():
-	var rng = RandomNumberGenerator.new()
+	rng = RandomNumberGenerator.new()
 	var angle = rng.randf_range(0, TAU)
 	var min_spawn_range = get_parent().min_spawn_range
 	var max_spawn_range = get_parent().max_spawn_range
