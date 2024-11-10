@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://dnvlg3d57lcll" path="res://enemy_resources/enemy_identityfiles/wolfelec_evo1.tres" id="9_jn4p6"]
 [ext_resource type="Resource" uid="uid://b1fcmuc48457q" path="res://enemy_resources/enemy_identityfiles/wolfnature_evo1.tres" id="10_knxf3"]
 [ext_resource type="Texture2D" uid="uid://0ydqt7oi8ul0" path="res://bg_art/PNG/Fields_battle_test2.jpg" id="11_li8w2"]
-[ext_resource type="Terrain3DStorage" uid="uid://pn2u0sl4nano" path="res://terrain3d_resources/terrain_3d_storage.res" id="12_f7xry"]
+[ext_resource type="Terrain3DStorage" uid="uid://bg4ur3rupe4yj" path="res://terrain3d_resources/Overworld.res" id="12_ncx2w"]
 [ext_resource type="Terrain3DMaterial" uid="uid://dge3kxkoh7syd" path="res://terrain3d_resources/terrain_3d_material.tres" id="13_xrio6"]
 [ext_resource type="Terrain3DAssets" uid="uid://ggtkcr8t13k" path="res://terrain3d_resources/terrain_3d_assets.tres" id="14_14usy"]
 [ext_resource type="Script" path="res://addons/waterways_net/RiverManager.cs" id="15_qdb46"]
@@ -40,7 +40,7 @@ sky = SubResource("Sky_35tuv")
 
 [sub_resource type="MeshTexture" id="MeshTexture_2anvy"]
 
-[sub_resource type="Resource" id="Resource_po5p0"]
+[sub_resource type="Resource" id="Resource_1xp82"]
 script = ExtResource("17_ue12k")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_2anvy")
@@ -69,7 +69,7 @@ mat_edge_fade = 0.25
 LodLod0Distance = 5.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_t8mpu"]
+[sub_resource type="Curve3D" id="Curve3D_5yo8d"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -200,19 +200,19 @@ environment = SubResource("Environment_0g2g2")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -497.342, 44.7437, -1403.24)
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
-storage = ExtResource("12_f7xry")
+storage = ExtResource("12_ncx2w")
 material = ExtResource("13_xrio6")
 assets = ExtResource("14_14usy")
 
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(0.33098, 0, -414.84, 0, 34.021, 0, 44.831, 0, 3.0627, -619.587, -2.60168, -1858.19)
 script = ExtResource("15_qdb46")
-ShaderSettings = SubResource("Resource_po5p0")
+ShaderSettings = SubResource("Resource_1xp82")
 ShapeStepLengthDivs = 8
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 4.71244]
-Curve = SubResource("Curve3D_t8mpu")
+Curve = SubResource("Curve3D_5yo8d")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -596.97, 0.6, -1889.82)
