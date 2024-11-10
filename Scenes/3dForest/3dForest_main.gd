@@ -9,7 +9,6 @@ const scene_type = 1
 @export var min_spawn_range: int = 350
 @export var max_spawn_range: int = 450
 @onready var _player_body = $Player
-var _spawned_npc  
 var spawn_request
 
 # Called when the node enters the scene tree for the first time.

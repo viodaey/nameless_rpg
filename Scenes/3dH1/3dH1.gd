@@ -5,7 +5,6 @@ const scene_type = 1
 @onready var _player_body = $Player
 @onready var _h1exitfront = $"3dH1Exitfront"
 @onready var _h1exitback = $"3dH1Exitback"
-var battle_bg: Texture
 var spawn_request
 
 func _ready() -> void:

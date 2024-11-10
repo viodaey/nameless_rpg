@@ -6,33 +6,23 @@ const scene_type = 1
 @export var max_lvl: int = 14
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
+@export var drops: Dictionary
 @export var min_spawn_range: int = 15
 @export var max_spawn_range: int = 20
 @onready var _player_body = $Player
-@export var drops: Dictionary
-@onready var _CaveExit = $CaveExit
-@onready var _CaveEntrance = $CaveEntrance
-
-var _spawned_npc  
+@onready var _CaveExit = $"CaveExit"
 var spawn_request
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	inv.drops = drops
 	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
-	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
-		_player_body.position = player.position
-	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
-		_player_body.position = $CaveExit.position + Vector3(0,0,-15)
-	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
-		_player_body.position = $CaveEntrance.position + Vector3(15,0,0)
-
-#Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-func _despawn_npc():
-	_spawned_npc.queue_free()
+	if player.last_exit == '_CaveExit':
+		_player_body.position = _CaveExit.position + Vector3(0,0.1,-5)
+	
+func _on_CaveExit_body_entered(body: Node3D) -> void:
+	if body.name == _player_body.name:
+		player.last_exit = '_CaveExit'
+		sceneManager.goto_scene("res://Scenes/3dOverworld/3doverworld.tscn")
 
 
 #func _spawn_npc():
