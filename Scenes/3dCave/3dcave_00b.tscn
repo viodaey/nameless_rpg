@@ -7,8 +7,8 @@
 [ext_resource type="Resource" uid="uid://dmroaf0lbxacy" path="res://enemy_resources/enemy_identityfiles/skellywarrior_evo1.tres" id="3_ddf5n"]
 [ext_resource type="Texture2D" uid="uid://drl75kb14pej1" path="res://textures/Terrain/Dirt2/packed_normal_roughness.png" id="3_x1n1y"]
 [ext_resource type="Resource" uid="uid://4hyxykrulp8a" path="res://enemy_resources/enemy_identityfiles/skellymage_evo1.tres" id="4_6l3j0"]
-[ext_resource type="Script" path="res://Scenes/Overworld/3dcharacter_body.gd" id="4_m8c5l"]
-[ext_resource type="SpriteFrames" uid="uid://jtk22f2psyhj" path="res://Scenes/Overworld/Playerbody_SF.tres" id="5_4wyit"]
+[ext_resource type="Script" path="res://Scenes/3dOverworld/3dcharacter_body.gd" id="4_m8c5l"]
+[ext_resource type="SpriteFrames" uid="uid://d3qv35el85yex" path="res://Scenes/3dOverworld/Playerbody_SF.tres" id="5_4wyit"]
 [ext_resource type="Script" path="res://Scenes/3dCave/3dcave_00bexit.gd" id="6_r8mnh"]
 
 [sub_resource type="Gradient" id="Gradient_4prwo"]

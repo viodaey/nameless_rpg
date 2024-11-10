@@ -4,8 +4,8 @@
 [ext_resource type="Terrain3DStorage" uid="uid://puhpc13moxh0" path="res://terrain3d_resources/Cave.res" id="2_oejbs"]
 [ext_resource type="Texture2D" uid="uid://c184u408sv5og" path="res://textures/Terrain/Dirt2/packed_albedo_height.png" id="3_bbefu"]
 [ext_resource type="Texture2D" uid="uid://drl75kb14pej1" path="res://textures/Terrain/Dirt2/packed_normal_roughness.png" id="4_vnoi0"]
-[ext_resource type="Script" path="res://Scenes/Overworld/3dcharacter_body.gd" id="5_pp16d"]
-[ext_resource type="SpriteFrames" uid="uid://jtk22f2psyhj" path="res://Scenes/Overworld/Playerbody_SF.tres" id="6_mkpl7"]
+[ext_resource type="Script" path="res://Scenes/3dOverworld/3dcharacter_body.gd" id="5_pp16d"]
+[ext_resource type="SpriteFrames" uid="uid://d3qv35el85yex" path="res://Scenes/3dOverworld/Playerbody_SF.tres" id="6_mkpl7"]
 
 [sub_resource type="Gradient" id="Gradient_4prwo"]
 offsets = PackedFloat32Array(0.2, 1)
