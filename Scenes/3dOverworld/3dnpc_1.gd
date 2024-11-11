@@ -74,7 +74,7 @@ func _physics_process(delta: float):
 		if wandering == false:
 			if time_not_wandering >= time_to_not_wander:
 				rng = RandomNumberGenerator.new()
-				var angle = rng.randf_range(0, TAU)
+				var _angle = rng.randf_range(0, TAU)
 				#wander_vector = (position - (position + Vector3().normalized()
 				#if wander_vector.x > 0:
 					#_animated_sprite.flip_h = 1

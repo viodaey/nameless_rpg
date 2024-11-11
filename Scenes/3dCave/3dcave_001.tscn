@@ -1,22 +1,19 @@
-[gd_scene load_steps=28 format=3 uid="uid://cj22v43gynqcq"]
+[gd_scene load_steps=20 format=3 uid="uid://cst57dkdv82mb"]
 
 [ext_resource type="Script" path="res://Scenes/3dCave/3dcave_main.gd" id="1_2cxxe"]
-[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_gosw7"]
-[ext_resource type="Resource" uid="uid://4hyxykrulp8a" path="res://enemy_resources/enemy_identityfiles/skellymage_evo1.tres" id="3_7p0w5"]
-[ext_resource type="Resource" uid="uid://dmroaf0lbxacy" path="res://enemy_resources/enemy_identityfiles/skellywarrior_evo1.tres" id="4_rxkwx"]
-[ext_resource type="Texture2D" uid="uid://pfg3vn4uylma" path="res://Scenes/3dCave/cave_bg_1.png" id="5_3flus"]
+[ext_resource type="Texture2D" uid="uid://bcyd7qrd3gc3e" path="res://textures/Terrain/Dirt1/packed_albedo_height.png" id="3_yfpdb"]
+[ext_resource type="Texture2D" uid="uid://cx5sidci33eeu" path="res://textures/Terrain/Dirt1/packed_normal_roughness.png" id="4_u0esx"]
 [ext_resource type="Terrain3DStorage" uid="uid://puhpc13moxh0" path="res://terrain3d_resources/Cave.res" id="6_vw5dy"]
 [ext_resource type="Texture2D" uid="uid://c184u408sv5og" path="res://textures/Terrain/Dirt2/packed_albedo_height.png" id="7_h2wd7"]
 [ext_resource type="Texture2D" uid="uid://drl75kb14pej1" path="res://textures/Terrain/Dirt2/packed_normal_roughness.png" id="8_05mjw"]
 [ext_resource type="Script" path="res://Scenes/3dOverworld/3dcharacter_body.gd" id="9_y6acx"]
 [ext_resource type="SpriteFrames" uid="uid://d3qv35el85yex" path="res://Scenes/3dOverworld/Playerbody_SF.tres" id="10_jucvf"]
-[ext_resource type="Script" path="res://Scenes/3dCave/3dcave_exit.gd" id="11_8x2vr"]
 
-[sub_resource type="Gradient" id="Gradient_4prwo"]
+[sub_resource type="Gradient" id="Gradient_wyj81"]
 offsets = PackedFloat32Array(0.2, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_7vrug"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3ix5v"]
 noise_type = 2
 frequency = 0.03
 cellular_jitter = 3.0
@@ -28,12 +25,12 @@ domain_warp_fractal_type = 2
 domain_warp_fractal_lacunarity = 1.5
 domain_warp_fractal_gain = 1.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mqseu"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dbhqf"]
 seamless = true
-color_ramp = SubResource("Gradient_4prwo")
-noise = SubResource("FastNoiseLite_7vrug")
+color_ramp = SubResource("Gradient_wyj81")
+noise = SubResource("FastNoiseLite_3ix5v")
 
-[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_ven38"]
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_tvqxb"]
 _shader_parameters = {
 "blend_sharpness": 0.87,
 "height_blending": true,
@@ -44,169 +41,95 @@ _shader_parameters = {
 "noise1_scale": 0.04,
 "noise2_scale": 0.076,
 "noise3_scale": 0.225,
-"noise_texture": SubResource("NoiseTexture2D_mqseu"),
+"noise_texture": SubResource("NoiseTexture2D_dbhqf"),
 "vertex_normals_distance": 128.0
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtuvx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eikd6"]
 cull_mode = 2
 vertex_color_use_as_albedo = true
 backlight_enabled = true
 backlight = Color(0.5, 0.5, 0.5, 1)
 
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_kwcfv"]
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_12bgp"]
 height_offset = 0.5
 density = 10.0
-material_override = SubResource("StandardMaterial3D_mtuvx")
+material_override = SubResource("StandardMaterial3D_eikd6")
 generated_type = 1
 
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_boe2f"]
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_kjr08"]
 name = "packed_albedo_height"
+albedo_color = Color(0.686305, 0.587827, 0.197321, 1)
+albedo_texture = ExtResource("3_yfpdb")
+normal_texture = ExtResource("4_u0esx")
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_v4c7v"]
+name = "packed_albedo_height"
+id = 1
+albedo_color = Color(0.466181, 0.466181, 0.466181, 1)
 albedo_texture = ExtResource("7_h2wd7")
 normal_texture = ExtResource("8_05mjw")
-uv_scale = 0.841
-detiling = 1.0
 
-[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_xfv8e"]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_kwcfv")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_boe2f")])
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_iirrq"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_12bgp")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_kjr08"), SubResource("Terrain3DTextureAsset_v4c7v")])
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4n6wc"]
-
-[sub_resource type="Sky" id="Sky_smqnn"]
-sky_material = SubResource("ProceduralSkyMaterial_4n6wc")
-
-[sub_resource type="Environment" id="Environment_q3ava"]
-background_mode = 2
-sky = SubResource("Sky_smqnn")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8v4bv"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_hdeja"]
 size = Vector3(2.6059, 4.43323, 4.16797)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dl51f"]
-size = Vector3(2.5, 2.5, 2.5)
-
-[sub_resource type="GDScript" id="GDScript_0x0pd"]
-script/source = "extends Area3D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-func _spawn_npc() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-func _on_body_entered(body: Node3D) -> void:
-	if body.name == 'Player':
-		sceneManager.goto_scene(\"res://Scenes/3dCave/3dcave_00b.tscn\")
-	
-	pass # Replace with function body.
-"
-
-[sub_resource type="GDScript" id="GDScript_igm8f"]
-script/source = "extends Area3D
-
-@export var enemy : Resource
-#@onready var _animated_sprite = $AnimatedSprite2D
-@warning_ignore(\"unused_private_class_variable\")
-@onready var _player_body = get_parent().get_node(\"Player\")
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if sceneManager.last_scene == \"res://enemy_resources/enemy_identityfiles/roy_the_terrible.tres\":
-		$Boss_R.queue_free()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(_delta: float) -> void:
-	#pass
-#
-#func _on_body_entered(body: Node3D) -> void:
-	#player.enemy_encounter = enemy.resource_path
-	#player.position = _player_body.position
-	#AudioPlayer.play_music_level(\"res://musig/Battle_-_No_Way_Out.ogg\")
-	#sceneManager.goto_scene(\"res://Scenes/Battle/battle.tscn\")
-	#pass
-"
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nu1w2"]
-size = Vector3(2.5, 2.5, 2.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_vdve6"]
+size = Vector3(15, 4, 4)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_2cxxe")
-world_enemies = Array[ExtResource("2_gosw7")]([ExtResource("3_7p0w5"), ExtResource("4_rxkwx")])
-battle_bg = ExtResource("5_3flus")
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 storage = ExtResource("6_vw5dy")
-material = SubResource("Terrain3DMaterial_ven38")
-assets = SubResource("Terrain3DAssets_xfv8e")
+material = SubResource("Terrain3DMaterial_tvqxb")
+assets = SubResource("Terrain3DAssets_iirrq")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_q3ava")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Terrain3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -872.518, 0, -688.189)
+light_color = Color(0.125741, 0.0736659, 0.0629712, 1)
+light_energy = 3.575
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-light_color = Color(0.390306, 0.222148, 0.187284, 1)
-light_energy = 0.341
+[node name="SpotLight3D" type="SpotLight3D" parent="Terrain3D"]
+transform = Transform3D(1, 0, 0, 0, 0.982287, 0.187381, 0, -0.187381, 0.982287, -512.934, 4.08606, -14.717)
+light_energy = 4.425
+light_specular = 9.096
+spot_range = 74.0207
+spot_attenuation = -0.5
+spot_angle = 12.5143
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 511.937, 0.1, -23.6097)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -513.048, 0.6, -68.441)
 script = ExtResource("9_y6acx")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(0.970874, 0, 0, 0, -4.24383e-08, 0.970874, 0, -0.970874, -4.24383e-08, 0, 10, 0)
 projection = 1
 fov = 168.0
-size = 42.269
-near = 0.031
-far = 74.03
+size = 70.769
+near = 0.019
+far = 38.07
 
 [node name="CollisionPolygon3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155518, 1.60785, 0.0849609)
-shape = SubResource("BoxShape3D_8v4bv")
+shape = SubResource("BoxShape3D_hdeja")
 
 [node name="RayCast3D" type="RayCast3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664063, 0, -0.0214844)
 target_position = Vector3(0, 0.2, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
-transform = Transform3D(30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 0, 9.2631)
+transform = Transform3D(30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 0.6, 0)
 sprite_frames = ExtResource("10_jucvf")
 animation = &"idledown"
 
 [node name="CaveExit" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 511.958, 0, -0.37236)
-script = ExtResource("11_8x2vr")
 
-[node name="CaveExit" type="CollisionShape3D" parent="CaveExit"]
-shape = SubResource("BoxShape3D_dl51f")
-
-[node name="Cave00bEntrance" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1021.24, 0, -516.216)
-script = SubResource("GDScript_0x0pd")
-
-[node name="caveexit" type="CollisionShape3D" parent="Cave00bEntrance"]
-shape = SubResource("BoxShape3D_dl51f")
-
-[node name="Boss_R" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 510.862, 0, -1010.84)
-script = SubResource("GDScript_igm8f")
-
-[node name="caveexit" type="CollisionShape3D" parent="Boss_R"]
-shape = SubResource("BoxShape3D_nu1w2")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.823136, 0.567844, 0, -0.567844, 0.823136, 512.017, 10, 7.56749)
-light_energy = 6.808
-light_specular = 9.096
-spot_range = 138.497
-spot_attenuation = 0.58
-spot_angle = 19.16
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveExit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -512.978, 0, -43.5248)
+shape = SubResource("BoxShape3D_vdve6")
 
 [connection signal="body_entered" from="CaveExit" to="." method="_on_CaveExit_body_entered"]
-[connection signal="body_entered" from="Cave00bEntrance" to="Cave00bEntrance" method="_on_body_entered"]
-[connection signal="body_entered" from="Boss_R" to="Boss_R" method="_on_body_entered"]

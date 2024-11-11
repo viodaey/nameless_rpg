@@ -2,7 +2,7 @@ extends Resource
 
 class_name _Class
 
-@warning_ignore("unused_private_class_variable")
+@warning_ignore("unused_variable")
 @export var _classname: String = "Classname"
 @export var base_hp: int
 @export var base_dmg: int

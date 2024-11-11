@@ -29,8 +29,6 @@ func _ready() -> void:
 		if player.last_exit == 'west':
 			_player_body.position = Vector3(_H1Entranceback.position.x - 3, _player_body.position.y, _H1Entranceback.position.z)
 
-
-
 func _on_CaveEntrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
 		player.last_exit = 'overworld'
