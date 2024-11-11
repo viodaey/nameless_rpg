@@ -18,7 +18,7 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/3dOverworld/3doverworld.tscn":
-		_player_body.position = $ForestExit.position + Vector3(0,0,0)
+		_player_body.position = $ForestExit.position + Vector3(-10,0,0)
 		
 	#if player.forest_scene1 == 0:
 		#$Player.disabled_spawn = true

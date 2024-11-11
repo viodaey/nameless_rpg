@@ -93,6 +93,7 @@ battle_bg = ExtResource("5_2pac3")
 storage = ExtResource("6_vw5dy")
 material = SubResource("Terrain3DMaterial_tvqxb")
 assets = SubResource("Terrain3DAssets_iirrq")
+mesh_size = 8
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Terrain3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -872.518, 0, -688.189)

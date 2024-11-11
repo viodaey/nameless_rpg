@@ -25,7 +25,7 @@ func _ready() -> void:
 	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
 		_player_body.position = Vector3(_Cave_entrance.position.x, _player_body.position.y, _Cave_entrance.position.z + 3)
 	if sceneManager.last_scene == "res://Scenes/3dForest/3dforest.tscn":
-		_player_body.position = Vector3(_Forest_Entrance.position.x, _player_body.position.y, _Forest_Entrance.position.z)
+		_player_body.position = Vector3(_Forest_Entrance.position.x + 10, _player_body.position.y, _Forest_Entrance.position.z - 20)
 	if sceneManager.last_scene == "res://Scenes/3dH1/3dh1.tscn":
 		if player.last_exit == 'south':
 			_player_body.position = Vector3(_H1Entrancefront.position.x, _player_body.position.y, _H1Entrancefront.position.z + 3)
