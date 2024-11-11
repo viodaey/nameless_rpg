@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c68x0qwcn7pnn"]
+[gd_scene load_steps=28 format=3 uid="uid://cj22v43gynqcq"]
 
 [ext_resource type="Script" path="res://Scenes/3dCave/3dcave_main.gd" id="1_2cxxe"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_gosw7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://drl75kb14pej1" path="res://textures/Terrain/Dirt2/packed_normal_roughness.png" id="8_05mjw"]
 [ext_resource type="Script" path="res://Scenes/3dOverworld/3dcharacter_body.gd" id="9_y6acx"]
 [ext_resource type="SpriteFrames" uid="uid://d3qv35el85yex" path="res://Scenes/3dOverworld/Playerbody_SF.tres" id="10_jucvf"]
+[ext_resource type="Script" path="res://Scenes/3dCave/3dcave_exit.gd" id="11_8x2vr"]
 
 [sub_resource type="Gradient" id="Gradient_4prwo"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -82,7 +83,10 @@ sky = SubResource("Sky_smqnn")
 [sub_resource type="BoxShape3D" id="BoxShape3D_8v4bv"]
 size = Vector3(2.6059, 4.43323, 4.16797)
 
-[sub_resource type="GDScript" id="GDScript_yhnu0"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dl51f"]
+size = Vector3(2.5, 2.5, 2.5)
+
+[sub_resource type="GDScript" id="GDScript_0x0pd"]
 script/source = "extends Area3D
 
 
@@ -90,19 +94,45 @@ script/source = "extends Area3D
 func _ready() -> void:
 	pass # Replace with function body.
 
+func _spawn_npc() -> void:
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
-
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == 'Player':
-		sceneManager.goto_scene(\"res://Scenes/3dOverworld/3doverworld.tscn\")
-		
+		sceneManager.goto_scene(\"res://Scenes/3dCave/3dcave_00b.tscn\")
+	
+	pass # Replace with function body.
 "
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dl51f"]
+[sub_resource type="GDScript" id="GDScript_igm8f"]
+script/source = "extends Area3D
+
+@export var enemy : Resource
+#@onready var _animated_sprite = $AnimatedSprite2D
+@warning_ignore(\"unused_private_class_variable\")
+@onready var _player_body = get_parent().get_node(\"Player\")
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if sceneManager.last_scene == \"res://enemy_resources/enemy_identityfiles/roy_the_terrible.tres\":
+		$Boss_R.queue_free()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(_delta: float) -> void:
+	#pass
+#
+#func _on_body_entered(body: Node3D) -> void:
+	#player.enemy_encounter = enemy.resource_path
+	#player.position = _player_body.position
+	#AudioPlayer.play_music_level(\"res://musig/Battle_-_No_Way_Out.ogg\")
+	#sceneManager.goto_scene(\"res://Scenes/Battle/battle.tscn\")
+	#pass
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nu1w2"]
 size = Vector3(2.5, 2.5, 2.5)
 
 [node name="Node3D" type="Node3D"]
@@ -117,6 +147,11 @@ assets = SubResource("Terrain3DAssets_xfv8e")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_q3ava")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0.390306, 0.222148, 0.187284, 1)
+light_energy = 0.341
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 511.937, 0.1, -23.6097)
@@ -145,9 +180,33 @@ animation = &"idledown"
 
 [node name="CaveExit" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 511.958, 0, -0.37236)
-script = SubResource("GDScript_yhnu0")
+script = ExtResource("11_8x2vr")
 
 [node name="CaveExit" type="CollisionShape3D" parent="CaveExit"]
 shape = SubResource("BoxShape3D_dl51f")
 
+[node name="Cave00bEntrance" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1021.24, 0, -516.216)
+script = SubResource("GDScript_0x0pd")
+
+[node name="caveexit" type="CollisionShape3D" parent="Cave00bEntrance"]
+shape = SubResource("BoxShape3D_dl51f")
+
+[node name="Boss_R" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 510.862, 0, -1010.84)
+script = SubResource("GDScript_igm8f")
+
+[node name="caveexit" type="CollisionShape3D" parent="Boss_R"]
+shape = SubResource("BoxShape3D_nu1w2")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.823136, 0.567844, 0, -0.567844, 0.823136, 512.017, 10, 7.56749)
+light_energy = 6.808
+light_specular = 9.096
+spot_range = 138.497
+spot_attenuation = 0.58
+spot_angle = 19.16
+
 [connection signal="body_entered" from="CaveExit" to="." method="_on_CaveExit_body_entered"]
+[connection signal="body_entered" from="Cave00bEntrance" to="Cave00bEntrance" method="_on_body_entered"]
+[connection signal="body_entered" from="Boss_R" to="Boss_R" method="_on_body_entered"]
