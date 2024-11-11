@@ -13,6 +13,7 @@ const scene_type = 1
 @onready var _Cave_entrance = $CaveEntrance
 @onready var _H1Entrancefront = $H1Entrancefront
 @onready var _H1Entranceback = $H1Entranceback
+@onready var _Forest_Entrance = $ForestEntrance
 
 var spawn_request
 
@@ -23,6 +24,8 @@ func _ready() -> void:
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
 		_player_body.position = Vector3(_Cave_entrance.position.x, _player_body.position.y, _Cave_entrance.position.z + 3)
+	if sceneManager.last_scene == "res://Scenes/3dForest/3dforest.tscn":
+		_player_body.position = Vector3(_Forest_Entrance.position.x, _player_body.position.y, _Forest_Entrance.position.z)
 	if sceneManager.last_scene == "res://Scenes/3dH1/3dh1.tscn":
 		if player.last_exit == 'south':
 			_player_body.position = Vector3(_H1Entrancefront.position.x, _player_body.position.y, _H1Entrancefront.position.z + 3)
@@ -44,6 +47,10 @@ func _on_H1Entranceback_body_entered(body: Node3D) -> void:
 		player.last_exit = 'west'
 		sceneManager.goto_scene("res://Scenes/3dH1/3dh1.tscn")
 
+func _on_ForestEntrance_body_entered(body: Node3D) -> void:
+	if body.name == _player_body.name:
+		player.last_exit = 'overworld'
+		sceneManager.goto_scene("res://Scenes/3dForest/3dforest.tscn")
 
 ##func _input(_event):
 	##if Input.is_action_pressed("ui_cancel"):
