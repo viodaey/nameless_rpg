@@ -3,7 +3,7 @@ extends Node
 var ability_test = load("res://Global/Abilities/Multistrike_1.tres")
 var ability_test_2 = load('res://Global/Abilities/Fireball_1.tres')
 
-@warning_ignore("unused_variable")
+@warning_ignore("unused_private_class_variable")
 var _name: String = "Skullhead"
 var max_health: int = 80
 var health: int = 80
@@ -24,7 +24,7 @@ var enemy_encounter: String = "res://enemyResources/res_battle_spider.tres"
 var position = Vector2(256,256)
 var atb: int = 100
 var current_scene
-@warning_ignore("unused_variable")
+@warning_ignore("unused_private_class_variable")
 var _abilities: Array[abilities] = [ability_test, ability_test_2]
 var passive : abilities
 #var done: bool = false

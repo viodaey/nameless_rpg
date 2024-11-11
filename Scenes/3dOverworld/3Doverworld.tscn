@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bccx782urtjhn"]
+[gd_scene load_steps=52 format=3 uid="uid://bccx782urtjhn"]
 
 [ext_resource type="Script" path="res://Scenes/3dOverworld/3doverworld_main.gd" id="1_46hd1"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_bmvhb"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://tlc7dpt1thgf" path="res://textures/Terrain/mountain1c.png" id="26_wi1a1"]
 [ext_resource type="Texture2D" uid="uid://c612klhs3yt48" path="res://textures/Terrain/Tree/Scots pine medium1t.png" id="27_cco4t"]
 [ext_resource type="Texture2D" uid="uid://fqao56arkfmf" path="res://textures/Terrain/Tree/Scots pine small1t.png" id="28_6tbqj"]
+[ext_resource type="Texture2D" uid="uid://ck7rikrknbenu" path="res://textures/Terrain/Tree/Norway spruce1t.png" id="28_c5cfp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h5yrn"]
 
@@ -40,7 +41,7 @@ sky = SubResource("Sky_35tuv")
 
 [sub_resource type="MeshTexture" id="MeshTexture_2anvy"]
 
-[sub_resource type="Resource" id="Resource_1u0w0"]
+[sub_resource type="Resource" id="Resource_erpfb"]
 script = ExtResource("17_ue12k")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_2anvy")
@@ -69,7 +70,7 @@ mat_edge_fade = 0.25
 LodLod0Distance = 5.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_7yvmd"]
+[sub_resource type="Curve3D" id="Curve3D_5s1n2"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -207,12 +208,12 @@ assets = ExtResource("14_14usy")
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(0.33098, 0, -414.84, 0, 34.021, 0, 44.831, 0, 3.0627, -619.587, -2.60168, -1858.19)
 script = ExtResource("15_qdb46")
-ShaderSettings = SubResource("Resource_1u0w0")
+ShaderSettings = SubResource("Resource_erpfb")
 ShapeStepLengthDivs = 8
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 4.71244]
-Curve = SubResource("Curve3D_7yvmd")
+Curve = SubResource("Curve3D_5s1n2")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -596.97, 0.6, -1889.82)
@@ -1095,7 +1096,7 @@ transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903677, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2196,7 +2197,7 @@ transform = Transform3D(0.133383, 0.00719494, -0.153039, 0.00903681, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2216,7 +2217,7 @@ transform = Transform3D(0.133383, 0.00719494, -0.153039, 0.00903681, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2236,7 +2237,7 @@ transform = Transform3D(0.133383, 0.00719493, -0.153039, 0.00903681, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2256,7 +2257,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2276,7 +2277,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2296,7 +2297,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2316,7 +2317,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2336,7 +2337,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2356,7 +2357,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2376,7 +2377,7 @@ transform = Transform3D(0.133383, 0.00719501, -0.153039, 0.00903682, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2396,7 +2397,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2436,7 +2437,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2456,7 +2457,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2476,7 +2477,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2496,7 +2497,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2516,7 +2517,7 @@ transform = Transform3D(0.133382, 0.00719477, -0.153039, 0.00903677, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2536,7 +2537,7 @@ transform = Transform3D(0.133382, 0.00719477, -0.153039, 0.00903678, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2556,7 +2557,7 @@ transform = Transform3D(0.133382, 0.00719477, -0.153039, 0.00903678, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2576,7 +2577,7 @@ transform = Transform3D(0.133382, 0.00719482, -0.153039, 0.00903678, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2596,7 +2597,7 @@ transform = Transform3D(0.133382, 0.00719482, -0.153039, 0.00903678, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2616,7 +2617,7 @@ transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903678, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2636,7 +2637,7 @@ transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903679, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2656,7 +2657,7 @@ transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903679, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2676,7 +2677,7 @@ transform = Transform3D(0.133382, 0.00719488, -0.153039, 0.00903679, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2696,7 +2697,7 @@ transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903679, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2716,7 +2717,7 @@ transform = Transform3D(0.133382, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2736,7 +2737,7 @@ transform = Transform3D(0.133382, 0.00719494, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2756,7 +2757,7 @@ transform = Transform3D(0.133383, 0.00719483, -0.153039, 0.0090368, -0.00880593,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2776,7 +2777,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2796,7 +2797,7 @@ transform = Transform3D(0.133383, 0.00719483, -0.153039, 0.0090368, -0.00880593,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2816,7 +2817,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2836,7 +2837,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2856,7 +2857,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2876,7 +2877,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2896,7 +2897,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.00903681, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2916,7 +2917,7 @@ transform = Transform3D(0.133383, 0.00719494, -0.153039, 0.00903681, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2936,7 +2937,7 @@ transform = Transform3D(0.133383, 0.00719494, -0.153039, 0.00903681, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2956,7 +2957,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2976,7 +2977,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -2996,7 +2997,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3016,7 +3017,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3036,7 +3037,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3056,7 +3057,7 @@ transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3076,7 +3077,7 @@ transform = Transform3D(0.133383, 0.00719511, -0.153039, 0.00903682, -0.00880591
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3096,7 +3097,7 @@ transform = Transform3D(0.133383, 0.00719505, -0.153039, 0.00903682, -0.00880591
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3116,7 +3117,7 @@ transform = Transform3D(0.133382, 0.00719477, -0.153039, 0.00903678, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3136,7 +3137,7 @@ transform = Transform3D(0.133382, 0.00719477, -0.153039, 0.00903678, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3156,7 +3157,7 @@ transform = Transform3D(0.133382, 0.00719482, -0.153039, 0.00903678, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3176,7 +3177,7 @@ transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903678, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3196,7 +3197,7 @@ transform = Transform3D(0.133382, 0.00719482, -0.153039, 0.00903678, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3216,7 +3217,7 @@ transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903678, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3236,7 +3237,7 @@ transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903679, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3256,7 +3257,7 @@ transform = Transform3D(0.133382, 0.00719488, -0.153039, 0.00903679, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3276,7 +3277,7 @@ transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903679, -0.00880593
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3296,7 +3297,7 @@ transform = Transform3D(0.133382, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3316,7 +3317,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3336,7 +3337,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3356,7 +3357,7 @@ transform = Transform3D(0.133383, 0.00719483, -0.153039, 0.0090368, -0.00880593,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3376,7 +3377,7 @@ transform = Transform3D(0.133383, 0.00719483, -0.153039, 0.0090368, -0.00880593,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3396,7 +3397,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3416,7 +3417,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3436,7 +3437,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.00903681, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -3456,7 +3457,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.00903681, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("28_6tbqj")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -5433,7 +5434,7 @@ transform = Transform3D(0.133383, 0.00719493, -0.153039, 0.00903681, -0.00880592
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
@@ -9915,7 +9916,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H371" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133382, 0.00719478, -0.153039, 0.00903677, -0.00880593, 2.29685, 0.00376467, -0.233773, -0.0912293, 48.8943, -2.752, -67.4938)
+transform = Transform3D(0.133382, 0.00719478, -0.153039, 0.00903677, -0.00880593, 2.29685, 0.00376467, -0.233773, -0.0912293, 49.0462, -2.752, -67.4938)
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
@@ -13059,7 +13060,7 @@ transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592,
 lod_bias = 0.001
 modulate = Color(0.631929, 0.690359, 0.524974, 1)
 alpha_cut = 3
-texture = ExtResource("27_cco4t")
+texture = ExtResource("28_c5cfp")
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
