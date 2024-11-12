@@ -44,7 +44,7 @@ sky = SubResource("Sky_35tuv")
 
 [sub_resource type="MeshTexture" id="MeshTexture_2anvy"]
 
-[sub_resource type="Resource" id="Resource_tj23h"]
+[sub_resource type="Resource" id="Resource_sygsd"]
 script = ExtResource("17_ue12k")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_2anvy")
@@ -73,7 +73,7 @@ mat_edge_fade = 0.25
 LodLod0Distance = 5.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_bmprv"]
+[sub_resource type="Curve3D" id="Curve3D_u54lb"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -212,12 +212,12 @@ mesh_size = 8
 [node name="RiverManager" type="Node3D" parent="."]
 transform = Transform3D(0.33098, 0, -414.84, 0, 34.021, 0, 44.831, 0, 3.0627, -619.587, -2.60168, -1858.19)
 script = ExtResource("15_qdb46")
-ShaderSettings = SubResource("Resource_tj23h")
+ShaderSettings = SubResource("Resource_sygsd")
 ShapeStepLengthDivs = 8
 ShapeStepWidthDivs = 8
 ShapeSmoothness = 0.1
 PointWidths = [2.48882, 4.71244]
-Curve = SubResource("Curve3D_bmprv")
+Curve = SubResource("Curve3D_u54lb")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -879.159, 0.6, -1156.59)
@@ -1484,7 +1484,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H799" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133167, 0.00672999, -0.152892, 0.00902221, -0.00823699, 2.29464, 0.00375862, -0.218669, -0.0911414, 18.604, -3.25194, 176.844)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1505,7 +1505,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H800" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -4.63336, -2.752, 284.827)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1526,7 +1526,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H801" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -47.0162, -2.752, 255.414)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1547,7 +1547,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H802" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -12.8794, -2.752, 223.412)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1568,7 +1568,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H803" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -14.8573, -2.752, 247.965)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1589,7 +1589,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H804" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.00376471, -0.233773, -0.0912293, 56.0036, -2.752, 262.919)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1610,7 +1610,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H805" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133167, 0.00672999, -0.152892, 0.00902221, -0.00823699, 2.29464, 0.00375862, -0.218669, -0.0911414, -27.3678, -3.25194, 232.422)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1631,7 +1631,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H806" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -41.622, -2.752, 282.404)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1652,7 +1652,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H807" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -17.8148, -2.752, 287.971)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1673,7 +1673,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H808" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -27.9694, -2.752, 207.112)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1694,7 +1694,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H809" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -15.1419, -2.752, 194.123)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1715,7 +1715,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H810" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.00376471, -0.233773, -0.0912293, 39.7011, -2.752, 248.659)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1736,7 +1736,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H811" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133167, 0.00672999, -0.152892, 0.00902221, -0.00823699, 2.29464, 0.00375862, -0.218669, -0.0911414, -45.1336, -3.25194, 231.056)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1757,7 +1757,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H812" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -25.7754, -2.752, 268.604)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1778,7 +1778,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H813" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -45.8575, -2.752, 309.625)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1799,7 +1799,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H814" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -24.8524, -2.752, 301.467)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1820,7 +1820,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H815" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, -11.4693, -2.752, 299.388)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -1841,7 +1841,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H816" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133382, 0.00719484, -0.153039, 0.00903679, -0.00880593, 2.29685, 0.00376471, -0.233773, -0.0912293, 41.4193, -2.752, 309.772)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.969553, 0.437212, 0.355304, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -2680,7 +2680,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H37" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133382, 0.00719482, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.00376469, -0.233773, -0.0912293, 183.461, -2.752, 283.67)
+transform = Transform3D(0.133382, 0.00719482, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.00376469, -0.233773, -0.0912293, 182.784, -2.752, 284.517)
 lod_bias = 0.001
 modulate = Color(0.439769, 0.705862, 0.351986, 1)
 pixel_size = 0.02
@@ -2871,7 +2871,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H46" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592, 2.29685, 0.00376474, -0.233773, -0.0912293, 82.0954, -2.752, 254.736)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.816732, 0.158068, 4.81307e-07, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("27_ytee7")
@@ -4551,7 +4551,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H172" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133383, 0.00719483, -0.153039, 0.0090368, -0.00880593, 2.29685, 0.00376471, -0.233773, -0.0912293, 33.0788, -2.752, 168.9)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(1, 0.421124, 0.115699, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("28_2afa8")
@@ -4572,7 +4572,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H173" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133383, 0.00719483, -0.153039, 0.0090368, -0.00880593, 2.29685, 0.00376471, -0.233773, -0.0912293, 26.678, -2.752, 211.888)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.847215, 0.544965, 0.288822, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("28_2afa8")
@@ -4926,7 +4926,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H191" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133383, 0.00719483, -0.153039, 0.0090368, -0.00880593, 2.29685, 0.00376471, -0.233773, -0.0912293, -35.1293, -2.752, 301.651)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(1, 0.414448, 0.240437, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("28_2afa8")
@@ -5073,7 +5073,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H115" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 2.29685, 0.00376481, -0.233773, -0.0912293, 42.6931, -2.752, 220.632)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.819342, 0.257692, 0, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("28_2afa8")
@@ -5092,9 +5092,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H116" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 2.29685, 0.00376481, -0.233773, -0.0912293, 90.6681, -2.752, 216.036)
+transform = Transform3D(0.133383, 0.007195, -0.153039, 0.00903682, -0.00880592, 2.29685, 0.00376481, -0.233773, -0.0912293, 84.8803, -2.752, 218.941)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(1, 0.723881, 0.656696, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("28_2afa8")
@@ -8317,7 +8317,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H380" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, 199.627, -2.752, 259.392)
+transform = Transform3D(0.133382, 0.00719483, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.0037647, -0.233773, -0.0912293, 197.955, -2.752, 261.897)
 lod_bias = 0.001
 modulate = Color(0.439769, 0.705862, 0.351986, 1)
 pixel_size = 0.02
@@ -8737,7 +8737,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H401" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133382, 0.00719488, -0.153039, 0.0090368, -0.00880592, 2.29685, 0.00376474, -0.233773, -0.0912293, 197.763, -2.752, 270.58)
+transform = Transform3D(0.133382, 0.00719488, -0.153039, 0.0090368, -0.00880592, 2.29685, 0.00376474, -0.233773, -0.0912293, 196.477, -2.752, 270.58)
 lod_bias = 0.001
 modulate = Color(0.439769, 0.705862, 0.351986, 1)
 pixel_size = 0.02
@@ -8758,7 +8758,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H404" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133383, 0.00719505, -0.153039, 0.00903682, -0.00880591, 2.29685, 0.00376484, -0.233773, -0.0912293, 195.934, -2.752, 283.182)
+transform = Transform3D(0.133383, 0.00719505, -0.153039, 0.00903682, -0.00880591, 2.29685, 0.00376484, -0.233773, -0.0912293, 195.934, -2.752, 282.977)
 lod_bias = 0.001
 modulate = Color(0.439769, 0.705862, 0.351986, 1)
 pixel_size = 0.02
@@ -8779,7 +8779,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H405" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592, 2.29685, 0.00376474, -0.233773, -0.0912293, 200.38, -2.752, 249.346)
+transform = Transform3D(0.133383, 0.00719488, -0.153039, 0.0090368, -0.00880592, 2.29685, 0.00376474, -0.233773, -0.0912293, 200.001, -2.752, 252.221)
 lod_bias = 0.001
 modulate = Color(0.439769, 0.705862, 0.351986, 1)
 pixel_size = 0.02
@@ -9824,7 +9824,7 @@ shape = SubResource("SphereShape3D_2sudt")
 [node name="H314" type="Sprite3D" parent="Trees"]
 transform = Transform3D(0.133383, 0.00719493, -0.153039, 0.00903681, -0.00880592, 2.29685, 0.00376477, -0.233773, -0.0912293, 39.9592, -2.752, 266.048)
 lod_bias = 0.001
-modulate = Color(0.439769, 0.705862, 0.351986, 1)
+modulate = Color(0.937897, 0.476179, 0.262721, 1)
 pixel_size = 0.02
 alpha_cut = 3
 texture = ExtResource("29_m7q3i")
@@ -10725,7 +10725,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H403" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133383, 0.00719501, -0.153039, 0.00903682, -0.00880592, 2.29685, 0.00376481, -0.233773, -0.0912293, 187.197, -2.752, 268.419)
+transform = Transform3D(0.133383, 0.00719501, -0.153039, 0.00903682, -0.00880592, 2.29685, 0.00376481, -0.233773, -0.0912293, 187.3, -2.752, 268.41)
 lod_bias = 0.001
 modulate = Color(0.439769, 0.705862, 0.351986, 1)
 pixel_size = 0.02
@@ -17296,7 +17296,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 1, -10, 
 shape = SubResource("SphereShape3D_2sudt")
 
 [node name="H708" type="Sprite3D" parent="Trees"]
-transform = Transform3D(0.133382, 0.00719478, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.00376467, -0.233773, -0.0912293, 193.443, -2.752, 293.504)
+transform = Transform3D(0.133382, 0.00719478, -0.153039, 0.00903678, -0.00880593, 2.29685, 0.00376467, -0.233773, -0.0912293, 193.443, -2.752, 305.834)
 lod_bias = 0.001
 modulate = Color(0.439769, 0.705862, 0.351986, 1)
 pixel_size = 0.02
