@@ -6,8 +6,8 @@ const scene_type = 1
 @export var max_lvl: int = 14
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
-@export var min_spawn_range: int = 75
-@export var max_spawn_range: int = 125
+@export var min_spawn_range: int = 60
+@export var max_spawn_range: int = 90
 @onready var _player_body = $Player
 @onready var Forest_Exit = $"ForestExit"
 @export var drops: Dictionary
