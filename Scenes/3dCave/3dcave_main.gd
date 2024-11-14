@@ -1,51 +1,26 @@
 extends Node3D
 
 const scene_type = 1
-#1 = map, 2 = battle, 3 = village?
+# 1 = map, 2 = battle, 3 = village?
+@onready var _player_body = $Player
+@onready var _cave_exit = $"CaveExit"
 @export var min_lvl: int = 7
 @export var max_lvl: int = 14
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
-@export var min_spawn_range: int = 15
-@export var max_spawn_range: int = 20
-@onready var _player_body = $Player
-var _spawned_npc  
+@export var min_spawn_range: int = 60
+@export var max_spawn_range: int = 90
+@export var drops: Dictionary
+
 var spawn_request
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	inv.drops = drops
 	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
-	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
-		print(sceneManager.last_scene)
-		_player_body.position = player.position
-	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_001.tscn":
-		_player_body.position = $CaveExit.position + Vector3(0,0,15)
-		print(sceneManager.last_scene)
-	if sceneManager.last_scene == "res://Scenes/3dCave/3dcave_00b.tscn":
-		_player_body.position = $Cave00bEntrance.position + Vector3(15,0,0)
-		print(sceneManager.last_scene)
+	if player.last_exit == 'cave':
+		_player_body.position = _cave_exit.position + Vector3(0, 0, -5)
 
-#Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-func _spawn_npc():
-	if is_instance_valid($NPC_spawn):
-		print("tried to spawn but valid instance found")
-	else:
-		var rng = RandomNumberGenerator.new()
-		var enemy_select = rng.randi_range(1,len(world_enemies))
-		@warning_ignore("narrowing_conversion")
-		var angle = rng.randi_range(0, TAU)
-		var distance = rng.randi_range(80, 130)
-		_player_body.get_node("RayCast2D").target_position += Vector2(distance*cos(angle), distance*sin(angle))
-		if _player_body.get_node("RayCast2D") .is_colliding():
-			_spawn_npc()
-		else:
-			spawn_request = load(world_enemies[enemy_select - 1].resource_path)
-			add_child(_spawned_npc.duplicate())
-			_spawned_npc = $NPC_spawn
-			_spawned_npc.position = _player_body.position + Vector2(distance*cos(angle), distance*sin(angle))
-
-func _despawn_npc():
-	_spawned_npc.queue_free()
+func _on_CaveExit_body_entered(body: Node3D) -> void:
+	if body.name == _player_body.name:
+		player.last_exit = 'cave'
+		sceneManager.goto_scene("res://Scenes/3dOverworld/3doverworld.tscn")

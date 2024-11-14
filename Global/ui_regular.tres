@@ -1,7 +1,8 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bvrkgbk0n2lkp"]
 
-[ext_resource type="FontFile" uid="uid://dmjq6coypb7ll" path="res://textures/fonts/Merienda-Bold.ttf" id="1_4miki"]
+[ext_resource type="FontFile" uid="uid://bgurxqqn8wtup" path="res://textures/fonts/Merienda-Regular.ttf" id="1_flivx"]
 
 [resource]
-font = ExtResource("1_4miki")
-font_size = 20
+font = ExtResource("1_flivx")
+font_size = 18
+font_color = Color(0.937255, 0.937255, 0.866667, 1)
