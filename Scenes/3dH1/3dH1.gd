@@ -15,7 +15,7 @@ func _ready() -> void:
 	if player.last_exit == 'west':
 		_player_body.position = _h1exitback.position + Vector3(5,0.1,0)
 	$Player.disabled_spawn = true
-	
+
 func _on_H1Exitfront_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
 		player.last_exit = 'south'
