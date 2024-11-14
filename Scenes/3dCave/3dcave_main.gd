@@ -10,10 +10,12 @@ const scene_type = 1
 @export var battle_bg: Texture
 @export var min_spawn_range: int = 75
 @export var max_spawn_range: int = 125
+@export var drops: Dictionary
 
 var spawn_request
 
 func _ready() -> void:
+	inv.drops = drops
 	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
 	if player.last_exit == 'cave':
 		_player_body.position = _cave_exit.position + Vector3(0, 0, -5)

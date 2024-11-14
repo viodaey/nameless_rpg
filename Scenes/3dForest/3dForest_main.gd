@@ -6,14 +6,17 @@ const scene_type = 1
 @export var max_lvl: int = 14
 @export var world_enemies: Array [Enemy]
 @export var battle_bg: Texture
-@export var min_spawn_range: int = 350
-@export var max_spawn_range: int = 450
+@export var min_spawn_range: int = 75
+@export var max_spawn_range: int = 125
 @onready var _player_body = $Player
 @onready var Forest_Exit = $"ForestExit"
+@export var drops: Dictionary
+
 var spawn_request
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	inv.drops = drops
 	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
 		_player_body.position = player.position
