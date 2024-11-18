@@ -1,0 +1,23 @@
+[gd_resource type="QuadMesh" load_steps=4 format=3 uid="uid://df0q67yriqwgj"]
+
+[ext_resource type="Shader" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_5r2p2"]
+[ext_resource type="Texture2D" uid="uid://bdm7482fs6o0e" path="res://textures/Terrain/Foliage/Trees/Maple/Maple young 4m 2.png" id="2_1lmfb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3jqs0"]
+render_priority = 0
+shader = ExtResource("1_5r2p2")
+shader_parameter/pixel_mode = true
+shader_parameter/pixel_amount = 4000.0
+shader_parameter/distortion = 0.01
+shader_parameter/texture_noise_system = true
+shader_parameter/noise_speed = 1.0
+shader_parameter/noise_direction = -1
+shader_parameter/worley_noise_system = false
+shader_parameter/worley_cell_density = 10.0
+shader_parameter/worley_speed = 2.0
+shader_parameter/edge_and_mask = false
+shader_parameter/alpha_value = 1.0
+shader_parameter/main_texture = ExtResource("2_1lmfb")
+
+[resource]
+material = SubResource("ShaderMaterial_3jqs0")
