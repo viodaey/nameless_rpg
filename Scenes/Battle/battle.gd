@@ -226,6 +226,12 @@ func _ready():
 		enemyDict[en]["cont"].add_theme_constant_override("separation", enemyDict[en]["res"].battle_y_sep)
 		enemyDict[en]["atb"] = 0
 		enemyDict[en]["max_atb"] = enemyDict[en]["res"].atb
+
+##	check engagement
+	if player.engagement == -1:
+		for e in enemyDict:
+			enemyDict[e]["atb"] = enemyDict[e]["max_atb"] - 1
+		await combat_log("Surprise attack!")
 	_turn_calc()
 
 signal pressedSomething
@@ -590,8 +596,8 @@ func enemy_turn(e):
 	if enemyDict[e]["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
 		combat_log("%s is chillin'" % (enemyDict[e]["res"]._name))
 		var tween = get_tree().create_tween()
-		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", true, 1)
-		tween.tween_property(enemyDict[y]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", false, 1)
+		tween.tween_property(enemyDict[e]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", true, 1)
+		tween.tween_property(enemyDict[e]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", false, 1)
 	else:
 		x = rng.randi_range(1, len(playerDict))
 		var players_array = playerDict.keys()
