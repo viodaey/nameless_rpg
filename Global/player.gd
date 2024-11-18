@@ -23,6 +23,8 @@ var enemy_encounter: String = "res://enemyResources/res_battle_spider.tres"
 #var enemy_stats = []
 var position = Vector2(256,256)
 var atb: int = 100
+var engagement: int = 0
+## 0 = neutral, 1 = advantage, -1 = disadvantage
 var current_scene
 @warning_ignore("unused_private_class_variable")
 var _abilities: Array[abilities] = [ability_test, ability_test_2]

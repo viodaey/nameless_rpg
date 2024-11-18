@@ -19,6 +19,8 @@ const detection_range : float = 15
 var initiated: bool = false
 signal initiation_done
 var velocity: Vector3 = Vector3.ZERO
+var direction: String = "nw"
+var cc_status: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_animated_sprite.sprite_frames = enemy.animatedSprite
@@ -95,4 +97,25 @@ func _on_animated_sprite_3d_animation_finished() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body == _player_body:
+		player.engagement = 0
+		if cc_status != 0:
+			player.engagement = 1
+		else:
+			match body.last_input:
+				"up":
+					#direction_vector = Vector2(0,-1)
+					if velocity.z < 0:
+						player.engagement = -1
+				"right":
+					#direction_vector = Vector2(1,0)
+					if velocity.x > 0:
+						player.engagement = -1
+				"down":
+					#direction_vector = Vector2(0,1)
+					if velocity.z > 0:
+						player.engagement = -1
+				"left":
+					#direction_vector = Vector2(-1,0)
+					if velocity.x < 0:
+						player.engagement = -1
 		initiate_battle()
