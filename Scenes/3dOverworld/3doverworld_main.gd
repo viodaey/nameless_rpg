@@ -14,8 +14,8 @@ const scene_type = 1
 @onready var _H1Entrancefront = $H1Entrancefront
 @onready var _H1Entranceback = $H1Entranceback
 @onready var _Forest_Entrance = $ForestEntrance
-
 var spawn_request
+#var _spawned_npc 
 
 func _ready() -> void:
 	inv.drops = drops
@@ -59,31 +59,45 @@ func _on_ForestEntrance_body_entered(body: Node3D) -> void:
 #
 ##func main_menu():
 	##var mainMenuScene = load("res://Global/mainMenu.tscn").instantiate()
-	##get_node("Player").get_node("Camera2D").enabled = false
+	##get_node("Player").get_node("Camera3D").enabled = false
 	##get_parent().add_child(mainMenuScene)
 	##get_tree().paused = true
 #
-##func _spawn_npc():
-	##if is_instance_valid($NPC_spawn):
-		##print("tried to spawn but valid instance found")
-	##else:
-		##var rng = RandomNumberGenerator.new()
-		##var enemy_select = rng.randi_range(1,len(world_enemies))
-		##var angle = rng.randi_range(0, TAU)
-		##var distance = rng.randi_range(80, 150)
-		##_player_body.get_node("RayCast2D").target_position += Vector2(distance*cos(angle), distance*sin(angle))
-		##if _player_body.get_node("RayCast2D") .is_colliding():
-			##_spawn_npc()
-##
-		##else:
-			##spawn_request = load(world_enemies[enemy_select - 1].resource_path)
-			##add_child(spawn.duplicate())
-			##var num = len(activeSpawns)
-			##_spawned_npc = $NPC_spawn
-			##_spawned_npc.name = "NPC_spawn" + "%d" %num
-			##_spawned_npc.position = _player_body.position + Vector2(distance*cos(angle), distance*sin(angle))
-			##activeSpawns.append(_spawned_npc.name)
-##
-##func _despawn_npc(npc):
-	##get_node(npc).queue_free()
-	##activeSpawns.erase(npc)
+#func _spawn_npc():
+	#if is_instance_valid($NPC_spawn):
+		#print("tried to spawn but valid instance found")
+	#else:
+		#var rng = RandomNumberGenerator.new()
+		#var enemy_select = rng.randi_range(1,len(world_enemies))
+		#var angle = rng.randi_range(0, TAU)
+		#var distance = rng.randi_range(80, 150)
+		#_player_body.get_node("RayCast3D").target_position += Vector3((distance)*cos(angle),0, (distance)*sin(angle))
+		#if _player_body.get_node("RayCast3D") .is_colliding():
+			#_spawn_npc()
+		#else:
+			#spawn_request = load(world_enemies[enemy_select - 1].resource_path)
+			#add_child(_spawned_npc.duplicate())
+			#var num = len(activeSpawns)
+			#_spawned_npc = $NPC_spawn
+			#_spawned_npc.name = "NPC_spawn" + "%d" %num
+			#_spawned_npc.position = _player_body.position + Vector3((distance)*cos(angle),0, (distance)*sin(angle))
+			#activeSpawns.append(_spawned_npc.name)
+
+#func _despawn_npc(npc):
+	#get_node(npc).queue_free()
+	#activeSpawns.erase(npc)
+
+# EXAMPLE HOW TO USE GLOBAL DIALOG
+	#var load_dialog = load("res://Global/dialog_scene.tscn")
+	#add_child(load_dialog.instantiate())
+	#var dialog = get_node("Dialog")
+	#dialog.dia[0].position = get_node("Player").position + Vector3(-200,-200)
+	#dialog.dia_decision.position = get_node("Player").position + Vector3(-200,-50)
+	#dialog.set_text(0, "You wanna vibe?", 10)
+	#dialog.set_color(0,"green")
+	#var possible_answers = ["No","LETS GO"]
+	#var answer = await dialog.decide(possible_answers)
+	#if answer == 1:
+		#dialog.set_text(0, "OKE BYE :(", 10)
+	#if answer == 2:
+		#dialog.set_text(0, "LETS DANCE!", 10)
