@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://48dwk30ti6j"
+path="res://.godot/imported/grassblade.obj-b7e8c4840f85e37d2805701a6d37fccc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/grassblade.obj-b7e8c4840f85e37d2805701a6d37fccc.mesh"]
+
+source_file="res://textures/Terrain/Gardeneer/grassblade.obj"
+dest_files=["res://.godot/imported/grassblade.obj-b7e8c4840f85e37d2805701a6d37fccc.mesh", "res://.godot/imported/grassblade.obj-b7e8c4840f85e37d2805701a6d37fccc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

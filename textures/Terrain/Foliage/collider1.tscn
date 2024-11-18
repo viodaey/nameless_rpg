@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8imp7tqqucql"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pncqt"]
+
+[node name="StaticBody3D" type="StaticBody3D"]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.353553, -0.353553, 0, 0.353553, 0.353553, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_pncqt")

@@ -22,6 +22,7 @@ func _ready() -> void:
 	position.y = 0.2
 
 func _physics_process(_delta):
+	SimpleGrass.set_player_position(global_position)
 	if Input.is_anything_pressed() == false:
 		_animated_sprite.play(("idle" + last_input))
 	elif Input.is_action_pressed(last_input):

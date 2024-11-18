@@ -1,0 +1,23 @@
+[gd_resource type="QuadMesh" load_steps=4 format=3 uid="uid://bpimmd0ixvk7n"]
+
+[ext_resource type="Shader" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_di8jb"]
+[ext_resource type="Texture2D" uid="uid://wq1hcb0k4jee" path="res://textures/Terrain/Foliage/Trees/Scots Pine/Scots pine tall 28m 1.png" id="2_twicu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ndi4"]
+render_priority = 0
+shader = ExtResource("1_di8jb")
+shader_parameter/pixel_mode = true
+shader_parameter/pixel_amount = 4000.0
+shader_parameter/distortion = 0.01
+shader_parameter/texture_noise_system = true
+shader_parameter/noise_speed = 1.0
+shader_parameter/noise_direction = -1
+shader_parameter/worley_noise_system = false
+shader_parameter/worley_cell_density = 10.0
+shader_parameter/worley_speed = 2.0
+shader_parameter/edge_and_mask = false
+shader_parameter/alpha_value = 1.0
+shader_parameter/main_texture = ExtResource("2_twicu")
+
+[resource]
+material = SubResource("ShaderMaterial_0ndi4")

@@ -1,0 +1,23 @@
+[gd_resource type="QuadMesh" load_steps=4 format=3 uid="uid://doi7qmsldf1ip"]
+
+[ext_resource type="Shader" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_dpm7u"]
+[ext_resource type="Texture2D" uid="uid://bmb5ig5inqi5m" path="res://textures/Terrain/Foliage/Trees/Spruce/Spruce 9m 1 odd.png" id="2_7o4hf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8mjum"]
+render_priority = 0
+shader = ExtResource("1_dpm7u")
+shader_parameter/pixel_mode = true
+shader_parameter/pixel_amount = 4000.0
+shader_parameter/distortion = 0.01
+shader_parameter/texture_noise_system = true
+shader_parameter/noise_speed = 1.0
+shader_parameter/noise_direction = -1
+shader_parameter/worley_noise_system = false
+shader_parameter/worley_cell_density = 10.0
+shader_parameter/worley_speed = 2.0
+shader_parameter/edge_and_mask = false
+shader_parameter/alpha_value = 1.0
+shader_parameter/main_texture = ExtResource("2_7o4hf")
+
+[resource]
+material = SubResource("ShaderMaterial_8mjum")

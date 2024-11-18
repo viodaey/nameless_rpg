@@ -18,6 +18,7 @@ var spawn_request
 #var _spawned_npc 
 
 func _ready() -> void:
+	SimpleGrass.set_interactive(true)
 	inv.drops = drops
 	AudioPlayer.play_music_level("fieldOverworld")
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":

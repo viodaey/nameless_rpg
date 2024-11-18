@@ -16,6 +16,7 @@ var spawn_request
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SimpleGrass.set_interactive(true)
 	inv.drops = drops
 	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
 	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
@@ -32,6 +33,7 @@ func _input(_event):
 func _on_Forest_Exit_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
 		sceneManager.goto_scene("res://Scenes/3dOverworld/3doverworld.tscn")
+
 
 #func _forestscene1():
 	#var hold_speed = $Player.speed
