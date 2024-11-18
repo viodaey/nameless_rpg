@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bccx782urtjhn"]
+[gd_scene load_steps=56 format=4 uid="uid://bccx782urtjhn"]
 
 [ext_resource type="Script" path="res://Scenes/3dOverworld/3doverworld_main.gd" id="1_46hd1"]
 [ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_bmvhb"]
@@ -16,16 +16,33 @@
 [ext_resource type="Terrain3DAssets" uid="uid://ggtkcr8t13k" path="res://terrain3d_resources/terrain_3d_assets.tres" id="14_14usy"]
 [ext_resource type="Script" path="res://addons/waterways_net/RiverManager.cs" id="15_qdb46"]
 [ext_resource type="Texture2D" uid="uid://b85tlq8wcklbo" path="res://addons/waterways_net/Textures/water_normal_bump.png" id="16_ji251"]
+[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/gardener/gardener.gd" id="17_lfih6"]
 [ext_resource type="Script" path="res://addons/waterways_net/Data/RiverShaderSettings.cs" id="17_ue12k"]
+[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/arborist/arborist.gd" id="18_6glkf"]
 [ext_resource type="Script" path="res://Scenes/3dOverworld/3dcharacter_body.gd" id="18_n018l"]
+[ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="19_edhqv"]
 [ext_resource type="SpriteFrames" uid="uid://d3qv35el85yex" path="res://Scenes/3dOverworld/Playerbody_SF.tres" id="19_jcf0j"]
+[ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="20_36qnm"]
 [ext_resource type="SpriteFrames" uid="uid://dfj11x1cnrhcx" path="res://enemy_spriteframes/Knight_sf.tres" id="20_c1lwy"]
+[ext_resource type="Script" path="res://addons/simplegrasstextured/grass.gd" id="21_cmt5u"]
 [ext_resource type="Texture2D" uid="uid://cosgk8bcrlbt0" path="res://textures/Objects/Dock.png" id="21_kthqn"]
 [ext_resource type="Texture2D" uid="uid://ijvw68j4ekxw" path="res://textures/carpentry/woodenFlooring.png" id="22_q7qfm"]
 [ext_resource type="SpriteFrames" uid="uid://cikw515l1ch0k" path="res://enemy_spriteframes/HoodedFigure_sf.tres" id="23_m5ufg"]
 [ext_resource type="Texture2D" uid="uid://xji1wp2nxuhp" path="res://textures/Objects/Rowboat move.png" id="24_kt4jd"]
 [ext_resource type="Texture2D" uid="uid://l0fpotjrnhnh" path="res://Scenes/3dCave/Black.png" id="25_fdw8n"]
 [ext_resource type="Texture2D" uid="uid://tlc7dpt1thgf" path="res://textures/Terrain/mountain1c.png" id="26_wi1a1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v18bb"]
+albedo_texture = ExtResource("22_q7qfm")
+uv1_scale = Vector3(8, 8, 8)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ypipv"]
+size = Vector2(40, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s0gyw"]
+margin = 9.356
+data = PackedVector3Array(20, -10, 0, -20, -10, 0, 20, 10, 0, -20, -10, 0, -20, 10, 0, 20, 10, 0)
+backface_collision = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h5yrn"]
 
@@ -36,9 +53,56 @@ sky_material = SubResource("ProceduralSkyMaterial_h5yrn")
 background_mode = 2
 sky = SubResource("Sky_35tuv")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eij0s"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("19_edhqv")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_frames = Vector2(1, 1)
+shader_parameter/light_mode = 1
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/normal_scale = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/roughness = 1.0
+shader_parameter/roughness_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/scale_h = 1.0
+shader_parameter/scale_w = 1.0
+shader_parameter/scale_var = -0.25
+shader_parameter/grass_strength = 0.55
+shader_parameter/optimization_by_distance = false
+shader_parameter/optimization_level = 7.0
+shader_parameter/optimization_dist_min = 10.0
+shader_parameter/optimization_dist_max = 50.0
+shader_parameter/grass_size_y = 1.0
+shader_parameter/interactive_mode = true
+shader_parameter/interactive_level_xz = 3.0
+shader_parameter/interactive_level_y = 0.3
+shader_parameter/texture_albedo = ExtResource("20_36qnm")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vj4au"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1, 1),
+"attribute_data": PackedByteArray("/wAA/wAAAAAAAAAAAAAA/wAAgD8AAIA/AAAA/wAAAAAAAIA//wAA/wAAgD8AAAAA/wAA/wAAAAAAAAAAAAAA/wAAgD8AAIA/AAAA/wAAAAAAAIA//wAA/wAAgD8AAAAA"),
+"format": 34359742495,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAFAAYABwAFAAQA"),
+"material": SubResource("ShaderMaterial_eij0s"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAvwAAgD8AAAAAAAAAPwAAAAAAAAAAAAAAvwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAgD8AAAC/AAAAAAAAAAAAAAA/AAAAAAAAAAAAAAC/AAAAAAAAgD8AAAA//3//f////7//f/9/////v/9//3////+//3//f////78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vw==")
+}]
+metadata/GodotVersion = "4.3-stable (official)"
+
+[sub_resource type="MultiMesh" id="MultiMesh_g352r"]
+transform_format = 1
+mesh = SubResource("ArrayMesh_vj4au")
+
 [sub_resource type="MeshTexture" id="MeshTexture_2anvy"]
 
-[sub_resource type="Resource" id="Resource_fx25e"]
+[sub_resource type="Resource" id="Resource_2w2ha"]
 script = ExtResource("17_ue12k")
 MatShaderType = 1
 FoamNoise = SubResource("MeshTexture_2anvy")
@@ -67,7 +131,7 @@ mat_edge_fade = 0.25
 LodLod0Distance = 5.0
 _selectedShader = 1
 
-[sub_resource type="Curve3D" id="Curve3D_dgubg"]
+[sub_resource type="Curve3D" id="Curve3D_jikn0"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, -0.25, 0, 0, 0.25, 0, 0, 0, 0, 0, -0.25, 0, 0, 0.25, 0, 0, 1),
@@ -80,18 +144,6 @@ size = Vector3(2.6059, 4.43323, 4.16797)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y7q7m"]
 size = Vector3(0.001, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v18bb"]
-albedo_texture = ExtResource("22_q7qfm")
-uv1_scale = Vector3(8, 8, 8)
-
-[sub_resource type="QuadMesh" id="QuadMesh_ypipv"]
-size = Vector2(40, 20)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s0gyw"]
-margin = 9.356
-data = PackedVector3Array(20, -10, 0, -20, -10, 0, 20, 10, 0, -20, -10, 0, -20, 10, 0, 20, 10, 0)
-backface_collision = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yg5lk"]
 atlas = ExtResource("24_kt4jd")
@@ -187,224 +239,6 @@ world_enemies = Array[ExtResource("2_bmvhb")]([ExtResource("3_jk2j1"), ExtResour
 battle_bg = ExtResource("11_li8w2")
 min_spawn_range = 50
 max_spawn_range = 200
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_0g2g2")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -497.342, 44.7437, -1403.24)
-
-[node name="Terrain3D" type="Terrain3D" parent="."]
-storage = ExtResource("12_ncx2w")
-material = ExtResource("13_xrio6")
-assets = ExtResource("14_14usy")
-mesh_size = 8
-top_level = true
-
-[node name="RiverManager" type="Node3D" parent="."]
-transform = Transform3D(0.33098, 0, -414.84, 0, 34.021, 0, 44.831, 0, 3.0627, -619.587, -2.60168, -1858.19)
-script = ExtResource("15_qdb46")
-ShaderSettings = SubResource("Resource_fx25e")
-ShapeStepLengthDivs = 8
-ShapeStepWidthDivs = 8
-ShapeSmoothness = 0.1
-PointWidths = [2.48882, 4.71244]
-Curve = SubResource("Curve3D_dgubg")
-
-[node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -609.838, 0.6, -1929.51)
-script = ExtResource("18_n018l")
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(0.970874, 0, 0, 0, -4.24383e-08, 0.970874, 0, -0.970874, -4.24383e-08, 0, 10, 0)
-projection = 1
-fov = 168.0
-size = 70.769
-near = 0.019
-far = 38.07
-
-[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155518, 1.60785, 0.0849609)
-shape = SubResource("BoxShape3D_ae0k2")
-
-[node name="RayCast3D" type="RayCast3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664063, 0, -0.0214844)
-target_position = Vector3(0, 0.2, 0)
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
-transform = Transform3D(30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 0.6, 0)
-sprite_frames = ExtResource("19_jcf0j")
-animation = &"idledown"
-
-[node name="Knight" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(2.4, 0, 0, 0, -1.04907e-07, 2.4, 0, -2.4, -1.04907e-07, -592.175, 0.265998, -1957.03)
-alpha_cut = 3
-texture_filter = 1
-sprite_frames = ExtResource("20_c1lwy")
-animation = &"idle"
-autoplay = "idle"
-
-[node name="StaticBody2D2" type="StaticBody3D" parent="Knight"]
-
-[node name="CollisionShape2D" type="CollisionShape3D" parent="Knight/StaticBody2D2"]
-shape = SubResource("BoxShape3D_y7q7m")
-
-[node name="Dock" type="Sprite3D" parent="."]
-transform = Transform3D(17.5, 0, 0, 0, -7.64949e-07, 17.5, 0, -17.5, -7.64949e-07, -626.191, -0.03, -1930.53)
-alpha_cut = 3
-texture_filter = 1
-texture = ExtResource("21_kthqn")
-
-[node name="MeshInstance3D48" type="MeshInstance3D" parent="Dock"]
-transform = Transform3D(-0.026968, 0, 0, 0, 0.00826257, -8.62832e-09, 0, 1.24761e-09, 0.0571428, 0.069, 0, 0.001)
-visible = false
-material_override = SubResource("StandardMaterial3D_v18bb")
-mesh = SubResource("QuadMesh_ypipv")
-skeleton = NodePath("../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Dock/MeshInstance3D48"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Dock/MeshInstance3D48/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_s0gyw")
-
-[node name="Hooded Figure" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, 0.28, 0, -0.28, -1.22392e-08, -159.168, 0.306459, -1119.49)
-alpha_cut = 3
-texture_filter = 1
-sprite_frames = ExtResource("23_m5ufg")
-animation = &"idle"
-autoplay = "idle"
-
-[node name="Hooded Figure2" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, 0.28, 0, -0.28, -1.22392e-08, -634.956, 0.306459, -1930.91)
-alpha_cut = 3
-texture_filter = 1
-sprite_frames = ExtResource("23_m5ufg")
-animation = &"idle"
-autoplay = "idle"
-
-[node name="Rowboat" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(-3.65185, 1.86491, 7.70356e-09, 0, -1.62613e-07, 0.35156, -2.11571, -3.21895, -1.32968e-08, -635.09, 0.306459, -1928.07)
-alpha_cut = 3
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_g26qh")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.482613
-
-[node name="H1" type="Sprite3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -592.322, 0.2, -1928.04)
-alpha_cut = 3
-texture = SubResource("CompressedTexture2D_3npmd")
-metadata/_aseprite_wizard_interface_config_ = {
-"animation_section": false,
-"layer_section": false,
-"output_section": false,
-"slice_section": false
-}
-
-[node name="StaticBody2D" type="StaticBody3D" parent="H1"]
-transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
-collision_layer = 3
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape3D" parent="H1/StaticBody2D"]
-transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0.830597, -0.738892, -5.96046e-08)
-shape = SubResource("BoxShape3D_nvrgo")
-
-[node name="CaveEntrance" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -594.663, 0, -1961.69)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveEntrance"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24731, 0, -0.756714)
-shape = SubResource("BoxShape3D_bdg2r")
-
-[node name="caveentrance" type="Sprite3D" parent="CaveEntrance"]
-transform = Transform3D(13.9466, 0, 0, 0, -7.65276e-07, 9.44918, 0, -17.5075, -4.13036e-07, 1.28418, 0.399992, -25.6774)
-alpha_cut = 3
-texture_filter = 1
-texture = ExtResource("25_fdw8n")
-
-[node name="ForestEntrance" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -954.972, 0, -1073.02)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestEntrance"]
-transform = Transform3D(0.0195464, 0, 0.999809, 0, 1, 0, -0.999809, 0, 0.0195464, -1.92615, 0, -23.6014)
-shape = SubResource("BoxShape3D_bdg2r")
-
-[node name="H1Entrancefront" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -593.237, 0.2, -1920.71)
-collision_layer = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="H1Entrancefront"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.817627, 0, 0)
-shape = SubResource("BoxShape3D_rcogi")
-
-[node name="H1Entranceback" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600.003, 0.2, -1926.72)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="H1Entranceback"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.565552, 0, 0.508057)
-shape = SubResource("BoxShape3D_rcogi")
-
-[node name="Mountains" type="Node3D" parent="."]
-transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -357.719, 0.4, -1922.89)
-
-[node name="Mountain" type="Sprite3D" parent="Mountains"]
-transform = Transform3D(1, 0, 0, 0, 1, -3.55271e-15, 0, 3.55271e-15, 1, 0, 0, 0)
-alpha_cut = 3
-texture_filter = 1
-texture = ExtResource("26_wi1a1")
-
-[node name="Mountain2" type="Sprite3D" parent="Mountains"]
-transform = Transform3D(1.00875, 0, 0, 0, 0.681135, -3.55271e-15, 0, -2.66454e-14, 1, -27.3843, 6.94934, -0.00276583)
-alpha_cut = 3
-texture_filter = 1
-texture = ExtResource("26_wi1a1")
-region_enabled = true
-region_rect = Rect2(0, 0, 3264, 2056)
-
-[node name="Mountain3" type="Sprite3D" parent="Mountains"]
-transform = Transform3D(1.0378, 0, 0, 0, 1.02995, 8.17124e-14, 0, -1.42109e-14, 0.947475, 29.3763, -7.28, -3.1665e-07)
-alpha_cut = 3
-texture_filter = 1
-texture = ExtResource("26_wi1a1")
-
-[node name="Mountain4" type="Sprite3D" parent="Mountains"]
-transform = Transform3D(0.258819, 0.965926, 4.22219e-08, -0.965926, 0.258819, -3.2398e-08, -4.22219e-08, -3.2398e-08, 1, 39.3986, -67.1736, -2.93553e-06)
-alpha_cut = 3
-texture_filter = 1
-texture = ExtResource("26_wi1a1")
-
-[node name="Mountain7" type="Sprite3D" parent="Mountains"]
-transform = Transform3D(0.261083, 0.657925, 4.22219e-08, -0.974373, 0.176291, -3.2398e-08, -4.25912e-08, -2.20674e-08, 1, 39.0236, -38.9239, -0.00276783)
-alpha_cut = 3
-texture_filter = 1
-texture = ExtResource("26_wi1a1")
-region_enabled = true
-region_rect = Rect2(0, 0, 3264, 2056)
-
-[node name="Mountain8" type="Sprite3D" parent="Mountains"]
-transform = Transform3D(0.268602, 0.994856, 4.00043e-08, -1.00244, 0.266571, -3.06963e-08, -4.38179e-08, -3.33684e-08, 0.947475, 39.9698, -97.4331, -4.25801e-06)
-alpha_cut = 3
-texture_filter = 1
-texture = ExtResource("26_wi1a1")
-
-[node name="Mountain5" type="Sprite3D" parent="Mountains"]
-transform = Transform3D(1, 0, 0, 0, 0.841941, -3.55271e-15, 0, -1.77636e-14, 1, -46.2399, 10.136, 0.0133338)
-alpha_cut = 3
-texture_filter = 1
-texture = ExtResource("26_wi1a1")
-region_enabled = true
-region_rect = Rect2(0, 0, 3264, 2056)
-
-[node name="Mountain6" type="Sprite3D" parent="Mountains"]
-transform = Transform3D(-1.02184, 0, 0, 0, 0.855489, -3.55271e-15, 0, 4.9738e-14, 1, -16.2029, 10.064, 0.0145239)
-alpha_cut = 3
-texture_filter = 1
-texture = ExtResource("26_wi1a1")
-region_enabled = true
-region_rect = Rect2(0, 0, 3264, 2056)
 
 [node name="Inviswalls" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 329.012, 0, -465.114)
@@ -1080,6 +914,252 @@ skeleton = NodePath("../MeshInstance3D4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Inviswalls/MeshInstance3D44/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
+
+[node name="Mountains" type="Node3D" parent="."]
+transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -357.719, 0.4, -1922.89)
+
+[node name="Mountain" type="Sprite3D" parent="Mountains"]
+transform = Transform3D(1, 0, 0, 0, 1, -3.55271e-15, 0, 3.55271e-15, 1, 0, 0, 0)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("26_wi1a1")
+
+[node name="Mountain2" type="Sprite3D" parent="Mountains"]
+transform = Transform3D(1.00875, 0, 0, 0, 0.681135, -3.55271e-15, 0, -2.66454e-14, 1, -27.3843, 6.94934, -0.00276583)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("26_wi1a1")
+region_enabled = true
+region_rect = Rect2(0, 0, 3264, 2056)
+
+[node name="Mountain3" type="Sprite3D" parent="Mountains"]
+transform = Transform3D(1.0378, 0, 0, 0, 1.02995, 8.17124e-14, 0, -1.42109e-14, 0.947475, 29.3763, -7.28, -3.1665e-07)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("26_wi1a1")
+
+[node name="Mountain4" type="Sprite3D" parent="Mountains"]
+transform = Transform3D(0.258819, 0.965926, 4.22219e-08, -0.965926, 0.258819, -3.2398e-08, -4.22219e-08, -3.2398e-08, 1, 39.3986, -67.1736, -2.93553e-06)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("26_wi1a1")
+
+[node name="Mountain7" type="Sprite3D" parent="Mountains"]
+transform = Transform3D(0.261083, 0.657925, 4.22219e-08, -0.974373, 0.176291, -3.2398e-08, -4.25912e-08, -2.20674e-08, 1, 39.0236, -38.9239, -0.00276783)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("26_wi1a1")
+region_enabled = true
+region_rect = Rect2(0, 0, 3264, 2056)
+
+[node name="Mountain8" type="Sprite3D" parent="Mountains"]
+transform = Transform3D(0.268602, 0.994856, 4.00043e-08, -1.00244, 0.266571, -3.06963e-08, -4.38179e-08, -3.33684e-08, 0.947475, 39.9698, -97.4331, -4.25801e-06)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("26_wi1a1")
+
+[node name="Mountain5" type="Sprite3D" parent="Mountains"]
+transform = Transform3D(1, 0, 0, 0, 0.841941, -3.55271e-15, 0, -1.77636e-14, 1, -46.2399, 10.136, 0.0133338)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("26_wi1a1")
+region_enabled = true
+region_rect = Rect2(0, 0, 3264, 2056)
+
+[node name="Mountain6" type="Sprite3D" parent="Mountains"]
+transform = Transform3D(-1.02184, 0, 0, 0, 0.855489, -3.55271e-15, 0, 4.9738e-14, 1, -16.2029, 10.064, 0.0145239)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("26_wi1a1")
+region_enabled = true
+region_rect = Rect2(0, 0, 3264, 2056)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0g2g2")
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("12_ncx2w")
+material = ExtResource("13_xrio6")
+assets = ExtResource("14_14usy")
+mesh_size = 8
+top_level = true
+
+[node name="Gardener" type="Node3D" parent="."]
+script = ExtResource("17_lfih6")
+file_management/garden_work_directory = ""
+gardening/gardening_collision_mask = 1.0
+plugin_version = "1.3.3"
+storage_version = 3
+metadata/class = "Gardener"
+
+[node name="Arborist" type="Node3D" parent="Gardener"]
+script = ExtResource("18_6glkf")
+octree_managers = []
+metadata/class = "Arborist"
+
+[node name="MMI_container" type="Node3D" parent="Gardener/Arborist"]
+
+[node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MultiMesh_g352r")
+script = ExtResource("21_cmt5u")
+texture_albedo = ExtResource("20_36qnm")
+sgt_radius = 2.0
+sgt_density = 25
+sgt_scale = 1.0
+sgt_rotation = 0.0
+sgt_rotation_rand = 1.0
+sgt_dist_min = 0.25
+sgt_follow_normal = false
+metadata/SimpleGrassTextured = "2.0.5"
+
+[node name="RiverManager" type="Node3D" parent="."]
+transform = Transform3D(0.33098, 0, -414.84, 0, 34.021, 0, 44.831, 0, 3.0627, -619.587, -2.60168, -1858.19)
+script = ExtResource("15_qdb46")
+ShaderSettings = SubResource("Resource_2w2ha")
+ShapeStepLengthDivs = 8
+ShapeStepWidthDivs = 8
+ShapeSmoothness = 0.1
+PointWidths = [2.48882, 4.71244]
+Curve = SubResource("Curve3D_jikn0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -497.342, 44.7437, -1403.24)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -609.838, 0.6, -1929.51)
+script = ExtResource("18_n018l")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(0.970874, 0, 0, 0, -4.24383e-08, 0.970874, 0, -0.970874, -4.24383e-08, 0, 10, 0)
+projection = 1
+fov = 168.0
+size = 70.769
+near = 0.019
+far = 38.07
+
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155518, 1.60785, 0.0849609)
+shape = SubResource("BoxShape3D_ae0k2")
+
+[node name="RayCast3D" type="RayCast3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664063, 0, -0.0214844)
+target_position = Vector3(0, 0.2, 0)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
+transform = Transform3D(30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 0.6, 0)
+sprite_frames = ExtResource("19_jcf0j")
+animation = &"idledown"
+
+[node name="Knight" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(2.4, 0, 0, 0, -1.04907e-07, 2.4, 0, -2.4, -1.04907e-07, -592.175, 0.265998, -1957.03)
+alpha_cut = 3
+texture_filter = 1
+sprite_frames = ExtResource("20_c1lwy")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="StaticBody2D2" type="StaticBody3D" parent="Knight"]
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Knight/StaticBody2D2"]
+shape = SubResource("BoxShape3D_y7q7m")
+
+[node name="Dock" type="Sprite3D" parent="."]
+transform = Transform3D(17.5, 0, 0, 0, -7.64949e-07, 17.5, 0, -17.5, -7.64949e-07, -626.191, -0.03, -1930.53)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("21_kthqn")
+
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="Dock"]
+transform = Transform3D(-0.026968, 0, 0, 0, 0.00826257, -8.62832e-09, 0, 1.24761e-09, 0.0571428, 0.069, 0, 0.001)
+visible = false
+material_override = SubResource("StandardMaterial3D_v18bb")
+mesh = SubResource("QuadMesh_ypipv")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Dock/MeshInstance3D48"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dock/MeshInstance3D48/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_s0gyw")
+
+[node name="Hooded Figure" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, 0.28, 0, -0.28, -1.22392e-08, -159.168, 0.306459, -1119.49)
+alpha_cut = 3
+texture_filter = 1
+sprite_frames = ExtResource("23_m5ufg")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Hooded Figure2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, 0.28, 0, -0.28, -1.22392e-08, -634.956, 0.306459, -1930.91)
+alpha_cut = 3
+texture_filter = 1
+sprite_frames = ExtResource("23_m5ufg")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Rowboat" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-3.65185, 1.86491, 7.70356e-09, 0, -1.62613e-07, 0.35156, -2.11571, -3.21895, -1.32968e-08, -635.09, 0.306459, -1928.07)
+alpha_cut = 3
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_g26qh")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.482613
+
+[node name="H1" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, -592.322, 0.2, -1928.04)
+alpha_cut = 3
+texture = SubResource("CompressedTexture2D_3npmd")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="StaticBody2D" type="StaticBody3D" parent="H1"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, -0.867004, 0, 0.24003)
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="H1/StaticBody2D"]
+transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0.830597, -0.738892, -5.96046e-08)
+shape = SubResource("BoxShape3D_nvrgo")
+
+[node name="CaveEntrance" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -594.663, 0, -1961.69)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaveEntrance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24731, 0, -0.756714)
+shape = SubResource("BoxShape3D_bdg2r")
+
+[node name="caveentrance" type="Sprite3D" parent="CaveEntrance"]
+transform = Transform3D(13.9466, 0, 0, 0, -7.65276e-07, 9.44918, 0, -17.5075, -4.13036e-07, 1.28418, 0.399992, -25.6774)
+alpha_cut = 3
+texture_filter = 1
+texture = ExtResource("25_fdw8n")
+
+[node name="ForestEntrance" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -954.972, 0, -1073.02)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ForestEntrance"]
+transform = Transform3D(0.0195464, 0, 0.999809, 0, 1, 0, -0.999809, 0, 0.0195464, -1.92615, 0, -23.6014)
+shape = SubResource("BoxShape3D_bdg2r")
+
+[node name="H1Entrancefront" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -593.237, 0.2, -1920.71)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="H1Entrancefront"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.817627, 0, 0)
+shape = SubResource("BoxShape3D_rcogi")
+
+[node name="H1Entranceback" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -600.003, 0.2, -1926.72)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="H1Entranceback"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.565552, 0, 0.508057)
+shape = SubResource("BoxShape3D_rcogi")
 
 [connection signal="body_entered" from="CaveEntrance" to="." method="_on_CaveEntrance_body_entered"]
 [connection signal="body_entered" from="ForestEntrance" to="." method="_on_ForestEntrance_body_entered"]
