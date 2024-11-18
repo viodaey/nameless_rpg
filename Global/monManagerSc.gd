@@ -37,10 +37,10 @@ func _input(_event):
 		self.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
-func swap_select(m):
+func swap_select(_m):
 	pass
 
 func swap(m1 : Object, m2 : Object, a : Array) -> Array:

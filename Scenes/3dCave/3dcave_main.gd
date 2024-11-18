@@ -17,6 +17,8 @@ var spawn_request
 func _ready() -> void:
 	inv.drops = drops
 	AudioPlayer.play_music_level("res://musig/Dungeon_-_Catacomb_Crawler.ogg")
+	if sceneManager.last_scene == "res://Scenes/Battle/battle.tscn":
+		_player_body.position = player.position
 	if player.last_exit == 'cave':
 		_player_body.position = _cave_exit.position + Vector3(0, 0, -5)
 

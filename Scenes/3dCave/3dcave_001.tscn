@@ -88,6 +88,8 @@ size = Vector3(15, 4, 4)
 script = ExtResource("1_2cxxe")
 world_enemies = Array[ExtResource("2_b6ovj")]([ExtResource("3_1mbpf"), ExtResource("4_e3cmi")])
 battle_bg = ExtResource("5_2pac3")
+min_spawn_range = 50
+max_spawn_range = 200
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 storage = ExtResource("6_vw5dy")

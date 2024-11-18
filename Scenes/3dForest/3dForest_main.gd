@@ -22,13 +22,12 @@ func _ready() -> void:
 		_player_body.position = player.position
 	if sceneManager.last_scene == "res://Scenes/3dOverworld/3doverworld.tscn":
 		_player_body.position = $ForestExit.position + Vector3(-10,0,0)
-		
 	#if player.forest_scene1 == 0:
 		#$Player.disabled_spawn = true
 	#MainMenu.map_scene = get_tree().current_scene
-#
-#func _input(_event):
-	#pass
+	
+func _input(_event):
+	pass
 
 func _on_Forest_Exit_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:

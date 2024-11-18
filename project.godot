@@ -22,6 +22,7 @@ sceneManager="*res://Global/sceneManager.gd"
 AudioPlayer="*res://Global/audio_player.tscn"
 inv="*res://Global/invManager.gd"
 MainMenu="*res://Global/mainMenu.tscn"
+SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 
 [display]
 
@@ -41,7 +42,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/terrain_3d/plugin.cfg", "res://addons/waterways_net/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/dreadpon.spatial_gardener/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg", "res://addons/terrain_3d/plugin.cfg", "res://addons/waterways_net/plugin.cfg")
 
 [filesystem]
 
@@ -106,3 +107,42 @@ right={
 
 environment/volumetric_fog/volume_size=256
 environment/volumetric_fog/volume_depth=256
+
+[shader_globals]
+
+sgt_player_position={
+"type": "vec3",
+"value": Vector3(1e+06, 1e+06, 1e+06)
+}
+sgt_player_mov={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+sgt_normal_displacement={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/normal.png"
+}
+sgt_motion_texture={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/motion.png"
+}
+sgt_wind_direction={
+"type": "vec3",
+"value": Vector3(1, 0, 0)
+}
+sgt_wind_movement={
+"type": "vec3",
+"value": Vector2(0, 0)
+}
+sgt_wind_strength={
+"type": "float",
+"value": 0.15
+}
+sgt_wind_turbulence={
+"type": "float",
+"value": 1.0
+}
+sgt_wind_pattern={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/wind_pattern.png"
+}
