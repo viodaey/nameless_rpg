@@ -9,9 +9,11 @@ func interact():
 	dialog.set_color(0,"black")
 	await dialog.set_text(0,"Hey, you there!\nover here, help me!", 1.5, true)
 	await dialog.set_text(0,"Can't\nhold this\nout much\nlonger.", 1, true)
+
 	#Start Battle
-	
-	#After Battle
+
+
+#After Battle
 	await dialog.set_text(0,"Phew!...\nthat was a close call.", 1.5, true)
 	await dialog.set_text(0,"I need to get back home\nand treat my wounds quickly.", 1, true)
 	await dialog.set_text(0,"Come meet me at my house\nit's further up north", 1, true)

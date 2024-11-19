@@ -33,6 +33,71 @@ func _ready() -> void:
 		if player.last_exit == 'west':
 			_player_body.position = Vector3(_H1Entranceback.position.x - 3, _player_body.position.y, _H1Entranceback.position.z)
 
+
+
+
+
+func _Introscene1():
+	var hold_speed = $Player.speed
+	$Player.speed = 0
+	$Player/Camera3D.enabled = false
+	$Intro_subscene1.visible = true
+	$Intro_subscene1/dialogue/diaCamera3D.enabled = true
+	$Intro_subscene1/dialogue/diaCamera3D/Fog.visible = true 
+	var dia1 = $Intro_subscene1/dialogue/dia_1
+	var dia2 = $Intro_subscene1/dialogue/dia_2
+	var dia1label = $Intro_subscene1/dialogue/dia_1/MarginContainer/txt
+	var dia2label = $Intro_subscene1/dialogue/dia_2/MarginContainer/txt
+	var HoodedFigureIntro = $Intro_subscene1/npcs/scen1HoodedFigureIntro
+	dia1label.text = ""
+	dia2label.text = ""
+	var fogtween = get_tree().create_tween()
+	var camtween = get_tree().create_tween()
+	fogtween.tween_property($Fo_subscene1/dialogue/diaCamera3D/Fog, "color:a", 0, 3.5)
+	camtween.tween_property($Intro_subscene1/dialogue/diaCamera3D, "position:x", $Intro_subscene1/dialogue/diaCamera3D.position.x + 80, 8)
+	await get_tree().create_timer(2.2).timeout
+	dia1.visible = true
+	dialog(dia1label,"Hey, you there!\nover here, help me!")
+	await get_tree().create_timer(2.0).timeout
+	var HoodedFiguretween = get_tree().create_tween()
+	HoodedFiguretween.tween_property(HoodedFigureIntro, "position:y", HoodedFigureIntro.position.y - 1.5, 0.08)
+	HoodedFiguretween.tween_property(HoodedFigureIntro, "position:y", HoodedFigureIntro.position.y + 1.5, 0.08)
+	HoodedFiguretween.set_loops(3)
+	await get_tree().create_timer(3).timeout
+	dia1.visible = false
+	dia2.visible = true
+	dialog(dia2label, "Can't\nhold this\nout much\nlonger.")
+	await(get_tree().create_timer(2.5).timeout)
+	player.Intro_scene1 = 1
+	await(get_tree().create_timer(2.5).timeout)
+	fogtween = get_tree().create_tween()
+	fogtween.tween_property($Intro_subscene1/dialogue/diaCamera3D/Fog, "color:a", 1, 3)
+	await(fogtween.finished)
+	$Intro_subscene1/dialogue/diaCamera3D/Fog.visible = false
+	dia2.visible = false
+	$Intro_subscene1/dialogue/diaCamera3D.enabled = false
+	$Player/Camera3D.enabled = true
+	$Player.speed = hold_speed
+	$Player.disabled_spawn = false
+
+func dialog(label, text):
+	var visible_characters = 0
+	label.visible_characters = visible_characters
+	label.text = text
+	for i in text: 
+		visible_characters = (visible_characters + 1)
+		label.visible_characters = visible_characters
+		await(get_tree().create_timer(0.07).timeout)
+
+func _on_subscene1_trigger_entered(body: Node3D) -> void:
+	if body.name == _player_body.name:
+		if player.Intro_scene1 == 0:
+			_Introscene1()
+
+
+
+
+
 func _on_CaveEntrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
 		player.last_exit = 'overworld'
