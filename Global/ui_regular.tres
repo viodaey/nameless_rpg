@@ -4,5 +4,5 @@
 
 [resource]
 font = ExtResource("1_flivx")
-font_size = 18
+font_size = 20
 font_color = Color(0.937255, 0.937255, 0.866667, 1)

@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var _animated_sprite = $AnimatedSprite3D
-@export var speed = 45
+@export var speed = 15
 
 var spawn_npc = load("res://Global/globalNPC3D.tscn")
 var last_input = "right"
@@ -10,8 +10,10 @@ var activeSpawns: Array
 var move_dice : int
 var disabled_spawn : bool = false
 var rng = RandomNumberGenerator.new()
+var can_interact : bool = true
 @onready var map = get_parent()
 @onready var raycast = $RayCast3D
+@onready var interactarea = $InteractArea
 
 func get_input():
 	var _input_direction = Input.get_vector("left", "right", "up", "down")
@@ -23,6 +25,22 @@ func _ready() -> void:
 
 func _physics_process(_delta):
 	SimpleGrass.set_player_position(global_position)
+	if Input.is_action_pressed("interact"):
+		if can_interact:
+			if interactarea.has_overlapping_areas():
+				can_interact = false
+				speed = 0
+				var interactables = interactarea.get_overlapping_areas()
+				await interactables[0].interact()
+				can_interact = true
+				speed = 15
+			elif interactarea.has_overlapping_bodies():
+				can_interact = false
+				speed = 0
+				var interactables = interactarea.get_overlapping_bodies()
+				await interactables[0].interact()
+				speed = 15
+				can_interact = true
 	if Input.is_anything_pressed() == false:
 		_animated_sprite.play(("idle" + last_input))
 	elif Input.is_action_pressed(last_input):
@@ -30,18 +48,22 @@ func _physics_process(_delta):
 		moved = moved + 0.1
 	else:
 		if Input.is_action_pressed("up"):
+			interactarea.rotation_degrees.y = 180
 			_animated_sprite.play("moveup")
 			last_input = "up"
 			moved = moved + 0.1
 		if Input.is_action_pressed("down"):
+			interactarea.rotation_degrees.y = 0
 			_animated_sprite.play("movedown")
 			last_input = "down"
 			moved = moved + 0.1
 		if Input.is_action_pressed("right"):
+			interactarea.rotation_degrees.y = 90
 			_animated_sprite.play("moveright")
 			last_input = "right"
 			moved = moved + 0.1
 		if Input.is_action_pressed("left"):
+			interactarea.rotation_degrees.y = 270
 			_animated_sprite.play("moveleft")
 			last_input = "left"
 			moved = moved + 0.1
