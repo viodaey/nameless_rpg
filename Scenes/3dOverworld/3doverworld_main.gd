@@ -32,66 +32,69 @@ func _ready() -> void:
 			_player_body.position = Vector3(_H1Entrancefront.position.x, _player_body.position.y, _H1Entrancefront.position.z + 3)
 		if player.last_exit == 'west':
 			_player_body.position = Vector3(_H1Entranceback.position.x - 3, _player_body.position.y, _H1Entranceback.position.z)
-	#if player._introscene1 == 0:
-		#$Player.disabled_spawn = true
-	#MainMenu.map_scene = get_tree().current_scene
+	if player._introscene1 == 0:
+		_player_body.disabled_spawn = true
+	MainMenu.map_scene = get_tree().current_scene
 
-#func _Introscene1():
-	#var hold_speed = $Player.speed
-	#$Player.speed = 0
-	#$Player/Camera3D.enabled = false
-	#$Intro_subscene1.visible = true
-	#$Intro_subscene1/dialogue/diaCamera3D.enabled = true
+func _Introscene1():
+	var hold_speed = _player_body.speed
+	var dialog = preload("res://Global/dialog_scene.tscn")
+	var introscene = $introScene
+	var camera = $Player/Camera3D
+	_player_body.in_scene = true
+	introscene.visible = true
+	add_child(dialog.instantiate())
+	dialog = get_node("Dialog")
+	#dialog.dia[0].global_position = Vector2(global_position.x -5, global_position.z - 2)
+	dialog.set_color(0,"black")
+	_player_body.speed = 0
+	await dialog.set_text(0,"Hey, you there!",2)
+	## look around
+	await dialog.set_text(0,"Over here, help me!",0.5)
+	var tween = get_tree().create_tween()
+	tween.tween_property(camera, "position:x", camera.position.x - 18, 1.5)
+	tween.parallel().tween_property(camera, "position:z", camera.position.z - 15, 1.5)
+	await tween.finished
+	await dialog.set_text(0,"Can't hold this\nout much longer...", 1.5)
+	await get_tree().create_timer(1.5).timeout
+	tween = get_tree().create_tween()
+	tween.tween_property(_player_body, "position:x", introscene.position.x, 2.5)
+	tween.parallel().tween_property(_player_body, "position:z", introscene.position.z, 2.5)
+	var cameratween = get_tree().create_tween()
+	cameratween.tween_property(camera, "position:x", camera.position.x + 18, 0.5)
+	cameratween.parallel().tween_property(camera, "position:z", camera.position.z + 15, 0.5)
+	_player_body.get_node("AnimatedSprite3D").play("moveleft")
+	#await tween.finished
+	player._introscene1 = 1
+	await get_tree().create_timer(1.5).timeout
+	player.enemy_encounter = "res://enemy_resources/enemy_identityfiles/wolfearth_evo1.tres"
+	player.position = _player_body.position
+	sceneManager.mon_min_lvl = 1
+	sceneManager.mon_max_lvl = 2
+	sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
+
+	## force second wolf in battle
+	## next scene after battle
+	#introscene.get_node("Camera3D").current = true
 	#$Intro_subscene1/dialogue/diaCamera3D/Fog.visible = true 
-	#var dia1 = $Intro_subscene1/dialogue/dia_1
-	#var dia2 = $Intro_subscene1/dialogue/dia_2
-	#var dia1label = $Intro_subscene1/dialogue/dia_1/MarginContainer/txt
-	#var dia2label = $Intro_subscene1/dialogue/dia_2/MarginContainer/txt
-	#var HoodedFigureIntro = $Intro_subscene1/npcs/scen1HoodedFigureIntro
-	#dia1label.text = "Hey, you there!\nover here, help me!"
-	#dia2label.text = "Can't\nhold this\nout much\nlonger"
-	#var fogtween = get_tree().create_tween()
-	#var camtween = get_tree().create_tween()
-	#fogtween.tween_property($Fo_subscene1/dialogue/diaCamera3D/Fog, "color:a", 0, 3.5)
-	#camtween.tween_property($Intro_subscene1/dialogue/diaCamera3D, "position:x", $Intro_subscene1/dialogue/diaCamera3D.position.x + 80, 8)
-	#await get_tree().create_timer(2.2).timeout
-	#dia1.visible = true
-	#dialog(dia1label,"Hey, you there!\nover here, help me!")
-	#await get_tree().create_timer(2.0).timeout
-	#var HoodedFiguretween = get_tree().create_tween()
-	#HoodedFiguretween.tween_property(HoodedFigureIntro, "position:z", HoodedFigureIntro.position.z - 1.5, 0.08)
-	#HoodedFiguretween.tween_property(HoodedFigureIntro, "position:z", HoodedFigureIntro.position.z + 1.5, 0.08)
-	#HoodedFiguretween.set_loops(3)
-	#await get_tree().create_timer(3).timeout
-	#dia1.visible = false
-	#dia2.visible = true
-	#dialog(dia2label, "Can't\nhold this\nout much\nlonger.")
-	#await(get_tree().create_timer(2.5).timeout)
-	#player.Intro_scene1 = 1
-	#await(get_tree().create_timer(2.5).timeout)
-	#fogtween = get_tree().create_tween()
-	#fogtween.tween_property($Intro_subscene1/dialogue/diaCamera3D/Fog, "color:a", 1, 3)
-	#await(fogtween.finished)
-	#$Intro_subscene1/dialogue/diaCamera3D/Fog.visible = false
-	#dia2.visible = false
-	#$Intro_subscene1/dialogue/diaCamera3D.enabled = false
-	#$Player/Camera3D.enabled = true
-	#$Player.speed = hold_speed
-	#$Player.disabled_spawn = false
-#
-#func dialog(label, text):
-	#var visible_characters = 0
-	#label.visible_characters = visible_characters
-	#label.text = text
-	#for i in text: 
-		#visible_characters = (visible_characters + 1)
-		#label.visible_characters = visible_characters
-		#await(get_tree().create_timer(0.07).timeout)
-#
-#func _on_subscene1_trigger_entered(body: Node3D) -> void:
-	#if body.name == _player_body.name:
-		#if player._introscene1 == 0:
-			#_Introscene1()
+	
+	#tween_property($Forest_subscene1/dialogue/diaCamera3D/Fog, "color:a", 0, 3.5)
+	#introscene.get_node("Camera3D").current = false
+
+
+func dialog(label, text):
+	var visible_characters = 0
+	label.visible_characters = visible_characters
+	label.text = text
+	for i in text: 
+		visible_characters = (visible_characters + 1)
+		label.visible_characters = visible_characters
+		await(get_tree().create_timer(0.07).timeout)
+
+func _on_subscene1_trigger_entered(body: Node3D) -> void:
+	if body.name == _player_body.name:
+		if player._introscene1 == 0:
+			_Introscene1()
 
 func _on_CaveEntrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:

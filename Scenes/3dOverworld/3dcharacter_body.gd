@@ -11,6 +11,7 @@ var move_dice : int
 var disabled_spawn : bool = false
 var rng = RandomNumberGenerator.new()
 var can_interact : bool = true
+var in_scene: bool = false
 @onready var map = get_parent()
 @onready var raycast = $RayCast3D
 @onready var interactarea = $InteractArea
@@ -24,6 +25,8 @@ func _ready() -> void:
 	position.y = 0.2
 
 func _physics_process(_delta):
+	if in_scene == true:
+		return
 	SimpleGrass.set_player_position(global_position)
 	if Input.is_action_pressed("interact"):
 		if can_interact:

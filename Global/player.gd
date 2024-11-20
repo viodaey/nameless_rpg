@@ -29,6 +29,7 @@ var current_scene
 @warning_ignore("unused_private_class_variable")
 var _abilities: Array[abilities] = [ability_test, ability_test_2]
 var passive : abilities
+var _introscene1: int = 0
 #var done: bool = false
 
 

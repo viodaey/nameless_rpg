@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://c66l6sajrkugk"]
+
+[ext_resource type="SpriteFrames" uid="uid://cikw515l1ch0k" path="res://enemy_spriteframes/HoodedFigure_sf.tres" id="1_hkgjw"]
+[ext_resource type="SpriteFrames" uid="uid://cce8hps2ykyjo" path="res://enemy_spriteframes/WolfEarth_Evo_1sf.tres" id="2_6kk80"]
+[ext_resource type="SpriteFrames" uid="uid://blmw4l10dnhua" path="res://enemy_spriteframes/WolfNature_Evo_1sf.tres" id="3_b5uhi"]
+[ext_resource type="Script" path="res://Scenes/3dOverworld/HoodedFigureIntro.gd" id="4_smd0u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0okev"]
+size = Vector3(1.755, 3, 3)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="introScene" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -154.61, 0, -1133.84)
+
+[node name="Camera3D" type="Camera3D" parent="introScene"]
+transform = Transform3D(4, 0, 0, 0, 3.23606, 2.35114, 0, -2.35114, 3.23606, 0, 20, 25)
+cull_mask = 983039
+projection = 1
+fov = 168.0
+size = 47.814
+near = 0.001
+far = 88.0
+
+[node name="HoodedFigureIntro" type="AnimatedSprite3D" parent="introScene"]
+transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, 0.28, 0, -0.28, -1.22392e-08, 12.3156, 2.186, 7.61548)
+billboard = 1
+alpha_cut = 3
+texture_filter = 1
+sprite_frames = ExtResource("1_hkgjw")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.471684
+
+[node name="WolfIntro" type="AnimatedSprite3D" parent="introScene"]
+transform = Transform3D(4.91643, 0, 0, 0, -1.99593e-07, 0.28, 0, -4.56615, -1.22392e-08, 2.12955, 2.186, 5.94543)
+flip_h = true
+billboard = 1
+alpha_cut = 3
+texture_filter = 1
+sprite_frames = ExtResource("2_6kk80")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.031856
+
+[node name="WolfIntro2" type="AnimatedSprite3D" parent="introScene"]
+transform = Transform3D(4.92748, 0, 0, 0, -1.84125e-07, 0.28, 0, -4.21227, -1.22392e-08, 1.62856, 2.186, 8.95544)
+flip_h = true
+billboard = 1
+alpha_cut = 3
+texture_filter = 1
+sprite_frames = ExtResource("3_b5uhi")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.031856
+
+[node name="StaticBody3D" type="StaticBody3D" parent="introScene"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -467.615, 2.186, -788.984)
+collision_layer = 129
+script = ExtResource("4_smd0u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="introScene/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -3.55271e-15, 0, 3.55271e-15, 1, 0.352661, 0, -0.355477)
+shape = SubResource("BoxShape3D_0okev")
