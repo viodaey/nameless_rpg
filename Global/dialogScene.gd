@@ -77,5 +77,5 @@ func _on_option_3_pressed() -> void:
 	decision = 3
 	madeDecision.emit()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	anythingPressed.emit()

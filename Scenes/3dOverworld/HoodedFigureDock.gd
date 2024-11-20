@@ -4,7 +4,7 @@ var dialog = preload("res://Global/dialog_scene.tscn")
 
 func interact():
 	map.add_child(dialog.instantiate())
-	var dialog = map.get_node("Dialog")
+	dialog = map.get_node("Dialog")
 	#dialog.dia[0].global_position = Vector2(global_position.x -5, global_position.z - 2)
 	dialog.set_color(0,"black")
 	await dialog.set_text(0,"Ah there you are,\nglad you could make it.", 1.5, true)
