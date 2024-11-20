@@ -18,8 +18,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -532.0
-offset_bottom = -416.0
+offset_right = 620.0
+offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -55,6 +55,7 @@ size_flags_horizontal = 3
 [node name="aseprite_command" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+text = "C:\\\\Steam\\steamapps\\common\\Aseprite\\aseprite.exe"
 editable = false
 caret_blink = true
 

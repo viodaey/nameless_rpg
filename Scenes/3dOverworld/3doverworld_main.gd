@@ -32,10 +32,9 @@ func _ready() -> void:
 			_player_body.position = Vector3(_H1Entrancefront.position.x, _player_body.position.y, _H1Entrancefront.position.z + 3)
 		if player.last_exit == 'west':
 			_player_body.position = Vector3(_H1Entranceback.position.x - 3, _player_body.position.y, _H1Entranceback.position.z)
-
-
-
-
+	if player._introscene1 == 0:
+		$Player.disabled_spawn = true
+	MainMenu.map_scene = get_tree().current_scene
 
 func _Introscene1():
 	var hold_speed = $Player.speed
@@ -49,8 +48,8 @@ func _Introscene1():
 	var dia1label = $Intro_subscene1/dialogue/dia_1/MarginContainer/txt
 	var dia2label = $Intro_subscene1/dialogue/dia_2/MarginContainer/txt
 	var HoodedFigureIntro = $Intro_subscene1/npcs/scen1HoodedFigureIntro
-	dia1label.text = ""
-	dia2label.text = ""
+	dia1label.text = "Hey, you there!\nover here, help me!"
+	dia2label.text = "Can't\nhold this\nout much\nlonger"
 	var fogtween = get_tree().create_tween()
 	var camtween = get_tree().create_tween()
 	fogtween.tween_property($Fo_subscene1/dialogue/diaCamera3D/Fog, "color:a", 0, 3.5)
@@ -60,8 +59,8 @@ func _Introscene1():
 	dialog(dia1label,"Hey, you there!\nover here, help me!")
 	await get_tree().create_timer(2.0).timeout
 	var HoodedFiguretween = get_tree().create_tween()
-	HoodedFiguretween.tween_property(HoodedFigureIntro, "position:y", HoodedFigureIntro.position.y - 1.5, 0.08)
-	HoodedFiguretween.tween_property(HoodedFigureIntro, "position:y", HoodedFigureIntro.position.y + 1.5, 0.08)
+	HoodedFiguretween.tween_property(HoodedFigureIntro, "position:z", HoodedFigureIntro.position.z - 1.5, 0.08)
+	HoodedFiguretween.tween_property(HoodedFigureIntro, "position:z", HoodedFigureIntro.position.z + 1.5, 0.08)
 	HoodedFiguretween.set_loops(3)
 	await get_tree().create_timer(3).timeout
 	dia1.visible = false
@@ -91,12 +90,8 @@ func dialog(label, text):
 
 func _on_subscene1_trigger_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
-		if player.Intro_scene1 == 0:
+		if player._introscene1 == 0:
 			_Introscene1()
-
-
-
-
 
 func _on_CaveEntrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
@@ -117,6 +112,7 @@ func _on_ForestEntrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
 		player.last_exit = 'overworld'
 		sceneManager.goto_scene("res://Scenes/3dForest/3dforest.tscn")
+
 
 ##func _input(_event):
 	##if Input.is_action_pressed("ui_cancel"):
