@@ -19,7 +19,7 @@ var mp: int = 10
 var max_mp: int = 10
 var mp_cost_fireball: int = 6
 var last_exit: String = 'default'
-var enemy_encounter: String = "res://enemyResources/res_battle_spider.tres"
+var enemy_encounter: Array [String] = ["res://enemyResources/res_battle_spider.tres"]
 #var enemy_stats = []
 var position = Vector2(256,256)
 var atb: int = 100
@@ -29,7 +29,7 @@ var current_scene
 @warning_ignore("unused_private_class_variable")
 var _abilities: Array[abilities] = [ability_test, ability_test_2]
 var passive : abilities
-var _introscene1: int = 0
+
 #var done: bool = false
 
 
@@ -73,4 +73,5 @@ func save():
 	
 	# SCENES
 var forest_scene1 = 0
+var overworld_scene1: int = 0
 	

@@ -177,12 +177,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nrlsx"]
 _data = {
-"RESET": SubResource("Animation_1q8ej"),
-"enemy_attack": SubResource("Animation_4b4wm"),
-"enemy_chillin": SubResource("Animation_83e04"),
-"enemy_damaged": SubResource("Animation_ojd68"),
-"enemy_dead": SubResource("Animation_fuh57"),
-"enemy_healthchange": SubResource("Animation_xuy4y")
+&"RESET": SubResource("Animation_1q8ej"),
+&"enemy_attack": SubResource("Animation_4b4wm"),
+&"enemy_chillin": SubResource("Animation_83e04"),
+&"enemy_damaged": SubResource("Animation_ojd68"),
+&"enemy_dead": SubResource("Animation_fuh57"),
+&"enemy_healthchange": SubResource("Animation_xuy4y")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_mdogy"]
@@ -3570,7 +3570,7 @@ label_settings = ExtResource("4_jbr0v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_nrlsx")
+&"": SubResource("AnimationLibrary_nrlsx")
 }
 
 [node name="ActionMenu" type="Panel" parent="."]

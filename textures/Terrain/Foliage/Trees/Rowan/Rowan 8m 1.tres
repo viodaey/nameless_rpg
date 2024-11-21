@@ -6,6 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q5g75"]
 render_priority = 0
 shader = ExtResource("1_ulc5d")
+shader_parameter/main_texture = ExtResource("2_h3rpy")
 shader_parameter/pixel_mode = true
 shader_parameter/pixel_amount = 4000.0
 shader_parameter/distortion = 0.01
@@ -17,7 +18,6 @@ shader_parameter/worley_cell_density = 10.0
 shader_parameter/worley_speed = 2.0
 shader_parameter/edge_and_mask = false
 shader_parameter/alpha_value = 1.0
-shader_parameter/main_texture = ExtResource("2_h3rpy")
 
 [resource]
 material = SubResource("ShaderMaterial_q5g75")

@@ -32,12 +32,18 @@ func set_text(diaNum, text, wait: int = 0, waitforpress: bool = false, retain: b
 	for i in text: 
 		visible_characters = (visible_characters + 1)
 		dia_label[diaNum].visible_characters = visible_characters
-		await(get_tree().create_timer(0.05).timeout)
+		await(get_tree().create_timer(0.04).timeout)
 	await get_tree().create_timer(wait).timeout
 	if waitforpress:
 		await anythingPressed
 	if not retain:
 		dia[diaNum].visible = false
+
+func set_center_offset(diaNum, x: float = 0, y: float = 0):
+	var center_view: Vector2 = (size / 2) - (dia[diaNum].size / 2)
+	var offset_x = (center_view.x / 2) + ((center_view.x / 2) * x) - (dia[diaNum].size.x / 2)
+	var offset_y = (center_view.y / 2) + ((center_view.y / 2) * y) - (dia[diaNum].size.y / 2)
+	dia[diaNum].position = Vector2(offset_x, offset_y)
 
 func set_font(diaNum, fontStr):
 	dia_label[diaNum].label_settings = font[fontStr]
@@ -58,8 +64,11 @@ func decide(choices: Array):
 
 
 func _ready() -> void: ##TESTING
+	#set_center_offset(0,0.75, 0.75) 
 	for dianum in len(dia):
 		dia[dianum].visible = false
+			
+		
 	#var choose = ["Bla","Blabla"]
 	#var answer 
 	#answer = await decide(choose)

@@ -39,7 +39,6 @@ var x : int
 var y : int = 0
 var calc_lvl: int
 var curPlayer = playerDict[1]
-
 # attack = 0, item = 1, ability = 2
 var next_phase: int = 0
 var used_item: Resource
@@ -130,7 +129,7 @@ func _ready():
 		_player4statscont.visible = false
 
 ##	load enemy resource from encounter -- TURN OFF LOAD TO TEST EXPORT RESOURCE
-	enemy = load(player.enemy_encounter)
+	enemy = load(player.enemy_encounter[0])
 	AudioPlayer.play_music_level(enemy.music)
 	enemyDict_1["res"] = enemy
 	enemyDict_1["cont"] = _enemycont1
@@ -150,32 +149,38 @@ func _ready():
 	#e_groupsize = 2
 		
 ##	roll and allocate enemy 2
-	if e_groupsize > 1:
-		if len(enemy.friends) > 0:
+	if len(player.enemy_encounter) > 1 or e_groupsize > 1:
+		if len(player.enemy_encounter) > 1:
+			enemy2 = load(player.enemy_encounter[1])
+			print("loaded from enemy_encounter array")
+		elif len(enemy.friends) > 0:
 			var bla = rng.randi_range(0, len(enemy.friends)) 
 			if bla == 0:
-				enemy2 = load(player.enemy_encounter)
+				enemy2 = load(player.enemy_encounter[0])
 			else:
 				enemy2 = load(enemy.allEnemies[enemy.friends[bla-1]])
-		else:
-			enemy2 = load(player.enemy_encounter)
+		else: 
+			enemy2 = load(player.enemy_encounter[0])
 		enemyDict[2] = enemyDict_2
 		enemyDict_2["cont"] = _enemycont2
 		enemyDict_2["live"] = enemyStats2
 		enemyDict_2["res"] = enemy2
 	else:
 		_enemycont2.visible = false
+
 		
 ##	roll and allocate enemy 3
-	if e_groupsize > 2:
-		if len(enemy.friends) > 0:
+	if len(player.enemy_encounter) > 2 or e_groupsize > 2:
+		if len(player.enemy_encounter) > 2:
+			enemy3 = load(player.enemy_encounter[2])
+		elif len(enemy.friends) > 0:
 			var bla = rng.randi_range(0, len(enemy.friends)) 
 			if bla == 0:
-				enemy3 = load(player.enemy_encounter)
+				enemy3 = load(player.enemy_encounter[0])
 			else:
 				enemy3 = load(enemy.allEnemies[enemy.friends[bla-1]])
-		else:
-			enemy3 = load(player.enemy_encounter)
+		else: 
+			enemy3 = load(player.enemy_encounter[0])
 		enemyDict[3] = enemyDict_3
 		enemyDict_3["cont"] = _enemycont3
 		enemyDict_3["live"] = enemyStats3
@@ -184,16 +189,17 @@ func _ready():
 		_enemycont3.visible = false
 		
 ##	roll and allocate enemy 4
-	if e_groupsize > 3:
-		if len(enemy.friends) > 0:
+	if len(player.enemy_encounter) > 3 or e_groupsize > 3:
+		if len(player.enemy_encounter) > 3:
+			enemy4 = load(player.enemy_encounter[3])
+		elif len(enemy.friends) > 0:
 			var bla = rng.randi_range(0, len(enemy.friends)) 
 			if bla == 0:
-				enemy4 = load(player.enemy_encounter)
+				enemy4 = load(player.enemy_encounter[0])
 			else:
 				enemy4 = load(enemy.allEnemies[enemy.friends[bla-1]])
-		else:
-			enemy4 = load(player.enemy_encounter)
-
+		else: 
+			enemy4 = load(player.enemy_encounter[0])
 		enemyDict[4] = enemyDict_4
 		enemyDict_4["cont"] = _enemycont4
 		enemyDict_4["live"] = enemyStats4
@@ -559,6 +565,7 @@ func _attack_phase_2():
 			if p > 1:
 				if playerDict[p]["res"].lvl >= playerDict[p]["res"].evo_lvl:
 					await(evolve(p))
+		player.enemy_encounter = []
 		sceneManager.goto_scene(sceneManager.last_scene)
 	_turn_calc()
 
