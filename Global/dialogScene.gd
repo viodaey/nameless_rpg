@@ -18,9 +18,9 @@ extends Control
 	"bold": load("res://Global/ui_heading.tres")
 }
 var sizes: Dictionary [String, Vector2] = {
-	"small": Vector2(204,96),
+	"small": Vector2(204,88),
 	"regular": Vector2(352,112),
-	"long": Vector2(352,304)
+	"long": Vector2(352,224)
 	}
 
 var decision: int

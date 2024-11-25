@@ -83,6 +83,7 @@ func _physics_process(delta: float):
 
 func initiate_battle():
 	position = neutral_pos
+	player.enemy_encounter = []
 	player.enemy_encounter[0] = enemy.resource_path
 	player.position = player_position
 	sceneManager.mon_min_lvl = get_parent().min_lvl

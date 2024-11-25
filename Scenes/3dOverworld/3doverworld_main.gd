@@ -54,7 +54,7 @@ func _introscene1():
 	dialog.set_diasize(0,"regular")
 	await dialog.set_text(0,"Hey, you there!",2)
 	#await dialog.set_text(0,"Let's see how you handle a very long text like this one to test if autowrapping does so correctly",2)
-	## look around
+	## to do: look around
 	await dialog.set_text(0,"Over here, help me!",0.5, false, true)
 	var tween = get_tree().create_tween()
 	tween.tween_property(camera, "position:x", camera.position.x - 30, 1.5)
@@ -63,6 +63,7 @@ func _introscene1():
 	await dialog.set_text(0,"I can't hold for much longer...", 1.5, false, true)
 	await get_tree().create_timer(1.5).timeout
 	dialog.set_text(0,"")
+	## move/rush player towards encounter, move camera back to player center
 	tween = get_tree().create_tween()
 	tween.tween_property(_player_body, "position:x", introscene.position.x, 4.2)
 	tween.parallel().tween_property(_player_body, "position:z", introscene.position.z, 4.2)
@@ -71,14 +72,17 @@ func _introscene1():
 	cameratween.parallel().tween_property(camera, "position:z", camera.position.z + 15, 0.5)
 	_player_body.get_node("AnimatedSprite3D").play("moveleft")
 	#await tween.finished
+	## advance dialognumber
 	player.overworld_scene1 = 1
 	await get_tree().create_timer(2.5).timeout
+	## set custom encounter
 	player.enemy_encounter = [
 		"res://enemy_resources/enemy_identityfiles/wolfearth_evo1.tres", 
 		"res://enemy_resources/enemy_identityfiles/wolfnature_evo1.tres"]
-	player.position = _player_body.position
+	## set custom monster level for encounter
 	sceneManager.mon_min_lvl = 1
 	sceneManager.mon_max_lvl = 2
+	player.position = _player_body.position
 	sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
 
 func _introscene2():
