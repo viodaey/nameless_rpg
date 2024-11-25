@@ -3,7 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cikw515l1ch0k" path="res://enemy_spriteframes/HoodedFigure_sf.tres" id="1_hkgjw"]
 [ext_resource type="SpriteFrames" uid="uid://cce8hps2ykyjo" path="res://enemy_spriteframes/WolfEarth_Evo_1sf.tres" id="2_6kk80"]
 [ext_resource type="SpriteFrames" uid="uid://blmw4l10dnhua" path="res://enemy_spriteframes/WolfNature_Evo_1sf.tres" id="3_b5uhi"]
-[ext_resource type="Script" path="res://Scenes/3dOverworld/HoodedFigureIntro.gd" id="4_smd0u"]
+[ext_resource type="Script" uid="uid://dshw8oolt2n1j" path="res://Scenes/3dOverworld/HoodedFigureIntro.gd" id="4_smd0u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0okev"]
 size = Vector3(1.755, 3, 3)

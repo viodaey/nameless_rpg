@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="_Class" load_steps=2 format=3 uid="uid://d3jpakoms3ml7"]
 
-[ext_resource type="Script" path="res://Global/Classes/_Classes.gd" id="1_ug3tj"]
+[ext_resource type="Script" uid="uid://iryf7xrvxxu7" path="res://Global/Classes/_Classes.gd" id="1_ug3tj"]
 
 [resource]
 resource_name = "Normy"

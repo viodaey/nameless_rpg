@@ -47,6 +47,10 @@ func level_up():
 		lvl = lvl + 1
 		xp = xp - max_xp
 		max_xp = round(max_xp * 1.4)
+
+func full_heal():
+	health = max_health
+	mp = max_mp
 	
 func save():
 	var save_dict = {
@@ -71,7 +75,7 @@ func save():
 			#done_lvl_up = true
 
 	
-	# SCENES
+	## scene progression
 var forest_scene1 = 0
 var overworld_scene1: int = 0
 	

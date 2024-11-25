@@ -1,6 +1,6 @@
 [gd_resource type="QuadMesh" load_steps=4 format=3 uid="uid://c2frq657ycsvn"]
 
-[ext_resource type="Shader" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_krry1"]
+[ext_resource type="Shader" uid="uid://chmk7g22kkgqe" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_krry1"]
 [ext_resource type="Texture2D" uid="uid://b2h5v832h6paq" path="res://textures/Terrain/Foliage/Trees/Silver Birch/Silver birch 16m 1.png" id="2_t7jpi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f7gfd"]

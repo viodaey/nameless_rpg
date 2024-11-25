@@ -40,9 +40,10 @@ func set_text(diaNum, text, wait: int = 0, waitforpress: bool = false, retain: b
 		dia[diaNum].visible = false
 
 func set_center_offset(diaNum, x: float = 0, y: float = 0):
-	var center_view: Vector2 = (size / 2) - (dia[diaNum].size / 2)
-	var offset_x = (center_view.x / 2) + ((center_view.x / 2) * x) - (dia[diaNum].size.x / 2)
-	var offset_y = (center_view.y / 2) + ((center_view.y / 2) * y) - (dia[diaNum].size.y / 2)
+	var viewport = get_viewport_rect()
+	var center_view: Vector2 = (viewport.size / 2) - (dia[diaNum].size / 2)
+	var offset_x = (center_view.x / 2) + ((center_view.x / 2) * x)
+	var offset_y = (center_view.y / 2) + ((center_view.y / 2) * y)
 	dia[diaNum].position = Vector2(offset_x, offset_y)
 
 func set_font(diaNum, fontStr):

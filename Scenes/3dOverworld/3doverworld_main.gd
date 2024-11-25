@@ -95,7 +95,9 @@ func _introscene2():
 	dialog.set_color(0,"black")
 	_player_body.get_node("AnimatedSprite3D").play("idleleft")
 	dialog.set_center_offset(0,-0.65,-0.70)
+	dialog.set_center_offset(3,0,0.70)
 	dialog.dia[0].scale = Vector2(1.3,1.3)
+	dialog.dia[3].scale = Vector2(1.3,1.3)
 	fog.visible = true
 	var fogtween = get_tree().create_tween()
 	fogtween.tween_property(fog, "modulate:a", 0, 2.5)
@@ -109,6 +111,11 @@ func _introscene2():
 	await dialog.set_text(0,"... and we could really use someone like you.",0,true)
 	await dialog.set_text(0,"You should come visit me at the dock when you have the time.",0,true)
 	await dialog.set_text(0,"You can find the dock where the river and the mountains cross, northwest of here",0,true)
+	await dialog.set_text(0,"Before you go. Take this. And let me see those wounds")
+	await dialog.set_text(3,"You are fully healed")
+	await dialog.set_text(3,"You obtained Potion (x2)")
+	inv.add_item(inv.item_id[0], 2)
+	player.full_heal()
 	fogtween = get_tree().create_tween()
 	fogtween.tween_property(fog, "modulate:a", 1, 2.5)
 	await fogtween.finished
