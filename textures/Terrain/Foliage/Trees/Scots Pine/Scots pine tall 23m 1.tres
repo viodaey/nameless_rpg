@@ -1,6 +1,6 @@
 [gd_resource type="QuadMesh" load_steps=4 format=3 uid="uid://dwfbsdgaf7elm"]
 
-[ext_resource type="Shader" uid="uid://chmk7g22kkgqe" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_vfyit"]
+[ext_resource type="Shader" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_vfyit"]
 [ext_resource type="Texture2D" uid="uid://6mouefqp1uyw" path="res://textures/Terrain/Foliage/Trees/Scots Pine/Scots pine tall 23m 1.png" id="2_bnsn8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_enhr0"]
