@@ -1,8 +1,9 @@
 extends StaticBody3D
 @onready var map = get_parent().get_parent()
-var dialog = preload("res://Global/dialog_scene.tscn")
+
 
 func interact():
+	var dialog = preload("res://Global/dialog_scene.tscn")
 	map.add_child(dialog.instantiate())
 	dialog = map.get_node("Dialog")
 	#dialog.dia[0].global_position = Vector2(global_position.x -5, global_position.z - 2)
@@ -15,6 +16,4 @@ func interact():
 			await dialog.set_text(0,"I don't think so buddy", 1, true)
 		2:
 			await dialog.set_text(0,"You better step away \n right now", 1, true)
-	
 	dialog.queue_free()
-	

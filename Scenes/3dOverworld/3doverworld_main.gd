@@ -60,7 +60,7 @@ func _introscene1():
 	tween.tween_property(camera, "position:x", camera.position.x - 30, 1.5)
 	tween.parallel().tween_property(camera, "position:z", camera.position.z - 25, 1.5)
 	await tween.finished
-	await dialog.set_text(0,"I can't hold for much longer...", 1.5, false, true)
+	await dialog.set_text(0,"I can't hold on for much longer...", 1.5, false, true)
 	await get_tree().create_timer(1.5).timeout
 	dialog.set_text(0,"")
 	tween = get_tree().create_tween()
@@ -102,17 +102,17 @@ func _introscene2():
 	var fogtween = get_tree().create_tween()
 	fogtween.tween_property(fog, "modulate:a", 0, 2.5)
 	await fogtween.finished
-	await dialog.set_text(0,"*panting* ..... that should be the last of them.",0, true)
+	await dialog.set_text(0,"*panting* ..... that should be the last of them.",0,true)
 	await dialog.set_text(0,"I usually have no issue with standing my own against the wildlife. But they seem to be more ferocious than ever.",1,true)
 	await dialog.set_text(0,"and they just kept on coming...", 1,true)
 	#await dialog.set_text(0,"I guess it also didnt help that i got myself hurt",1, true)
-	await dialog.set_text(0,"Anyway, i'm glad that you showed up stranger. \nThank you",1, true)
+	await dialog.set_text(0,"Anyway, i'm glad that you showed up stranger. \nThank you",1,true)
 	await dialog.set_text(0,"You seem to be able to stand your own. But i might be able to teach you a thing or two",1,true) 
 	## class specific dialog? e.g. know how to handle a sword, throw a fireball, manage a bow etc
 	await dialog.set_text(0,"... and we could really use someone like you.",1,true)
 	await dialog.set_text(0,"You should come visit me at the dock when you have the time.",0,true)
 	await dialog.set_text(0,"You can find the dock where the river and the mountains cross, northwest of here.",0,true)
-	await dialog.set_text(0,"One last thing before you go. Take this. And let me see those wounds.")
+	await dialog.set_text(0,"One last thing before you go. Let me see those wounds and take this.",1.5,true)
 	dialog.set_diasize(3,"small")
 	await dialog.set_text(3,"You are fully healed", 1)
 	await dialog.set_text(3,"You obtained Potion (x2)", 1)
@@ -128,12 +128,7 @@ func _introscene2():
 	_player_body.in_scene = false
 	_player_body.disabled_spawn = false
 	player.overworld_scene1 = 2
-	
 	dialog.queue_free()
-
-	
-
-
 
 func _on_subscene1_trigger_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
@@ -159,42 +154,6 @@ func _on_ForestEntrance_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
 		player.last_exit = 'overworld'
 		sceneManager.goto_scene("res://Scenes/3dForest/3dforest.tscn")
-
-
-##func _input(_event):
-	##if Input.is_action_pressed("ui_cancel"):
-		##await (get_tree().create_timer(0.1).timeout)
-		##main_menu()
-#
-##func main_menu():
-	##var mainMenuScene = load("res://Global/mainMenu.tscn").instantiate()
-	##get_node("Player").get_node("Camera3D").enabled = false
-	##get_parent().add_child(mainMenuScene)
-	##get_tree().paused = true
-#
-#func _spawn_npc():
-	#if is_instance_valid($NPC_spawn):
-		#print("tried to spawn but valid instance found")
-	#else:
-		#var rng = RandomNumberGenerator.new()
-		#var enemy_select = rng.randi_range(1,len(world_enemies))
-		#var angle = rng.randi_range(0, TAU)
-		#var distance = rng.randi_range(80, 150)
-		#_player_body.get_node("RayCast3D").target_position += Vector3((distance)*cos(angle),0, (distance)*sin(angle))
-		#if _player_body.get_node("RayCast3D") .is_colliding():
-			#_spawn_npc()
-		#else:
-			#spawn_request = load(world_enemies[enemy_select - 1].resource_path)
-			#add_child(_spawned_npc.duplicate())
-			#var num = len(activeSpawns)
-			#_spawned_npc = $NPC_spawn
-			#_spawned_npc.name = "NPC_spawn" + "%d" %num
-			#_spawned_npc.position = _player_body.position + Vector3((distance)*cos(angle),0, (distance)*sin(angle))
-			#activeSpawns.append(_spawned_npc.name)
-
-#func _despawn_npc(npc):
-	#get_node(npc).queue_free()
-	#activeSpawns.erase(npc)
 
 # EXAMPLE HOW TO USE GLOBAL DIALOG
 	#var load_dialog = load("res://Global/dialog_scene.tscn")
