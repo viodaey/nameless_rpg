@@ -17,9 +17,23 @@ extends Control
 	"regular": load("res://Global/ui_regular.tres"),
 	"bold": load("res://Global/ui_heading.tres")
 }
+var sizes: Dictionary [String, Vector2] = {
+	"small": Vector2(204,96),
+	"regular": Vector2(352,112),
+	"long": Vector2(352,304)
+	}
+
 var decision: int
 signal madeDecision
 signal anythingPressed
+
+func set_diasize(diaNum, pickSize: String, custom: Vector2 = Vector2(0,0)):
+	var diaSize: Vector2
+	if pickSize == "custom":
+		diaSize = custom
+	else:
+		diaSize = sizes[pickSize]
+	dia[diaNum].size = diaSize
 
 func set_color(diaNum, diaColor):
 	dia[diaNum].texture = color[diaColor]

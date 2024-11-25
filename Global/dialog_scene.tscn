@@ -25,10 +25,10 @@ script = ExtResource("1_noh02")
 visible = false
 z_index = 10
 layout_mode = 0
-offset_left = -27.6923
-offset_top = -18.4615
-offset_right = 673.308
-offset_bottom = 384.538
+offset_left = -28.0
+offset_top = -18.0
+offset_right = 1624.0
+offset_bottom = 928.0
 color = Color(0, 0, 0, 1)
 
 [node name="dia_1" type="NinePatchRect" parent="."]

@@ -39,7 +39,6 @@ func _ready() -> void:
 		_introscene2()
 
 func _introscene1():
-	var hold_speed = _player_body.speed
 	var dialog = preload("res://Global/dialog_scene.tscn")
 	var introscene = $introScene
 	var camera = $Player/Camera3D
@@ -52,6 +51,7 @@ func _introscene1():
 	_player_body.get_node("AnimatedSprite3D").play("idleleft")
 	dialog.set_center_offset(0,-0.75,-0.75)
 	dialog.dia[0].scale = Vector2(1.3,1.3)
+	dialog.set_diasize(0,"regular")
 	await dialog.set_text(0,"Hey, you there!",2)
 	#await dialog.set_text(0,"Let's see how you handle a very long text like this one to test if autowrapping does so correctly",2)
 	## look around
@@ -72,7 +72,7 @@ func _introscene1():
 	_player_body.get_node("AnimatedSprite3D").play("moveleft")
 	#await tween.finished
 	player.overworld_scene1 = 1
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(2.5).timeout
 	player.enemy_encounter = [
 		"res://enemy_resources/enemy_identityfiles/wolfearth_evo1.tres", 
 		"res://enemy_resources/enemy_identityfiles/wolfnature_evo1.tres"]
@@ -84,7 +84,6 @@ func _introscene1():
 func _introscene2():
 	var dialog = preload("res://Global/dialog_scene.tscn")
 	var introscene = $introScene
-	var camera = $Player/Camera3D
 	_player_body.in_scene = true
 	introscene.visible = true
 	introscene.get_node("WolfIntro").visible = false
@@ -93,6 +92,7 @@ func _introscene2():
 	dialog = get_node("Dialog")
 	var fog = dialog.get_node("Fog")
 	dialog.set_color(0,"black")
+	dialog.set_diasize(0,"regular")
 	_player_body.get_node("AnimatedSprite3D").play("idleleft")
 	dialog.set_center_offset(0,-0.65,-0.70)
 	dialog.set_center_offset(3,0,0.70)
@@ -102,26 +102,31 @@ func _introscene2():
 	var fogtween = get_tree().create_tween()
 	fogtween.tween_property(fog, "modulate:a", 0, 2.5)
 	await fogtween.finished
-	await dialog.set_text(0,"*panting* ..... that should be the last of them",0, true)
-	await dialog.set_text(0,"I usually have no issue with standing my own against the wildlife. But they seemed more ferocious than ever.",0,true)
-	await dialog.set_text(0,"and they just kept on coming...", 0,true)
-	await dialog.set_text(0,"I guess it also didnt help that i got myself hurt",0, true)
-	await dialog.set_text(0,"Anyway, i'm glad that you showed up stranger. \n Thank you",2, true)
-	await dialog.set_text(0,"You seem to be able to stand your own. But i might be able to teach you a thing or two",0,true)
-	await dialog.set_text(0,"... and we could really use someone like you.",0,true)
+	await dialog.set_text(0,"*panting* ..... that should be the last of them.",0, true)
+	await dialog.set_text(0,"I usually have no issue with standing my own against the wildlife. But they seem to be more ferocious than ever.",1,true)
+	await dialog.set_text(0,"and they just kept on coming...", 1,true)
+	#await dialog.set_text(0,"I guess it also didnt help that i got myself hurt",1, true)
+	await dialog.set_text(0,"Anyway, i'm glad that you showed up stranger. \nThank you",1, true)
+	await dialog.set_text(0,"You seem to be able to stand your own. But i might be able to teach you a thing or two",1,true) 
+	## class specific dialog? e.g. know how to handle a sword, throw a fireball, manage a bow etc
+	await dialog.set_text(0,"... and we could really use someone like you.",1,true)
 	await dialog.set_text(0,"You should come visit me at the dock when you have the time.",0,true)
-	await dialog.set_text(0,"You can find the dock where the river and the mountains cross, northwest of here",0,true)
-	await dialog.set_text(0,"Before you go. Take this. And let me see those wounds")
-	await dialog.set_text(3,"You are fully healed")
-	await dialog.set_text(3,"You obtained Potion (x2)")
+	await dialog.set_text(0,"You can find the dock where the river and the mountains cross, northwest of here.",0,true)
+	await dialog.set_text(0,"One last thing before you go. Take this. And let me see those wounds.")
+	dialog.set_diasize(3,"small")
+	await dialog.set_text(3,"You are fully healed", 1)
+	await dialog.set_text(3,"You obtained Potion (x2)", 1)
 	inv.add_item(inv.item_id[0], 2)
 	player.full_heal()
 	fogtween = get_tree().create_tween()
-	fogtween.tween_property(fog, "modulate:a", 1, 2.5)
+	fogtween.tween_property(fog, "modulate:a", 1, 2)
+	await fogtween.finished
+	introscene.visible = false
+	fogtween = get_tree().create_tween()
+	fogtween.tween_property(fog, "modulate:a", 0, 2)
 	await fogtween.finished
 	_player_body.in_scene = false
 	_player_body.disabled_spawn = false
-	introscene.visible = false
 	player.overworld_scene1 = 2
 	
 	dialog.queue_free()
