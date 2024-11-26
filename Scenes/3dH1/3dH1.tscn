@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmsjv3ywtsahm"]
+[gd_scene load_steps=12 format=3 uid="uid://bmsjv3ywtsahm"]
 
 [ext_resource type="Script" path="res://Scenes/3dH1/3dh1.gd" id="1_cnhcg"]
 [ext_resource type="Texture2D" uid="uid://ijvw68j4ekxw" path="res://textures/carpentry/woodenFlooring.png" id="3_1xxoe"]
-[ext_resource type="Script" path="res://Scenes/3dOverworld/3dcharacter_body.gd" id="4_p4smk"]
+[ext_resource type="Script" uid="uid://du0k2lqc8l5tt" path="res://Scenes/3dOverworld/3dcharacter_body.gd" id="4_p4smk"]
 [ext_resource type="SpriteFrames" uid="uid://d3qv35el85yex" path="res://Scenes/3dOverworld/Playerbody_SF.tres" id="5_1ews2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j8h41"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpd5t"]
+size = Vector3(6, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a2p4j"]
 size = Vector3(2.5, 2.5, 2.5)
@@ -48,6 +51,14 @@ shape = SubResource("BoxShape3D_j8h41")
 transform = Transform3D(30, 0, 0, 0, -1.31134e-06, 30, 0, -30, -1.31134e-06, 0, 0.1, 0)
 sprite_frames = ExtResource("5_1ews2")
 animation = &"idledown"
+
+[node name="InteractArea" type="Area3D" parent="Player"]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/InteractArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
+shape = SubResource("BoxShape3D_mpd5t")
 
 [node name="3dH1Exitfront" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 318.242, 0, -279.192)

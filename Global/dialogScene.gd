@@ -17,9 +17,23 @@ extends Control
 	"regular": load("res://Global/ui_regular.tres"),
 	"bold": load("res://Global/ui_heading.tres")
 }
+var sizes: Dictionary [String, Vector2] = {
+	"small": Vector2(204,88),
+	"regular": Vector2(352,112),
+	"long": Vector2(352,224)
+	}
+
 var decision: int
 signal madeDecision
 signal anythingPressed
+
+func set_diasize(diaNum, pickSize: String, custom: Vector2 = Vector2(0,0)):
+	var diaSize: Vector2
+	if pickSize == "custom":
+		diaSize = custom
+	else:
+		diaSize = sizes[pickSize]
+	dia[diaNum].size = diaSize
 
 func set_color(diaNum, diaColor):
 	dia[diaNum].texture = color[diaColor]
@@ -32,12 +46,19 @@ func set_text(diaNum, text, wait: int = 0, waitforpress: bool = false, retain: b
 	for i in text: 
 		visible_characters = (visible_characters + 1)
 		dia_label[diaNum].visible_characters = visible_characters
-		await(get_tree().create_timer(0.05).timeout)
+		await(get_tree().create_timer(0.04).timeout)
 	await get_tree().create_timer(wait).timeout
 	if waitforpress:
 		await anythingPressed
 	if not retain:
 		dia[diaNum].visible = false
+
+func set_center_offset(diaNum, x: float = 0, y: float = 0):
+	var viewport = get_viewport_rect()
+	var center_view: Vector2 = (viewport.size / 2) - (dia[diaNum].size / 2)
+	var offset_x = (center_view.x / 2) + ((center_view.x / 2) * x)
+	var offset_y = (center_view.y / 2) + ((center_view.y / 2) * y)
+	dia[diaNum].position = Vector2(offset_x, offset_y)
 
 func set_font(diaNum, fontStr):
 	dia_label[diaNum].label_settings = font[fontStr]
@@ -58,8 +79,11 @@ func decide(choices: Array):
 
 
 func _ready() -> void: ##TESTING
+	#set_center_offset(0,0.75, 0.75) 
 	for dianum in len(dia):
 		dia[dianum].visible = false
+			
+		
 	#var choose = ["Bla","Blabla"]
 	#var answer 
 	#answer = await decide(choose)
@@ -77,5 +101,5 @@ func _on_option_3_pressed() -> void:
 	decision = 3
 	madeDecision.emit()
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	anythingPressed.emit()

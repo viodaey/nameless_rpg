@@ -1,24 +1,27 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0rm74cf7vkyk"]
+[gd_scene load_steps=14 format=3 uid="uid://d0rm74cf7vkyk"]
 
-[ext_resource type="Script" path="res://Global/mainMenu.gd" id="1_yocc6"]
+[ext_resource type="Script" uid="uid://ddm32w2u32hiy" path="res://Global/mainMenu.gd" id="1_yocc6"]
 [ext_resource type="Texture2D" uid="uid://joxwbxwu5qbr" path="res://textures/UI/Citadel_MainMenu/mm_heading.png" id="2_1ve1y"]
 [ext_resource type="LabelSettings" uid="uid://m48ou1arcktr" path="res://Global/ui_heading.tres" id="2_8ci6e"]
 [ext_resource type="Texture2D" uid="uid://cvoec8sc3agen" path="res://textures/UI/Citadel_MainMenu/mm_label.png" id="3_a4u4y"]
 [ext_resource type="FontFile" uid="uid://uhhqq15a58ma" path="res://textures/fonts/GentiumBookPlus-Regular.ttf" id="4_3k2xw"]
 [ext_resource type="Texture2D" uid="uid://hv46if1ouc0k" path="res://textures/UI/Citadel_MainMenu/mm_box_body.png" id="5_8sgdw"]
 [ext_resource type="StyleBox" uid="uid://b2p0sdndrmxy8" path="res://textures/UI/buttonMenuFocus.tres" id="6_cuxcy"]
+[ext_resource type="FontFile" uid="uid://sjkcdvf4fndg" path="res://textures/fonts/Merienda-Light.ttf" id="6_np5wo"]
 [ext_resource type="Texture2D" uid="uid://d4btfj8yiluea" path="res://textures/UI/Citadel_MainMenu/wider2_p.png" id="7_il4ff"]
 [ext_resource type="Texture2D" uid="uid://djb2dpff7sig6" path="res://textures/UI/Citadel_MainMenu/wider2_n.png" id="8_7xk0x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rb1fn"]
 font = ExtResource("4_3k2xw")
-font_color = Color(0.257821, 0.135234, 2.40654e-08, 1)
+font_color = Color(1, 0.828621, 0.679049, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hwwa"]
 texture = ExtResource("7_il4ff")
+modulate_color = Color(0, 1, 1, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cs0qa"]
 texture = ExtResource("8_7xk0x")
+modulate_color = Color(0, 1, 1, 1)
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -42,12 +45,14 @@ grow_vertical = 2
 theme_override_constants/separation = -8
 
 [node name="TextureRect" type="TextureRect" parent="MenuVBox"]
+self_modulate = Color(0.784314, 1, 1, 1)
 z_index = 1
 layout_mode = 2
 texture = ExtResource("2_1ve1y")
 stretch_mode = 4
 
 [node name="TextureRect" type="TextureRect" parent="MenuVBox/TextureRect"]
+self_modulate = Color(0.431373, 0.431373, 0.423529, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,6 +85,7 @@ label_settings = SubResource("LabelSettings_rb1fn")
 horizontal_alignment = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MenuVBox"]
+self_modulate = Color(0.784314, 1, 1, 1)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("5_8sgdw")
@@ -108,7 +114,7 @@ theme_override_constants/separation = 30
 [node name="Resume" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_fonts/font = ExtResource("6_np5wo")
 theme_override_styles/focus = ExtResource("6_cuxcy")
 theme_override_styles/hover = ExtResource("6_cuxcy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
@@ -124,7 +130,7 @@ theme_override_constants/separation = 10
 [node name="Monsters" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_fonts/font = ExtResource("6_np5wo")
 theme_override_styles/focus = ExtResource("6_cuxcy")
 theme_override_styles/hover = ExtResource("6_cuxcy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
@@ -134,7 +140,7 @@ text = "Monsters"
 [node name="Inventory" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_fonts/font = ExtResource("6_np5wo")
 theme_override_styles/focus = ExtResource("6_cuxcy")
 theme_override_styles/hover = ExtResource("6_cuxcy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
@@ -144,7 +150,7 @@ text = "Inventory"
 [node name="Player" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_fonts/font = ExtResource("6_np5wo")
 theme_override_styles/focus = ExtResource("6_cuxcy")
 theme_override_styles/hover = ExtResource("6_cuxcy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
@@ -160,7 +166,7 @@ theme_override_constants/separation = 10
 [node name="Save" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_fonts/font = ExtResource("6_np5wo")
 theme_override_styles/focus = ExtResource("6_cuxcy")
 theme_override_styles/hover = ExtResource("6_cuxcy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
@@ -170,7 +176,7 @@ text = "Save"
 [node name="Load" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_fonts/font = ExtResource("6_np5wo")
 theme_override_styles/focus = ExtResource("6_cuxcy")
 theme_override_styles/hover = ExtResource("6_cuxcy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
@@ -180,21 +186,20 @@ text = "Load"
 [node name="Quit" type="Button" parent="MenuVBox/NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_fonts/font = ExtResource("6_np5wo")
 theme_override_styles/focus = ExtResource("6_cuxcy")
 theme_override_styles/hover = ExtResource("6_cuxcy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
 theme_override_styles/normal = SubResource("StyleBoxTexture_cs0qa")
-text = "Quit
-"
+text = "Quit"
 
 [node name="Popup" type="NinePatchRect" parent="."]
 visible = false
 z_index = 5
 layout_mode = 2
-offset_left = 512.0
+offset_left = 360.0
 offset_top = -240.0
-offset_right = 896.0
+offset_right = 744.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -244,10 +249,10 @@ theme_override_constants/separation = 25
 alignment = 1
 
 [node name="Yes" type="Button" parent="Popup/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_fonts/font = ExtResource("6_np5wo")
 theme_override_styles/focus = ExtResource("6_cuxcy")
 theme_override_styles/hover = ExtResource("6_cuxcy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")
@@ -255,10 +260,10 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cs0qa")
 text = "Yes"
 
 [node name="No" type="Button" parent="Popup/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("4_3k2xw")
+theme_override_fonts/font = ExtResource("6_np5wo")
 theme_override_styles/focus = ExtResource("6_cuxcy")
 theme_override_styles/hover = ExtResource("6_cuxcy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3hwwa")

@@ -19,7 +19,7 @@ var mp: int = 10
 var max_mp: int = 10
 var mp_cost_fireball: int = 6
 var last_exit: String = 'default'
-var enemy_encounter: String = "res://enemyResources/res_battle_spider.tres"
+var enemy_encounter: Array [String] = ["res://enemyResources/res_battle_spider.tres"]
 #var enemy_stats = []
 var position = Vector2(256,256)
 var atb: int = 100
@@ -29,6 +29,7 @@ var current_scene
 @warning_ignore("unused_private_class_variable")
 var _abilities: Array[abilities] = [ability_test, ability_test_2]
 var passive : abilities
+
 #var done: bool = false
 
 
@@ -46,6 +47,10 @@ func level_up():
 		lvl = lvl + 1
 		xp = xp - max_xp
 		max_xp = round(max_xp * 1.4)
+
+func full_heal():
+	health = max_health
+	mp = max_mp
 	
 func save():
 	var save_dict = {
@@ -65,12 +70,12 @@ func save():
 	}
 	return save_dict
 
-	
 		#print(hp_grow)
 		#else:
 			#done_lvl_up = true
 
 	
-	# SCENES
+	## scene progression
 var forest_scene1 = 0
+var overworld_scene1: int = 0
 	

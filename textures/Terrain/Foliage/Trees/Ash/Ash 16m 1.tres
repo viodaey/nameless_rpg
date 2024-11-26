@@ -1,11 +1,12 @@
 [gd_resource type="QuadMesh" load_steps=4 format=3 uid="uid://bl7moav6okv4a"]
 
-[ext_resource type="Shader" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_b7bb5"]
+[ext_resource type="Shader" uid="uid://chmk7g22kkgqe" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_b7bb5"]
 [ext_resource type="Texture2D" uid="uid://cmj47vps2ojd3" path="res://textures/Terrain/Foliage/Trees/Ash/Ash 16m 1.png" id="2_yat4h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1c5lu"]
 render_priority = 0
 shader = ExtResource("1_b7bb5")
+shader_parameter/main_texture = ExtResource("2_yat4h")
 shader_parameter/pixel_mode = true
 shader_parameter/pixel_amount = 4000.0
 shader_parameter/distortion = 0.01
@@ -17,7 +18,6 @@ shader_parameter/worley_cell_density = 10.0
 shader_parameter/worley_speed = 2.0
 shader_parameter/edge_and_mask = false
 shader_parameter/alpha_value = 1.0
-shader_parameter/main_texture = ExtResource("2_yat4h")
 
 [resource]
 material = SubResource("ShaderMaterial_1c5lu")

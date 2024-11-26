@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cynyjcujhbvd0"]
 
-[ext_resource type="Script" path="res://Global/dialogScene.gd" id="1_noh02"]
+[ext_resource type="Script" uid="uid://wuj3gpgbmkmh" path="res://Global/dialogScene.gd" id="1_noh02"]
 [ext_resource type="Texture2D" uid="uid://btbhd7wh30yot" path="res://textures/UI/dialog_texture-red.png" id="2_mwgg7"]
 [ext_resource type="Texture2D" uid="uid://chcm61hwobxih" path="res://textures/UI/dialog_texture-blue.png" id="4_42a0p"]
 [ext_resource type="LabelSettings" uid="uid://bvrkgbk0n2lkp" path="res://Global/ui_regular.tres" id="5_h2df0"]
@@ -19,8 +19,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
 script = ExtResource("1_noh02")
+
+[node name="Fog" type="ColorRect" parent="."]
+visible = false
+z_index = 10
+layout_mode = 0
+offset_left = -28.0
+offset_top = -18.0
+offset_right = 1624.0
+offset_bottom = 928.0
+color = Color(0, 0, 0, 1)
 
 [node name="dia_1" type="NinePatchRect" parent="."]
 z_index = 2
@@ -28,8 +37,8 @@ clip_contents = true
 layout_mode = 0
 offset_left = 256.0
 offset_top = 192.0
-offset_right = 368.0
-offset_bottom = 256.0
+offset_right = 608.0
+offset_bottom = 352.0
 texture = ExtResource("2_mwgg7")
 region_rect = Rect2(1, 1, 229, 94)
 patch_margin_left = 10
@@ -42,31 +51,31 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 205.0
-offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.3, 0.3)
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
 [node name="txt" type="Label" parent="dia_1/MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 1
 text = "    You give us crystal,
               NOW!"
 label_settings = ExtResource("5_h2df0")
+autowrap_mode = 2
+visible_characters_behavior = 1
 
 [node name="dia_2" type="NinePatchRect" parent="."]
 z_index = 2
 clip_contents = true
 layout_mode = 0
-offset_left = 384.0
-offset_top = 192.0
-offset_right = 496.0
-offset_bottom = 256.0
+offset_left = 256.0
+offset_top = 448.0
+offset_right = 608.0
+offset_bottom = 608.0
 texture = ExtResource("4_42a0p")
 region_rect = Rect2(1, 1, 229, 94)
 patch_margin_left = 10
@@ -79,32 +88,32 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 204.0
-offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.3, 0.3)
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
 [node name="txt" type="Label" parent="dia_2/MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 1
 text = "Stay away from us
     you creep!
                             Help!!"
 label_settings = ExtResource("5_h2df0")
+autowrap_mode = 2
+visible_characters_behavior = 1
 
 [node name="dia_3" type="NinePatchRect" parent="."]
 z_index = 2
 clip_contents = true
 layout_mode = 0
 offset_left = 256.0
-offset_top = 264.0
-offset_right = 368.0
-offset_bottom = 320.0
+offset_top = 704.0
+offset_right = 608.0
+offset_bottom = 864.0
 texture = ExtResource("5_hpeja")
 region_rect = Rect2(1, 1, 229, 94)
 patch_margin_left = 10
@@ -117,30 +126,30 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 205.0
-offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.3, 0.3)
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
 [node name="txt" type="Label" parent="dia_3/MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 1
 text = "..never!"
 label_settings = ExtResource("5_h2df0")
+autowrap_mode = 2
+visible_characters_behavior = 1
 
 [node name="dia_4" type="NinePatchRect" parent="."]
 z_index = 2
 clip_contents = true
 layout_mode = 0
-offset_left = 384.0
-offset_top = 264.0
-offset_right = 496.0
-offset_bottom = 320.0
+offset_left = 768.0
+offset_top = 192.0
+offset_right = 1120.0
+offset_bottom = 352.0
 texture = ExtResource("6_wvj3j")
 region_rect = Rect2(1, 1, 229, 94)
 patch_margin_left = 10
@@ -153,31 +162,31 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 205.0
-offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.3, 0.3)
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
 [node name="txt" type="Label" parent="dia_4/MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 1
 text = "..never!"
 label_settings = ExtResource("5_h2df0")
+autowrap_mode = 2
+visible_characters_behavior = 1
 
 [node name="dia_decision" type="NinePatchRect" parent="."]
 visible = false
 z_index = 2
 clip_contents = true
 layout_mode = 0
-offset_left = 512.0
-offset_top = 232.0
-offset_right = 632.0
-offset_bottom = 288.0
+offset_left = 776.0
+offset_top = 448.0
+offset_right = 960.0
+offset_bottom = 552.0
 texture = ExtResource("7_k88a5")
 region_rect = Rect2(1, 1, 229, 94)
 patch_margin_left = 10
@@ -190,22 +199,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 134.0
-offset_bottom = 119.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.35, 0.35)
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 13
 
 [node name="VBoxContainer" type="VBoxContainer" parent="dia_decision/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 
 [node name="Option1" type="Button" parent="dia_decision/MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_43lyj")
@@ -214,7 +219,6 @@ text = "Yes"
 alignment = 0
 
 [node name="Option2" type="Button" parent="dia_decision/MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_43lyj")

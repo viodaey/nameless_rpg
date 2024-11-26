@@ -1,11 +1,12 @@
 [gd_resource type="QuadMesh" load_steps=4 format=3 uid="uid://7v3av47ulm3f"]
 
-[ext_resource type="Shader" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_au7kp"]
+[ext_resource type="Shader" uid="uid://chmk7g22kkgqe" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_au7kp"]
 [ext_resource type="Texture2D" uid="uid://cdakgfdu2r77i" path="res://textures/Terrain/Foliage/Trees/Apple/Apple flowering 4m 1.png" id="2_k21mp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4fq25"]
 render_priority = 0
 shader = ExtResource("1_au7kp")
+shader_parameter/main_texture = ExtResource("2_k21mp")
 shader_parameter/pixel_mode = true
 shader_parameter/pixel_amount = 4000.0
 shader_parameter/distortion = 0.01
@@ -17,7 +18,6 @@ shader_parameter/worley_cell_density = 10.0
 shader_parameter/worley_speed = 2.0
 shader_parameter/edge_and_mask = false
 shader_parameter/alpha_value = 1.0
-shader_parameter/main_texture = ExtResource("2_k21mp")
 
 [resource]
 material = SubResource("ShaderMaterial_4fq25")

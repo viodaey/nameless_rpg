@@ -12,7 +12,7 @@ config_version=5
 
 config/name="RPG"
 run/main_scene="res://Scenes/3dOverworld/3doverworld.tscn"
-config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -114,6 +114,8 @@ interact={
 
 [rendering]
 
+rendering_device/driver="d3d12"
+rendering_device/driver.windows="d3d12"
 environment/volumetric_fog/volume_size=256
 environment/volumetric_fog/volume_depth=256
 
@@ -145,11 +147,11 @@ sgt_wind_movement={
 }
 sgt_wind_strength={
 "type": "float",
-"value": 0.853
+"value": 1.0
 }
 sgt_wind_turbulence={
 "type": "float",
-"value": 0.31
+"value": 4.14
 }
 sgt_wind_pattern={
 "type": "sampler2D",

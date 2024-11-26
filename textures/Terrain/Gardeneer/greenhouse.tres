@@ -1,10 +1,10 @@
 [gd_resource type="Resource" load_steps=341 format=3 uid="uid://b5aq3wvp3mo0s"]
 
 [ext_resource type="QuadMesh" uid="uid://cotu164vt5a7t" path="res://textures/Terrain/Foliage/Trees/Maritime Pine/Maritime pine 50m 1.tres" id="1_vgsq3"]
-[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse.gd" id="1_y6lq8"]
-[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_LOD_variant.gd" id="2_ydxiv"]
-[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant.gd" id="3_o0nyw"]
-[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant_state.gd" id="4_36oht"]
+[ext_resource type="Script" uid="uid://bhpbadt6vk0mr" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse.gd" id="1_y6lq8"]
+[ext_resource type="Script" uid="uid://cslegbmdf3mam" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_LOD_variant.gd" id="2_ydxiv"]
+[ext_resource type="Script" uid="uid://b4rpxc40uht0g" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant.gd" id="3_o0nyw"]
+[ext_resource type="Script" uid="uid://c4pk8ffqqughc" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant_state.gd" id="4_36oht"]
 [ext_resource type="QuadMesh" uid="uid://bkeftgs2h6cxu" path="res://textures/Terrain/Foliage/Trees/Apple/Apple 4m 2.tres" id="5_28a5x"]
 [ext_resource type="PackedScene" uid="uid://b8imp7tqqucql" path="res://textures/Terrain/Foliage/collider1.tscn" id="6_buoge"]
 [ext_resource type="QuadMesh" uid="uid://cmvtt5xk2fe7a" path="res://textures/Terrain/Foliage/Trees/Apple/Apple 4m 3.tres" id="7_y81xn"]
@@ -185,7 +185,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_8hoo8"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Apple 4m 2"
 plant/plant = SubResource("Resource_r5nuu")
 metadata/class = "Greenhouse_PlantState"
@@ -235,7 +235,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_8djdg"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Apple 4m 3"
 plant/plant = SubResource("Resource_udkho")
 metadata/class = "Greenhouse_PlantState"
@@ -285,7 +285,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_8apym"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Apple flowering 3m 1"
 plant/plant = SubResource("Resource_yct03")
 metadata/class = "Greenhouse_PlantState"
@@ -335,7 +335,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_tqp0w"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Apple flowering 4m 1"
 plant/plant = SubResource("Resource_peamc")
 metadata/class = "Greenhouse_PlantState"
@@ -385,7 +385,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_486cm"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Ash 16m 1"
 plant/plant = SubResource("Resource_6fpxm")
 metadata/class = "Greenhouse_PlantState"
@@ -435,7 +435,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_mldum"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Ash 16m 2 (softclipped)"
 plant/plant = SubResource("Resource_dw2ki")
 metadata/class = "Greenhouse_PlantState"
@@ -485,7 +485,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_qukpl"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Ash 18m 1 (softclipped)"
 plant/plant = SubResource("Resource_k5rin")
 metadata/class = "Greenhouse_PlantState"
@@ -535,7 +535,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_q1rwq"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Ash 23m 1"
 plant/plant = SubResource("Resource_xd1qs")
 metadata/class = "Greenhouse_PlantState"
@@ -585,7 +585,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_466n3"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Ash tree 21m 1"
 plant/plant = SubResource("Resource_h5g3x")
 metadata/class = "Greenhouse_PlantState"
@@ -635,7 +635,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_lms7a"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Beech 8m 1"
 plant/plant = SubResource("Resource_gads1")
 metadata/class = "Greenhouse_PlantState"
@@ -685,7 +685,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_c28a6"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Beech 8m 2"
 plant/plant = SubResource("Resource_0dfq3")
 metadata/class = "Greenhouse_PlantState"
@@ -735,7 +735,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_tx62e"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Birch 8m 1"
 plant/plant = SubResource("Resource_nq3v5")
 metadata/class = "Greenhouse_PlantState"
@@ -835,7 +835,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_y6dnc"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Birch 10m 1"
 plant/plant = SubResource("Resource_7dvol")
 metadata/class = "Greenhouse_PlantState"
@@ -885,7 +885,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_gqhot"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Bird Cherry 10m 1"
 plant/plant = SubResource("Resource_kedrc")
 metadata/class = "Greenhouse_PlantState"
@@ -935,7 +935,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_2t2xe"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Bird cherry 14m 1"
 plant/plant = SubResource("Resource_whoug")
 metadata/class = "Greenhouse_PlantState"
@@ -985,7 +985,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_n3ofc"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Black locust small 4m 1"
 plant/plant = SubResource("Resource_0dwbe")
 metadata/class = "Greenhouse_PlantState"
@@ -1035,7 +1035,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_agwk7"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Cherry 4m 1"
 plant/plant = SubResource("Resource_jtuv3")
 metadata/class = "Greenhouse_PlantState"
@@ -1085,7 +1085,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_e5ehf"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Cherry flowering 4m 1"
 plant/plant = SubResource("Resource_qeug3")
 metadata/class = "Greenhouse_PlantState"
@@ -1135,7 +1135,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_lh0dv"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Cherry flowering 5m 1"
 plant/plant = SubResource("Resource_yck5o")
 metadata/class = "Greenhouse_PlantState"
@@ -1185,7 +1185,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_hwmg2"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Cherry flowering 5m 2"
 plant/plant = SubResource("Resource_vpi6m")
 metadata/class = "Greenhouse_PlantState"
@@ -1235,7 +1235,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_ha0vb"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Cherry flowering 5m 3"
 plant/plant = SubResource("Resource_r54ou")
 metadata/class = "Greenhouse_PlantState"
@@ -1285,7 +1285,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_ku7t8"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Elm tree 21m 1"
 plant/plant = SubResource("Resource_ckksf")
 metadata/class = "Greenhouse_PlantState"
@@ -1335,7 +1335,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_qp3hj"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Fir 15m 1"
 plant/plant = SubResource("Resource_8ou8k")
 metadata/class = "Greenhouse_PlantState"
@@ -1385,7 +1385,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_4tbcj"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Fir 16m 2"
 plant/plant = SubResource("Resource_lqqdg")
 metadata/class = "Greenhouse_PlantState"
@@ -1435,7 +1435,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_wvv4y"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Fir 17m"
 plant/plant = SubResource("Resource_w4kqt")
 metadata/class = "Greenhouse_PlantState"
@@ -1485,7 +1485,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_v2c2g"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Gnarled pine 4m 1"
 plant/plant = SubResource("Resource_iyh31")
 metadata/class = "Greenhouse_PlantState"
@@ -1537,7 +1537,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_j3lli"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Gnarled pine 12m 1"
 plant/plant = SubResource("Resource_nyw3q")
 metadata/class = "Greenhouse_PlantState"
@@ -1587,7 +1587,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_eupmt"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Linden 6m 2"
 plant/plant = SubResource("Resource_i3qe2")
 metadata/class = "Greenhouse_PlantState"
@@ -1637,7 +1637,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_sqc3n"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Linden 7m 1"
 plant/plant = SubResource("Resource_ty5sn")
 metadata/class = "Greenhouse_PlantState"
@@ -1687,7 +1687,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_u7146"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Linden 8m 1"
 plant/plant = SubResource("Resource_eug56")
 metadata/class = "Greenhouse_PlantState"
@@ -1787,7 +1787,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_ci5bn"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Linden 25m 1"
 plant/plant = SubResource("Resource_ervun")
 metadata/class = "Greenhouse_PlantState"
@@ -1837,7 +1837,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_gvgvp"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Linden globe 5m 1"
 plant/plant = SubResource("Resource_ux85m")
 metadata/class = "Greenhouse_PlantState"
@@ -1887,7 +1887,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_adt3v"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Linden globe 5m 2"
 plant/plant = SubResource("Resource_3ribs")
 metadata/class = "Greenhouse_PlantState"
@@ -1987,7 +1987,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_8whcp"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Maple old 8m 1"
 plant/plant = SubResource("Resource_akj25")
 metadata/class = "Greenhouse_PlantState"
@@ -2037,7 +2037,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_7xyaf"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Maple old 14m 1"
 plant/plant = SubResource("Resource_8wynn")
 metadata/class = "Greenhouse_PlantState"
@@ -2087,7 +2087,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_fyavd"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Maple old 15m 1"
 plant/plant = SubResource("Resource_28oyj")
 metadata/class = "Greenhouse_PlantState"
@@ -2137,7 +2137,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_gnbj8"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Maple young 3m 1"
 plant/plant = SubResource("Resource_sv04w")
 metadata/class = "Greenhouse_PlantState"
@@ -2187,7 +2187,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_tlanu"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Maple young 4m 1"
 plant/plant = SubResource("Resource_njxap")
 metadata/class = "Greenhouse_PlantState"
@@ -2237,7 +2237,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_smf8v"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Maple young 5m 1"
 plant/plant = SubResource("Resource_3h608")
 metadata/class = "Greenhouse_PlantState"
@@ -2287,7 +2287,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_h01a7"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Maple young 5m 2"
 plant/plant = SubResource("Resource_dfprr")
 metadata/class = "Greenhouse_PlantState"
@@ -2337,7 +2337,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_a1rog"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Maple young 5m 3"
 plant/plant = SubResource("Resource_er5re")
 metadata/class = "Greenhouse_PlantState"
@@ -2387,7 +2387,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_n235r"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Maple young 6m 1"
 plant/plant = SubResource("Resource_1e5jc")
 metadata/class = "Greenhouse_PlantState"
@@ -2437,7 +2437,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_mu3d7"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Maple young 7m 1"
 plant/plant = SubResource("Resource_ryb58")
 metadata/class = "Greenhouse_PlantState"
@@ -2637,7 +2637,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_s0vnc"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Norway spruce 2m 1"
 plant/plant = SubResource("Resource_3dky8")
 metadata/class = "Greenhouse_PlantState"
@@ -2687,7 +2687,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_a13fr"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Norway spruce 3m 1"
 plant/plant = SubResource("Resource_0v4ii")
 metadata/class = "Greenhouse_PlantState"
@@ -2737,7 +2737,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_j01m3"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Norway spruce 4m 1"
 plant/plant = SubResource("Resource_3gx3q")
 metadata/class = "Greenhouse_PlantState"
@@ -2787,7 +2787,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_0o7ws"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Norway spruce 6m 1"
 plant/plant = SubResource("Resource_03583")
 metadata/class = "Greenhouse_PlantState"
@@ -2837,7 +2837,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_p8pw2"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Norway spruce 7m 1"
 plant/plant = SubResource("Resource_oc2uc")
 metadata/class = "Greenhouse_PlantState"
@@ -2887,7 +2887,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_5r8rv"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Paper birch 5m 1"
 plant/plant = SubResource("Resource_unod1")
 metadata/class = "Greenhouse_PlantState"
@@ -2937,7 +2937,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_o3qix"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Paper birch 6m 1"
 plant/plant = SubResource("Resource_c75mm")
 metadata/class = "Greenhouse_PlantState"
@@ -2987,7 +2987,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_ow6ho"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Rowan 7m 1 berries"
 plant/plant = SubResource("Resource_ohnt3")
 metadata/class = "Greenhouse_PlantState"
@@ -3037,7 +3037,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_1xgq5"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Rowan 7m 1 noberries"
 plant/plant = SubResource("Resource_mxr1v")
 metadata/class = "Greenhouse_PlantState"
@@ -3087,7 +3087,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_njcnm"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Rowan 8m 1"
 plant/plant = SubResource("Resource_k73sm")
 metadata/class = "Greenhouse_PlantState"
@@ -3137,7 +3137,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_i0u0m"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Scots pine 15m 1"
 plant/plant = SubResource("Resource_5hrna")
 metadata/class = "Greenhouse_PlantState"
@@ -3187,7 +3187,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_y1s64"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Scots pine 20m 1 (odd)"
 plant/plant = SubResource("Resource_mgugu")
 metadata/class = "Greenhouse_PlantState"
@@ -3237,7 +3237,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_0n5q1"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Scots pine 20m 1"
 plant/plant = SubResource("Resource_0gavs")
 metadata/class = "Greenhouse_PlantState"
@@ -3287,7 +3287,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_p6352"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Scots pine medium 4m 1"
 plant/plant = SubResource("Resource_id6m5")
 metadata/class = "Greenhouse_PlantState"
@@ -3337,7 +3337,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_yv0hd"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Scots pine medium 8m 1"
 plant/plant = SubResource("Resource_ggqi3")
 metadata/class = "Greenhouse_PlantState"
@@ -3387,7 +3387,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_eflmm"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Scots pine medium 20m 1"
 plant/plant = SubResource("Resource_17kqh")
 metadata/class = "Greenhouse_PlantState"
@@ -3437,7 +3437,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_44qax"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Scots pine small 1m 1"
 plant/plant = SubResource("Resource_p5hf2")
 metadata/class = "Greenhouse_PlantState"
@@ -3487,7 +3487,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_rfeey"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Scots pine small 2m 1"
 plant/plant = SubResource("Resource_lqxeg")
 metadata/class = "Greenhouse_PlantState"
@@ -3537,7 +3537,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_pnn8n"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Scots pine small 3m 1"
 plant/plant = SubResource("Resource_m3ufs")
 metadata/class = "Greenhouse_PlantState"
@@ -3587,7 +3587,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_7sfe0"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Scots pine small 4m 2"
 plant/plant = SubResource("Resource_w8bnw")
 metadata/class = "Greenhouse_PlantState"
@@ -3637,7 +3637,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_elyo7"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Scots pine tall 23m 1"
 plant/plant = SubResource("Resource_2sfkt")
 metadata/class = "Greenhouse_PlantState"
@@ -3709,7 +3709,7 @@ mesh/mesh_LOD_max_capacity = 75
 mesh/mesh_LOD_min_size = 1.0
 octree/octree_reconfigure_button = false
 octree/octree_recenter_button = false
-density/density_per_units = 5.0
+density/density_per_units = 22.21
 scale/scale_scaling_type = 0
 scale/scale_range = [Vector3(70, 70, 70), Vector3(70, 70, 70)]
 up_vector/up_vector_primary_type = 2
@@ -3721,12 +3721,12 @@ fwd_vector/fwd_vector_primary_type = 5
 fwd_vector/fwd_vector_primary = Vector3(0, 0, 1)
 fwd_vector/fwd_vector_secondary_type = 0
 fwd_vector/fwd_vector_secondary = Vector3(0, 0, 0)
-fwd_vector/fwd_vector_blending = 0.0
+fwd_vector/fwd_vector_blending = 0.02
 offset/offset_y_range = [0.5, 0.5]
-offset/offset_jitter_fraction = 0.6
+offset/offset_jitter_fraction = 0.61
 rotation/rotation_random_y = 0.0
 rotation/rotation_random_x = 0.0
-rotation/rotation_random_z = 0.01
+rotation/rotation_random_z = 0.03
 slope/slope_allowed_range = [0.0, 180.0]
 import_export/import_plant_data_button = false
 import_export/export_plant_data_button = false
@@ -3787,7 +3787,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_fon81"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Silver birch 12m 1"
 plant/plant = SubResource("Resource_7vjrf")
 metadata/class = "Greenhouse_PlantState"
@@ -3837,7 +3837,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_i03pb"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Silver birch 16m 1"
 plant/plant = SubResource("Resource_p1eog")
 metadata/class = "Greenhouse_PlantState"
@@ -3887,7 +3887,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_5up57"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Silver birch 19m 1"
 plant/plant = SubResource("Resource_mitvn")
 metadata/class = "Greenhouse_PlantState"
@@ -3937,7 +3937,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_l4jyh"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Sitka spruce medium 2m 3"
 plant/plant = SubResource("Resource_tyquf")
 metadata/class = "Greenhouse_PlantState"
@@ -3987,7 +3987,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_goqp3"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Sitka spruce medium 3m 1"
 plant/plant = SubResource("Resource_no4yg")
 metadata/class = "Greenhouse_PlantState"
@@ -4037,7 +4037,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_fkq07"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Sitka spruce medium 5m 1"
 plant/plant = SubResource("Resource_rdcfc")
 metadata/class = "Greenhouse_PlantState"
@@ -4087,7 +4087,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_yi8ls"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Sitka spruce small 1m 1"
 plant/plant = SubResource("Resource_v41fq")
 metadata/class = "Greenhouse_PlantState"
@@ -4137,7 +4137,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_i1gim"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Spruce 7m 1"
 plant/plant = SubResource("Resource_3ddqm")
 metadata/class = "Greenhouse_PlantState"
@@ -4187,7 +4187,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_7xm5g"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Spruce 7m 2"
 plant/plant = SubResource("Resource_q0cfl")
 metadata/class = "Greenhouse_PlantState"
@@ -4237,7 +4237,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_qvuki"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Spruce 8m 1"
 plant/plant = SubResource("Resource_g4igq")
 metadata/class = "Greenhouse_PlantState"
@@ -4287,7 +4287,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_s5jxa"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = true
+plant/plant_brush_active = false
 plant/plant_label = "Spruce 9m 1 odd"
 plant/plant = SubResource("Resource_ewrnv")
 metadata/class = "Greenhouse_PlantState"
