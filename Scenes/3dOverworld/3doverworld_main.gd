@@ -78,7 +78,7 @@ func _introscene1():
 		"res://enemy_resources/enemy_identityfiles/wolfnature_evo1.tres"]
 	player.position = _player_body.position
 	sceneManager.mon_min_lvl = 1
-	sceneManager.mon_max_lvl = 2
+	sceneManager.mon_max_lvl = 1
 	sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
 
 func _introscene2():

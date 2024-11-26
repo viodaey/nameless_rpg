@@ -1,7 +1,6 @@
 extends StaticBody3D
 @onready var map = get_parent().get_parent()
 
-
 func interact():
 	var dialog = preload("res://Global/dialog_scene.tscn")
 	map.add_child(dialog.instantiate())
