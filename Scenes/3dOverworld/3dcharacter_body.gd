@@ -15,10 +15,15 @@ var in_scene: bool = false
 @onready var map = get_parent()
 @onready var raycast = $RayCast3D
 @onready var interactarea = $InteractArea
+var gravity: float
 
 func get_input():
 	var _input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = Vector3(_input_direction.x, 0, _input_direction.y) * speed
+	if not is_on_floor():
+		gravity = -0.1
+	else:
+		gravity = 0
+	velocity = Vector3(_input_direction.x, gravity, _input_direction.y) * speed
 
 func _ready() -> void:
 	move_dice = rng.randi_range(30, 100)
@@ -32,17 +37,17 @@ func _physics_process(_delta):
 		if can_interact:
 			if interactarea.has_overlapping_areas():
 				can_interact = false
-				speed = 0
+				in_scene = true
 				var interactables = interactarea.get_overlapping_areas()
 				await interactables[0].interact()
 				can_interact = true
-				speed = 15
+				in_scene = false
 			elif interactarea.has_overlapping_bodies():
 				can_interact = false
-				speed = 0
+				in_scene = true
 				var interactables = interactarea.get_overlapping_bodies()
 				await interactables[0].interact()
-				speed = 15
+				in_scene = false
 				can_interact = true
 	if Input.is_anything_pressed() == false:
 		_animated_sprite.play(("idle" + last_input))

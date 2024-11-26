@@ -239,6 +239,7 @@ alignment = 0
 [node name="textInput" type="NinePatchRect" parent="."]
 z_index = 2
 clip_contents = true
+layout_mode = 0
 offset_left = 768.0
 offset_top = 384.0
 offset_right = 1088.0

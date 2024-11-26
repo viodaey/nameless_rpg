@@ -55,6 +55,7 @@ func _on_quit_pressed() -> void:
 
 func _confirm():
 	$Popup/MarginContainer/VBoxContainer/HBoxContainer/No.grab_focus()
+	confirm_c.position = get_viewport_rect().get_center() - (confirm_c.size / 2)
 	confirm_c.visible = true
 	if confirmCheck == "save":
 		confirm_title.text = "Save"
@@ -124,9 +125,14 @@ func load_game():
 			for i in node_data.keys():
 				if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_z":
 					continue
+				if i == "scene_progression":
+					var keys = node_data[i].keys()
+					for z in keys:
+						player.scene_progression[z] = int(node_data["scene_progression"][z])
 				player.set(i, node_data[i])
 			player.position.x = node_data["pos_x"]
-			player.position.y = node_data["pos_z"]
+			player.position.z = node_data["pos_z"]
+				
 		if player.current_scene != sceneManager.current_scene_path:
 			#await(get_tree().root.get_child(get_tree().root.get_child_count() - 2).call("sceneManager.goto_scene(%s)" % player.current_scene))
 			await(sceneManager.goto_scene(player.current_scene))
@@ -134,7 +140,7 @@ func load_game():
 		await(get_tree().create_timer(0.5).timeout)
 		map_scene = get_tree().root.get_child(get_tree().root.get_child_count() - 1)
 		map_scene.get_node("Player").position = player.position
-		map_scene.get_node("Player").get_node("Camera2D").enabled = false
+		#map_scene.get_node("Player").get_node("Camera2D").enabled = false
 		confirm_description.text = "Save loaded"
 		Input.is_action_pressed("ui_cancel")	
 		await(get_tree().create_timer(2).timeout)

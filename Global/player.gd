@@ -6,7 +6,7 @@ var ability_test_2 = load('res://Global/Abilities/Fireball_1.tres')
 @warning_ignore("unused_private_class_variable")
 var _name: String = "Skullhead"
 var max_health: int = 80
-var health: int = 80
+var health: int = 100
 var damage: int = 20
 var critc: int = 8
 var lvl: int = 1
@@ -37,7 +37,6 @@ var scene_progression : Dictionary [String, int] = {
 	}
 
 #var done: bool = false
-
 func level_up():
 	#var done_lvl_up: bool = false
 	#while done_lvl_up == false:
@@ -73,16 +72,8 @@ func save():
 		"max_mp" : max_mp,
 		"magicdmg" : magicdmg,
 		"current_scene" : current_scene,
-		"scene_progression" : scene_progression
+		"scene_progression" : scene_progression.duplicate(true)
 	}
+	#for i in scene_progression:
+		#save_dict[i] = scene_progression[i]
 	return save_dict
-
-		#print(hp_grow)
-		#else:
-			#done_lvl_up = true
-
-	
-	## scene progression
-var forest_scene1 = 0
-#var overworld_scene1: int = 0
-	

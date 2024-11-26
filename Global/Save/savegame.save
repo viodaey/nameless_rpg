@@ -1,1 +1,1 @@
-{"current_scene":"res://Scenes/Forest/Forest.tscn","damage":20,"filename":"player.gd","health":69,"lvl":1,"magicdmg":600,"max_health":80,"max_mp":10,"max_xp":20,"mp":10,"pos_x":1073.06958007813,"pos_y":490.053771972656,"xp":0}
+{"current_scene":"res://Scenes/3dOverworld/3doverworld.tscn","damage":20,"filename":"player.gd","health":100,"lvl":1,"magicdmg":600,"max_health":80,"max_mp":10,"max_xp":20,"mp":10,"name":"Skullhead","pos_x":-606.64404296875,"pos_z":-1936.86218261719,"scene_progression":{"forest":0,"overworld":2},"xp":0}
