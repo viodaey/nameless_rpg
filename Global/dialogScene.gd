@@ -1,6 +1,6 @@
 extends Control
-@onready var dia = [$dia_1, $dia_2, $dia_3, $dia_4]
-@onready var dia_label = [$dia_1/MarginContainer/txt, $dia_1/MarginContainer/txt, $dia_3/MarginContainer/txt, $dia_4/MarginContainer/txt]
+@onready var dia = [$dia_1, $dia_2, $dia_3, $dia_4, $textInput]
+@onready var dia_label = [$dia_1/MarginContainer/txt, $dia_1/MarginContainer/txt, $dia_3/MarginContainer/txt, $dia_4/MarginContainer/txt, $textInput/MarginContainer/VBoxContainer/label]
 @onready var dia_decision = $dia_decision
 @onready var decisionChoices = [
 	$dia_decision/MarginContainer/VBoxContainer/Option1,
@@ -17,6 +17,7 @@ extends Control
 	"regular": load("res://Global/ui_regular.tres"),
 	"bold": load("res://Global/ui_heading.tres")
 }
+@onready var inputField = $textInput/MarginContainer/VBoxContainer/LineEdit
 var sizes: Dictionary [String, Vector2] = {
 	"small": Vector2(204,88),
 	"regular": Vector2(352,112),
@@ -24,8 +25,20 @@ var sizes: Dictionary [String, Vector2] = {
 	}
 
 var decision: int
+var text_submitted: String
+
 signal madeDecision
 signal anythingPressed
+signal text_submit_signal
+
+func request_textinput(label, sampletext: String = "BARBIEGIRL"):
+	dia[4].visible = true
+	dia_label[4].text = label
+	inputField.placeholder_text = sampletext
+	$textInput/MarginContainer/VBoxContainer/LineEdit.grab_focus()
+	await text_submit_signal
+	dia[4].visible = false
+	return text_submitted
 
 func set_diasize(diaNum, pickSize: String, custom: Vector2 = Vector2(0,0)):
 	var diaSize: Vector2
@@ -103,3 +116,8 @@ func _on_option_3_pressed() -> void:
 
 func _input(_event: InputEvent) -> void:
 	anythingPressed.emit()
+
+
+func _on_line_edit_text_submitted(new_text: String) -> void:
+	text_submitted = new_text
+	text_submit_signal.emit()

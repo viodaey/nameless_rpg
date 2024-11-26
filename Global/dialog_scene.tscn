@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cynyjcujhbvd0"]
+[gd_scene load_steps=11 format=3 uid="uid://cynyjcujhbvd0"]
 
 [ext_resource type="Script" uid="uid://wuj3gpgbmkmh" path="res://Global/dialogScene.gd" id="1_noh02"]
 [ext_resource type="Texture2D" uid="uid://btbhd7wh30yot" path="res://textures/UI/dialog_texture-red.png" id="2_mwgg7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cp6og0151w5mm" path="res://textures/UI/dialog_texture-green.png" id="6_wvj3j"]
 [ext_resource type="FontFile" uid="uid://dmjq6coypb7ll" path="res://textures/fonts/Merienda-Bold.ttf" id="7_43lyj"]
 [ext_resource type="Texture2D" uid="uid://c3einb2ckrehp" path="res://textures/UI/tt_texture.png" id="7_k88a5"]
+[ext_resource type="FontFile" uid="uid://b632pvrx7yxf" path="res://textures/fonts/Merienda-Medium.ttf" id="9_qfpmb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwukd"]
 bg_color = Color(0.9, 0.9, 0.9, 1)
@@ -235,6 +236,53 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_vwukd")
 text = "No"
 alignment = 0
 
+[node name="textInput" type="NinePatchRect" parent="."]
+z_index = 2
+clip_contents = true
+offset_left = 768.0
+offset_top = 384.0
+offset_right = 1088.0
+offset_bottom = 504.0
+texture = ExtResource("7_k88a5")
+region_rect = Rect2(1, 1, 229, 94)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="textInput"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="textInput/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="label" type="Label" parent="textInput/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Enter your name"
+label_settings = ExtResource("5_h2df0")
+autowrap_mode = 2
+visible_characters_behavior = 1
+
+[node name="LineEdit" type="LineEdit" parent="textInput/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_qfpmb")
+theme_override_font_sizes/font_size = 21
+placeholder_text = "BARBIEGIRL"
+max_length = 12
+
 [connection signal="pressed" from="dia_decision/MarginContainer/VBoxContainer/Option1" to="." method="_on_option_1_pressed"]
 [connection signal="pressed" from="dia_decision/MarginContainer/VBoxContainer/Option2" to="." method="_on_option_2_pressed"]
 [connection signal="pressed" from="dia_decision/MarginContainer/VBoxContainer/Option3" to="." method="_on_option_3_pressed"]
+[connection signal="text_submitted" from="textInput/MarginContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]

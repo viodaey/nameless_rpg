@@ -122,11 +122,11 @@ func load_game():
 			var node_data = json.get_data()
 
 			for i in node_data.keys():
-				if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
+				if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_z":
 					continue
 				player.set(i, node_data[i])
 			player.position.x = node_data["pos_x"]
-			player.position.y = node_data["pos_y"]
+			player.position.y = node_data["pos_z"]
 		if player.current_scene != sceneManager.current_scene_path:
 			#await(get_tree().root.get_child(get_tree().root.get_child_count() - 2).call("sceneManager.goto_scene(%s)" % player.current_scene))
 			await(sceneManager.goto_scene(player.current_scene))

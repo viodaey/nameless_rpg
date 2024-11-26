@@ -32,11 +32,13 @@ func _ready() -> void:
 			_player_body.position = Vector3(_H1Entrancefront.position.x, _player_body.position.y, _H1Entrancefront.position.z + 3)
 		if player.last_exit == 'west':
 			_player_body.position = Vector3(_H1Entranceback.position.x - 3, _player_body.position.y, _H1Entranceback.position.z)
-	if player.overworld_scene1 < 2:
+	if player.scene_progression["overworld"] < 2:
 		_player_body.disabled_spawn = true
-	MainMenu.map_scene = get_tree().current_scene
-	if player.overworld_scene1 == 1:
+	else:
+		$introScene.visible = false
+	if player.scene_progression["overworld"] == 1:
 		_introscene2()
+	MainMenu.map_scene = get_tree().current_scene
 
 func _introscene1():
 	var dialog = preload("res://Global/dialog_scene.tscn")
@@ -73,7 +75,7 @@ func _introscene1():
 	_player_body.get_node("AnimatedSprite3D").play("moveleft")
 	#await tween.finished
 	## advance dialognumber
-	player.overworld_scene1 = 1
+	player.scene_progression["overworld"] = 1
 	await get_tree().create_timer(2.5).timeout
 	## set custom encounter
 	player.enemy_encounter = [
@@ -131,12 +133,12 @@ func _introscene2():
 	await fogtween.finished
 	_player_body.in_scene = false
 	_player_body.disabled_spawn = false
-	player.overworld_scene1 = 2
+	player.scene_progression["overworld"] = 2
 	dialog.queue_free()
 
 func _on_subscene1_trigger_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
-		if player.overworld_scene1 == 0:
+		if player.scene_progression["overworld"] == 0:
 			_introscene1()
 
 func _on_CaveEntrance_body_entered(body: Node3D) -> void:

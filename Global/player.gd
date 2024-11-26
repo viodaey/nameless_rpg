@@ -21,7 +21,7 @@ var mp_cost_fireball: int = 6
 var last_exit: String = 'default'
 var enemy_encounter: Array [String] = ["res://enemyResources/res_battle_spider.tres"]
 #var enemy_stats = []
-var position = Vector2(256,256)
+var position: Vector3
 var atb: int = 100
 var engagement: int = 0
 ## 0 = neutral, 1 = advantage, -1 = disadvantage
@@ -30,8 +30,13 @@ var current_scene
 var _abilities: Array[abilities] = [ability_test, ability_test_2]
 var passive : abilities
 
-#var done: bool = false
+## track scene progression. For new scenes add a string and number
+var scene_progression : Dictionary [String, int] = {
+	"overworld" : 0,
+	"forest" : 0
+	}
 
+#var done: bool = false
 
 func level_up():
 	#var done_lvl_up: bool = false
@@ -55,8 +60,9 @@ func full_heal():
 func save():
 	var save_dict = {
 		"filename" : "player.gd",
+		"name" : _name,
 		"pos_x" : position.x,
-		"pos_y" : position.y,
+		"pos_z" : position.z,
 		"max_health": max_health,
 		"health" : health,
 		"damage" : damage,
@@ -66,7 +72,8 @@ func save():
 		"mp" : mp, 
 		"max_mp" : max_mp,
 		"magicdmg" : magicdmg,
-		"current_scene" : current_scene
+		"current_scene" : current_scene,
+		"scene_progression" : scene_progression
 	}
 	return save_dict
 
@@ -77,5 +84,5 @@ func save():
 	
 	## scene progression
 var forest_scene1 = 0
-var overworld_scene1: int = 0
+#var overworld_scene1: int = 0
 	
