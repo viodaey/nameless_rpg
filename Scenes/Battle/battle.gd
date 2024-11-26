@@ -152,7 +152,6 @@ func _ready():
 	if len(player.enemy_encounter) > 1 or e_groupsize > 1:
 		if len(player.enemy_encounter) > 1:
 			enemy2 = load(player.enemy_encounter[1])
-			print("loaded from enemy_encounter array")
 		elif len(enemy.friends) > 0:
 			var bla = rng.randi_range(0, len(enemy.friends)) 
 			if bla == 0:

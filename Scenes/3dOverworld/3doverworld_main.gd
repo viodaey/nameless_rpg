@@ -47,7 +47,7 @@ func _introscene1():
 	add_child(dialog.instantiate())
 	dialog = get_node("Dialog")
 	dialog.set_color(0,"black")
-	_player_body.speed = 0
+	#_player_body.speed = 0
 	_player_body.get_node("AnimatedSprite3D").play("idleleft")
 	dialog.set_center_offset(0,-0.75,-0.75)
 	dialog.dia[0].scale = Vector2(1.3,1.3)
@@ -68,8 +68,8 @@ func _introscene1():
 	tween.tween_property(_player_body, "position:x", introscene.position.x, 4.2)
 	tween.parallel().tween_property(_player_body, "position:z", introscene.position.z, 4.2)
 	var cameratween = get_tree().create_tween()
-	cameratween.tween_property(camera, "position:x", camera.position.x + 18, 0.5)
-	cameratween.parallel().tween_property(camera, "position:z", camera.position.z + 15, 0.5)
+	cameratween.tween_property(camera, "position:x", camera.position.x + 30, 0.5)
+	cameratween.parallel().tween_property(camera, "position:z", camera.position.z + 25, 0.5)
 	_player_body.get_node("AnimatedSprite3D").play("moveleft")
 	#await tween.finished
 	## advance dialognumber
