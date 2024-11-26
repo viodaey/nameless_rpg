@@ -1,6 +1,6 @@
 [gd_resource type="QuadMesh" load_steps=4 format=3 uid="uid://cjwpth17ld6i0"]
 
-[ext_resource type="Shader" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_06x8v"]
+[ext_resource type="Shader" uid="uid://chmk7g22kkgqe" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_06x8v"]
 [ext_resource type="Texture2D" uid="uid://bq4kvft3ovje2" path="res://textures/Terrain/Foliage/Trees/Maple/Maple young 6m 1.png" id="2_wn664"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mw7kh"]

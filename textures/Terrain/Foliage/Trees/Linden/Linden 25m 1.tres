@@ -1,6 +1,6 @@
 [gd_resource type="QuadMesh" load_steps=4 format=3 uid="uid://cpjwl8pai65xs"]
 
-[ext_resource type="Shader" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_ivyvw"]
+[ext_resource type="Shader" uid="uid://chmk7g22kkgqe" path="res://textures/Terrain/Foliage/Treesway1.gdshader" id="1_ivyvw"]
 [ext_resource type="Texture2D" uid="uid://ddk14tcl8cwl" path="res://textures/Terrain/Foliage/Trees/Linden/Linden 25m 1.png" id="2_rb0sh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4cbbr"]
