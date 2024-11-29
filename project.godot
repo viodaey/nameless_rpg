@@ -114,8 +114,6 @@ interact={
 
 [rendering]
 
-rendering_device/driver="d3d12"
-rendering_device/driver.windows="d3d12"
 environment/volumetric_fog/volume_size=256
 environment/volumetric_fog/volume_depth=256
 
