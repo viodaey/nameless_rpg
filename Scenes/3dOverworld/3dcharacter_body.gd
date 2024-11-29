@@ -6,7 +6,7 @@ extends CharacterBody3D
 var spawn_npc = load("res://Global/globalNPC3D.tscn")
 var last_input = "right"
 var moved : float = 0
-var activeSpawns: Array
+var activeSpawns: Array = []
 var move_dice : int
 var disabled_spawn : bool = false
 var rng = RandomNumberGenerator.new()
@@ -17,7 +17,7 @@ var in_scene: bool = false
 @onready var interactarea = $InteractArea
 @onready var navigation_agent = $NavigationAgent3D # Add NavigationAgent3D to your player
 @export var move_speed: float = 5.0
-var gravity: float
+var gravity: float = 0.0
 
 func get_input() -> Vector3:
 	var _input_direction = Input.get_vector("left", "right", "up", "down")
@@ -36,8 +36,6 @@ func _physics_process(_delta):
 	if in_scene == true:
 		return
 
-	SimpleGrass.set_player_position(global_position)
-
 	# Handle Interactions
 	if Input.is_action_pressed("interact"):
 		if can_interact:
@@ -45,14 +43,15 @@ func _physics_process(_delta):
 				can_interact = false
 				in_scene = true
 				var interactables = interactarea.get_overlapping_areas()
-				await interactables[0].interact()
+				# Ensure interact() is yielding, or update it to not be async
+				interactables[0].interact() # Remove await or make interact() async
 				can_interact = true
 				in_scene = false
 			elif interactarea.has_overlapping_bodies():
 				can_interact = false
 				in_scene = true
 				var interactables = interactarea.get_overlapping_bodies()
-				await interactables[0].interact()
+				interactables[0].interact() # Same as above, remove await or update to async
 				in_scene = false
 				can_interact = true
 
@@ -63,12 +62,8 @@ func _physics_process(_delta):
 	var target_velocity = get_input()
 	var target_position = global_transform.origin + target_velocity * _delta
 
-	# Check if position is reachable
-	if navigation_agent.is_target_reachable(target_position):
-		global_transform.origin = target_position
-	else:
-		print("Blocked by navigation boundary!")
-	move_and_slide()
+	# Handle Navigation Agent
+	navigation_agent.velocity = target_velocity
 
 	# Handle NPC Spawning
 	if moved > move_dice and not disabled_spawn:
@@ -83,12 +78,12 @@ func _physics_process(_delta):
 				move_dice = rng.randi_range(25, 60)
 				var enemy_select = rng.randi_range(1, len(map.world_enemies))
 				map.spawn_request = load(map.world_enemies[enemy_select - 1].resource_path)
-				map.add_child(spawn_npc.instantiate().duplicate())
+				var spawned_npc = spawn_npc.instantiate()
+				map.add_child(spawned_npc)
 				var num = len(activeSpawns)
-				var _spawned_npc = map.get_node("NPC_spawn")
-				_spawned_npc.name = "NPC_spawn" + "%d" % num
-				_spawned_npc.position = self.position + vec_target
-				activeSpawns.append(_spawned_npc.name)
+				spawned_npc.name = "NPC_spawn" + "%d" % num
+				spawned_npc.position = self.position + vec_target
+				activeSpawns.append(spawned_npc.name)
 
 func _spawn_npc_loc() -> Vector3:
 	rng = RandomNumberGenerator.new()
@@ -98,12 +93,14 @@ func _spawn_npc_loc() -> Vector3:
 	var distance = rng.randi_range(min_spawn_range, max_spawn_range)
 	return Vector3(distance * cos(angle), 0, distance * sin(angle))
 
-func _despawn_npc(npc):
-	map.get_node(npc).queue_free()
-	activeSpawns.erase(npc)
+func _despawn_npc(npc_name):
+	var npc = map.get_node(npc_name)
+	if npc:
+		npc.queue_free()
+		activeSpawns.erase(npc_name)
 
 func update_animation():
-	if Input.is_anything_pressed() == false:
+	if not Input.is_action_pressed("up") and not Input.is_action_pressed("down") and not Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
 		_animated_sprite.play("idle" + last_input)
 	elif Input.is_action_pressed(last_input):
 		_animated_sprite.play("move" + last_input)
