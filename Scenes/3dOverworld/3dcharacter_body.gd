@@ -106,10 +106,14 @@ func handle_interactions():
 		in_scene = true
 		var interactables = interactarea.get_overlapping_areas()
 		if interactables.size() > 0:
-			interactables[0].interact() # Execute interaction
+			interactables[0].interact()
+
+			# Execute interaction
 		elif interactarea.has_overlapping_bodies():
 			var interactables_bodies = interactarea.get_overlapping_bodies()
-			interactables_bodies[0].interact() # Execute interaction
+			interactables_bodies[0].interact()
+
+			# Execute interaction
 		can_interact = true
 		in_scene = false
 

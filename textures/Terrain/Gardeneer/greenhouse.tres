@@ -735,7 +735,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_tx62e"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = false
+plant/plant_brush_active = true
 plant/plant_label = "Birch 8m 1"
 plant/plant = SubResource("Resource_nq3v5")
 metadata/class = "Greenhouse_PlantState"
@@ -835,7 +835,7 @@ metadata/class = "Greenhouse_Plant"
 [sub_resource type="Resource" id="Resource_y6dnc"]
 resource_name = "Greenhouse_PlantState"
 script = ExtResource("4_36oht")
-plant/plant_brush_active = false
+plant/plant_brush_active = true
 plant/plant_label = "Birch 10m 1"
 plant/plant = SubResource("Resource_7dvol")
 metadata/class = "Greenhouse_PlantState"
@@ -4296,5 +4296,5 @@ metadata/class = "Greenhouse_PlantState"
 resource_name = "Greenhouse"
 script = ExtResource("1_y6lq8")
 plant_types/greenhouse_plant_states = [SubResource("Resource_rsseq"), SubResource("Resource_8hoo8"), SubResource("Resource_8djdg"), SubResource("Resource_8apym"), SubResource("Resource_tqp0w"), SubResource("Resource_486cm"), SubResource("Resource_mldum"), SubResource("Resource_qukpl"), SubResource("Resource_q1rwq"), SubResource("Resource_466n3"), SubResource("Resource_lms7a"), SubResource("Resource_c28a6"), SubResource("Resource_tx62e"), SubResource("Resource_85o6w"), SubResource("Resource_y6dnc"), SubResource("Resource_gqhot"), SubResource("Resource_2t2xe"), SubResource("Resource_n3ofc"), SubResource("Resource_agwk7"), SubResource("Resource_e5ehf"), SubResource("Resource_lh0dv"), SubResource("Resource_hwmg2"), SubResource("Resource_ha0vb"), SubResource("Resource_ku7t8"), SubResource("Resource_qp3hj"), SubResource("Resource_4tbcj"), SubResource("Resource_wvv4y"), SubResource("Resource_v2c2g"), SubResource("Resource_j3lli"), SubResource("Resource_eupmt"), SubResource("Resource_sqc3n"), SubResource("Resource_u7146"), SubResource("Resource_kwely"), SubResource("Resource_ci5bn"), SubResource("Resource_gvgvp"), SubResource("Resource_adt3v"), SubResource("Resource_vkjgl"), SubResource("Resource_8whcp"), SubResource("Resource_7xyaf"), SubResource("Resource_fyavd"), SubResource("Resource_gnbj8"), SubResource("Resource_tlanu"), SubResource("Resource_smf8v"), SubResource("Resource_h01a7"), SubResource("Resource_a1rog"), SubResource("Resource_n235r"), SubResource("Resource_mu3d7"), SubResource("Resource_yigf2"), SubResource("Resource_k0p7g"), SubResource("Resource_7iq35"), SubResource("Resource_s0vnc"), SubResource("Resource_a13fr"), SubResource("Resource_j01m3"), SubResource("Resource_0o7ws"), SubResource("Resource_p8pw2"), SubResource("Resource_5r8rv"), SubResource("Resource_o3qix"), SubResource("Resource_ow6ho"), SubResource("Resource_1xgq5"), SubResource("Resource_njcnm"), SubResource("Resource_i0u0m"), SubResource("Resource_y1s64"), SubResource("Resource_0n5q1"), SubResource("Resource_p6352"), SubResource("Resource_yv0hd"), SubResource("Resource_eflmm"), SubResource("Resource_44qax"), SubResource("Resource_rfeey"), SubResource("Resource_pnn8n"), SubResource("Resource_7sfe0"), SubResource("Resource_elyo7"), SubResource("Resource_16jxe"), SubResource("Resource_wdhd2"), SubResource("Resource_fon81"), SubResource("Resource_i03pb"), SubResource("Resource_5up57"), SubResource("Resource_l4jyh"), SubResource("Resource_goqp3"), SubResource("Resource_fkq07"), SubResource("Resource_yi8ls"), SubResource("Resource_i1gim"), SubResource("Resource_7xm5g"), SubResource("Resource_qvuki"), SubResource("Resource_s5jxa")]
-plant_types/selected_for_edit_resource = SubResource("Resource_wdhd2")
+plant_types/selected_for_edit_resource = SubResource("Resource_tx62e")
 metadata/class = "Greenhouse"
