@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://c68wecue5yqtm"]
+[gd_scene load_steps=52 format=4 uid="uid://ckyawqxc3a0h2"]
 
 [ext_resource type="Terrain3DStorage" uid="uid://h58e1ual6ant" path="res://Forest.res" id="1_blhho"]
 [ext_resource type="Script" uid="uid://v6h2tlflyvho" path="res://Scenes/3dForest/3dForest_main.gd" id="1_hrih6"]

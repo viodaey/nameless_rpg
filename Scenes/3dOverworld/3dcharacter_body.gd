@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 @onready var _animated_sprite = $AnimatedSprite3D
 @export var speed = 15
-
 var spawn_npc = load("res://Global/globalNPC3D.tscn")
 var last_input = "right"
 var moved : float = 0
@@ -19,6 +18,7 @@ var in_scene: bool = false
 @export var move_speed: float = 5.0
 var gravity: float = 0.0
 
+# Handle input for movement
 func get_input() -> Vector3:
 	var _input_direction = Input.get_vector("left", "right", "up", "down")
 	if not is_on_floor():
@@ -30,40 +30,38 @@ func get_input() -> Vector3:
 func _ready() -> void:
 	move_dice = rng.randi_range(30, 100)
 	position.y = 0.2
-	navigation_agent.set_navigation_map(get_parent().get_node("NavigationRegion3D").get_navigation_map()) # Link NavigationMap
+	# Set the navigation map only once the map is synchronized
+	navigation_agent.set_navigation_map(get_parent().get_node("NavigationRegion3D").get_navigation_map())
 
-func _physics_process(_delta):
-	if in_scene == true:
+func _physics_process(delta):
+	if not in_scene:
 		return
 
-	# Handle Interactions
-	if Input.is_action_pressed("interact"):
-		if can_interact:
-			if interactarea.has_overlapping_areas():
-				can_interact = false
-				in_scene = true
-				var interactables = interactarea.get_overlapping_areas()
-				# Ensure interact() is yielding, or update it to not be async
-				interactables[0].interact() # Remove await or make interact() async
-				can_interact = true
-				in_scene = false
-			elif interactarea.has_overlapping_bodies():
-				can_interact = false
-				in_scene = true
-				var interactables = interactarea.get_overlapping_bodies()
-				interactables[0].interact() # Same as above, remove await or update to async
-				in_scene = false
-				can_interact = true
+	# Handle input direction
+	var input_dir = Vector3.ZERO
+	if Input.is_action_pressed("ui_up"):
+		input_dir.z -= 1
+	if Input.is_action_pressed("ui_down"):
+		input_dir.z += 1
+	if Input.is_action_pressed("ui_left"):
+		input_dir.x -= 1
+	if Input.is_action_pressed("ui_right"):
+		input_dir.x += 1
+	input_dir = input_dir.normalized() * move_speed * delta
+	var target_position = global_transform.origin + input_dir
+	navigation_agent.target_position = target_position
+
+	# Check if the target is reachable, if not, stop moving
+	if navigation_agent.is_target_reachable():
+		global_transform.origin = target_position
+	else:
+		print("Blocked by navigation boundary!")
+
+	# Handle interactions
+	handle_interactions()
 
 	# Update Movement Animation
 	update_animation()
-
-	# Handle Player Movement
-	var target_velocity = get_input()
-	var target_position = global_transform.origin + target_velocity * _delta
-
-	# Handle Navigation Agent
-	navigation_agent.velocity = target_velocity
 
 	# Handle NPC Spawning
 	if moved > move_dice and not disabled_spawn:
@@ -85,6 +83,7 @@ func _physics_process(_delta):
 				spawned_npc.position = self.position + vec_target
 				activeSpawns.append(spawned_npc.name)
 
+# Spawn NPC location based on distance and random angle
 func _spawn_npc_loc() -> Vector3:
 	rng = RandomNumberGenerator.new()
 	var angle = rng.randf_range(0, TAU)
@@ -93,12 +92,28 @@ func _spawn_npc_loc() -> Vector3:
 	var distance = rng.randi_range(min_spawn_range, max_spawn_range)
 	return Vector3(distance * cos(angle), 0, distance * sin(angle))
 
+# Handle NPC despawn based on name
 func _despawn_npc(npc_name):
 	var npc = map.get_node(npc_name)
 	if npc:
 		npc.queue_free()
 		activeSpawns.erase(npc_name)
 
+# Handle interaction logic
+func handle_interactions():
+	if Input.is_action_pressed("interact") and can_interact:
+		can_interact = false
+		in_scene = true
+		var interactables = interactarea.get_overlapping_areas()
+		if interactables.size() > 0:
+			interactables[0].interact() # Execute interaction
+		elif interactarea.has_overlapping_bodies():
+			var interactables_bodies = interactarea.get_overlapping_bodies()
+			interactables_bodies[0].interact() # Execute interaction
+		can_interact = true
+		in_scene = false
+
+# Update animation based on movement
 func update_animation():
 	if not Input.is_action_pressed("up") and not Input.is_action_pressed("down") and not Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
 		_animated_sprite.play("idle" + last_input)

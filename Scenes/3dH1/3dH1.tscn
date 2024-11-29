@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://debt8mykr23g5"]
+[gd_scene load_steps=12 format=3 uid="uid://d06ayf6abjtvb"]
 
 [ext_resource type="Script" uid="uid://dd8v80l56e4xe" path="res://Scenes/3dH1/3dh1.gd" id="1_cnhcg"]
 [ext_resource type="Texture2D" uid="uid://ijvw68j4ekxw" path="res://textures/carpentry/woodenFlooring.png" id="3_1xxoe"]
