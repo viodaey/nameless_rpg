@@ -467,3 +467,4 @@ _shader_parameters = {
 "vertex_normals_distance": 128.0
 }
 shader_override = SubResource("Shader_umtun")
+show_navigation = true

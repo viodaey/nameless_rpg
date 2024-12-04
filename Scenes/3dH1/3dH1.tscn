@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmsjv3ywtsahm"]
+[gd_scene load_steps=12 format=3 uid="uid://brmqbqt2mtfn1"]
 
-[ext_resource type="Script" path="res://Scenes/3dH1/3dh1.gd" id="1_cnhcg"]
+[ext_resource type="Script" uid="uid://dd8v80l56e4xe" path="res://Scenes/3dH1/3dh1.gd" id="1_cnhcg"]
 [ext_resource type="Texture2D" uid="uid://ijvw68j4ekxw" path="res://textures/carpentry/woodenFlooring.png" id="3_1xxoe"]
 [ext_resource type="Script" uid="uid://du0k2lqc8l5tt" path="res://Scenes/3dOverworld/3dcharacter_body.gd" id="4_p4smk"]
 [ext_resource type="SpriteFrames" uid="uid://d3qv35el85yex" path="res://Scenes/3dOverworld/Playerbody_SF.tres" id="5_1ews2"]

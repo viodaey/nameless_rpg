@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://cst57dkdv82mb"]
 
-[ext_resource type="Script" path="res://Scenes/3dCave/3dcave_main.gd" id="1_2cxxe"]
-[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="2_b6ovj"]
+[ext_resource type="Script" uid="uid://bjh0hhqyiyf6w" path="res://Scenes/3dCave/3dcave_main.gd" id="1_2cxxe"]
+[ext_resource type="Script" uid="uid://dxnktlcxbrccu" path="res://enemy_resources/enemies.gd" id="2_b6ovj"]
 [ext_resource type="Resource" uid="uid://4hyxykrulp8a" path="res://enemy_resources/enemy_identityfiles/skellymage_evo1.tres" id="3_1mbpf"]
 [ext_resource type="Texture2D" uid="uid://bcyd7qrd3gc3e" path="res://textures/Terrain/Dirt1/packed_albedo_height.png" id="3_yfpdb"]
 [ext_resource type="Resource" uid="uid://dmroaf0lbxacy" path="res://enemy_resources/enemy_identityfiles/skellywarrior_evo1.tres" id="4_e3cmi"]

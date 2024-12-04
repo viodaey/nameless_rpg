@@ -3,6 +3,18 @@
 [ext_resource type="Script" uid="uid://qnx0si0n765w" path="res://addons/dreadpon.spatial_gardener/toolshed/toolshed_brush.gd" id="1_523sr"]
 [ext_resource type="Script" uid="uid://diqqrdqos0agq" path="res://addons/dreadpon.spatial_gardener/toolshed/toolshed.gd" id="2_uyc4g"]
 
+[sub_resource type="Resource" id="Resource_2u211"]
+resource_name = "Toolshed_Brush"
+script = ExtResource("1_523sr")
+behavior/behavior_brush_type = 1
+shape/shape_volume_size = 56.57
+shape/shape_projection_size = 100.0
+behavior/behavior_strength = 1.0
+behavior/behavior_passthrough = false
+behavior/behavior_overlap_mode = 0
+behavior/behavior_no_settings_text = "This brush has no additional settings"
+metadata/class = "Toolshed_Brush"
+
 [sub_resource type="Resource" id="Resource_3pqn4"]
 resource_name = "Toolshed_Brush"
 script = ExtResource("1_523sr")
@@ -10,18 +22,6 @@ behavior/behavior_brush_type = 0
 shape/shape_volume_size = 7.14
 shape/shape_projection_size = 1.0
 behavior/behavior_strength = 0.01
-behavior/behavior_passthrough = false
-behavior/behavior_overlap_mode = 0
-behavior/behavior_no_settings_text = "This brush has no additional settings"
-metadata/class = "Toolshed_Brush"
-
-[sub_resource type="Resource" id="Resource_2u211"]
-resource_name = "Toolshed_Brush"
-script = ExtResource("1_523sr")
-behavior/behavior_brush_type = 1
-shape/shape_volume_size = 18.37
-shape/shape_projection_size = 100.0
-behavior/behavior_strength = 1.0
 behavior/behavior_passthrough = false
 behavior/behavior_overlap_mode = 0
 behavior/behavior_no_settings_text = "This brush has no additional settings"
@@ -55,5 +55,5 @@ metadata/class = "Toolshed_Brush"
 resource_name = "Toolshed"
 script = ExtResource("2_uyc4g")
 brush/brushes = [SubResource("Resource_3pqn4"), SubResource("Resource_2u211"), SubResource("Resource_i02cf"), SubResource("Resource_4uj0g")]
-brush/active_brush = SubResource("Resource_3pqn4")
+brush/active_brush = SubResource("Resource_2u211")
 metadata/class = "Toolshed"
