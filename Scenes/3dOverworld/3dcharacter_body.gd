@@ -15,47 +15,38 @@ var in_scene: bool = false
 @onready var raycast = $RayCast3D
 @onready var interactarea = $InteractArea
 @onready var navigation_agent = $NavigationAgent3D # Add NavigationAgent3D to your player
-@export var move_speed: float = 5.0
 var gravity: float = 0.0
 
 # Handle input for movement
 func get_input() -> Vector3:
 	var _input_direction = Input.get_vector("left", "right", "up", "down")
 	if not is_on_floor():
-		gravity = -0.1
+		gravity = -0.01
 	else:
 		gravity = 0
-	return Vector3(_input_direction.x, gravity, _input_direction.y) * speed
+	return Vector3(_input_direction.x, gravity, _input_direction.y)
 
 func _ready() -> void:
 	move_dice = rng.randi_range(30, 100)
 	position.y = 0.2
-	# Set the navigation map only once the map is synchronized
 	navigation_agent.set_navigation_map(get_parent().get_node("NavigationRegion3D").get_navigation_map())
 
 func _physics_process(delta):
-	if not in_scene:
+	if in_scene:
 		return
-
-	# Handle input direction
-	var input_dir = Vector3.ZERO
-	if Input.is_action_pressed("ui_up"):
-		input_dir.z -= 1
-	if Input.is_action_pressed("ui_down"):
-		input_dir.z += 1
-	if Input.is_action_pressed("ui_left"):
-		input_dir.x -= 1
-	if Input.is_action_pressed("ui_right"):
-		input_dir.x += 1
-	input_dir = input_dir.normalized() * move_speed * delta
-	var target_position = global_transform.origin + input_dir
+	if not is_on_floor():
+		velocity = get_input() * speed
+		move_and_slide()
+		return 
+	var input_dir = get_input().normalized() * speed
+	var target_position = global_transform.origin + (input_dir * delta)
 	navigation_agent.target_position = target_position
-
-	# Check if the target is reachable, if not, stop moving
 	if navigation_agent.is_target_reachable():
-		global_transform.origin = target_position
+		velocity = input_dir
+		move_and_slide()
+		moved += 0.1
 	else:
-		print("Blocked by navigation boundary!")
+		return
 
 	# Handle interactions
 	handle_interactions()
@@ -107,13 +98,9 @@ func handle_interactions():
 		var interactables = interactarea.get_overlapping_areas()
 		if interactables.size() > 0:
 			interactables[0].interact()
-
-			# Execute interaction
 		elif interactarea.has_overlapping_bodies():
 			var interactables_bodies = interactarea.get_overlapping_bodies()
 			interactables_bodies[0].interact()
-
-			# Execute interaction
 		can_interact = true
 		in_scene = false
 
