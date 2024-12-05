@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var _animated_sprite = $AnimatedSprite3D
-@export var speed = 15
+@export var speed = 22
 var spawn_npc = load("res://Global/globalNPC3D.tscn")
 var last_input = "right"
 var moved : float = 0
@@ -44,7 +44,8 @@ func _physics_process(delta):
 	if navigation_agent.is_target_reachable():
 		velocity = input_dir
 		move_and_slide()
-		moved += 0.1
+		if input_dir != Vector3(0,0,0):
+			moved += 0.1
 	else:
 		return
 

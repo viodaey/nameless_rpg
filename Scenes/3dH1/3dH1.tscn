@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyh3gdk6ris04"]
+[gd_scene load_steps=13 format=3 uid="uid://dyh3gdk6ris04"]
 
-[ext_resource type="Script" uid="uid://dd8v80l56e4xe" path="res://Scenes/3dH1/3dh1.gd" id="1_cnhcg"]
+[ext_resource type="Script" uid="uid://cfy88g5f8yevu" path="res://Scenes/3dH1/3dh1.gd" id="1_cnhcg"]
 [ext_resource type="Texture2D" uid="uid://ijvw68j4ekxw" path="res://textures/carpentry/woodenFlooring.png" id="3_1xxoe"]
 [ext_resource type="Script" uid="uid://du0k2lqc8l5tt" path="res://Scenes/3dOverworld/3dcharacter_body.gd" id="4_p4smk"]
 [ext_resource type="SpriteFrames" uid="uid://d3qv35el85yex" path="res://Scenes/3dOverworld/Playerbody_SF.tres" id="5_1ews2"]
@@ -26,6 +26,10 @@ size = Vector2(40, 20)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kmst6"]
 data = PackedVector3Array(20, -10, 0, -20, -10, 0, 20, 10, 0, -20, -10, 0, -20, 10, 0, 20, 10, 0)
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_p70hr"]
+vertices = PackedVector3Array(299.833, 0.5, -298.982, 299.833, 0.5, -279.982, 338.833, 0.5, -279.982, 338.833, 0.5, -298.982)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.747192, -0.00012207, -0.575709)
 script = ExtResource("1_cnhcg")
@@ -44,6 +48,7 @@ far = 74.03
 
 [node name="CollisionPolygon3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("BoxShape3D_j8h41")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="RayCast3D" type="RayCast3D" parent="Player"]
 
@@ -59,18 +64,24 @@ collision_mask = 128
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/InteractArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 shape = SubResource("BoxShape3D_mpd5t")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player"]
+path_height_offset = -0.4
 
 [node name="3dH1Exitfront" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 318.242, 0, -279.192)
 
 [node name="3dH1Exitfront" type="CollisionShape3D" parent="3dH1Exitfront"]
 shape = SubResource("BoxShape3D_a2p4j")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="3dH1Exitback" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 298.97, 0, -288.88)
 
 [node name="3dH1Exitback" type="CollisionShape3D" parent="3dH1Exitback"]
 shape = SubResource("BoxShape3D_q14tk")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 319.333, 3.65717, -279.649)
@@ -82,17 +93,7 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D6/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_kmst6")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 319.333, 0, -289.482)
-material_override = SubResource("StandardMaterial3D_jnuc3")
-mesh = SubResource("QuadMesh_m1rvb")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D7"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D7/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_kmst6")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 319.351, 4.05156, -299.529)
@@ -103,6 +104,7 @@ mesh = SubResource("QuadMesh_m1rvb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_kmst6")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 300.061, 3.96424, -291.441)
@@ -114,6 +116,7 @@ skeleton = NodePath("../MeshInstance3D4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_kmst6")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 338.957, 4.08179, -289.88)
@@ -125,6 +128,7 @@ skeleton = NodePath("../MeshInstance3D6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_kmst6")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 322.123, 0, -280.211)
@@ -146,6 +150,21 @@ light_specular = 9.096
 spot_range = 6.01046
 spot_attenuation = -0.5
 spot_angle = 19.16
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_p70hr")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(-1, -8.74228e-08, -3.82137e-15, 0, -4.37114e-08, 1, -8.74228e-08, 1, 4.37114e-08, 319.333, 0, -289.482)
+material_override = SubResource("StandardMaterial3D_jnuc3")
+mesh = SubResource("QuadMesh_m1rvb")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D7/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kmst6")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [connection signal="body_entered" from="3dH1Exitfront" to="." method="_on_H1Exitfront_body_entered"]
 [connection signal="body_entered" from="3dH1Exitback" to="." method="_on_H1Exitback_body_entered"]

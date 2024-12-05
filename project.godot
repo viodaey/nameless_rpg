@@ -137,7 +137,7 @@ sgt_motion_texture={
 }
 sgt_wind_direction={
 "type": "vec3",
-"value": Vector3(1, 0, 0)
+"value": Vector3(0.5, 0, -0.9)
 }
 sgt_wind_movement={
 "type": "vec3",

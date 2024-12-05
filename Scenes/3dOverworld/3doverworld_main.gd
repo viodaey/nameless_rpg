@@ -50,7 +50,7 @@ func _introscene1():
 	dialog = get_node("Dialog")
 	dialog.set_color(0,"black")
 	#_player_body.speed = 0
-	_player_body.get_node("AnimatedSprite3D").play("idleleft")
+	_player_body.get_node("AnimatedSprite3D").play("idleup")
 	dialog.set_center_offset(0,-0.75,-0.75)
 	dialog.dia[0].scale = Vector2(1.3,1.3)
 	dialog.set_diasize(0,"regular")
@@ -72,7 +72,7 @@ func _introscene1():
 	var cameratween = get_tree().create_tween()
 	cameratween.tween_property(camera, "position:x", camera.position.x + 30, 0.5)
 	cameratween.parallel().tween_property(camera, "position:z", camera.position.z + 25, 0.5)
-	_player_body.get_node("AnimatedSprite3D").play("moveleft")
+	_player_body.get_node("AnimatedSprite3D").play("moveup")
 	#await tween.finished
 	## advance dialognumber
 	player.scene_progression["overworld"] = 1
@@ -135,6 +135,9 @@ func _introscene2():
 	_player_body.disabled_spawn = false
 	player.scene_progression["overworld"] = 2
 	dialog.queue_free()
+
+func _physics_process(delta: float) -> void:
+	SimpleGrass.set_player_position(_player_body.global_position)
 
 func _on_subscene1_trigger_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:
