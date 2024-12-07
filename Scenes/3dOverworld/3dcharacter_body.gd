@@ -21,7 +21,7 @@ var gravity: float = 0.0
 func get_input() -> Vector3:
 	var _input_direction = Input.get_vector("left", "right", "up", "down")
 	if not is_on_floor():
-		gravity = -0.01
+		gravity = -0.1
 	else:
 		gravity = 0
 	return Vector3(_input_direction.x, gravity, _input_direction.y)
@@ -98,10 +98,10 @@ func handle_interactions():
 		in_scene = true
 		var interactables = interactarea.get_overlapping_areas()
 		if interactables.size() > 0:
-			interactables[0].interact()
+			await interactables[0].interact()
 		elif interactarea.has_overlapping_bodies():
 			var interactables_bodies = interactarea.get_overlapping_bodies()
-			interactables_bodies[0].interact()
+			await interactables_bodies[0].interact()
 		can_interact = true
 		in_scene = false
 

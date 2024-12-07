@@ -4,6 +4,7 @@ extends StaticBody3D
 func interact():
 	var dialog = preload("res://Global/dialog_scene.tscn")
 	map.add_child(dialog.instantiate())
+	print(map._player_body.in_scene)
 	dialog = map.get_node("Dialog")
 	#dialog.dia[0].global_position = Vector2(global_position.x -5, global_position.z - 2)
 	dialog.set_color(0,"black")

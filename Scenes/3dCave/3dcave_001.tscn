@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cst57dkdv82mb"]
+[gd_scene load_steps=32 format=3 uid="uid://cst57dkdv82mb"]
 
 [ext_resource type="Script" uid="uid://bjh0hhqyiyf6w" path="res://Scenes/3dCave/3dcave_main.gd" id="1_2cxxe"]
 [ext_resource type="Script" uid="uid://cabfadme6c7ll" path="res://enemy_resources/enemies.gd" id="2_b6ovj"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://drl75kb14pej1" path="res://textures/Terrain/Dirt2/packed_normal_roughness.png" id="8_05mjw"]
 [ext_resource type="Script" uid="uid://du0k2lqc8l5tt" path="res://Scenes/3dOverworld/3dcharacter_body.gd" id="9_y6acx"]
 [ext_resource type="SpriteFrames" uid="uid://d3qv35el85yex" path="res://Scenes/3dOverworld/Playerbody_SF.tres" id="10_jucvf"]
+[ext_resource type="Script" uid="uid://dassh0ppxb4y0" path="res://src/chestStandard.gd" id="13_jilm3"]
+[ext_resource type="Resource" uid="uid://umrjtekw8axd" path="res://inventory/items/potion.tres" id="14_jilm3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vdve6"]
 size = Vector3(15, 4, 4)
@@ -97,6 +99,14 @@ normal_texture = ExtResource("8_05mjw")
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_12bgp")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_kjr08"), SubResource("Terrain3DTextureAsset_v4c7v")])
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1v3qj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1rdoh"]
+size = Vector3(4, 2, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jilm3"]
+data = PackedVector3Array(-2, 1, 1, 2, 1, 1, -2, -1, 1, 2, 1, 1, 2, -1, 1, -2, -1, 1, 2, 1, -1, -2, 1, -1, 2, -1, -1, -2, 1, -1, -2, -1, -1, 2, -1, -1, 2, 1, 1, 2, 1, -1, 2, -1, 1, 2, 1, -1, 2, -1, -1, 2, -1, 1, -2, 1, -1, -2, 1, 1, -2, -1, -1, -2, 1, 1, -2, -1, 1, -2, -1, -1, 2, 1, 1, -2, 1, 1, 2, 1, -1, -2, 1, 1, -2, 1, -1, 2, 1, -1, -2, -1, 1, 2, -1, 1, -2, -1, -1, 2, -1, 1, 2, -1, -1, -2, -1, -1)
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_2cxxe")
 world_enemies = Array[ExtResource("2_b6ovj")]([ExtResource("3_1mbpf"), ExtResource("4_e3cmi")])
@@ -150,7 +160,7 @@ collision_mask = 128
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/InteractArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 shape = SubResource("BoxShape3D_jilm3")
-debug_color = Color(0, 0.6, 0.7, 0.42)
+debug_color = Color(0.490196, 0.431373, 1, 1)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player"]
 path_height_offset = -0.4
@@ -176,5 +186,21 @@ light_specular = 9.096
 spot_range = 74.0207
 spot_attenuation = -0.5
 spot_angle = 12.5143
+
+[node name="Chest" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -560.7, 1.37896, -51.2139)
+collision_layer = 129
+collision_mask = 0
+script = ExtResource("13_jilm3")
+contents = ExtResource("14_jilm3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Chest"]
+material_override = SubResource("StandardMaterial3D_1v3qj")
+mesh = SubResource("BoxMesh_1rdoh")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chest"]
+shape = SubResource("ConcavePolygonShape3D_jilm3")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [connection signal="body_entered" from="CaveExit" to="." method="_on_CaveExit_body_entered"]

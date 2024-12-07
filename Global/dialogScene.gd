@@ -11,7 +11,7 @@ extends Control
 	"pink": load("res://textures/UI/menu_ui_pink_100.png"),
 	"blue": load("res://textures/UI/menu_ui_pixieblue_100.png"),
 	"purple": load("res://textures/UI/menu_ui_purp_100.png"),
-	"green": load("res://textures/UI/menu_ui_green_100.png"),
+	"green": load("res://textures/UI/dialog_texture-green.png"),
 	"black": load("res://textures/UI/tt_texture.png") }
 @onready var font = {
 	"regular": load("res://Global/ui_regular.tres"),
@@ -21,7 +21,8 @@ extends Control
 var sizes: Dictionary [String, Vector2] = {
 	"small": Vector2(204,88),
 	"regular": Vector2(352,112),
-	"long": Vector2(352,224)
+	"long": Vector2(352,224),
+	"loot": Vector2(1500,99)
 	}
 
 var decision: int
