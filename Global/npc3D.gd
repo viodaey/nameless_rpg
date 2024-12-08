@@ -1,9 +1,11 @@
-extends Area3D
+extends CharacterBody3D
 
 @onready var enemy = get_parent().spawn_request
 @onready var _animated_sprite = $AnimatedSprite3D
 @onready var _player_body = get_parent().get_node("Player")
 @onready var speed = enemy.speed
+@onready var navigation_agent = $NavigationAgent3D
+@onready var neutral_pos = _animated_sprite.position
 var rng = RandomNumberGenerator.new()
 var player_position
 var target_position
@@ -15,12 +17,12 @@ var time_to_wander: float
 var time_to_not_wander: float 
 var wander_vector: Vector3
 const detection_range : float = 15
-@onready var neutral_pos = _animated_sprite.position
 var initiated: bool = false
 signal initiation_done
-var velocity: Vector3 = Vector3.ZERO
+#var velocity: Vector3 = Vector3.ZERO
 var direction: String = "nw"
 var cc_status: int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_animated_sprite.sprite_frames = enemy.animatedSprite

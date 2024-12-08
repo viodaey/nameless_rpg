@@ -6,7 +6,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_fb3a0"]
 radius = 6.0
 
-[node name="NPC_spawn" type="Area3D"]
+[node name="NPC_spawn" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 collision_layer = 2
 script = ExtResource("1_ma17h")
@@ -16,9 +16,10 @@ shape = SubResource("SphereShape3D_fb3a0")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 4.04508, 2.93893, 0, -2.93893, 4.04508, 0, 0.5, 0)
+transform = Transform3D(12, 0, 0, 0, 7.71345, 9.19253, 0, -9.19253, 7.71345, 0, 0.5, 0)
 sprite_frames = ExtResource("2_yk64b")
 animation = &"idle"
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

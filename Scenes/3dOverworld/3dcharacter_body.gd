@@ -37,7 +37,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity = get_input() * speed
 		move_and_slide()
-		return 
+		return
 	var input_dir = get_input().normalized() * speed
 	var target_position = global_transform.origin + (input_dir * delta)
 	navigation_agent.target_position = target_position
@@ -63,6 +63,9 @@ func _physics_process(delta):
 			raycast.position = self.position
 			raycast.target_position = raycast.position + vec_target
 			raycast.force_raycast_update()
+			## function for getting collision point get_collision_point()
+			## raise raycast 3d from player, point downward (angled), if collides whith navmmesh: get intersect with navmesh, spawn @ intersectpoint
+			## or instantiate raycast on target position, raise it and face straight down. check if navmesh exists. If true, spawn npc at intersection
 			if not raycast.is_colliding():
 				moved = 0
 				move_dice = rng.randi_range(25, 60)
