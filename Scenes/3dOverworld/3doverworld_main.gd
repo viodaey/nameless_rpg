@@ -39,6 +39,7 @@ func _ready() -> void:
 	if player.scene_progression["overworld"] == 1:
 		_introscene2()
 	MainMenu.map_scene = get_tree().current_scene
+	_player_body.in_scene = false
 
 func _introscene1():
 	var dialog = preload("res://Global/dialog_scene.tscn")

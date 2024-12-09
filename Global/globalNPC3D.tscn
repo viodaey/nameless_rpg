@@ -4,22 +4,28 @@
 [ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemy_spriteframes/orc_evo1_sf.tres" id="2_yk64b"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fb3a0"]
-radius = 6.0
+radius = 3.0
 
-[node name="NPC_spawn" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-collision_layer = 2
+[node name="NPC_spawn" type="Area3D" groups=["spawned_npc"]]
+collision_layer = 4
+collision_mask = 9
 script = ExtResource("1_ma17h")
 
-[node name="CollisionShape2D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_fb3a0")
-debug_color = Color(0, 0.6, 0.7, 0.42)
-
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(12, 0, 0, 0, 7.71345, 9.19253, 0, -9.19253, 7.71345, 0, 0.5, 0)
+transform = Transform3D(12, 0, 0, 0, 7.71345, 9.19253, 0, -9.19253, 7.71345, 0, 5, -2)
 sprite_frames = ExtResource("2_yk64b")
 animation = &"idle"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+radius = 2.0
+neighbor_distance = 20.0
+max_speed = 8.0
 
+[node name="CollisionShape2D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+shape = SubResource("SphereShape3D_fb3a0")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

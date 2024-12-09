@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends Area3D
 
 @onready var enemy = get_parent().spawn_request
 @onready var _animated_sprite = $AnimatedSprite3D
@@ -16,12 +16,13 @@ var time_not_wandering: float = 0
 var time_to_wander: float
 var time_to_not_wander: float 
 var wander_vector: Vector3
-const detection_range : float = 15
+const detection_range : float = 55
 var initiated: bool = false
 signal initiation_done
 #var velocity: Vector3 = Vector3.ZERO
 var direction: String = "nw"
 var cc_status: int = 0
+var velocity: Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,6 +36,7 @@ func _ready() -> void:
 func _physics_process(delta: float):
 	position += velocity * delta
 	player_position = _player_body.position
+
 	if position.distance_to(player_position) < detection_range:
 		if not initiated:
 			if not _animated_sprite.sprite_frames.get_animation_names().has("initiate"):
@@ -44,16 +46,17 @@ func _physics_process(delta: float):
 				await initiation_done
 				initiated = true
 			return
-		target_position = (player_position - position).normalized()
+		navigation_agent.target_position = player_position
+		target_position = (navigation_agent.get_next_path_position() - position).normalized()
+		#target_position = (player_position - position).normalized()
 		velocity = target_position * speed * 0.75 # temp speed fix
 		_animated_sprite.play("run")
 		if player_position[0] - position[0] > 0:
 			_animated_sprite.flip_h = 1
 		else:
 			_animated_sprite.flip_h = 0
-		player_position = _player_body.position		
 	elif enemy.can_wander:
-		if wandering == true:
+		if wandering == true and navigation_agent.is_target_reachable() == true:
 			velocity = wander_vector * (speed / 2)
 			if time_wandering >= time_to_wander:
 				rng = RandomNumberGenerator.new()
@@ -68,6 +71,7 @@ func _physics_process(delta: float):
 				rng = RandomNumberGenerator.new()
 				var angle = rng.randf_range(0, TAU)
 				wander_vector = (position - (position + Vector3(cos(angle),0, sin(angle)))).normalized()
+				navigation_agent.target_position = wander_vector
 				if wander_vector.x > 0:
 					_animated_sprite.flip_h = 1
 				else:
@@ -77,10 +81,12 @@ func _physics_process(delta: float):
 				time_not_wandering = 0
 				_animated_sprite.play("run")
 			time_not_wandering += delta
+		if navigation_agent.is_target_reachable() == false:
+			velocity = (NavigationServer3D.map_get_closest_point(get_world_3d().get_navigation_map(), position)  - position).normalized() * speed
 	else:
 		_animated_sprite.play("idle")
 		velocity = Vector3.ZERO
-	if position.distance_to(player_position) > 950:
+	if position.distance_to(_player_body.position) > 950:
 		_player_body._despawn_npc(self.get_path())
 
 func initiate_battle():
@@ -91,12 +97,11 @@ func initiate_battle():
 	sceneManager.mon_min_lvl = get_parent().min_lvl
 	sceneManager.mon_max_lvl = get_parent().max_lvl
 	sceneManager.goto_scene("res://Scenes/Battle/battle.tscn")
-	move_to_attack = false
-	queue_free()	
+	_player_body.in_scene = true
+	get_tree().call_group("spawned_npc","queue_free")
 
 func _on_animated_sprite_3d_animation_finished() -> void:
 	initiation_done.emit()
-
 
 func _on_body_entered(body: Node3D) -> void:
 	if body == _player_body:
@@ -106,19 +111,16 @@ func _on_body_entered(body: Node3D) -> void:
 		else:
 			match body.last_input:
 				"up":
-					#direction_vector = Vector2(0,-1)
 					if velocity.z < 0:
 						player.engagement = -1
 				"right":
-					#direction_vector = Vector2(1,0)
 					if velocity.x > 0:
 						player.engagement = -1
 				"down":
-					#direction_vector = Vector2(0,1)
 					if velocity.z > 0:
 						player.engagement = -1
 				"left":
-					#direction_vector = Vector2(-1,0)
 					if velocity.x < 0:
 						player.engagement = -1
 		initiate_battle()
+		

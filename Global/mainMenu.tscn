@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0rm74cf7vkyk"]
+[gd_scene load_steps=14 format=3 uid="uid://cprrkg44qt1b3"]
 
 [ext_resource type="Script" uid="uid://ddm32w2u32hiy" path="res://Global/mainMenu.gd" id="1_yocc6"]
 [ext_resource type="Texture2D" uid="uid://joxwbxwu5qbr" path="res://textures/UI/Citadel_MainMenu/mm_heading.png" id="2_1ve1y"]

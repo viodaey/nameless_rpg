@@ -4664,6 +4664,7 @@ debug_color = Color(4.42803e-06, 0.869645, 0.596612, 1)
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -596.089, 1.40002, -1874.64)
+collision_layer = 9
 collision_mask = 3
 script = ExtResource("111_k3fub")
 
@@ -4675,7 +4676,6 @@ mesh = SubResource("SphereMesh_dnd8k")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 45, 20)
-visible = false
 cull_mask = 983039
 fov = 90.0
 size = 96.392
@@ -4683,7 +4683,6 @@ near = 0.001
 
 [node name="CollisionPolygon3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
-visible = false
 shape = SubResource("CapsuleShape3D_gbrl7")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
@@ -4693,7 +4692,6 @@ target_position = Vector3(170, 0.2, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player"]
 transform = Transform3D(30, 0, 0, 0, 19.2836, 22.9813, 0, -22.9813, 19.2836, 0, 3.5, 0)
-visible = false
 alpha_cut = 3
 sprite_frames = ExtResource("112_e0bv0")
 animation = &"idledown"
