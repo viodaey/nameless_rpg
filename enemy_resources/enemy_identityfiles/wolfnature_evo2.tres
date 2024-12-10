@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3 uid="uid://v8j6r3mlawmd"]
 
-[ext_resource type="Script" path="res://Global/Abilities/abilities.gd" id="1_2r0ty"]
+[ext_resource type="Script" uid="uid://bhk62evwj2uj1" path="res://Global/Abilities/abilities.gd" id="1_2r0ty"]
 [ext_resource type="Resource" uid="uid://babsk5yt0idvh" path="res://Global/Classes/Assassin.tres" id="2_lct0q"]
 [ext_resource type="SpriteFrames" uid="uid://dx7o5cx7vt0y2" path="res://enemy_spriteframes/WolfNature_Evo_2sf.tres" id="3_kc4ax"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_axiol"]
 [ext_resource type="Resource" uid="uid://vcho8nqy1mu1" path="res://enemy_resources/enemy_identityfiles/wolfwater_evo2.tres" id="5_gjniy"]
-[ext_resource type="Script" path="res://enemy_resources/enemies.gd" id="6_ijxic"]
+[ext_resource type="Script" uid="uid://cabfadme6c7ll" path="res://enemy_resources/enemies.gd" id="6_ijxic"]
 [ext_resource type="Texture2D" uid="uid://r5gvjxa3fhpu" path="res://enemy_resources/enemy_texturefiles/canine/Naturewolf Evo 2.png" id="7_0fhht"]
 
 [resource]
@@ -39,4 +39,4 @@ lvl = 1
 atb = 110
 max_health = 0
 _abilities = Array[ExtResource("1_2r0ty")]([])
-position_y_offset = 0.0
+position_y_offset = -2.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cs6mvxwxonvmn"]
 
 [ext_resource type="Script" uid="uid://c3o23e1axkkkt" path="res://Global/npc3D.gd" id="1_ma17h"]
-[ext_resource type="SpriteFrames" uid="uid://cxi5p83hs4qp0" path="res://enemy_spriteframes/orc_evo1_sf.tres" id="2_yk64b"]
+[ext_resource type="SpriteFrames" uid="uid://b05eaacutddo1" path="res://enemy_spriteframes/WolfIce_Evo_1sf.tres" id="2_pet4a"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fb3a0"]
 radius = 3.0
@@ -13,7 +13,7 @@ script = ExtResource("1_ma17h")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(12, 0, 0, 0, 7.71345, 9.19253, 0, -9.19253, 7.71345, 0, 5, -2)
-sprite_frames = ExtResource("2_yk64b")
+sprite_frames = ExtResource("2_pet4a")
 animation = &"idle"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

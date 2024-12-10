@@ -8,11 +8,11 @@ extends Control
 	$dia_decision/MarginContainer/VBoxContainer/Option3
 ]
 @onready var color = {
-	"pink": load("res://textures/UI/menu_ui_pink_100.png"),
-	"blue": load("res://textures/UI/menu_ui_pixieblue_100.png"),
-	"purple": load("res://textures/UI/menu_ui_purp_100.png"),
+	"blue": load("res://textures/UI/dialog_texture-blue.png"),
+	"cyan": load("res://textures/UI/dialog_texture-cyan.png"),
 	"green": load("res://textures/UI/dialog_texture-green.png"),
-	"black": load("res://textures/UI/tt_texture.png") }
+	"black": load("res://textures/UI/tt_texture.png"),
+	"red": load("res://textures/UI/dialog_texture-red.png") }
 @onready var font = {
 	"regular": load("res://Global/ui_regular.tres"),
 	"bold": load("res://Global/ui_heading.tres")

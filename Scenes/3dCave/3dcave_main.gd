@@ -21,6 +21,7 @@ func _ready() -> void:
 		_player_body.position = player.position
 	if player.last_exit == 'cave':
 		_player_body.position = _cave_exit.position + Vector3(0, 0, -5)
+	_player_body.in_scene = false
 
 func _on_CaveExit_body_entered(body: Node3D) -> void:
 	if body.name == _player_body.name:

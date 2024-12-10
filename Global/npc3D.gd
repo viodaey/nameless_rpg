@@ -9,7 +9,6 @@ extends Area3D
 var rng = RandomNumberGenerator.new()
 var player_position
 var target_position
-var move_to_attack
 var wandering: bool = false
 var time_wandering: float = 0
 var time_not_wandering: float = 0
@@ -19,8 +18,6 @@ var wander_vector: Vector3
 const detection_range : float = 55
 var initiated: bool = false
 signal initiation_done
-#var velocity: Vector3 = Vector3.ZERO
-var direction: String = "nw"
 var cc_status: int = 0
 var velocity: Vector3
 
@@ -28,9 +25,7 @@ var velocity: Vector3
 func _ready() -> void:
 	_animated_sprite.sprite_frames = enemy.animatedSprite
 	self.scale = self.scale * enemy.map_scale
-	position.y = 0.2
 	_animated_sprite.position.y += enemy.position_y_offset
-	#pass
 	
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float):
@@ -49,14 +44,14 @@ func _physics_process(delta: float):
 		navigation_agent.target_position = player_position
 		target_position = (navigation_agent.get_next_path_position() - position).normalized()
 		#target_position = (player_position - position).normalized()
-		velocity = target_position * speed * 0.75 # temp speed fix
+		velocity = target_position * speed * 0.75
 		_animated_sprite.play("run")
-		if player_position[0] - position[0] > 0:
+		if target_position[0] > 0:
 			_animated_sprite.flip_h = 1
 		else:
 			_animated_sprite.flip_h = 0
 	elif enemy.can_wander:
-		if wandering == true and navigation_agent.is_target_reachable() == true:
+		if wandering == true:
 			velocity = wander_vector * (speed / 2)
 			if time_wandering >= time_to_wander:
 				rng = RandomNumberGenerator.new()
@@ -71,22 +66,23 @@ func _physics_process(delta: float):
 				rng = RandomNumberGenerator.new()
 				var angle = rng.randf_range(0, TAU)
 				wander_vector = (position - (position + Vector3(cos(angle),0, sin(angle)))).normalized()
-				navigation_agent.target_position = wander_vector
 				if wander_vector.x > 0:
 					_animated_sprite.flip_h = 1
 				else:
 					_animated_sprite.flip_h = 0
 				time_to_wander = rng.randf_range(0.5,3)
+				var closest_nav_point = NavigationServer3D.map_get_closest_point(get_world_3d().get_navigation_map(), wander_vector * speed * time_to_wander)
+				velocity = (closest_nav_point - position).normalized()
+				navigation_agent.target_position = wander_vector
 				wandering = true
 				time_not_wandering = 0
 				_animated_sprite.play("run")
 			time_not_wandering += delta
-		if navigation_agent.is_target_reachable() == false:
-			velocity = (NavigationServer3D.map_get_closest_point(get_world_3d().get_navigation_map(), position)  - position).normalized() * speed
+			
 	else:
 		_animated_sprite.play("idle")
 		velocity = Vector3.ZERO
-	if position.distance_to(_player_body.position) > 950:
+	if position.distance_to(_player_body.position) > 450:
 		_player_body._despawn_npc(self.get_path())
 
 func initiate_battle():

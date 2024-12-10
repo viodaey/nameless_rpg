@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3 uid="uid://d1y8eprvwt18s"]
 
-[ext_resource type="Script" uid="uid://dlfth1ds6pect" path="res://Global/Abilities/abilities.gd" id="1_p8y28"]
+[ext_resource type="Script" uid="uid://bhk62evwj2uj1" path="res://Global/Abilities/abilities.gd" id="1_p8y28"]
 [ext_resource type="Resource" uid="uid://d3jpakoms3ml7" path="res://Global/Classes/Normy.tres" id="2_6xc3m"]
 [ext_resource type="SpriteFrames" uid="uid://cce8hps2ykyjo" path="res://enemy_spriteframes/WolfEarth_Evo_1sf.tres" id="2_jell6"]
-[ext_resource type="Script" uid="uid://dxnktlcxbrccu" path="res://enemy_resources/enemies.gd" id="3_71oco"]
+[ext_resource type="Script" uid="uid://cabfadme6c7ll" path="res://enemy_resources/enemies.gd" id="3_71oco"]
 [ext_resource type="Resource" uid="uid://bmlto5qmau708" path="res://enemy_resources/enemy_identityfiles/wolfearth_evo2.tres" id="3_888pl"]
 [ext_resource type="Shape2D" uid="uid://4d2vmh7tx45k" path="res://enemy_resources/enemy_collision/capsule_shape_15_50.tres" id="4_0pijp"]
 [ext_resource type="Texture2D" uid="uid://cspbaanasq48y" path="res://enemy_resources/enemy_texturefiles/canine/Earthwolf1.png" id="5_x2yaa"]
@@ -39,4 +39,4 @@ lvl = 1
 atb = 110
 max_health = 35
 _abilities = Array[ExtResource("1_p8y28")]([])
-position_y_offset = 0.0
+position_y_offset = -2.0
