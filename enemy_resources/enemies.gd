@@ -11,6 +11,7 @@ const basic_shape = preload("res://enemy_resources/enemy_collision/capsule_shape
 @export var evo_lvl: int = 9000
 @export var health: float = 100
 @export var base_health: float = 30
+@export var mp: int = 10
 @export var damage: float = 12
 @export var critc: int = 5
 @export var xp: int = 10

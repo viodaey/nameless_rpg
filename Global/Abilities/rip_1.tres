@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="abilities" load_steps=2 format=3 uid="uid://b818vte2jacfl"]
+
+[ext_resource type="Script" uid="uid://bhk62evwj2uj1" path="res://Global/Abilities/abilities.gd" id="1_da1go"]
+
+[resource]
+script = ExtResource("1_da1go")
+_name = "Rip"
+description = "Slash the enemy using claws. Chance to bleed"
+target = "enemy"
+target_amount = 1
+eff_1 = "dmg"
+eff_1_ele = "physical"
+eff_1_value = 1
+eff_1_base = 1.0
+eff_1_additive = "none"
+eff_1_additive_multiplier = 0.0
+eff_1_multiplier = "dmg"
+eff_1_multiplier_multiplier = 1.1
+eff_2 = "bleed"
+eff_2_ele = ""
+eff_2_value = 1
+eff_2_base = 0.2
+eff_2_additive = "none"
+eff_2_additive_multiplier = 0.0
+eff_2_multiplier = "none"
+eff_2_multiplier_multiplier = 0.0
+animation_type = "rip"
+mp = 0
+cooldown = 0
+chance_to_use_multiplier = 2
+metadata/_custom_type_script = ExtResource("1_da1go")

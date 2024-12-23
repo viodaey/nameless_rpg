@@ -23,6 +23,7 @@ AudioPlayer="*res://Global/audio_player.tscn"
 inv="*res://Global/invManager.gd"
 MainMenu="*res://Global/mainMenu.tscn"
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
+calc="*res://Global/globalCalc.gd"
 
 [display]
 

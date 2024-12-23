@@ -3,7 +3,7 @@ extends Control
 const scene_type = 2
 @onready var ability_ind_pos = $Abilities/AbilitiesSelection/MarginContainer/HBoxContainer/Control/Selector.position
 #1 = map, 2 = battle, 3 = village?
-@export var enemy : Resource 
+@export var enemy : Enemy 
 var enemy2: Resource
 var enemy3: Resource
 var enemy4: Resource
@@ -45,6 +45,9 @@ var used_item: Resource
 var used_item_slot: int = 0
 var ax : int = 0
 var ay : int = 1
+
+signal animation_1_finished
+signal pressedSomething
 
 @onready var _playerhp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerHP
 @onready var _playermp = $Panel_Menu/VBoxContainer/PlayerContainer1/PlayerMP
@@ -130,10 +133,13 @@ func _ready():
 
 ##	load enemy resource from encounter -- TURN OFF LOAD TO TEST EXPORT RESOURCE
 	enemy = load(player.enemy_encounter[0])
+	##TESTING not ACTIVE
+	
 	AudioPlayer.play_music_level(enemy.music)
 	enemyDict_1["res"] = enemy
 	enemyDict_1["cont"] = _enemycont1
 	enemyDict_1["live"] = enemyStats1
+	enemyDict_1["abilities"] = enemy._abilities.duplicate(true)
 	
 ##	roll for groupsize
 	e_groupsize = rng.randi_range(enemy.min_group_size, enemy.max_group_size)
@@ -164,6 +170,7 @@ func _ready():
 		enemyDict_2["cont"] = _enemycont2
 		enemyDict_2["live"] = enemyStats2
 		enemyDict_2["res"] = enemy2
+		enemyDict_2["abilities"] = enemy2._abilities.duplicate(true)
 	else:
 		_enemycont2.visible = false
 
@@ -184,6 +191,7 @@ func _ready():
 		enemyDict_3["cont"] = _enemycont3
 		enemyDict_3["live"] = enemyStats3
 		enemyDict_3["res"] = enemy3
+		enemyDict_3["abilities"] = enemy3._abilities.duplicate(true)
 	else:
 		_enemycont3.visible = false
 		
@@ -203,6 +211,7 @@ func _ready():
 		enemyDict_4["cont"] = _enemycont4
 		enemyDict_4["live"] = enemyStats4
 		enemyDict_4["res"] = enemy4
+		enemyDict_4["abilities"] = enemy4._abilities.duplicate(true)
 	else:
 		_enemycont4.visible = false
 
@@ -213,6 +222,7 @@ func _ready():
 		enemyDict[en]["live"]["dmg"] = enemyDict[en]["res"].damage
 		enemyDict[en]["live"]["xp"] = enemyDict[en]["res"].xp
 		enemyDict[en]["live"]["lvl"] = rng.randi_range(min_lvl, min(max(player.lvl + 1, min_lvl), max_lvl))
+		enemyDict[en]["live"]["mp"] = enemyDict[en]["res"].mp
 		if enemyDict[en]["live"]["lvl"] > 1:
 			calc_lvl = enemyDict[en]["live"]["lvl"] - 1
 			for i in calc_lvl:
@@ -239,7 +249,6 @@ func _ready():
 		await combat_log("Surprise attack!")
 	_turn_calc()
 
-signal pressedSomething
 
 func _input(_event) -> void:
 	if Input.is_anything_pressed():
@@ -333,9 +342,14 @@ func _player_turn(p):
 			if rng.randi_range(0,100) > 40:
 				curPlayer["live"].erase("affl")
 				await combat_log("%s stopped burning" % [playerDict[y]["res"]._name])
-	_actionmenu.visible = true
-	_actionmenufoc.grab_focus()
-	curPlayer["circle"].visible = true
+	if curPlayer["live"].has("stunned"):
+		await combat_log("%s is stunned!" % curPlayer["res"]._name)
+		curPlayer["live"].erase("stunned")
+		_turn_calc()
+	else:
+		_actionmenu.visible = true
+		_actionmenufoc.grab_focus()
+		curPlayer["circle"].visible = true
 
 
 func _on_attack_pressed():
@@ -599,46 +613,132 @@ func enemy_died():
 	enemyDict.erase(y)
 
 func enemy_turn(e):
-	if enemyDict[e]["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
-		combat_log("%s is chillin'" % (enemyDict[e]["res"]._name))
+	var current_enemy = enemyDict[e]
+	var current_enemy_abilities = current_enemy["abilities"]
+	var ability_choice: int = -1
+	##check if can chill
+
+	if current_enemy["res"].can_chill == true and rng.randi_range(1, 100) <= 9:
+		combat_log("%s is chillin'" % (current_enemy["res"]._name))
 		var tween = get_tree().create_tween()
 		tween.tween_property(enemyDict[e]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", true, 1)
 		tween.tween_property(enemyDict[e]["cont"].get_node("AspectContainer").get_node("EnemyText"), "flip_h", false, 1)
-	else:
-		x = rng.randi_range(1, len(playerDict))
-		var players_array = playerDict.keys()
-		y = players_array[x - 1]
+		_turn_calc()
+		return
+		
+	## determine target
+	var taunting: Array = []
+	for i in playerDict:
+		if playerDict[i]["live"].has("taunt"):
+			taunting.append(i)
+	var target_array = [] 
+	if len(taunting) > 0:
+		target_array = taunting
+	else: 
+		target_array = playerDict.keys()		
+	x = rng.randi_range(1, len(target_array))
+	y = target_array[x - 1]
+
+	## check for abilities
+	var possible_ability_selection = []
+	if len(current_enemy_abilities) > 0:
+		for ability in current_enemy_abilities:
+			if ability.on_cooldown == false:
+				for chance in ability.chance_to_use_multiplier:
+					possible_ability_selection.append(ability)
+		if len(possible_ability_selection) > 0:
+			var ability_roll = rng.randi_range(0, len(possible_ability_selection) - 1)
+			ability_choice = ability_roll
+				
+	if ability_choice == -1:
 		dealt_dmg = round(rng.randf_range(0.9, 1.1) * enemyDict[e]["live"]["dmg"])
-		await combat_log("%s attacks %s!" % [enemyDict[e]["res"]._name, playerDict[y]["res"]._name])
+		await combat_log("%s attacks %s!" % [current_enemy["res"]._name, playerDict[y]["res"]._name])
 		var tween = get_tree().create_tween()
-		var pos = enemyDict[e]["cont"].position
-		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] + 10, pos[1]), 0.4)
-		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0] - 20, pos[1]), 0.15)
-		tween.tween_property(enemyDict[e]["cont"], "position", Vector2(pos[0], pos[1]), 0.3)
+		var pos = current_enemy["cont"].position
+		tween.tween_property(current_enemy["cont"], "position", Vector2(pos[0] + 10, pos[1]), 0.4)
+		tween.tween_property(current_enemy["cont"], "position", Vector2(pos[0] - 20, pos[1]), 0.15)
+		tween.tween_property(current_enemy["cont"], "position", Vector2(pos[0], pos[1]), 0.3)
 		await tween.step_finished 
-		set_health(
-			playerDict[y]["cont"].get_node("PlayerHP"), 
-			playerDict[y]["live"]["hp"], 
-			playerDict[y]["res"].max_health)
-		playerDict[y]["live"]["hp"] = max(0,(playerDict[y]["live"]["hp"] - dealt_dmg))
-		playerDict[y]["res"].health = playerDict[y]["live"]["hp"]
 		tween = get_tree().create_tween()
 		for i in 6:
 			tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 0,  0.1)
 			tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 1,  0.1)
 		await tween.finished
 		await combat_log("Got hit for %d damage" % [dealt_dmg])
-		if enemyDict[e]["res"].lifesteal > 0:
+		if current_enemy["res"].lifesteal > 0:
 			set_health_init(
-				enemyDict[e]["cont"].get_node("EnemyHP"), 
-				(min(enemyDict[e]["live"]["hp"] + enemyDict[e]["res"].lifesteal, enemyDict[e]["res"].health)), 
-				enemyDict[e]["res"].health)
-			await combat_log("%s regained %d health" % [enemyDict[e]["res"]._name, enemyDict[e]["res"].lifesteal] )
-		if enemyDict[e]["res"].affliction_chance > 0:
-			if rng.randi_range(0,100) <= enemyDict[e]["res"].affliction_chance:
-				await combat_log("You are %s!" % [enemyDict[e]["res"].affliction_type])
-		if playerDict[y]["live"]["hp"] == 0:
-			await(_ally_died(y))
+				current_enemy["cont"].get_node("EnemyHP"), 
+				(min(current_enemy["live"]["hp"] + current_enemy["res"].lifesteal, current_enemy["res"].health)), 
+				current_enemy["res"].health)
+			await combat_log("%s regained %d health" % [current_enemy["res"]._name, current_enemy["res"].lifesteal] )
+		if current_enemy["res"].affliction_chance > 0:
+			if rng.randi_range(0,100) <= current_enemy["res"].affliction_chance:
+				await combat_log("You are %s!" % [current_enemy["res"].affliction_type])
+				
+#####enemy_use_ability()
+	else: 
+		var base_mult = 1
+		var additive = 0
+		var target = playerDict[y]
+		var used_ability = possible_ability_selection[ability_choice]
+		await combat_log("%s casts %s on %s!" % [current_enemy["res"]._name, used_ability._name, target["res"]._name])
+		set_mp(current_enemy["live"]["mp"], used_ability.mp, current_enemy["res"]["mp"])
+		if used_ability.eff_1_multiplier != "none":
+			base_mult = current_enemy["live"].get(used_ability.eff_1_multiplier)
+			base_mult = base_mult * used_ability.eff_1_multiplier_multiplier
+		if used_ability.eff_1_additive != "none":
+			additive = current_enemy["live"].get(used_ability.eff_1_additive) * used_ability.eff_1_additive_multiplier
+		if used_ability.target_amount == 4:
+			if not used_ability.animation:
+				for p in playerDict:
+					var hitnode = fx.get_node("hitAnimate%d" %p)
+					hitnode.position = playerDict[p]["cont"].position + (playerDict[p]["cont"].size / 2)
+					hitnode.play(used_ability.animation_type)
+				
+		if used_ability.target_amount == 1:
+			if not used_ability.animation and used_ability.animation_type == "none":
+				pass
+			if used_ability.animation_type == "projectile":
+				_projectile.position = current_enemy["txt"].position + (current_enemy["txt"].size / 2) + Vector2(30,0)
+				_projectile.sprite_frames = used_ability.animation
+				var target_position = target["txt"].position + (target["txt"].size / 2)
+				var tween = get_tree().create_tween()
+				tween.tween_property(_projectile, "modulate:a", 1,0.3)
+				tween.tween_property(_projectile, "position", target_position, 0.5)
+				tween.tween_property(_projectile, "modulate:a", 0,0.05)	
+				#tween.tween_property($FX/projectile, "position", Vector2(m_pos[0], m_pos[1]), 0.1)
+				await tween.finished
+			else:
+				var hitnode = fx.get_node("hitAnimate1")
+				hitnode.position = target["txt"].position + (target["txt"].size / 2)
+				hitnode.play(used_ability.animation_type)
+				await animation_1_finished
+				var tween = get_tree().create_tween()
+				for i in 6:
+					tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 0,  0.1)
+					tween.chain().tween_property(playerDict[y]["txt"], "modulate:a", 1,  0.1)
+				await tween.finished
+				
+		dealt_dmg = ((used_ability.eff_1_base * base_mult) + additive)
+		match used_ability.eff_2:
+			"none":
+				pass
+			"stun":
+				rng = RandomNumberGenerator.new()
+				print("calculating stun..")
+				if rng.randi_range(0,100) <= used_ability.eff_2_base:
+					await combat_log("%s is now stunned!" % [target["res"]._name])
+					target["live"]["stunned"] = 1
+			
+	set_health(
+		playerDict[y]["cont"].get_node("PlayerHP"), 
+		playerDict[y]["live"]["hp"], 
+		playerDict[y]["res"].max_health)
+	playerDict[y]["live"]["hp"] = max(0,(playerDict[y]["live"]["hp"] - dealt_dmg))
+	playerDict[y]["res"].health = playerDict[y]["live"]["hp"]
+		
+	if playerDict[y]["live"]["hp"] == 0:
+		await(_ally_died(y))
 	_turn_calc()
 
 func _on_item_pressed() -> void:
@@ -760,7 +860,7 @@ func _ally_died(z):
 		await(get_tree().create_timer(2).timeout)
 		gameover()
 		return
-	
+
 func gameover():
 	sceneManager.goto_scene(sceneManager.last_scene)
 	
@@ -821,3 +921,7 @@ func _on_escape_pressed() -> void:
 		#tween.tween_property(_fireballAnimate, "position", Vector2(m_pos[0], m_pos[1]), 0.1)
 		#await tween.finished
 		#_attack_phase_2()	
+
+
+func _on_hit_animate_1_animation_finished() -> void:
+	animation_1_finished.emit()

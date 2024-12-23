@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="abilities" load_steps=2 format=3 uid="uid://bnagvxlti0l3s"]
+
+[ext_resource type="Script" uid="uid://bhk62evwj2uj1" path="res://Global/Abilities/abilities.gd" id="1_i2xs3"]
+
+[resource]
+script = ExtResource("1_i2xs3")
+_name = "Body slam"
+description = "Body slam - scales with HP. Chance to stun"
+target = "enemy"
+target_amount = 1
+eff_1 = "dmg"
+eff_1_ele = "physical"
+eff_1_value = 1
+eff_1_base = 1.0
+eff_1_additive = "none"
+eff_1_additive_multiplier = 1.0
+eff_1_multiplier = "hp"
+eff_1_multiplier_multiplier = 0.2
+eff_2 = "stun"
+eff_2_ele = ""
+eff_2_value = 1
+eff_2_base = 12.0
+eff_2_additive = "none"
+eff_2_additive_multiplier = 0.0
+eff_2_multiplier = "none"
+eff_2_multiplier_multiplier = 0.0
+animation_type = ""
+mp = 0
+cooldown = 0
+chance_to_use_multiplier = 1
+metadata/_custom_type_script = ExtResource("1_i2xs3")

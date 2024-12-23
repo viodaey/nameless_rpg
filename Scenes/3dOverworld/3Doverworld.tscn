@@ -236,7 +236,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D2"
 metadata/class = "MMIOctreeNode"
 
@@ -275,7 +275,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D3"
 metadata/class = "MMIOctreeNode"
 
@@ -313,7 +313,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D4"
 metadata/class = "MMIOctreeNode"
 
@@ -351,7 +351,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D5"
 metadata/class = "MMIOctreeNode"
 
@@ -389,7 +389,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D6"
 metadata/class = "MMIOctreeNode"
 
@@ -427,7 +427,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D7"
 metadata/class = "MMIOctreeNode"
 
@@ -465,7 +465,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D8"
 metadata/class = "MMIOctreeNode"
 
@@ -503,7 +503,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D9"
 metadata/class = "MMIOctreeNode"
 
@@ -541,7 +541,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D10"
 metadata/class = "MMIOctreeNode"
 
@@ -579,7 +579,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D11"
 metadata/class = "MMIOctreeNode"
 
@@ -617,7 +617,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D12"
 metadata/class = "MMIOctreeNode"
 
@@ -655,7 +655,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D13"
 metadata/class = "MMIOctreeNode"
 
@@ -693,7 +693,7 @@ extent = 1024.0
 bounds = AABB(-2815, -1365, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D86"
 metadata/class = "MMIOctreeNode"
 
@@ -714,7 +714,7 @@ extent = 1024.0
 bounds = AABB(-2815, -1365, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D87"
 metadata/class = "MMIOctreeNode"
 
@@ -735,7 +735,7 @@ extent = 1024.0
 bounds = AABB(-2815, 683, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D88"
 metadata/class = "MMIOctreeNode"
 
@@ -756,7 +756,7 @@ extent = 1024.0
 bounds = AABB(-2815, 683, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D89"
 metadata/class = "MMIOctreeNode"
 
@@ -777,7 +777,7 @@ extent = 1024.0
 bounds = AABB(-767, -1365, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D90"
 metadata/class = "MMIOctreeNode"
 
@@ -798,7 +798,7 @@ extent = 1024.0
 bounds = AABB(-767, -1365, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D91"
 metadata/class = "MMIOctreeNode"
 
@@ -819,7 +819,7 @@ extent = 1024.0
 bounds = AABB(-767, 683, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D92"
 metadata/class = "MMIOctreeNode"
 
@@ -840,7 +840,7 @@ extent = 1024.0
 bounds = AABB(-767, 683, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D93"
 metadata/class = "MMIOctreeNode"
 
@@ -861,7 +861,7 @@ extent = 2048.0
 bounds = AABB(-2815, -1365, -4095, 4096, 4096, 4096)
 max_bounds_to_center_dist = 3547.24
 min_bounds_to_center_dist = 2048.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = ""
 metadata/class = "MMIOctreeNode"
 
@@ -899,7 +899,7 @@ extent = 1024.0
 bounds = AABB(-2815, -1365, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D34"
 metadata/class = "MMIOctreeNode"
 
@@ -920,7 +920,7 @@ extent = 1024.0
 bounds = AABB(-2815, -1365, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D101"
 metadata/class = "MMIOctreeNode"
 
@@ -941,7 +941,7 @@ extent = 1024.0
 bounds = AABB(-2815, 683, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D102"
 metadata/class = "MMIOctreeNode"
 
@@ -962,7 +962,7 @@ extent = 1024.0
 bounds = AABB(-2815, 683, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D103"
 metadata/class = "MMIOctreeNode"
 
@@ -983,7 +983,7 @@ extent = 1024.0
 bounds = AABB(-767, -1365, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D104"
 metadata/class = "MMIOctreeNode"
 
@@ -1004,7 +1004,7 @@ extent = 1024.0
 bounds = AABB(-767, -1365, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D105"
 metadata/class = "MMIOctreeNode"
 
@@ -1025,7 +1025,7 @@ extent = 1024.0
 bounds = AABB(-767, 683, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D106"
 metadata/class = "MMIOctreeNode"
 
@@ -1046,7 +1046,7 @@ extent = 1024.0
 bounds = AABB(-767, 683, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D107"
 metadata/class = "MMIOctreeNode"
 
@@ -1067,7 +1067,7 @@ extent = 2048.0
 bounds = AABB(-2815, -1365, -4095, 4096, 4096, 4096)
 max_bounds_to_center_dist = 3547.24
 min_bounds_to_center_dist = 2048.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = ""
 metadata/class = "MMIOctreeNode"
 
@@ -1105,7 +1105,7 @@ extent = 1024.0
 bounds = AABB(-2815, -1365, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D38"
 metadata/class = "MMIOctreeNode"
 
@@ -1126,7 +1126,7 @@ extent = 1024.0
 bounds = AABB(-2815, -1365, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D94"
 metadata/class = "MMIOctreeNode"
 
@@ -1147,7 +1147,7 @@ extent = 1024.0
 bounds = AABB(-2815, 683, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D95"
 metadata/class = "MMIOctreeNode"
 
@@ -1168,7 +1168,7 @@ extent = 1024.0
 bounds = AABB(-2815, 683, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D96"
 metadata/class = "MMIOctreeNode"
 
@@ -1189,7 +1189,7 @@ extent = 1024.0
 bounds = AABB(-767, -1365, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D97"
 metadata/class = "MMIOctreeNode"
 
@@ -1210,7 +1210,7 @@ extent = 1024.0
 bounds = AABB(-767, -1365, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D98"
 metadata/class = "MMIOctreeNode"
 
@@ -1231,7 +1231,7 @@ extent = 1024.0
 bounds = AABB(-767, 683, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D99"
 metadata/class = "MMIOctreeNode"
 
@@ -1252,7 +1252,7 @@ extent = 1024.0
 bounds = AABB(-767, 683, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D100"
 metadata/class = "MMIOctreeNode"
 
@@ -1273,7 +1273,7 @@ extent = 2048.0
 bounds = AABB(-2815, -1365, -4095, 4096, 4096, 4096)
 max_bounds_to_center_dist = 3547.24
 min_bounds_to_center_dist = 2048.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = ""
 metadata/class = "MMIOctreeNode"
 
@@ -1311,7 +1311,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D17"
 metadata/class = "MMIOctreeNode"
 
@@ -1349,7 +1349,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D18"
 metadata/class = "MMIOctreeNode"
 
@@ -1387,7 +1387,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D19"
 metadata/class = "MMIOctreeNode"
 
@@ -1425,7 +1425,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D20"
 metadata/class = "MMIOctreeNode"
 
@@ -1463,7 +1463,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D21"
 metadata/class = "MMIOctreeNode"
 
@@ -1501,7 +1501,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D22"
 metadata/class = "MMIOctreeNode"
 
@@ -1539,7 +1539,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D23"
 metadata/class = "MMIOctreeNode"
 
@@ -1577,7 +1577,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D24"
 metadata/class = "MMIOctreeNode"
 
@@ -1615,7 +1615,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D25"
 metadata/class = "MMIOctreeNode"
 
@@ -1653,7 +1653,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D26"
 metadata/class = "MMIOctreeNode"
 
@@ -1691,7 +1691,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D27"
 metadata/class = "MMIOctreeNode"
 
@@ -1729,7 +1729,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D28"
 metadata/class = "MMIOctreeNode"
 
@@ -1767,7 +1767,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D29"
 metadata/class = "MMIOctreeNode"
 
@@ -1806,7 +1806,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D30"
 metadata/class = "MMIOctreeNode"
 
@@ -1844,7 +1844,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D31"
 metadata/class = "MMIOctreeNode"
 
@@ -1882,7 +1882,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D32"
 metadata/class = "MMIOctreeNode"
 
@@ -1920,7 +1920,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D33"
 metadata/class = "MMIOctreeNode"
 
@@ -1958,7 +1958,7 @@ extent = 1024.0
 bounds = AABB(-2815, -1365, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D15"
 metadata/class = "MMIOctreeNode"
 
@@ -1979,7 +1979,7 @@ extent = 1024.0
 bounds = AABB(-2815, -1365, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D115"
 metadata/class = "MMIOctreeNode"
 
@@ -2000,7 +2000,7 @@ extent = 1024.0
 bounds = AABB(-2815, 683, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D116"
 metadata/class = "MMIOctreeNode"
 
@@ -2021,7 +2021,7 @@ extent = 1024.0
 bounds = AABB(-2815, 683, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D117"
 metadata/class = "MMIOctreeNode"
 
@@ -2042,7 +2042,7 @@ extent = 1024.0
 bounds = AABB(-767, -1365, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D118"
 metadata/class = "MMIOctreeNode"
 
@@ -2063,7 +2063,7 @@ extent = 1024.0
 bounds = AABB(-767, -1365, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D119"
 metadata/class = "MMIOctreeNode"
 
@@ -2084,7 +2084,7 @@ extent = 1024.0
 bounds = AABB(-767, 683, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D120"
 metadata/class = "MMIOctreeNode"
 
@@ -2105,7 +2105,7 @@ extent = 1024.0
 bounds = AABB(-767, 683, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D121"
 metadata/class = "MMIOctreeNode"
 
@@ -2126,7 +2126,7 @@ extent = 2048.0
 bounds = AABB(-2815, -1365, -4095, 4096, 4096, 4096)
 max_bounds_to_center_dist = 3547.24
 min_bounds_to_center_dist = 2048.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = ""
 metadata/class = "MMIOctreeNode"
 
@@ -2164,7 +2164,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D35"
 metadata/class = "MMIOctreeNode"
 
@@ -2202,7 +2202,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D36"
 metadata/class = "MMIOctreeNode"
 
@@ -2240,7 +2240,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D37"
 metadata/class = "MMIOctreeNode"
 
@@ -2278,7 +2278,7 @@ extent = 1024.0
 bounds = AABB(-2815, -1365, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D14"
 metadata/class = "MMIOctreeNode"
 
@@ -2299,7 +2299,7 @@ extent = 1024.0
 bounds = AABB(-2815, -1365, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D108"
 metadata/class = "MMIOctreeNode"
 
@@ -2320,7 +2320,7 @@ extent = 1024.0
 bounds = AABB(-2815, 683, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D109"
 metadata/class = "MMIOctreeNode"
 
@@ -2341,7 +2341,7 @@ extent = 1024.0
 bounds = AABB(-2815, 683, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D110"
 metadata/class = "MMIOctreeNode"
 
@@ -2362,7 +2362,7 @@ extent = 1024.0
 bounds = AABB(-767, -1365, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D111"
 metadata/class = "MMIOctreeNode"
 
@@ -2383,7 +2383,7 @@ extent = 1024.0
 bounds = AABB(-767, -1365, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D112"
 metadata/class = "MMIOctreeNode"
 
@@ -2404,7 +2404,7 @@ extent = 1024.0
 bounds = AABB(-767, 683, -4095, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D113"
 metadata/class = "MMIOctreeNode"
 
@@ -2425,7 +2425,7 @@ extent = 1024.0
 bounds = AABB(-767, 683, -2047, 2048, 2048, 2048)
 max_bounds_to_center_dist = 1773.62
 min_bounds_to_center_dist = 1024.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D114"
 metadata/class = "MMIOctreeNode"
 
@@ -2446,7 +2446,7 @@ extent = 2048.0
 bounds = AABB(-2815, -1365, -4095, 4096, 4096, 4096)
 max_bounds_to_center_dist = 3547.24
 min_bounds_to_center_dist = 2048.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = ""
 metadata/class = "MMIOctreeNode"
 
@@ -2484,7 +2484,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D39"
 metadata/class = "MMIOctreeNode"
 
@@ -2522,7 +2522,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D40"
 metadata/class = "MMIOctreeNode"
 
@@ -2560,7 +2560,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D41"
 metadata/class = "MMIOctreeNode"
 
@@ -2598,7 +2598,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D42"
 metadata/class = "MMIOctreeNode"
 
@@ -2636,7 +2636,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D43"
 metadata/class = "MMIOctreeNode"
 
@@ -2674,7 +2674,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D44"
 metadata/class = "MMIOctreeNode"
 
@@ -2712,7 +2712,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D45"
 metadata/class = "MMIOctreeNode"
 
@@ -2750,7 +2750,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D46"
 metadata/class = "MMIOctreeNode"
 
@@ -2788,7 +2788,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D47"
 metadata/class = "MMIOctreeNode"
 
@@ -2826,7 +2826,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D48"
 metadata/class = "MMIOctreeNode"
 
@@ -2864,7 +2864,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D49"
 metadata/class = "MMIOctreeNode"
 
@@ -2902,7 +2902,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D50"
 metadata/class = "MMIOctreeNode"
 
@@ -2940,7 +2940,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D51"
 metadata/class = "MMIOctreeNode"
 
@@ -2978,7 +2978,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D52"
 metadata/class = "MMIOctreeNode"
 
@@ -3016,7 +3016,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D53"
 metadata/class = "MMIOctreeNode"
 
@@ -3054,7 +3054,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D54"
 metadata/class = "MMIOctreeNode"
 
@@ -3092,7 +3092,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D55"
 metadata/class = "MMIOctreeNode"
 
@@ -3130,7 +3130,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D56"
 metadata/class = "MMIOctreeNode"
 
@@ -3168,7 +3168,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D57"
 metadata/class = "MMIOctreeNode"
 
@@ -3206,7 +3206,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D58"
 metadata/class = "MMIOctreeNode"
 
@@ -3244,7 +3244,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D59"
 metadata/class = "MMIOctreeNode"
 
@@ -3282,7 +3282,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D60"
 metadata/class = "MMIOctreeNode"
 
@@ -3320,7 +3320,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D61"
 metadata/class = "MMIOctreeNode"
 
@@ -3358,7 +3358,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D62"
 metadata/class = "MMIOctreeNode"
 
@@ -3396,7 +3396,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D63"
 metadata/class = "MMIOctreeNode"
 
@@ -3434,7 +3434,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D64"
 metadata/class = "MMIOctreeNode"
 
@@ -3472,7 +3472,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D65"
 metadata/class = "MMIOctreeNode"
 
@@ -3510,7 +3510,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D66"
 metadata/class = "MMIOctreeNode"
 
@@ -3548,7 +3548,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D67"
 metadata/class = "MMIOctreeNode"
 
@@ -3586,7 +3586,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D68"
 metadata/class = "MMIOctreeNode"
 
@@ -3624,7 +3624,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D69"
 metadata/class = "MMIOctreeNode"
 
@@ -3662,7 +3662,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D70"
 metadata/class = "MMIOctreeNode"
 
@@ -3700,7 +3700,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D71"
 metadata/class = "MMIOctreeNode"
 
@@ -3738,7 +3738,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D72"
 metadata/class = "MMIOctreeNode"
 
@@ -3776,7 +3776,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D73"
 metadata/class = "MMIOctreeNode"
 
@@ -3814,7 +3814,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D74"
 metadata/class = "MMIOctreeNode"
 
@@ -3852,7 +3852,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D75"
 metadata/class = "MMIOctreeNode"
 
@@ -3890,7 +3890,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D76"
 metadata/class = "MMIOctreeNode"
 
@@ -3928,7 +3928,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D77"
 metadata/class = "MMIOctreeNode"
 
@@ -3966,7 +3966,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D78"
 metadata/class = "MMIOctreeNode"
 
@@ -4004,7 +4004,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D79"
 metadata/class = "MMIOctreeNode"
 
@@ -4042,7 +4042,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D80"
 metadata/class = "MMIOctreeNode"
 
@@ -4080,7 +4080,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D81"
 metadata/class = "MMIOctreeNode"
 
@@ -4118,7 +4118,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D82"
 metadata/class = "MMIOctreeNode"
 
@@ -4156,7 +4156,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D83"
 metadata/class = "MMIOctreeNode"
 
@@ -4194,7 +4194,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D84"
 metadata/class = "MMIOctreeNode"
 
@@ -4232,7 +4232,7 @@ extent = 1.0
 bounds = AABB(-1, -1, -1, 2, 2, 2)
 max_bounds_to_center_dist = 1.73205
 min_bounds_to_center_dist = 1.0
-active_LOD_index = 0
+active_LOD_index = -1
 MMI_name = "MultiMeshInstance3D85"
 metadata/class = "MMIOctreeNode"
 
@@ -4512,7 +4512,6 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fence/Fence/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Fence4" type="MeshInstance3D" parent="Fence"]
 transform = Transform3D(4.1414, 0, 0, 0, 1.30283, 25.0865, 0, -0.15766, 207.303, -658.384, 6.7248, -1803.04)
@@ -4525,7 +4524,6 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fence/Fence4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Fence2" type="MeshInstance3D" parent="Fence"]
 transform = Transform3D(3.444, 0, 0, 0, 1.30283, 25.0865, 0, -0.15766, 207.303, -428.256, 5.58358, -1807.53)
@@ -4538,7 +4536,6 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fence/Fence2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Fence5" type="MeshInstance3D" parent="Fence"]
 transform = Transform3D(3.444, 0, 0, 0, 1.30283, 25.0865, 0, -0.15766, 207.303, -428.256, 5.58358, -1801.3)
@@ -4551,7 +4548,6 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fence/Fence5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Fence3" type="MeshInstance3D" parent="Fence"]
 transform = Transform3D(-1.50542e-07, 0.15766, -207.303, 0, 1.30283, 25.0865, 3.444, 6.89154e-09, -9.0615e-06, -360.189, 8.03124, -1869.09)
@@ -4564,7 +4560,6 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fence/Fence3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Fence6" type="MeshInstance3D" parent="Fence"]
 transform = Transform3D(-1.50542e-07, 0.15766, -207.303, 0, 1.30283, 25.0865, 3.444, 6.89154e-09, -9.0615e-06, -360.189, 8.03124, -1869.86)
@@ -4577,7 +4572,6 @@ collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fence/Fence6/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_s0gyw")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Mountains" type="Node3D" parent="."]
 transform = Transform3D(7.5, 0, 0, 0, -3.27835e-07, 7.5, 0, -7.5, -3.27835e-07, -357.719, 0.4, -1922.89)
@@ -4684,7 +4678,6 @@ near = 0.001
 [node name="CollisionPolygon3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 shape = SubResource("CapsuleShape3D_gbrl7")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="RayCast3D" type="RayCast3D" parent="Player"]
 transform = Transform3D(0.932688, 0.339471, 0.121869, -0.34202, 0.939693, 0, -0.11452, -0.0416818, 0.992546, 0, 30, 0)
@@ -4703,7 +4696,6 @@ collision_mask = 128
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/InteractArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 shape = SubResource("BoxShape3D_ki3cc")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Player"]
 path_height_offset = -0.4
@@ -4981,7 +4973,7 @@ ShaderSettings = SubResource("Resource_s5ib5")
 ShapeStepLengthDivs = 1
 ShapeStepWidthDivs = 1
 ShapeSmoothness = 0.1
-PointWidths = [2.02716, 2.03936]
+PointWidths = Array[float]([2.02716, 2.03936])
 Curve = SubResource("Curve3D_7wk27")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -5044,7 +5036,6 @@ collision_layer = 3
 [node name="CollisionShape2D" type="CollisionShape3D" parent="H1/StaticBody2D"]
 transform = Transform3D(1, 0, 0, 0, 1, 3.55271e-15, 0, -3.55271e-15, 1, 0.830597, -0.738892, -1.25147)
 shape = SubResource("BoxShape3D_nvrgo")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Introcollision" type="Area3D" parent="."]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, -142.276, 0, -1078.07)
@@ -5060,7 +5051,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -594.663, 0, -1961.69)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CaveEntrance"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24731, 0, -0.756714)
 shape = SubResource("BoxShape3D_bdg2r")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="caveentrance" type="Sprite3D" parent="CaveEntrance"]
 transform = Transform3D(13.9466, 0, 0, 0, -7.65276e-07, 9.44918, 0, -17.5075, -4.13036e-07, 1.28418, 0.399992, -25.6774)
@@ -5074,7 +5064,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -954.972, 0, -1073.02)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ForestEntrance"]
 transform = Transform3D(0.0195464, 0, 0.999809, 0, 1, 0, -0.999809, 0, 0.0195464, -1.92615, 0, -23.6014)
 shape = SubResource("BoxShape3D_bdg2r")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="H1Entrancefront" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -542.47, 7, -1789.74)
@@ -5083,7 +5072,6 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="H1Entrancefront"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.44971, 0, -0.294189)
 shape = SubResource("BoxShape3D_rcogi")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="H1Entranceback" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -577.244, 5, -1824.78)
@@ -5091,7 +5079,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -577.244, 5, -1824.78)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="H1Entranceback"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_rcogi")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="."]
 cast_shadow = 0

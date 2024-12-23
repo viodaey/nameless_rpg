@@ -25,7 +25,6 @@ max_speed = 8.0
 [node name="CollisionShape2D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 shape = SubResource("SphereShape3D_fb3a0")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_finished"]

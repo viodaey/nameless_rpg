@@ -4009,9 +4009,7 @@ z_index = 1
 position = Vector2(570.239, 326.741)
 scale = Vector2(1, 1.0154)
 sprite_frames = SubResource("SpriteFrames_pvakd")
-animation = &"castDark2"
-frame = 45
-frame_progress = 1.0
+animation = &"rip"
 
 [node name="hitAnimate2" type="AnimatedSprite2D" parent="FX"]
 z_index = 1
@@ -4091,8 +4089,8 @@ texture = SubResource("GradientTexture2D_22fg7")
 [node name="playerContainer1" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 83.0
-offset_top = 282.0
-offset_right = 339.0
+offset_top = 280.0
+offset_right = 296.0
 offset_bottom = 546.0
 
 [node name="Select" type="TextureRect" parent="playerContainer1"]
@@ -4281,3 +4279,4 @@ label_settings = SubResource("LabelSettings_aokps")
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions/Abilities" to="." method="_on_abilities_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Item" to="." method="_on_item_pressed"]
 [connection signal="pressed" from="ActionMenu/MarginActions/HBoxContainer/Actions2/Escape" to="." method="_on_escape_pressed"]
+[connection signal="animation_finished" from="FX/hitAnimate1" to="." method="_on_hit_animate_1_animation_finished"]

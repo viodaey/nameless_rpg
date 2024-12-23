@@ -119,7 +119,6 @@ max_spawn_range = 200
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CaveExit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -512.978, 0, -43.5248)
 shape = SubResource("BoxShape3D_vdve6")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -512.32, 1.4, -56.9351)
@@ -141,7 +140,6 @@ near = 0.001
 [node name="CollisionPolygon3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 shape = SubResource("CapsuleShape3D_jsgyo")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="RayCast3D" type="RayCast3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0664063, 0, -0.0214844)
@@ -201,6 +199,5 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chest"]
 shape = SubResource("ConcavePolygonShape3D_jilm3")
-debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [connection signal="body_entered" from="CaveExit" to="." method="_on_CaveExit_body_entered"]

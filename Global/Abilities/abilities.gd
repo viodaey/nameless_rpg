@@ -32,10 +32,10 @@ class_name abilities
 @export var eff_1_additive_multiplier: float = 1
 @export var eff_1_multiplier : String = "none"
 @export var eff_1_multiplier_multiplier: float = 1
-@export var eff_2 : String
+@export var eff_2 : String = "none"
 @export var eff_2_ele : String
 @export var eff_2_value : int
-@export var eff_2_base: int
+@export var eff_2_base: float
 @export var eff_2_additive: String = "none"
 @export var eff_2_additive_multiplier: float
 @export var eff_2_multiplier : String = "none"
@@ -45,3 +45,6 @@ class_name abilities
 @export var icon : Texture
 @export var mp: int = 0
 @export var cooldown: int = 0
+@export var chance_to_use_multiplier: int = 1
+## standard attack = 2?
+var on_cooldown: bool = false

@@ -6,8 +6,8 @@ var ability_test_2 = load('res://Global/Abilities/Fireball_1.tres')
 @warning_ignore("unused_private_class_variable")
 var _name: String = "Skullhead"
 var max_health: int = 80
-var health: int = 100
-var damage: int = 20
+var health: int = 80
+var damage: int = 18
 var critc: int = 8
 var lvl: int = 1
 var xp: int = 0
